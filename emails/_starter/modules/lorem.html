@@ -1,0 +1,19 @@
+{% extends '@tmpl/lorem.html' %}
+
+{% block content %}
+<h1>How to Create an Email</h1>
+<ol>
+    <li><p>Copy the '_starter' directory and rename it for your email.</p></li>
+    <li><p>In 'layouts.html', add styles in the 'head' block tag.</p></li>
+    <li>
+        <p>For each module:</p>
+        <ol>
+            <li>Create a new file in the modules folder. A placeholder file is included if you want to copy that.</li>
+            <li>Extend the module template you'd like to use. Available module templates are found in the 'templates/modules' folder.</li>
+            <li>Fill out the block tags of the module with your content.</li>
+            <li>In 'layout.html', include the module in the 'content' block tag. You can remove the include for the placeholder file.</li>
+        </ol>
+    </li>
+</ol>
+<p>For more information, visit the Twig documentation on <a href="http://twig.sensiolabs.org/doc/templates.html" target="_blank">design templates</a>.</p>
+{% endblock content %}

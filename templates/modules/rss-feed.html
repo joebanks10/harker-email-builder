@@ -1,0 +1,11 @@
+<{{ feed_wrap|default('section') }} class="feed {{ container_classes }}">
+{% for item in rss(url) %}
+    <{{ item_wrap|default('article') }} class="item {{ item_classes }}">
+    {% block item %}
+        <h2 class="item-title"><a href="{{ item.permalink }}">{{ item.title }}</a></h2>
+        <p class="item-date">{{ item.date }}</p>
+        <p class="item-description">{{ item.description|striptags|raw }}</p>
+    {% endblock item %}
+    </{{ item_wrap|default('article') }}>
+{% endfor %}
+</{{ feed_wrap|default('section') }}>
