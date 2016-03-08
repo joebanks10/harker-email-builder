@@ -1,0 +1,42 @@
+{% set module = module|default({
+    id: '',
+    classes: '',
+    quote: '"The secret of life is enjoying the passage of time."',
+    cite: 'James Taylor, Grade 6 Parent'
+}) %}
+
+<table id="{{ module.id }}" class="table-quote {{ module_classes(module.classes) }}" width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td height="40"></td>
+    </tr>
+    <tr>
+        <td align="center">
+            <table class="table-inner" width="600" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-left:20px; margin-right:20px;">
+                {% block quote %}
+                    {% if module.quote %}
+                    <tr>
+                        <td class="quote">
+                            {{ module.quote }}
+                        </td>
+                    </tr>
+                    {% endif %}
+                {% endblock quote %}
+                {% block cite %}
+                    {% if module.cite %}
+                    <tr>
+                        <td height="15"></td>
+                    </tr>
+                    <tr>
+                        <td class="cite" align="center">
+                            {{ module.cite }}
+                        </td>
+                    </tr>
+                    {% endif %}
+                {% endblock cite %}
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="20"></td>
+    </tr>
+</table>

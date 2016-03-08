@@ -1,0 +1,38 @@
+{% from '@tmpl/macros.html' import render_link %}
+
+{% set required = {
+    type: type|default('primary'),
+    url: url|default('#'),
+    text: text|default('CTA GOES HERE'),
+    width: width|default(''),
+    height: height|default('40')
+} %}
+
+{% set module = required|merge(module|default({})) %}
+
+{% if module.type == 'secondary' %}
+    <table class="table-button-secondary" width="{{ module.width }}" border="0" align="left" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="button-secondary" height="{{ module.height }}">
+                {{ render_link({ url: module.url, text: module.text}) }}
+            </td>
+        </tr>
+    </table>
+{% elseif module.type == 'outline' %}
+    {% set module = module|merge({ height: module.height-2 }) %}
+    <table class="table-button-outline" width="{{ module.width }}" border="0" align="left" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="button-outline" height="{{ module.height }}">
+                {{ render_link({ url: module.url, text: module.text}) }}
+            </td>
+        </tr>
+    </table>
+{% else %}
+    <table class="table-button" width="{{ module.width }}" border="0" align="left" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="button" height="{{ module.height }}">
+                {{ render_link({ url: module.url, text: module.text}) }}
+            </td>
+        </tr>
+    </table>
+{% endif %}

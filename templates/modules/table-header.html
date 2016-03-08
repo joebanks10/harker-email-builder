@@ -1,0 +1,45 @@
+{% set module = module|default({
+    id: '',
+    classes: '',
+    title: 'SOME BIG EVENT TITLE CAN GO HERE',
+    subtitle: 'Sep. 10, 2016 | 7 p.m. | Nichol\'s Hall'
+}) %}
+
+<table id="{{ module.id }}" class="table-header {{ module_classes(module.classes) }}" width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td height="15"></td>
+    </tr>
+    <tr>
+        <td align="center">
+            <table class="table-inner" width="600" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-left:20px; margin-right:20px;">
+                {% block title %}
+                    {% if module.title %}
+                    <tr>
+                        <td height="15"></td>
+                    </tr>
+                    <tr>
+                        <td class="title" align="center">
+                            {{ module.title }}
+                        </td>
+                    </tr>
+                    {% endif %}
+                {% endblock title %}
+                {% block subtitle %}
+                    {% if module.subtitle %}
+                    <tr>
+                        <td height="15"></td>
+                    </tr>
+                    <tr>
+                        <td class="subtitle" align="center">
+                            {{ module.subtitle }}
+                        </td>
+                    </tr>
+                    {% endif %}
+                {% endblock subtitle %}
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="15"></td>
+    </tr>
+</table>

@@ -1,0 +1,66 @@
+{% set module = module|default({
+    img: {
+        url: 'http://dummyimage.com/183x136/cccccc/333333.gif&text=183x136',
+        width: '183'
+    },
+    header: 'Header',
+    link: {
+        type: 'outline',
+        text: 'Read More',
+        url: 'http://www.harker.org'
+    }
+}) %}
+
+<table id="{{ module.id }}" class="table-article {{ module_classes(module.classes) }}" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+    {% block img %}
+        {% if module.img %}
+        <tr>
+            <td clas="img-container" align="center">
+                <img class="img-full" src="{{ module.img.url }}" width="{{ module.img.width|default('183') }}" alt="{{ module.img.alt }}">
+            </td>
+        </tr>
+        <tr>
+            <td height="20"></td>
+        </tr>
+        {% endif %}
+    {% endblock img %}
+    {% block header %}
+        {% if module.header %}
+        <tr>
+            <td class="header">
+                {{ module.header }}
+            </td>
+        </tr>
+        <tr>
+            <td height="10"></td>
+        </tr>
+        {% endif %}
+    {% endblock header %}
+    {% block content %}
+        {% if module.content %}
+        <tr>
+            <td class="content">
+                {{ module.content }}
+            </td>
+        </tr>
+        <tr>
+            <td height="10"></td>
+        </tr>
+        {% endif %}
+    {% endblock content %}
+    {% block link %}
+        {% if module.link %}
+        <tr>
+            <td height="10"></td>
+        </tr>
+        <tr>
+            <td>
+                {% include "@tmpl/table-button.html" with module.link|merge({ 
+                    type: module.link.type|default('outline'), 
+                    width: '100%' 
+                }) %}
+            </td>
+        </tr>
+        {% endif %}
+    {% endblock link %}
+</table>

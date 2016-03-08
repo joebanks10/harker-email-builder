@@ -1,0 +1,147 @@
+{% set module = module|default({
+    id: '',
+    classes: '',
+    header: 'Header'
+}) %}
+
+{% set required = {
+    items: [
+        {
+            img: {
+                url: 'http://dummyimage.com/183x136/cccccc/333333.gif&text=183x136'
+            },
+            header: 'Header 1',
+            link: {
+                text: 'Read more',
+                url: 'http://google.com'
+            }
+        },
+        {
+            img: {
+                url: 'http://dummyimage.com/183x136/cccccc/333333.gif&text=183x136'
+            },
+            header: 'Header 2',
+            link: {
+                text: 'Read more',
+                url: 'http://google.com'
+            }
+        },
+        {
+            img: {
+                url: 'http://dummyimage.com/183x136/cccccc/333333.gif&text=183x136'
+            },
+            header: 'Header 3',
+            link: {
+                text: 'Read more',
+                url: 'http://google.com'
+            }
+        },
+        {
+            img: {
+                url: 'http://dummyimage.com/183x136/cccccc/333333.gif&text=183x136'
+            },
+            header: 'Header 4',
+            link: {
+                text: 'Read more',
+                url: 'http://google.com'
+            }
+        },
+        {
+            img: {
+                url: 'http://dummyimage.com/183x136/cccccc/333333.gif&text=183x136'
+            },
+            header: 'Header 5',
+            link: {
+                text: 'Read more',
+                url: 'http://google.com'
+            }
+        },
+        {
+            img: {
+                url: 'http://dummyimage.com/183x136/cccccc/333333.gif&text=183x136'
+            },
+            header: 'Header 6',
+            link: {
+                text: 'Read more',
+                url: 'http://google.com'
+            }
+        }
+    ] 
+} %}
+
+{% set module = required|merge(module) %}
+
+<table id="{{ module.id }}" class="table-3-columns {{ module_classes(module.classes) }}" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td height="40"></td>
+    </tr>
+    <tr>
+        <td align="center">
+            <table class="table-inner" width="600" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-left:20px; margin-right:20px;">
+                {% block header %}
+                    {% if module.header %}
+                    <tr>
+                        <td class="header">
+                            {{ module.header }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="20"></td>
+                    </tr>
+                    {% endif %}
+                {% endblock header %}
+                {% block content %}
+                    {% if module.content %}
+                    <tr>
+                        <td class="content">
+                            {{ module.content }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="20"></td>
+                    </tr>
+                    {% endif %}
+                {% endblock content %}
+                {% block row %}
+                    {% for row in module.items|batch(3) %}
+                    <tr>
+                        <td>
+                            {% for item in row %}
+                                {% if loop.index in range(1, 2) %}
+                                    <table class="table-full" width="183" border="0" align="left" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td align="left">
+                                            {% block item %}
+                                                {% include "@tmpl/table-article.html" with { module: item } %}
+                                            {% endblock item %}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table width="1" border="0" cellpadding="0" cellspacing="0" align="left">
+                                        <tr>
+                                            <td height="40" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+                                                <p style="padding-left: 24px;">&nbsp;</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                {% elseif loop.index == 3 %}
+                                    <table class="table-full" width="183" border="0" align="right" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td align="left">
+                                                {{ block('item') }}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="40"></td>
+                    </tr>
+                    {% endfor %}
+                {% endblock row %}
+            </table>
+        </td>
+    </tr>
+</table>

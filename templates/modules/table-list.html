@@ -1,0 +1,39 @@
+{% set required = {
+    bullet: {
+        url: "#{email.img_dir}check.png",
+        width: 17
+    },
+    list: [
+        'An important point goes here',
+        'Another point goes here',
+        'And another!'
+    ]
+} %}
+
+{% set module = required|merge(module|default({})) %}
+
+<table class="table-list" align="left" width="100%" border="0" cellspacing="0" cellpadding="0">
+    {% for item in module.list %}
+    <tr>
+        <td class="list-item" height="40">
+            <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                <tr>
+                    {% block bullet %}
+                        {% if module.bullet %}
+                        <td width="{{ module.bullet.width }}" class="img-container bullet">
+                            <img src="{{ module.bullet.url }}" width="{{ module.bullet.width }}" alt="bullet">
+                        </td>
+                        <td width="15"></td>
+                        {% endif %}
+                    {% endblock bullet %}
+                    {% block list_item_text %}
+                    <td class="list-item-text">
+                        {{ item|raw }}
+                    </td>
+                    {% endblock list_item_text %}
+                </tr>
+            </table>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

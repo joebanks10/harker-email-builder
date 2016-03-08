@@ -1,37 +1,22 @@
 {% extends "@tmpl/base.html" %}
 
-{% block head %}
-    {# note: theme styles are defined in the head block #}
-
-    <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
-    <style>
-        body {
-            font: 1em/1.5 Arial, Helvetica, san-serif;
-            background: #efefef;
-            color: #444;
-        }
-        p {
-            margin: 0 0 0.75rem;
-        }
-        .page {
-            max-width: 35em;
-            margin: 4em auto;
-        }
-        .feed-date {
-            margin: 3rem 0 1.5rem;
-        }
-        .item {
-            margin: 1.5rem 0;
-        }
-        .item-title {
-            margin: 0;
-        }
-    </style>
-{% endblock head %}
+{% set layout = {
+    title: 'Starter'
+} %}
 
 {% block content %}
-    {# note: modules are included in the content block #}
-
-    {% include 'lorem.html' %}
-    {% include '@tmpl/ical-feed.html' %}
+    {% include "table-header.html" ignore missing %}
+    {% include "table-header-bg.html" ignore missing %}
+    {% include "table-quote.html" ignore missing %}
+    {% include "table-3-columns.html" ignore missing %}
+    {% include "table-photo-list.html" ignore missing %}
+    {% include "table-photo-list.html" ignore missing with { column_direction: 'rtl' } %}
+    {% include "table-photo-text.html" ignore missing %}
+    {% include "table-quote-left.html" ignore missing %}
+    {% include "table-photo-text.html" ignore missing with { column_direction: 'rtl' } %}
+    {% include "table-cta.html" ignore missing %}
+    {% include "table-cta-2.html" ignore missing %}
+    {% include "table-full-text.html" ignore missing %}
+    {% include "table-promos.html" ignore missing %}
 {% endblock content %}
+

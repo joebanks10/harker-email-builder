@@ -1,0 +1,11 @@
+{% macro render_item(item, context = []) %}
+    {% if 'module' in item|keys %}
+        {% include item.module with item %}
+    {% else %}
+        {% include "@tmpl/table-article.html" with item %}
+    {% endif %}
+{% endmacro %}
+
+{% macro render_link(link, context = []) %}
+    <a href="{{ link.url|default('#') }}">{{ link.text|default('CTA GOES HERE') }}</a>
+{% endmacro %}

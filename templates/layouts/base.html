@@ -1,18 +1,44 @@
+{% set required = {
+    title: 'Master Template',
+    stylesheet: "#{email.css_dir}style.css"
+} %}
+
+{% set layout = required|merge(layout|default({})) %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Emails</title>
+    <title>{{ layout.title }}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     {% block head %}
-    <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="{{ layout.stylesheet }}">
     {% endblock head %}
 </head>
 <body>
-    <div class="page">
-        {% block content %}
-        <h1>Hello World!</h1>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-        {% endblock %}
-    </div>
+    {% block header %}
+        {% include "@tmpl/table-header-bar.html" %}
+    {% endblock header %}
+    
+    {% block content %}
+        {% include "@tmpl/table-header.html" %}
+        {% include "@tmpl/table-header-bg.html" %}
+        {% include "@tmpl/table-quote.html" %}
+        {% include "@tmpl/table-3-columns.html" %}
+        {% include "@tmpl/table-2-columns.html" %}
+        {% include "@tmpl/table-2-columns.html" with { column_direction: 'rtl' } %}
+        {% include "@tmpl/table-profile-text.html" %}
+        {% include "@tmpl/table-profile-text.html" with { column_direction: 'rtl' } %}
+        {% include "@tmpl/table-cta-1.html" %}
+        {% include "@tmpl/table-cta-2.html" %}
+        {% include "@tmpl/table-events.html" %}
+        {% include "@tmpl/table-1-column.html" %}
+        {% include "@tmpl/table-promos.html" %}
+    {% endblock content %}
+    
+    {% block footer %}
+        {% include "@tmpl/table-footer.html" %}
+    {% endblock footer %}
 </body>
 </html>

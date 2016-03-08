@@ -1,0 +1,116 @@
+{% set module = module|default({
+    id: '',
+    classes: '',
+    header: 'Full Width 2 Column Event Listing',
+    content: '',
+    items: [
+        {
+            img: {
+                url: "#{email.img_dir}img21.png",
+                alt: ''
+            }
+        },
+        {
+            img: {
+                url: "#{email.img_dir}img22.png",
+                alt: ''
+            }
+        },
+        {
+            img: {
+                url: "#{email.img_dir}img21.png",
+                alt: ''
+            }
+        },
+        {
+            img: {
+                url: "#{email.img_dir}img22.png",
+                alt: ''
+            }
+        }
+    ]
+}) %}
+
+<table id="{{ module.id }}" class="table-promos {{ module_classes(module.classes) }}" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td height="40"></td>
+    </tr>
+    <tr>
+        <td align="center">
+            <table class="table-inner" width="600" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-left:20px; margin-right:20px;">
+                {% block header %}
+                    {% if module.header %}
+                    <tr>
+                        <td class="header">
+                            {{ module.header }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="30"></td>
+                    </tr>
+                    {% endif %}
+                {% endblock header %}
+                {% block content %}
+                    {% if module.content %}
+                    <tr>
+                        <td class="content">
+                            {{ module.content }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="30"></td>
+                    </tr>
+                    {% endif %}
+                {% endblock content %}
+                {% block row %}
+                    {% for row in module.items|batch(2) %}
+                    <tr>
+                        <td>
+                            {% for item in row %}
+                                {% if loop.index == 1 %}
+                                    <table class="table-full" width="288" border="0" align="left" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td align="center">
+                                                {% block item %}
+                                                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td class="img-container" align="center">
+                                                                <img src="{{ item.img.url }}" alt="{{ item.img.alt }}" width="288">
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                {% endblock item %}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table width="1" border="0" cellpadding="0" cellspacing="0" align="left">
+                                        <tr>
+                                            <td height="20" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+                                                <p style="padding-left: 16px;">&nbsp;</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                {% elseif loop.index == 2 %}
+                                    <table class="table-full" width="288" border="0" align="right" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td align="center">
+                                                {{ block('item') }}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="20"></td>
+                    </tr>
+                    {% endfor %}
+                {% endblock row %}
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="20"></td>
+    </tr>
+</table>
