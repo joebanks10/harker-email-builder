@@ -1,5 +1,3 @@
-/* move these styles into a style tag before sending */
-
 /* Default Styles (desktop first)
 -------------------------------------------- */
 
@@ -94,7 +92,7 @@ img {
 }
 
 
-.table-button { /* table */
+.table-button {
     background-color: #00809E;
 }
 
@@ -118,38 +116,23 @@ img {
     background-color: #fff;
 }
 
-.button-secondary {
-    font-family: 'Open Sans', Arial, sans-serif;
-    font-size: 14px;
-    line-height: 21px;
+.table-button-secondary .button,
+.table-button-secondary .button a  {
     color: #676767;
-    vertical-align: middle;
-    text-align: center;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
-.button-secondary a {
-    color: #676767;
-    text-decoration: none; 
+.table-button-outline {
+    background-color: transparent;
 }
 
-.button-outline {
-    border: 1px solid #00809e; 
-    font-family: 'Open Sans', Arial, sans-serif; 
-    font-size: 14px; 
-    line-height: 21px;
-    color: #00809e;
-    font-weight: bold; 
-    vertical-align: middle;
-    text-align: center;
-    padding-left: 20px;
-    padding-right: 20px;
+.table-button-outline .button {
+    border: 1px solid #00809e;  
 }
 
-.button-outline a {
+.table-button-outline .button,
+.table-button-outline .button a {
     color: #00809E;
-    text-decoration: none;
+    font-weight: bold;
 }
 
 
@@ -368,43 +351,8 @@ img {
 }
 
 
-.table-cta-2 {
-    background-color: #63A70A;
-}
-
-.table-cta-2 .header,
-.table-cta-2 .content {
-    color: #ffffff;
-}
-
-.table-cta-2 .table-button-outline {
-    background-color: #63A70A;
-}
-
-.table-cta-2 .button-outline {
-    border: 1px solid #FFF;
-}
-
-.table-cta-2 .button-outline a {
-    color: #fff;
-}
-
-.table-cta-2 .table-button-secondary {
-    width: 100%;
-}
-
-.table-cta-2 .button-secondary a {
-    color: #63A70A;
-}
-
-
-.table-full-text {
-    background-color: #A23BBC;
-}
-
-.table-full-text .header,
-.table-full-text .content {
-    color: #fff;
+.table-1-column {
+    background-color: #fff;
 }
 
 
@@ -423,6 +371,67 @@ img {
 
 .footer-bar {
     background-color: #e2e6e7;
+}
+
+
+/* Utility Classes
+-------------------------------------------- */
+
+.color-bg .header,
+.color-bg .content {
+    color: #fff;
+}
+
+.blue-bg, .blue-bg .table-button-outline { 
+    background-color: #00809E; 
+}
+.green-bg, .green-bg .table-button-outline { 
+    background-color: #63A70A; 
+}
+.purple-bg, .purple-bg .table-button-outline { 
+    background-color: #A23BBC; 
+}
+.red-bg, .red-bg .table-button-outline { 
+    background-color: #9C0947; 
+}
+.orange-bg, .orange-bg .table-button-outline { 
+    background-color: #CE5D27; 
+}
+.gold-bg, .gold-bg .table-button-outline { 
+    background-color: #DCAA00; 
+}
+
+.blue-bg .table-button-secondary .button,
+.blue-bg .table-button-secondary .button a {
+    color: #00809E;
+}
+.green-bg .table-button-secondary .button,
+.green-bg .table-button-secondary .button a {
+    color: #63A70A;
+}
+.purple-bg .table-button-secondary .button,
+.purple-bg .table-button-secondary .button a {
+    color: #A23BBC;
+}
+.red-bg .table-button-secondary .button,
+.red-bg .table-button-secondary .button a {
+    color: #9C0947;
+}
+.orange-bg .table-button-secondary .button,
+.orange-bg .table-button-secondary .button a {
+    color: #CE5D27;
+}
+.gold-bg .table-button-secondary .button,
+.gold-bg .table-button-secondary .button a {
+    color: #DCAA00;
+}
+
+.color-bg .table-button-outline .button {
+    border: 1px solid #fff;
+}
+.color-bg .table-button-outline .button,
+.color-bg .table-button-outline .button a {
+    color: #fff;
 }
 
 

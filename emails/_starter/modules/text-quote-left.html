@@ -1,0 +1,28 @@
+{% extends "@tmpl/table-profile-text.html" %}
+
+{% set module = {
+    id: '',
+    classes: 'table-quote-text',
+    profile: {
+        quote: 'Envato is an ecosystem of sites to help you get creative.',
+        img: {
+            url: "#{email.img_dir_url}img17.png",
+            alt: 'Profile Pic',
+            width: '80'
+        },
+        name: 'John Doe',
+        detail: 'Awesome Title Here',
+    },
+    header: 'COLUMN HEADER',
+    content: 'Consectetur ornare neque mattis est scelerisque platea a parturient molestie parturient laoreet a proin ac. Fusce massa hendrerit venenatis vivamus sociis eu eu potenti elementum eu suspendisse consectetur mattis id arcu aliquet mus adipiscing congue adipiscing feugiat curabitur natoque parturient.
+    <br>
+    <br>
+    Pulvinar mi nullam mi morbi eleifend a etiam adipiscing scelerisque curabitur a vestibulum condimentum natoque himenaeos condimentum et fames tincidunt habitasse scelerisque nam inceptos bibendum accumsan a parturient.
+    <br>
+    <br>
+    Sed malesuada a parturient adipiscing a turpis netus hac a a quam enim vestibulum condimentum.',
+    link: {
+        url: 'http://www.harker.org',
+        text: 'CTA GOES HERE'
+    }
+} %}

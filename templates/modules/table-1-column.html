@@ -1,8 +1,6 @@
 {% set module = module|default({
-    img: {
-        url: "#{email.img_dir}img19.png",
-        alt: 'image'
-    },
+    id: '',
+    classes: '',
     header: 'Full Width Text + Color BG',
     content: 
         'Consectetur ornare neque mattis est scelerisque platea a parturient molestie parturient laoreet a proin ac. Fusce massa hendrerit venenatis vivamus sociis eu eu potenti elementum eu suspendisse consectetur mattis id arcu aliquet mus adipiscing congue adipiscing feugiat curabitur natoque parturient.
@@ -18,28 +16,20 @@
     link: {
         url: 'http://www.harker.org',
         text: 'CTA GOES HERE'
+    },
+    img: {
+        url: "#{email.img_dir_url}img19.png",
+        alt: 'image'
     }
 }) %}
 
-<table id="{{ module.id }}" class="table-full-text {{ module_classes(module.classes) }}" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+<table id="{{ module.id }}" class="table-1-column {{ module_classes(module.classes) }}" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
         <td height="40"></td>
     </tr>
     <tr>
         <td>
             <table align="center" class="table-inner" width="600" border="0" cellspacing="0" cellpadding="0">
-                {% block img %}
-                    {% if module.img %}
-                    <tr>
-                        <td class="img-container" align="center">
-                            <img class="img-full" src="{{ module.img.url }}" alt="{{ module.img.alt }}">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height="30"></td>
-                    </tr>
-                    {% endif %}
-                {% endblock img %}
                 {% block header %}
                     {% if module.header %}
                     <tr>
@@ -64,17 +54,29 @@
                     </tr>
                     {% endif %}
                 {% endblock content %}
-                {% block link %}
-                    {% if module.link %}
-                    <tr>
-                        <td>
-                            {% include "@tmpl/table-button.html" with { module: module.link|merge({
-                                type: module.link.type|default('secondary')
-                            }) } %}
-                        </td>
-                    </tr>
-                    {% endif %}
-                {% endblock link %}
+                {% block footer %}
+                    {% block link %}
+                        {% if module.link %}
+                        <tr>
+                            <td>
+                                {% include "@tmpl/table-button.html" with { module: module.link } %}
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endblock link %}
+                    {% block img %}
+                        {% if module.img %}
+                        <tr>
+                            <td height="40"></td>
+                        </tr>
+                        <tr>
+                            <td class="img-container" align="center">
+                                <img class="img-full" src="{{ module.img.url }}" alt="{{ module.img.alt }}">
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endblock img %}
+                {% endblock footer %}
             </table>
         </td>
     </tr>

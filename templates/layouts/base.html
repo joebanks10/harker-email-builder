@@ -1,6 +1,6 @@
 {% set required = {
     title: 'Master Template',
-    stylesheet: "#{email.css_dir}style.css"
+    stylesheet: "#{email.css_dir_url}style.css"
 } %}
 
 {% set layout = required|merge(layout|default({})) %}
@@ -8,13 +8,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+{% block head %}
     <title>{{ layout.title }}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    {% block head %}
-        <link rel="stylesheet" type="text/css" href="{{ layout.stylesheet }}">
-    {% endblock head %}
+    <style type="text/css">
+        {{ render_file(layout.stylesheet) }}
+    </style>
+{% endblock head %}
 </head>
 <body>
     {% block header %}

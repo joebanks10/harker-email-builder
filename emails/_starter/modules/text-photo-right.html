@@ -1,23 +1,19 @@
 {% extends "@tmpl/table-2-columns.html" %}
 
-{% set module = module|default({
+{% set module = {
     id: '',
     classes: '',
+    column_direction: 'rtl',
     img: {
-        url: "#{email.img_dir}img8.png",
+        url: "#{email.img_dir_url}img8.png",
         alt: 'placeholder',
         classes: ''
     },
-    header: 'MY HEADER',
+    header: 'COLUMN HEADER',
     subheader: 'SUBHEADER',
     content: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.',
-    list: [
-        'This is an item',
-        'This is another item',
-        'And another!'
-    ],
     link: {
         url: 'http://www.harker.org',
         text: 'CTA GOES HERE'
     }
-}) %}
+} %}

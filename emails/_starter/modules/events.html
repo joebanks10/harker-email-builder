@@ -1,0 +1,42 @@
+{% extends "@tmpl/table-events.html" %}
+
+{% set module = {
+    id: '',
+    classes: '',
+    dates: [
+        {
+            date: 'Jan 1',
+            events: [
+                {
+                    header: 'Event Title 1',
+                    content: '7 p.m. | Saratoga Campus'
+                },
+                {
+                    header: 'Event Title 2',
+                    content: '7 p.m. | Saratoga Campus'
+                },
+                {
+                    header: 'Event Title 3',
+                    content: '7 p.m. | Saratoga Campus'
+                }
+            ]
+        },
+        {
+            date: 'Jan 2',
+            events: [
+                {
+                    header: 'Event Title 1',
+                    content: '7 p.m. | Blackford Campus'
+                },
+                {
+                    header: 'Event Title 2',
+                    content: '7 p.m. | Blackford Campus'
+                },
+                {
+                    header: 'Event Title 3',
+                    content: '7 p.m. | Blackford Campus'
+                }
+            ]
+        }
+    ]
+} %}

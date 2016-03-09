@@ -4,6 +4,7 @@ class Email {
 
     public $loader;
     public $twig;
+    public $rendered;
 
     private $index;
 
@@ -16,11 +17,11 @@ class Email {
 
         $defaults = array(
             'email_dir' => dirname(__file__),
-            'css_dir' => ROOT_URL . '/assets/css/',
-            'img_dir' => ROOT_URL . '/assets/img/'
+            'css_dir_url' => ROOT_URL . '/assets/css/',
+            'img_dir_url' => ROOT_URL . '/assets/img/'
         );
 
-        $settings = array_merge($defaults, $args);
+        $this->$settings = array_merge($defaults, $args);
         $this->index = 0;
 
         // $ical = new ICS_Feed('http://www.harker.org/calendar/page_2302.ics');
@@ -72,6 +73,10 @@ class Email {
         $table_position = new Twig_SimpleFunction('table_position', array($this, 'get_table_position') );
         $this->twig->addFunction($table_position);
 
+        // add render function
+        $render_file = new Twig_SimpleFunction('render_file', array($this, 'render_file') );
+        $this->twig->addFunction($render_file);
+
         // get data
         $data = array(
             'email' => $settings
@@ -79,11 +84,19 @@ class Email {
 
         // render template
         if ( file_exists($settings['email_dir'] . '/layout.html') ) {
-            echo $this->twig->render('layout.html', $data);
+            $this->rendered = $this->twig->render('layout.html', $data);
         } else {
-            echo $this->twig->render('@tmpl/base.html', $data);
+            $this->rendered = $this->twig->render('@tmpl/base.html', $data);
         }
 
+        file_put_contents($settings['email_dir'] . '/rendered_email.html', $this->rendered);
+        echo $this->rendered;
+    }
+
+    // template functions
+
+    public function render_file($file) {
+        echo file_get_contents($file);
     }
 
     public function get_module_classes($other_classes = '') {

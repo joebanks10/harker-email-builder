@@ -1,7 +1,14 @@
 <?php
 
+// include the magic sauce
 include "../../load.php";
 
-$email = new Email(array(
-    'email_dir' => __DIR__
-));
+// configure file paths here
+$config = array(
+    'email_dir' => dirname(__file__),
+    'css_dir_url' => ROOT_URL . '/assets/css/',
+    'img_dir_url_url' => ROOT_URL . '/assets/img/'
+);
+
+// render the email
+new Email($config);
