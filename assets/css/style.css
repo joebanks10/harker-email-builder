@@ -185,7 +185,6 @@ img {
 }
 
 .table-header-bg .background {
-    background: url("../img/header-bg-1.jpg");
     background-color: #66809b;
     background-size: cover; 
     background-position: top;
@@ -335,13 +334,11 @@ img {
 
 .table-cta .background {
     background-color: #3b3b3b;
-    background-image: url("../img/cta-bg.jpg");
     background-size: cover; 
     background-position: bottom;
 }
 
 .table-cta .background-shadow {
-    background-image: url("../img/cta-shadow.png");
     background-repeat: repeat;
 }
 

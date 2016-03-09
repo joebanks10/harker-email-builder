@@ -1,6 +1,8 @@
 {% set module = module|default({
     id: '',
     classes: '',
+    background_img: "#{ROOT_IMG_DIR_URL}cta-bg.jpg",
+    background_shadow_img: "#{ROOT_IMG_DIR_URL}cta-shadow.png",
     header: 'Content + CTA + Background Image',
     content: 'This is your supporting headline that works as a clarifying.',
     link: {
@@ -11,10 +13,10 @@
 
 <table id="{{ module.id }}" class="table-cta {{ module_classes(module.classes) }}" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
-        <td class="background" align="center">
+        <td class="background" align="center" background="{{ module.background_img }}" style="background-image: url({{ module.background_img }})">
             <table class="table-full-center" width="600" border="0" align="center" cellpadding="0" cellspacing="0">
                 <tr>
-                    <td class="background-shadow" align="center">
+                    <td class="background-shadow" align="center" background="{{ module.background_shadow_img }}" style="background-image: url({{ module.background_shadow_img }})">
                         <table class="table-inner" align="center" width="550" border="0" cellspacing="0" cellpadding="0">
                             <tr>
                                 <td height="40"></td>

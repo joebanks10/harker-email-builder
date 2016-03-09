@@ -18,8 +18,13 @@ class Email {
 
         $defaults = array(
             'email_dir' => dirname(__file__),
-            'css_dir_url' => ROOT_URL . '/assets/css/',
-            'img_dir_url' => ROOT_URL . '/assets/img/'
+            'css_dir_url' => ROOT_CSS_DIR_URL,
+            'img_dir_url' => ROOT_IMG_DIR_URL
+        );
+
+        $constants = array(
+            'ROOT_CSS_DIR_URL' => ROOT_CSS_DIR_URL,
+            'ROOT_IMG_DIR_URL' => ROOT_IMG_DIR_URL
         );
 
         $this->settings = array_merge($defaults, $args);
@@ -29,7 +34,8 @@ class Email {
 
         $template_directories = array(
             ROOT_DIR . '/templates/layouts',
-            ROOT_DIR . '/templates/modules'
+            ROOT_DIR . '/templates/modules',
+            ROOT_DIR . '/templates/elements'
         );
 
         $email_directories = array(
@@ -38,6 +44,9 @@ class Email {
 
         if ( file_exists($this->settings['email_dir'] . '/modules') ) {
             $email_directories[] = $this->settings['email_dir'] . '/modules';
+        }
+        if ( file_exists($this->settings['email_dir'] . '/elements') ) {
+            $email_directories[] = $this->settings['email_dir'] . '/elements';
         }
 
         // create loader and add email directories
@@ -78,10 +87,10 @@ class Email {
         $render_file = new Twig_SimpleFunction('render_file', array($this, 'render_file') );
         $this->twig->addFunction($render_file);
 
-        // get data
-        $data = array(
+        // gather template data
+        $data = array_merge(array(
             'email' => $this->settings
-        );
+        ), $constants);
 
         // render template
         if ( file_exists($this->settings['email_dir'] . '/layout.html') ) {

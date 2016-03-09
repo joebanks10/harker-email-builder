@@ -1,6 +1,6 @@
 {% set required = {
     title: 'Master Template',
-    stylesheet: "#{email.css_dir_url}style.css"
+    stylesheet: "#{ROOT_CSS_DIR_URL}style.css"
 } %}
 
 {% set layout = required|merge(layout|default({})) %}

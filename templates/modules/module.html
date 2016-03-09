@@ -1,0 +1,14 @@
+<table id="{{ module.id }}" class="table-1-column {{ module_classes(module.classes) }}" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td height="40"></td>
+    </tr>
+    <tr>
+        <td>
+            <table align="center" class="table-inner" width="600" border="0" cellspacing="0" cellpadding="0">
+            {% block content %}
+
+            {% endblock content %}
+            </table>
+        </td>
+    </tr>
+</table>
