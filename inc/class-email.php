@@ -5,6 +5,7 @@ class Email {
     public $loader;
     public $twig;
     public $rendered;
+    public $settings;
 
     private $index;
 
@@ -21,7 +22,7 @@ class Email {
             'img_dir_url' => ROOT_URL . '/assets/img/'
         );
 
-        $this->$settings = array_merge($defaults, $args);
+        $this->settings = array_merge($defaults, $args);
         $this->index = 0;
 
         // $ical = new ICS_Feed('http://www.harker.org/calendar/page_2302.ics');
@@ -32,11 +33,11 @@ class Email {
         );
 
         $email_directories = array(
-            $settings['email_dir']
+            $this->settings['email_dir']
         );
 
-        if ( file_exists($settings['email_dir'] . '/modules') ) {
-            $email_directories[] = $settings['email_dir'] . '/modules';
+        if ( file_exists($this->settings['email_dir'] . '/modules') ) {
+            $email_directories[] = $this->settings['email_dir'] . '/modules';
         }
 
         // create loader and add email directories
@@ -79,17 +80,17 @@ class Email {
 
         // get data
         $data = array(
-            'email' => $settings
+            'email' => $this->settings
         );
 
         // render template
-        if ( file_exists($settings['email_dir'] . '/layout.html') ) {
+        if ( file_exists($this->settings['email_dir'] . '/layout.html') ) {
             $this->rendered = $this->twig->render('layout.html', $data);
         } else {
             $this->rendered = $this->twig->render('@tmpl/base.html', $data);
         }
 
-        file_put_contents($settings['email_dir'] . '/rendered_email.html', $this->rendered);
+        file_put_contents($this->settings['email_dir'] . '/rendered_email.html', $this->rendered);
         echo $this->rendered;
     }
 
