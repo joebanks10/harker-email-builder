@@ -34,8 +34,7 @@ class Email {
 
         $template_directories = array(
             ROOT_DIR . '/templates/layouts',
-            ROOT_DIR . '/templates/modules',
-            ROOT_DIR . '/templates/elements'
+            ROOT_DIR . '/templates/modules'
         );
 
         $email_directories = array(
