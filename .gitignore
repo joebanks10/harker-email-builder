@@ -1,6 +1,5 @@
 .DS_Store
 tmp/
-vendor/
 emails/*
 !emails/_starter/
 *rendered_email.html
