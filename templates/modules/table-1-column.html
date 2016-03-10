@@ -1,7 +1,9 @@
+{% extends "@tmpl/module.html" %}
+
 {% set module = module|default({
     id: '',
     classes: '',
-    header: 'Full Width Text + Color BG',
+    header: 'Full Width Text',
     content: 
         'Consectetur ornare neque mattis est scelerisque platea a parturient molestie parturient laoreet a proin ac. Fusce massa hendrerit venenatis vivamus sociis eu eu potenti elementum eu suspendisse consectetur mattis id arcu aliquet mus adipiscing congue adipiscing feugiat curabitur natoque parturient.
         <br>
@@ -23,64 +25,52 @@
     }
 }) %}
 
-<table id="{{ module.id }}" class="table-1-column {{ module_classes(module.classes) }}" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-        <td height="40"></td>
-    </tr>
-    <tr>
-        <td>
-            <table align="center" class="table-inner" width="600" border="0" cellspacing="0" cellpadding="0">
-                {% block header %}
-                    {% if module.header %}
-                    <tr>
-                        <td class="header">
-                            {{ module.header }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height="15"></td>
-                    </tr>
-                    {% endif %}
-                {% endblock header %}
-                {% block content %}
-                    {% if module.content %}
-                    <tr>
-                        <td class="content">
-                            {{ module.content|raw }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height="20"></td>
-                    </tr>
-                    {% endif %}
-                {% endblock content %}
-                {% block footer %}
-                    {% block link %}
-                        {% if module.link %}
-                        <tr>
-                            <td>
-                                {% include "@tmpl/table-button.html" with { module: module.link } %}
-                            </td>
-                        </tr>
-                        {% endif %}
-                    {% endblock link %}
-                    {% block img %}
-                        {% if module.img %}
-                        <tr>
-                            <td height="40"></td>
-                        </tr>
-                        <tr>
-                            <td class="img-container" align="center">
-                                <img class="img-full" src="{{ module.img.url }}" alt="{{ module.img.alt }}">
-                            </td>
-                        </tr>
-                        {% endif %}
-                    {% endblock img %}
-                {% endblock footer %}
-            </table>
-        </td>
-    </tr>
-    <tr>
-        <td height="40"></td>
-    </tr>
-</table>
+{% block module %}
+    {% block header %}
+        {% if module.header %}
+            <tr>
+                <td class="header">
+                    {{ module.header }}
+                </td>
+            </tr>
+            <tr>
+                <td height="15"></td>
+            </tr>
+        {% endif %}
+    {% endblock header %}
+    {% block content %}
+        {% if module.content %}
+            <tr>
+                <td class="content">
+                    {{ module.content|raw }}
+                </td>
+            </tr>
+            <tr>
+                <td height="20"></td>
+            </tr>
+        {% endif %}
+    {% endblock content %}
+    {% block footer %}
+        {% block link %}
+            {% if module.link %}
+                <tr>
+                    <td>
+                        {% include "@tmpl/table-button.html" with { module: module.link } %}
+                    </td>
+                </tr>
+            {% endif %}
+        {% endblock link %}
+        {% block img %}
+            {% if module.img %}
+                <tr>
+                    <td height="40"></td>
+                </tr>
+                <tr>
+                    <td class="img-container" align="center">
+                        <img class="img-full" src="{{ module.img.url }}" alt="{{ module.img.alt }}">
+                    </td>
+                </tr>
+            {% endif %}
+        {% endblock img %}
+    {% endblock footer %}
+{% endblock module %}
