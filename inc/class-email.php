@@ -4,8 +4,10 @@ class Email {
 
     public $loader;
     public $twig;
-    public $rendered;
     public $settings;
+
+    public $rendered;
+    public $inlined;
 
     private $index;
 
@@ -98,21 +100,34 @@ class Email {
             $this->rendered = $this->twig->render('@tmpl/base.html', $data);
         }
 
-        file_put_contents($this->settings['email_dir'] . '/rendered_email.html', $this->rendered);
-        echo $this->rendered;
+        $css = $this->render_file($this->settings['css_dir_url'] . 'style.css');
+        $this->inlined = $this->inline_css($this->rendered, $css);
+
+        if ( isset($_GET['inline']) ) {
+            echo $this->inlined;
+        } else {
+            echo $this->rendered;
+        }
+    }
+
+    private function inline_css($html, $css) {
+        $inliner = new TijsVerkoyen\CssToInlineStyles\CssToInlineStyles($html, $css);
+        $html_inlined = $inliner->convert();
+
+        return $html_inlined;
     }
 
     // template functions
 
     public function render_file($file) {
-        echo file_get_contents($file);
+        return file_get_contents($file);
     }
 
     public function get_module_classes($other_classes = '') {
         $index = $this->get_index();
         $alt = ( $index % 2 ) ? 'odd' : 'even';
 
-        return "module-$index $alt $other_classes";
+        return "module-$index $other_classes";
     }
 
     public function get_opposite_direction($direction) {
