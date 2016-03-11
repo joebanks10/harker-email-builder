@@ -157,9 +157,9 @@ img {
 }
 
 .table-header-bar .logo-container {
+    width: 255px;
     border-right: 4px solid #033e2f; 
     border-left: 4px solid #033e2f; 
-    padding: 0 10px; 
     background-color: #05533E;
 }
 
