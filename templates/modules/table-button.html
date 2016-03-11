@@ -13,26 +13,26 @@
 {% set module = required|merge(module|default({})) %}
 
 {% if module.type == 'secondary' %}
-    <table id="{{ module.id }}" class="table-button table-button-secondary {{ module_classes(module.classes) }}" width="{{ module.width }}" border="0" align="left" cellpadding="0" cellspacing="0">
+    <table id="{{ module.id }}" class="table-button table-button-secondary {{ module_classes(module.classes) }}" width="{{ module.width }}" border="0" align="left" cellpadding="10" cellspacing="0">
         <tr>
-            <td class="button" height="{{ module.height }}">
+            <td class="button">
                 {{ render_link({ url: module.url, text: module.text}) }}
             </td>
         </tr>
     </table>
 {% elseif module.type == 'outline' %}
     {% set module = module|merge({ height: module.height-2 }) %}
-    <table id="{{ module.id }}" class="table-button table-button-outline {{ module_classes(module.classes) }}" width="{{ module.width }}" border="0" align="left" cellpadding="0" cellspacing="0">
+    <table id="{{ module.id }}" class="table-button table-button-outline {{ module_classes(module.classes) }}" width="{{ module.width }}" border="0" align="left" cellpadding="10" cellspacing="0">
         <tr>
-            <td class="button" height="{{ module.height }}">
+            <td class="button">
                 {{ render_link({ url: module.url, text: module.text}) }}
             </td>
         </tr>
     </table>
 {% else %}
-    <table id="{{ module.id }}" class="table-button {{ module_classes(module.classes) }}" width="{{ module.width }}" border="0" align="left" cellpadding="0" cellspacing="0">
+    <table id="{{ module.id }}" class="table-button {{ module_classes(module.classes) }}" width="{{ module.width }}" border="0" align="left" cellpadding="10" cellspacing="0">
         <tr>
-            <td class="button" height="{{ module.height }}">
+            <td class="button">
                 {{ render_link({ url: module.url, text: module.text}) }}
             </td>
         </tr>

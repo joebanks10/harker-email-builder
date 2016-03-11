@@ -37,7 +37,7 @@
     </tr>
     <tr>
         <td align="center">
-            <table class="table-inner" width="600" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-left:20px; margin-right:20px;">
+            <table class="table-inner" width="600" border="0" align="center" cellpadding="0" cellspacing="0" >
                 {% block header %}
                     {% if module.header %}
                     <tr>
@@ -65,17 +65,17 @@
                 {% block row %}
                     {% for row in module.items|batch(2) %}
                     <tr>
-                        <td>
+                        <td align="center">
                             {% for item in row %}
                                 {% if loop.index == 1 %}
-                                    <table class="table-full" width="288" border="0" align="left" cellpadding="0" cellspacing="0">
+                                    <table class="table-full" width="287" border="0" align="left" cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td align="center">
                                                 {% block item %}
                                                     <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                                                         <tr>
                                                             <td class="img-container" align="center">
-                                                                <img src="{{ item.img.url }}" alt="{{ item.img.alt }}" width="288">
+                                                                <img src="{{ item.img.url }}" alt="{{ item.img.alt }}" width="287">
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -91,7 +91,7 @@
                                         </tr>
                                     </table>
                                 {% elseif loop.index == 2 %}
-                                    <table class="table-full" width="288" border="0" align="right" cellpadding="0" cellspacing="0">
+                                    <table class="table-full" width="287" border="0" align="right" cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td align="center">
                                                 {{ block('item') }}

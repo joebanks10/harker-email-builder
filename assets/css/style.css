@@ -292,7 +292,7 @@ img {
 .table-profile .quote-icon {
     font-family: Arial, sans-serif, 'Century Gothic'; 
     font-size: 55px; 
-    line-height: 0px; 
+    line-height: 35px; 
     color: #00809E;
     text-align: center;
 }
