@@ -1,7 +1,7 @@
 ## Instructions
 
-1. Copy the Starter email in the 'emails/' folder.
-2. Rename the folder to reflect the name of your email.
+1. Copy the Starter email folder in the 'emails/' folder.
+2. Rename the new folder to reflect the name of your email.
 3. Open 'index.php' and define the URLs for the email's stylesheet and the images directory.
 4. Open 'layout.html' and...
     - define the title of the email,
