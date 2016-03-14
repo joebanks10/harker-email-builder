@@ -1,6 +1,5 @@
 {% set required = {
-    title: 'Master Template',
-    stylesheet: "#{ROOT_CSS_DIR_URL}style.css"
+    title: 'Master Template'
 } %}
 
 {% set layout = required|merge(layout|default({})) %}
@@ -14,7 +13,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <style type="text/css">
-        {{ render_file(layout.stylesheet)|raw }}
+        {{ render_file(email.stylesheet_url)|raw }}
     </style>
 {% endblock head %}
 </head>

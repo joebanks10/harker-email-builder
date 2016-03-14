@@ -20,7 +20,8 @@ class Email {
 
         $defaults = array(
             'email_dir' => dirname(__file__),
-            'css_dir_url' => ROOT_CSS_DIR_URL,
+            'email_filename' => 'layout.html',
+            'stylesheet_url' => ROOT_CSS_DIR_URL . 'style.css',
             'img_dir_url' => ROOT_IMG_DIR_URL
         );
 
@@ -95,13 +96,13 @@ class Email {
 
         // render template
         if ( file_exists($this->settings['email_dir'] . '/layout.html') ) {
-            $this->rendered = $this->twig->render('layout.html', $data);
+            $this->rendered = $this->twig->render($this->settings['email_filename'], $data);
         } else {
             $this->rendered = $this->twig->render('@tmpl/base.html', $data);
         }
 
-        $css = $this->render_file($this->settings['css_dir_url'] . 'style.css');
-        $this->inlined = $this->inline_css($this->rendered, $css);
+        $css = $this->render_file($this->settings['stylesheet_url']);
+        $this->inlined = $this->inline_css($this->rendered);
 
         if ( isset($_GET['inline']) ) {
             echo $this->inlined;
@@ -110,7 +111,7 @@ class Email {
         }
     }
 
-    private function inline_css($html, $css) {
+    private function inline_css($html, $css = '') {
         $inliner = new TijsVerkoyen\CssToInlineStyles\CssToInlineStyles($html, $css);
         $html_inlined = $inliner->convert();
 
