@@ -16,7 +16,7 @@
     <table id="{{ module.id }}" class="table-button table-button-secondary {{ module_classes(module.classes) }}" width="{{ module.width }}" border="0" align="left" cellpadding="0" cellspacing="0">
         <tr>
             <td class="button" height="{{ module.height }}" valign="middle" align="center">
-                <div>{{ render_link({ url: module.url, text: module.text}) }}</div>
+                {{ render_link({ url: module.url, text: module.text}) }}
             </td>
         </tr>
     </table>
@@ -25,7 +25,7 @@
     <table id="{{ module.id }}" class="table-button table-button-outline {{ module_classes(module.classes) }}" width="{{ module.width }}" border="0" align="left" cellpadding="0" cellspacing="0">
         <tr>
             <td class="button" height="{{ module.height }}" valign="middle" align="center">
-                <div>{{ render_link({ url: module.url, text: module.text}) }}</div>
+                {{ render_link({ url: module.url, text: module.text}) }}
             </td>
         </tr>
     </table>
@@ -33,7 +33,7 @@
     <table id="{{ module.id }}" class="table-button {{ module_classes(module.classes) }}" width="{{ module.width }}" border="0" align="left" cellpadding="0" cellspacing="0">
         <tr>
             <td class="button" height="{{ module.height }}" valign="middle" align="center">
-                <div>{{ render_link({ url: module.url, text: module.text}) }}</div>
+                {{ render_link({ url: module.url, text: module.text}) }}
             </td>
         </tr>
     </table>

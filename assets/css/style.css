@@ -97,26 +97,26 @@ img {
 }
 
 .button {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    color: #ffffff;
     vertical-align: middle;
     text-align: center;
     padding-left: 20px;
     padding-right: 20px;
 }
 
-.button div {
-    font-family: 'Open Sans', Arial, sans-serif;
+.button a {
+    display: block;
     font-size: 14px;
     line-height: 21px;
     color: #ffffff;
-}
-
-.button a {
-    color: #fff;
     text-decoration: none; 
 }
 
 .table-button-secondary {
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
 .table-button-secondary .button,
@@ -205,7 +205,7 @@ img {
 
 
 .table-quote {
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
 .table-quote .quote {
@@ -244,12 +244,12 @@ img {
 
 
 .table-list-left {
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
 
 .table-list-right {
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
 
@@ -265,7 +265,7 @@ img {
     font-family: 'Open Sans', Arial, sans-serif; 
     font-size: 18px; 
     line-height: 26.1px;
-    color: #fff; 
+    color: #ffffff; 
     font-weight: bold; 
     text-align: center;
     padding-left: 15px; 
@@ -352,12 +352,12 @@ img {
 
 
 .table-1-column {
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
 
 .table-promos {
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
 
@@ -379,7 +379,7 @@ img {
 
 .color-bg .header,
 .color-bg .content {
-    color: #fff;
+    color: #ffffff;
 }
 
 .blue-bg, .blue-bg .table-button-outline { 
@@ -427,11 +427,11 @@ img {
 }
 
 .color-bg .table-button-outline .button {
-    border: 1px solid #fff;
+    border: 1px solid #ffffff;
 }
 .color-bg .table-button-outline .button,
 .color-bg .table-button-outline .button a {
-    color: #fff;
+    color: #ffffff;
 }
 
 
