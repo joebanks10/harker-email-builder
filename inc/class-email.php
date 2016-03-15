@@ -2,14 +2,13 @@
 
 class Email {
 
-    public $loader;
-    public $twig;
-    public $settings;
-
-    public $rendered;
-    public $inlined;
-
+    private $settings;
     private $index;
+
+    private $loader;
+    private $twig;
+    
+    private $rendered;
 
     /**
      * Create and render the twig template
@@ -33,83 +32,94 @@ class Email {
         $this->settings = array_merge($defaults, $args);
         $this->index = 0;
 
-        // $ical = new ICS_Feed('http://www.harker.org/calendar/page_2302.ics');
-
-        $template_directories = array(
-            ROOT_DIR . '/templates/layouts',
-            ROOT_DIR . '/templates/modules'
-        );
-
-        $email_directories = array(
-            $this->settings['email_dir']
-        );
-
-        if ( file_exists($this->settings['email_dir'] . '/modules') ) {
-            $email_directories[] = $this->settings['email_dir'] . '/modules';
-        }
-        if ( file_exists($this->settings['email_dir'] . '/elements') ) {
-            $email_directories[] = $this->settings['email_dir'] . '/elements';
-        }
-
-        // create loader and add email directories
-        $this->loader = new Twig_Loader_Filesystem($email_directories);
-
-        // add template paths and attach to 'tmpl' namespace
-        $this->loader->setPaths($template_directories, 'tmpl');
-
-        // create twig environment
-        $this->twig = new Twig_Environment($this->loader, array(
-            'debug' => true
-        ));
-
-        // debug
-        $this->twig->addExtension(new Twig_Extension_Debug());
-
-        // add rss feed function
-        // $rss_func = new Twig_SimpleFunction('rss', array($this, 'get_rss_items') );
-        // $this->twig->addFunction($rss_func);
-
-        // add ical feed function
-        // $ical_func = new Twig_SimpleFunction('ical', array($this, 'get_ics_items') );
-        // $this->twig->addFunction($ical_func);
-
-        // add classes function
-        $module_classes = new Twig_SimpleFunction('module_classes', array($this, 'get_module_classes') );
-        $this->twig->addFunction($module_classes);
-
-        // add opposite direction function
-        $opposite_direction = new Twig_SimpleFunction('opposite_direction', array($this, 'get_opposite_direction') );
-        $this->twig->addFunction($opposite_direction);
-
-        // add table position function
-        $table_position = new Twig_SimpleFunction('table_position', array($this, 'get_table_position') );
-        $this->twig->addFunction($table_position);
-
-        // add render function
-        $render_file = new Twig_SimpleFunction('render_file', array($this, 'render_file') );
-        $this->twig->addFunction($render_file);
-
-        // gather template data
+        $inline = isset($_GET['inline']);
         $data = array_merge(array(
             'email' => $this->settings
         ), $constants);
 
-        // render template
-        if ( file_exists($this->settings['email_dir'] . '/layout.html') ) {
-            $this->rendered = $this->twig->render($this->settings['email_filename'], $data);
-        } else {
-            $this->rendered = $this->twig->render('@tmpl/base.html', $data);
-        }
+        $this->loader = $this->create_loader();
+        $this->twig = $this->create_environment();
 
-        $css = $this->render_file($this->settings['stylesheet_url']);
-        $this->inlined = $this->inline_css($this->rendered);
+        // Add template functions
+        // $this->add_function('rss', array($this, 'get_rss_items'));
+        // $this->add_function('ical', array($this, 'get_ics_items'));
+        $this->add_function('module_classes', array($this, 'get_module_classes'));
+        $this->add_function('opposite_direction', array($this, 'get_opposite_direction'));
+        $this->add_function('table_position', array($this, 'get_table_position'));
+        $this->add_function('render_file', array($this, 'render_file'));
 
-        if ( isset($_GET['inline']) ) {
-            echo $this->inlined;
-        } else {
-            echo $this->rendered;
-        }
+        $this->rendered = $this->render_email($inline, $data);
+
+        echo $this->rendered;
     }
+
+    private function create_loader() {
+
+        // set template paths
+        $tmpl_paths = array(
+            ROOT_DIR . '/templates/layouts',
+            ROOT_DIR . '/templates/modules'
+        );
+        $email_paths = array(
+            $this->settings['email_dir']
+        );
+
+        if ( file_exists($this->settings['email_dir'] . '/modules') ) {
+            $email_paths[] = $this->settings['email_dir'] . '/modules';
+        }
+        if ( file_exists($this->settings['email_dir'] . '/elements') ) {
+            $email_paths[] = $this->settings['email_dir'] . '/elements';
+        }
+
+        // create loader
+        $loader = new Twig_Loader_Filesystem();
+
+        // add template paths to loader
+        $loader->setPaths($email_paths);
+        $loader->setPaths($tmpl_paths, 'tmpl');
+
+        return $loader;
+    }
+
+    private function create_environment($debug = false) {
+
+        // create twig environment
+        $twig = new Twig_Environment($this->loader, array(
+            'debug' => $debug
+        ));
+
+        if ( $debug ) {
+            $twig->addExtension(new Twig_Extension_Debug());
+        }
+
+        return $twig;
+    }
+
+    private function add_function($name, $callback) {
+        $function = new Twig_SimpleFunction($name, $callback);
+        
+        $this->twig->addFunction($function);
+    }
+
+    private function render_email($inline = false, $data = array()) {
+
+        $email_dir = $this->settings['email_dir'];
+        $email_file = $this->settings['email_filename'];
+
+        $file = (file_exists("$email_dir/$email_file")) ? $email_file : '@tmpl/base.html';
+
+        $email = $this->twig->render($file, $data);
+
+        if ($inline) {
+            $css = $this->render_file($this->settings['stylesheet_url']);
+            $email = $this->inline_css($email, $css);
+        }
+
+        return $email;
+    }
+
+    // UTILITY FUNCTIONS
+    // ------------------------------------------
 
     private function inline_css($html, $css = '') {
         $inliner = new TijsVerkoyen\CssToInlineStyles\CssToInlineStyles($html, $css);
@@ -118,7 +128,8 @@ class Email {
         return $html_inlined;
     }
 
-    // template functions
+    // TEMPLATE FUNCTIONS
+    // ------------------------------------------
 
     public function render_file($file) {
         return file_get_contents($file);
