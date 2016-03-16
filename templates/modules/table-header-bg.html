@@ -7,7 +7,11 @@
         alt: 'Harker',
         width: '260'
     },
-    subtitle: 'A SUBTITLE CAN GO HERE, MAYBE SOME IMPORTANT INFO OR NOTHING AT ALL'
+    subtitle: 'A SUBTITLE CAN GO HERE, MAYBE SOME IMPORTANT INFO OR NOTHING AT ALL',
+    link: {
+        url: 'http://www.harker.org',
+        text: 'CTA GOES HERE'
+    }
 }) %}
 
 <table id="{{ module.id }}" class="table-header-bg {{ module_classes(module.classes) }}" width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
@@ -50,6 +54,21 @@
                     </tr>
                     {% endif %}
                 {% endblock subtitle %}
+                {% block link %}
+                    {% if module.link %}
+                    <tr>
+                        <td height="40"></td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            {% include "@tmpl/table-button.html" with { module: module.link|merge({
+                                type: module.link.type|default('secondary'),
+                                align: 'center'
+                            }) } %}
+                        </td>
+                    </tr>
+                    {% endif %}
+                {% endblock link %}
                 <tr>
                     <td height="80"></td>
                 </tr>

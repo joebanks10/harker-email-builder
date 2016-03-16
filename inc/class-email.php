@@ -21,6 +21,7 @@ class Email {
             'email_dir' => dirname(__file__),
             'email_filename' => 'layout.html',
             'stylesheet_url' => ROOT_CSS_DIR_URL . 'style.css',
+            'stylesheet_addons_url' => '',
             'img_dir_url' => ROOT_IMG_DIR_URL
         );
 
@@ -111,7 +112,7 @@ class Email {
         $email = $this->twig->render($file, $data);
 
         if ($inline) {
-            $css = $this->render_file($this->settings['stylesheet_url']);
+            $css = $this->get_styles();
             $email = $this->inline_css($email, $css);
         }
 
@@ -126,6 +127,17 @@ class Email {
         $html_inlined = $inliner->convert();
 
         return $html_inlined;
+    }
+
+    private function get_styles() {
+        $css = $this->render_file($this->settings['stylesheet_url']);
+
+        if ( $this->settings['stylesheet_addons_url'] ) {
+            $addons = $this->render_file($this->settings['stylesheet_addons_url']);
+            $css = ( $addons ) ? $css . $addons : $css;
+        }
+
+        return $css;
     }
 
     // TEMPLATE FUNCTIONS

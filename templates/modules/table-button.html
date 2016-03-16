@@ -7,13 +7,14 @@
     url: url|default('#'),
     text: text|default('CTA GOES HERE'),
     width: width|default(''),
-    height: height|default('40')
+    height: height|default('40'),
+    align: 'left'
 } %}
 
 {% set module = required|merge(module|default({})) %}
 
 {% if module.type == 'secondary' %}
-    <table id="{{ module.id }}" class="table-button table-button-secondary {{ module_classes(module.classes) }}" width="{{ module.width }}" border="0" align="left" cellpadding="0" cellspacing="0">
+    <table id="{{ module.id }}" class="table-button table-button-secondary {{ module_classes(module.classes) }}" width="{{ module.width }}" border="0" align="{{ module.align|default('left') }}" cellpadding="0" cellspacing="0">
         <tr>
             <td class="button" height="{{ module.height }}" valign="middle" align="center">
                 {{ render_link({ url: module.url, text: module.text}) }}
@@ -22,7 +23,7 @@
     </table>
 {% elseif module.type == 'outline' %}
     {% set module = module|merge({ height: module.height-2 }) %}
-    <table id="{{ module.id }}" class="table-button table-button-outline {{ module_classes(module.classes) }}" width="{{ module.width }}" border="0" align="left" cellpadding="0" cellspacing="0">
+    <table id="{{ module.id }}" class="table-button table-button-outline {{ module_classes(module.classes) }}" width="{{ module.width }}" border="0" align="{{ module.align|default('left') }}" cellpadding="0" cellspacing="0">
         <tr>
             <td class="button" height="{{ module.height }}" valign="middle" align="center">
                 {{ render_link({ url: module.url, text: module.text}) }}
@@ -30,7 +31,7 @@
         </tr>
     </table>
 {% else %}
-    <table id="{{ module.id }}" class="table-button {{ module_classes(module.classes) }}" width="{{ module.width }}" border="0" align="left" cellpadding="0" cellspacing="0">
+    <table id="{{ module.id }}" class="table-button {{ module_classes(module.classes) }}" width="{{ module.width }}" border="0" align="{{ module.align|default('left') }}" cellpadding="0" cellspacing="0">
         <tr>
             <td class="button" height="{{ module.height }}" valign="middle" align="center">
                 {{ render_link({ url: module.url, text: module.text}) }}
