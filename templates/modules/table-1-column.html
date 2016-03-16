@@ -3,6 +3,10 @@
 {% set module = module|default({
     id: '',
     classes: '',
+    img: {
+        url: "http://dummyimage.com/600x400/cccccc/333333.gif&text=placeholder+image",
+        alt: 'image'
+    },
     header: 'Full Width Text',
     content: 
         'Consectetur ornare neque mattis est scelerisque platea a parturient molestie parturient laoreet a proin ac. Fusce massa hendrerit venenatis vivamus sociis eu eu potenti elementum eu suspendisse consectetur mattis id arcu aliquet mus adipiscing congue adipiscing feugiat curabitur natoque parturient.
@@ -18,14 +22,22 @@
     link: {
         url: 'http://www.harker.org',
         text: 'CTA GOES HERE'
-    },
-    img: {
-        url: "#{email.img_dir_url}img19.png",
-        alt: 'image'
     }
 }) %}
 
 {% block module %}
+    {% block img %}
+        {% if module.img %}
+            <tr>
+                <td class="img-container" align="center">
+                    <img class="img-full" src="{{ module.img.url }}" alt="{{ module.img.alt }}">
+                </td>
+            </tr>
+            <tr>
+                <td height="40"></td>
+            </tr>
+        {% endif %}
+    {% endblock img %}
     {% block header %}
         {% if module.header %}
             <tr>
@@ -50,27 +62,13 @@
             </tr>
         {% endif %}
     {% endblock content %}
-    {% block footer %}
-        {% block link %}
-            {% if module.link %}
-                <tr>
-                    <td>
-                        {% include "@tmpl/table-button.html" with { module: module.link } %}
-                    </td>
-                </tr>
-            {% endif %}
-        {% endblock link %}
-        {% block img %}
-            {% if module.img %}
-                <tr>
-                    <td height="40"></td>
-                </tr>
-                <tr>
-                    <td class="img-container" align="center">
-                        <img class="img-full" src="{{ module.img.url }}" alt="{{ module.img.alt }}">
-                    </td>
-                </tr>
-            {% endif %}
-        {% endblock img %}
-    {% endblock footer %}
+    {% block link %}
+        {% if module.link %}
+            <tr>
+                <td>
+                    {% include "@tmpl/table-button.html" with { module: module.link } %}
+                </td>
+            </tr>
+        {% endif %}
+    {% endblock link %}
 {% endblock module %}
