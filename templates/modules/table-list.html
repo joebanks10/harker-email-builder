@@ -1,5 +1,6 @@
 {% set required = {
     bullet: {
+        type: 'ordered',
         url: "#{email.img_dir_url}check.png",
         width: 17
     },
@@ -20,10 +21,16 @@
                 <tr>
                     {% block bullet %}
                         {% if module.bullet %}
-                        <td width="{{ module.bullet.width }}" class="img-container bullet">
-                            <img src="{{ module.bullet.url }}" width="{{ module.bullet.width }}" alt="bullet">
-                        </td>
-                        <td width="15"></td>
+                            {% if module.bullet.type == 'ordered' %}
+                                <td width="{{ module.bullet.width|default(17) }}" class="bullet list-item-text">
+                                    {{ loop.index }}.
+                                </td>
+                            {% else %}
+                                <td width="{{ module.bullet.width|default(17) }}" class="img-container bullet">
+                                    <img src="{{ module.bullet.url }}" width="{{ module.bullet.width|default(17) }}" alt="bullet">
+                                </td>
+                                <td width="15"></td>
+                            {% endif %}
                         {% endif %}
                     {% endblock bullet %}
                     {% block list_item_text %}
