@@ -1,7 +1,7 @@
 <?php
 
 // include the magic sauce
-include "../../load.php";
+include "../../../load.php";
 
 $dir_name = basename(__DIR__);
 
