@@ -18,60 +18,62 @@
     <tr>
         <td class="background" align="center" background="{{ module.background_img }}" style="background-image: url({{ module.background_img }})">
             <table class="table-inner" width="600" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td height="80"></td>
-                </tr>
-                {% block img %}
-                    {% if module.img %}
+                {% block inner %}
                     <tr>
-                        <td class="img-container" align="center">
-                            <img src="{{ module.img.url }}" alt="{{ module.img.alt }}" width="{{ module.img.width }}">
-                        </td>
-                    </tr>
+                        <td height="80"></td>
+                    </tr>                
+                    {% block img %}
+                        {% if module.img %}
+                        <tr>
+                            <td class="img-container" align="center">
+                                <img src="{{ module.img.url }}" alt="{{ module.img.alt }}" width="{{ module.img.width }}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="40"></td>
+                        </tr>
+                        {% endif %}
+                    {% endblock img %}
+                    {% block title %}
+                        {% if module.title %}
+                        <tr>
+                            <td class="title" align="center">
+                                {{ module.title }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="20"></td>
+                        </tr>
+                        {% endif %}
+                    {% endblock title %}
+                    {% block subtitle %}
+                        {% if module.subtitle %}
+                        <tr>
+                            <td class="subtitle" align="center">
+                                {{ module.subtitle }}
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endblock subtitle %}
+                    {% block link %}
+                        {% if module.link %}
+                        <tr>
+                            <td height="40"></td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                {% include "@tmpl/table-button.html" with { module: module.link|merge({
+                                    type: module.link.type|default('secondary'),
+                                    align: 'center'
+                                }) } %}
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endblock link %}
                     <tr>
-                        <td height="40"></td>
+                        <td height="80"></td>
                     </tr>
-                    {% endif %}
-                {% endblock img %}
-                {% block title %}
-                    {% if module.title %}
-                    <tr>
-                        <td class="title" align="center">
-                            {{ module.title }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td height="20"></td>
-                    </tr>
-                    {% endif %}
-                {% endblock title %}
-                {% block subtitle %}
-                    {% if module.subtitle %}
-                    <tr>
-                        <td class="subtitle" align="center">
-                            {{ module.subtitle }}
-                        </td>
-                    </tr>
-                    {% endif %}
-                {% endblock subtitle %}
-                {% block link %}
-                    {% if module.link %}
-                    <tr>
-                        <td height="40"></td>
-                    </tr>
-                    <tr>
-                        <td align="center">
-                            {% include "@tmpl/table-button.html" with { module: module.link|merge({
-                                type: module.link.type|default('secondary'),
-                                align: 'center'
-                            }) } %}
-                        </td>
-                    </tr>
-                    {% endif %}
-                {% endblock link %}
-                <tr>
-                    <td height="80"></td>
-                </tr>
+                {% endblock inner %}
             </table>
         </td>
     </tr>
