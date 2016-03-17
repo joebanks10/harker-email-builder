@@ -140,6 +140,10 @@ img {
     border-bottom: 1px solid #ecf0f1;
 }
 
+.bullet.img-container {
+    padding-top: 4px;
+}
+
 .list-item-text {
     font-family: 'Open Sans', Arial, sans-serif; 
     font-size: 14px; 
