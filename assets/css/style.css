@@ -64,7 +64,6 @@ img {
     text-align: center;
 }
 
-
 .header {
     font-family: 'Open Sans', Arial, sans-serif; 
     font-size: 24px; 
@@ -74,7 +73,7 @@ img {
     text-align: left;
 }
 
-.subheader {
+.subheader, h2 {
     font-family: 'Open Sans', Arial, sans-serif; 
     font-size: 24px; 
     line-height: 34.8px;
@@ -429,6 +428,10 @@ img {
 }
 .color-bg .table-button-outline .button,
 .color-bg .table-button-outline .button a {
+    color: #ffffff;
+}
+
+.color-bg .list-item-text {
     color: #ffffff;
 }
 
