@@ -1,6 +1,5 @@
 {% set required = {
     bullet: {
-        type: 'ordered',
         url: "#{email.img_dir_url}check.png",
         width: 17
     },
@@ -21,7 +20,7 @@
                 <tr>
                     {% block bullet %}
                         {% if module.bullet %}
-                            {% if module.bullet.type == 'ordered' %}
+                            {% if module.bullet.type == 'number' %}
                                 <td width="{{ module.bullet.width|default(17) }}" class="bullet list-item-text">
                                     {{ loop.index }}.
                                 </td>
