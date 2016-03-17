@@ -21,11 +21,11 @@
                     {% block bullet %}
                         {% if module.bullet %}
                             {% if module.bullet.type == 'number' %}
-                                <td width="{{ module.bullet.width|default(17) }}" class="bullet list-item-text">
+                                <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet list-item-text">
                                     {{ loop.index }}.
                                 </td>
                             {% else %}
-                                <td width="{{ module.bullet.width|default(17) }}" class="img-container bullet">
+                                <td width="{{ module.bullet.width|default(17) }}" valign="top" class="img-container bullet">
                                     <img src="{{ module.bullet.url }}" width="{{ module.bullet.width|default(17) }}" alt="bullet">
                                 </td>
                                 <td width="15"></td>
