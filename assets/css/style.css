@@ -431,7 +431,8 @@ img {
     color: #ffffff;
 }
 
-.color-bg .list-item-text {
+.color-bg .list-item-text,
+.color-bg a {
     color: #ffffff;
 }
 
