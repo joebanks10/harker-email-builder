@@ -381,6 +381,9 @@ img {
 .gray-bg, .gray-bg .background {
     background-color: #eeeeee;
 }
+.white-bg, .white-bg .background {
+    background-color: #ffffff;
+}
 .blue-bg, .blue-bg .table-button-outline, .blue-bg .background { 
     background-color: #00809E; 
 }
