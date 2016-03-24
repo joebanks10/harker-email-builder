@@ -86,7 +86,8 @@ class Email {
 
         // create twig environment
         $twig = new Twig_Environment($this->loader, array(
-            'debug' => $debug
+            'debug' => $debug,
+            'autoescape' => false
         ));
 
         if ( $debug ) {
