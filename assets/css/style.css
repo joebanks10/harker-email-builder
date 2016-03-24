@@ -82,6 +82,11 @@ img {
     text-align: left;
 }
 
+h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
 .content {
     font-family: 'Open Sans', Arial, sans-serif; 
     font-size: 14px; 
