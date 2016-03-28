@@ -33,9 +33,11 @@ class Email {
         $this->settings = array_merge($defaults, $args);
         $this->index = 0;
 
-        $inline = isset($_GET['inline']);
+        $is_inline = isset($_GET['inline']);
+        
+        $email_data = array_merge($this->settings, $this->get_data());
         $data = array_merge(array(
-            'email' => $this->settings
+            'email' => $email_data
         ), $constants);
 
         $this->loader = $this->create_loader();
@@ -49,7 +51,7 @@ class Email {
         $this->add_function('table_position', array($this, 'get_table_position'));
         $this->add_function('render_file', array($this, 'render_file'));
 
-        $this->rendered = $this->render_email($inline, $data);
+        $this->rendered = $this->render_email($is_inline, $data);
 
         echo $this->rendered;
     }
@@ -103,7 +105,7 @@ class Email {
         $this->twig->addFunction($function);
     }
 
-    private function render_email($inline = false, $data = array()) {
+    private function render_email($is_inline = false, $data = array()) {
 
         $email_dir = $this->settings['email_dir'];
         $email_file = $this->settings['email_filename'];
@@ -112,7 +114,7 @@ class Email {
 
         $email = $this->twig->render($file, $data);
 
-        if ($inline) {
+        if ($is_inline) {
             $css = $this->get_styles();
             $email = $this->inline_css($email, $css);
         }
@@ -139,6 +141,17 @@ class Email {
         }
 
         return $css;
+    }
+
+    private function get_data() {
+        $json = [];
+
+        if ( file_exists($this->settings['email_dir'] . '/email.json') ) {
+            $content = file_get_contents($this->settings['email_dir'] . '/email.json');
+            $json = json_decode($content, true); // returns associative array
+        }
+
+        return $json;
     }
 
     // TEMPLATE FUNCTIONS
