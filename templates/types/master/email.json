@@ -1,0 +1,14 @@
+ {
+    "title": "Master Template",
+    "modules": [
+        {
+            "template": "@tmpl/table-header.html",
+            "options": {
+                "id": "",
+                "classes": "",
+                "title": "SOME BIG EVENT TITLE CAN GO HERE",
+                "subtitle": "Sep. 10, 2016 | 8 p.m. | Nichol's Hall"
+            }
+        }
+    ]
+ }

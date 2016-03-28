@@ -1,5 +1,5 @@
 {% set required = {
-    title: 'Master Template'
+    title: email.title|default('Master Template')
 } %}
 
 {% set layout = required|merge(layout|default({})) %}
@@ -26,19 +26,25 @@
     {% endblock header %}
     
     {% block content %}
-        {% include "@tmpl/table-header.html" %}
-        {% include "@tmpl/table-header-bg.html" %}
-        {% include "@tmpl/table-quote.html" %}
-        {% include "@tmpl/table-3-columns.html" %}
-        {% include "@tmpl/table-2-columns.html" %}
-        {% include "@tmpl/table-2-columns.html" with { column_direction: 'rtl' } %}
-        {% include "@tmpl/table-profile-text.html" %}
-        {% include "@tmpl/table-profile-text.html" with { column_direction: 'rtl' } %}
-        {% include "@tmpl/table-cta-1.html" %}
-        {% include "@tmpl/table-cta-2.html" %}
-        {% include "@tmpl/table-events.html" %}
-        {% include "@tmpl/table-1-column.html" %}
-        {% include "@tmpl/table-promos.html" %}
+        {% if email.modules|default([])|length %}
+            {% for module in email.modules %}
+                {% include module.template with { module: module.options } only %}
+            {% endfor %}
+        {% else %}
+            {% include "@tmpl/table-header.html" %}
+            {% include "@tmpl/table-header-bg.html" %}
+            {% include "@tmpl/table-quote.html" %}
+            {% include "@tmpl/table-3-columns.html" %}
+            {% include "@tmpl/table-2-columns.html" %}
+            {% include "@tmpl/table-2-columns.html" with { column_direction: 'rtl' } %}
+            {% include "@tmpl/table-profile-text.html" %}
+            {% include "@tmpl/table-profile-text.html" with { column_direction: 'rtl' } %}
+            {% include "@tmpl/table-cta-1.html" %}
+            {% include "@tmpl/table-cta-2.html" %}
+            {% include "@tmpl/table-events.html" %}
+            {% include "@tmpl/table-1-column.html" %}
+            {% include "@tmpl/table-promos.html" %}
+        {% endif %}
     {% endblock content %}
     
     {% block footer %}
