@@ -1,54 +1,44 @@
-{% set required = {
-    title: email.title|default('Master Template')
-} %}
-
-{% set layout = required|merge(layout|default({})) %}
-
 <!DOCTYPE html>
 <html>
 <head>
 {% block head %}
-    <title>{{ layout.title }}</title>
+    <title>{{ email.title|default('Master Template') }}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <style type="text/css" rel="theme">
-        {{ render_file(email.stylesheet_url)|raw }}
+        {{ render_file(email.stylesheet_url) }}
     </style>
     <style type="text/css" rel="addons">
-        {{ render_file(email.stylesheet_addons_url)|raw }}
+        {{ render_file(email.stylesheet_addons_url) }}
     </style>
 {% endblock head %}
 </head>
 <body>
     {% block header %}
-        {% include "@tmpl/table-header-bar.html" %}
+        {% if email.header %}
+            {% for module in email.header %}
+                {% include "#{module.template}.html" with { module: module.options|default({}) } only %}
+            {% endfor %}
+        {% else %}
+            {% include "modules/table-header-bar.html" %}
+        {% endif %}
     {% endblock header %}
     
     {% block content %}
-        {% if email.modules|default([])|length %}
-            {% for module in email.modules %}
-                {% include module.template with { module: module.options } only %}
-            {% endfor %}
-        {% else %}
-            {% include "@tmpl/table-header.html" %}
-            {% include "@tmpl/table-header-bg.html" %}
-            {% include "@tmpl/table-quote.html" %}
-            {% include "@tmpl/table-3-columns.html" %}
-            {% include "@tmpl/table-2-columns.html" %}
-            {% include "@tmpl/table-2-columns.html" with { column_direction: 'rtl' } %}
-            {% include "@tmpl/table-profile-text.html" %}
-            {% include "@tmpl/table-profile-text.html" with { column_direction: 'rtl' } %}
-            {% include "@tmpl/table-cta-1.html" %}
-            {% include "@tmpl/table-cta-2.html" %}
-            {% include "@tmpl/table-events.html" %}
-            {% include "@tmpl/table-1-column.html" %}
-            {% include "@tmpl/table-promos.html" %}
-        {% endif %}
+        {% for module in email.modules|default([]) %}
+            {% include "#{module.template}.html" with { module: module.options } only %}
+        {% endfor %}
     {% endblock content %}
     
     {% block footer %}
-        {% include "@tmpl/table-footer.html" %}
+        {% if email.footer %}
+            {% for module in email.footer %}
+                {% include "#{module.template}.html" with { module: module.options|default({}) } only %}
+            {% endfor %}
+        {% else %}
+            {% include "modules/table-footer.html" %}
+        {% endif %}
     {% endblock footer %}
 </body>
 </html>

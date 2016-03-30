@@ -1,9 +1,12 @@
+{% set defaults = {
+    padding_top: 80,
+    padding_bottom: 80
+} %}
+
 {% set module = module|default({
     id: '',
     classes: '',
     background_img: "#{ROOT_IMG_DIR_URL}header-bg-1.jpg",
-    padding_top: 80,
-    padding_bottom: 80,
     img: {
         url: "#{email.img_dir_url}img1.png",
         alt: 'Harker',
@@ -15,6 +18,8 @@
         text: 'CTA GOES HERE'
     }
 }) %}
+
+{% set module = defaults|merge(module) %}
 
 <table id="{{ module.id }}" class="table-header-bg {{ module_classes(module.classes) }}" width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
     <tr>

@@ -40,9 +40,9 @@
                                 {% if module.list %}
                                 <tr>
                                     <td class="content">
-                                        {% include "@tmpl/table-list.html" with { module: {
+                                        {% include "elements/list.html" with { module: {
                                             bullet: '',
-                                            list: module.list
+                                            items: module.list
                                         }} %}
                                     </td>
                                 </tr>

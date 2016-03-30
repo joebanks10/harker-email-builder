@@ -19,7 +19,7 @@ class Email {
 
         $defaults = array(
             'email_dir' => dirname(__file__),
-            'email_filename' => 'layout.html',
+            'email_filename' => 'email.html',
             'stylesheet_url' => ROOT_CSS_DIR_URL . 'style.css',
             'stylesheet_addons_url' => '',
             'img_dir_url' => ROOT_IMG_DIR_URL
@@ -58,28 +58,18 @@ class Email {
 
     private function create_loader() {
 
-        // set template paths
-        $tmpl_paths = array(
-            ROOT_DIR . '/templates/layouts',
-            ROOT_DIR . '/templates/modules'
-        );
-        $email_paths = array(
-            $this->settings['email_dir']
-        );
-
-        if ( file_exists($this->settings['email_dir'] . '/modules') ) {
-            $email_paths[] = $this->settings['email_dir'] . '/modules';
-        }
-        if ( file_exists($this->settings['email_dir'] . '/elements') ) {
-            $email_paths[] = $this->settings['email_dir'] . '/elements';
-        }
-
         // create loader
         $loader = new Twig_Loader_Filesystem();
 
         // add template paths to loader
-        $loader->setPaths($email_paths);
-        $loader->setPaths($tmpl_paths, 'tmpl');
+        $loader->setPaths(array(
+            ROOT_DIR . '/templates',
+            ROOT_DIR . '/templates/modules/',
+            ROOT_DIR . '/templates/elements'
+        ));
+        $loader->setPaths(array(
+            $this->settings['email_dir']
+        ), 'email');
 
         return $loader;
     }
@@ -110,7 +100,11 @@ class Email {
         $email_dir = $this->settings['email_dir'];
         $email_file = $this->settings['email_filename'];
 
-        $file = (file_exists("$email_dir/$email_file")) ? $email_file : '@tmpl/base.html';
+        if ( file_exists("$email_dir/$email_file") ) {
+            $file = '@email/' . $email_file;
+        } else {
+            $file = 'layouts/base.html';
+        }
 
         $email = $this->twig->render($file, $data);
 
@@ -148,6 +142,8 @@ class Email {
 
         if ( file_exists($this->settings['email_dir'] . '/email.json') ) {
             $content = file_get_contents($this->settings['email_dir'] . '/email.json');
+            $content = preg_replace( "/\r|\n/", "", $content ); // remove new lines for json decoding
+
             $json = json_decode($content, true); // returns associative array
         }
 
