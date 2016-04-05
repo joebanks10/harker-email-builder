@@ -21,25 +21,31 @@
                     <td height="10"></td>
                 </tr>
                 <tr>
-                    {% block bullet %}
-                        {% if module.bullet %}
-                            {% if module.bullet.type == 'number' %}
-                                <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet list-item-text">
-                                    {{ loop.index }}.
+                    <td>
+                        <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                            <tr>
+                                {% block bullet %}
+                                    {% if module.bullet %}
+                                        {% if module.bullet.type == 'number' %}
+                                            <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet list-item-text">
+                                                {{ loop.index }}.
+                                            </td>
+                                        {% else %}
+                                            <td width="{{ module.bullet.width|default(17) }}" valign="top" class="img-container bullet">
+                                                <img src="{{ module.bullet.url }}" width="{{ module.bullet.width|default(17) }}" alt="bullet">
+                                            </td>
+                                            <td width="15"></td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endblock bullet %}
+                                {% block list_item_text %}
+                                <td class="list-item-text" valign="top" align="left">
+                                    {{ item|raw }}
                                 </td>
-                            {% else %}
-                                <td width="{{ module.bullet.width|default(17) }}" valign="top" class="img-container bullet">
-                                    <img src="{{ module.bullet.url }}" width="{{ module.bullet.width|default(17) }}" alt="bullet">
-                                </td>
-                                <td width="15"></td>
-                            {% endif %}
-                        {% endif %}
-                    {% endblock bullet %}
-                    {% block list_item_text %}
-                    <td class="list-item-text" valign="top" align="left">
-                        {{ item|raw }}
+                                {% endblock list_item_text %}
+                            </tr>
+                        </table>
                     </td>
-                    {% endblock list_item_text %}
                 </tr>
                 <tr>
                     <td height="10"></td>
