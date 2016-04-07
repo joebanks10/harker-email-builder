@@ -1,0 +1,17 @@
+{% extends "elements/element.html" %}
+
+{% set defaults = {
+    text: ""
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}
+
+{% block rows %}
+    {% block content %}
+        <tr>
+            <td class="content">
+                {{ module.text }}
+            </td>
+        </tr>
+    {% endblock content %}
+{% endblock rows %}

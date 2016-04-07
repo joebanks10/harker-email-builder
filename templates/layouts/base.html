@@ -18,7 +18,7 @@
     {% block header %}
         {% if email.header %}
             {% for module in email.header %}
-                {% include "#{module.template}.html" with { module: module.options|default({}) } only %}
+                {% include "#{module.template}.html" with { module: module.options|default({}) } %}
             {% endfor %}
         {% else %}
             {% include "modules/table-header-bar.html" %}
@@ -27,14 +27,14 @@
     
     {% block content %}
         {% for module in email.modules|default([]) %}
-            {% include "#{module.template}.html" with { module: module.options } only %}
+            {% include "#{module.template}.html" with { module: module.options|default({}) } %}
         {% endfor %}
     {% endblock content %}
     
     {% block footer %}
         {% if email.footer %}
             {% for module in email.footer %}
-                {% include "#{module.template}.html" with { module: module.options|default({}) } only %}
+                {% include "#{module.template}.html" with { module: module.options|default({}) } %}
             {% endfor %}
         {% else %}
             {% include "modules/table-footer.html" %}

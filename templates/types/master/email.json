@@ -23,6 +23,15 @@
                                 <br>
                                 Pulvinar mi nullam mi morbi eleifend a etiam adipiscing scelerisque curabitur a vestibulum condimentum natoque himenaeos condimentum et fames tincidunt habitasse scelerisque nam inceptos bibendum accumsan a parturient. Massa dignissim in id justo parturient augue cubilia nam lacinia a a quisque rutrum purus a a. Iaculis elit mus rhoncus eros dui torquent adipiscing tincidunt nisl mus platea pretium nam aliquam a nec gravida sem dis suscipit commodo felis vestibulum ad a. A parturient netus nunc iaculis volutpat ac ante ligula a pulvinar a consectetur luctus vestibulum a. Ad lacus et bibendum magnis aliquet lobortis elementum scelerisque cum molestie a tristique curabitur eu."
                         }
+                    },
+                    {   
+                        "template": "list",
+                        "options": {
+                            "type" : "ul",
+                            "items": [
+                                "This is my list item"
+                            ]
+                        }
                     }
                 ]
             }

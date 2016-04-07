@@ -1,0 +1,18 @@
+{% extends "elements/element.html" %}
+
+{% set defaults = {
+    url: "",
+    alt: ""
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}
+
+{% block rows %}
+    {% block img %}
+        <tr>
+            <td class="img-container" align="center">
+                <img class="img-full" src="{{ module.src }}" alt="{{ module.alt }}">
+            </td>
+        </tr>
+    {% endblock img %}
+{% endblock rows %}

@@ -1,0 +1,21 @@
+{% set defaults = {
+    padding_top: 0,
+    padding_bottom: 20
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}
+
+{% if module.padding_top %}
+    <tr>
+        <td height="{{ module.padding_top }}"></td>
+    </tr>
+{% endif %}
+
+{% block rows %}
+{% endblock rows %}
+
+{% if module.padding_bottom %}
+<tr>
+    <td height="{{ module.padding_bottom }}"></td>
+</tr>
+{% endif %}

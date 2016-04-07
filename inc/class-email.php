@@ -64,7 +64,7 @@ class Email {
         // add template paths to loader
         $loader->setPaths(array(
             ROOT_DIR . '/templates',
-            ROOT_DIR . '/templates/modules/',
+            ROOT_DIR . '/templates/modules',
             ROOT_DIR . '/templates/elements'
         ));
         $loader->setPaths(array(
@@ -93,6 +93,12 @@ class Email {
         $function = new Twig_SimpleFunction($name, $callback);
         
         $this->twig->addFunction($function);
+    }
+
+    private function add_filter($name, $callback, $options = array()) {
+        $filter = new Twig_SimpleFilter($name, $callback, $options);
+        
+        $this->twig->addFilter($filter);
     }
 
     private function render_email($is_inline = false, $data = array()) {
