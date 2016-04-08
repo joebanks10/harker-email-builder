@@ -21,28 +21,34 @@
 {% endblock head %}
 </head>
 <body>
-    {% block header %}
-        {% include "@tmpl/table-header-bar.html" %}
-    {% endblock header %}
-    
-    {% block content %}
-        {% include "@tmpl/table-header.html" %}
-        {% include "@tmpl/table-header-bg.html" %}
-        {% include "@tmpl/table-quote.html" %}
-        {% include "@tmpl/table-3-columns.html" %}
-        {% include "@tmpl/table-2-columns.html" %}
-        {% include "@tmpl/table-2-columns.html" with { column_direction: 'rtl' } %}
-        {% include "@tmpl/table-profile-text.html" %}
-        {% include "@tmpl/table-profile-text.html" with { column_direction: 'rtl' } %}
-        {% include "@tmpl/table-cta-1.html" %}
-        {% include "@tmpl/table-cta-2.html" %}
-        {% include "@tmpl/table-events.html" %}
-        {% include "@tmpl/table-1-column.html" %}
-        {% include "@tmpl/table-promos.html" %}
-    {% endblock content %}
-    
-    {% block footer %}
-        {% include "@tmpl/table-footer.html" %}
-    {% endblock footer %}
+<table class="table-wrapper" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td align="center">
+            {% block header %}
+                {% include "@tmpl/table-header-bar.html" %}
+            {% endblock header %}
+            
+            {% block content %}
+                {% include "@tmpl/table-header.html" %}
+                {% include "@tmpl/table-header-bg.html" %}
+                {% include "@tmpl/table-quote.html" %}
+                {% include "@tmpl/table-3-columns.html" %}
+                {% include "@tmpl/table-2-columns.html" %}
+                {% include "@tmpl/table-2-columns.html" with { column_direction: 'rtl' } %}
+                {% include "@tmpl/table-profile-text.html" %}
+                {% include "@tmpl/table-profile-text.html" with { column_direction: 'rtl' } %}
+                {% include "@tmpl/table-cta-1.html" %}
+                {% include "@tmpl/table-cta-2.html" %}
+                {% include "@tmpl/table-events.html" %}
+                {% include "@tmpl/table-1-column.html" %}
+                {% include "@tmpl/table-promos.html" %}
+            {% endblock content %}
+            
+            {% block footer %}
+                {% include "@tmpl/table-footer.html" %}
+            {% endblock footer %}
+        </td>
+    </tr>
+</table>
 </body>
 </html>
