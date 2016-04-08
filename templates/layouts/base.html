@@ -15,30 +15,36 @@
 {% endblock head %}
 </head>
 <body>
-    {% block header %}
-        {% if email.header %}
-            {% for module in email.header %}
-                {% include "#{module.template}.html" with { module: module.options|default({}) } %}
-            {% endfor %}
-        {% else %}
-            {% include "modules/table-header-bar.html" %}
-        {% endif %}
-    {% endblock header %}
-    
-    {% block content %}
-        {% for module in email.modules|default([]) %}
-            {% include "#{module.template}.html" with { module: module.options|default({}) } %}
-        {% endfor %}
-    {% endblock content %}
-    
-    {% block footer %}
-        {% if email.footer %}
-            {% for module in email.footer %}
-                {% include "#{module.template}.html" with { module: module.options|default({}) } %}
-            {% endfor %}
-        {% else %}
-            {% include "modules/table-footer.html" %}
-        {% endif %}
-    {% endblock footer %}
+<table class="table-wrapper" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td align="center">
+            {% block header %}
+                {% if email.header %}
+                    {% for module in email.header %}
+                        {% include "#{module.template}.html" with { module: module.options|default({}) } %}
+                    {% endfor %}
+                {% else %}
+                    {% include "modules/table-header-bar.html" %}
+                {% endif %}
+            {% endblock header %}
+            
+            {% block content %}
+                {% for module in email.modules|default([]) %}
+                    {% include "#{module.template}.html" with { module: module.options|default({}) } %}
+                {% endfor %}
+            {% endblock content %}
+            
+            {% block footer %}
+                {% if email.footer %}
+                    {% for module in email.footer %}
+                        {% include "#{module.template}.html" with { module: module.options|default({}) } %}
+                    {% endfor %}
+                {% else %}
+                    {% include "modules/table-footer.html" %}
+                {% endif %}
+            {% endblock footer %}
+        </td>
+    </tr>
+</table>
 </body>
 </html>
