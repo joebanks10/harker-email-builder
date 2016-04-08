@@ -18,7 +18,7 @@
 {% block rows %}
     {% block list %}
         <tr>
-            <td class="list">
+            <td class="list {{ "list-#{module.type|default("default")}" }}">
                 <table class="table-list" align="left" width="100%" border="0" cellspacing="0" cellpadding="0">
                     {% for item in module.items %}
                         <tr>
@@ -37,6 +37,11 @@
                                                                 <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet list-item-text">
                                                                     {{ loop.index }}.
                                                                 </td>
+                                                            {% elseif module.type == 'ul' %}
+                                                                <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet list-item-text">
+                                                                    &bull;
+                                                                </td>
+                                                            {% elseif module.type == 'unstyled' %}
                                                             {% else %}
                                                                 <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet img-container">
                                                                     <img src="{{ module.bullet.url|default("#{ROOT_IMG_DIR_URL}check.png") }}" width="{{ module.bullet.width|default(17) }}" alt="bullet">

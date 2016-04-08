@@ -16,6 +16,12 @@
                         }
                     },
                     {   
+                        "template": "header",
+                        "options": {
+                            "text": "Header"
+                        }
+                    },
+                    {   
                         "template": "content",
                         "options": {
                             "text": "Consectetur ornare neque mattis est scelerisque platea a parturient molestie parturient laoreet a proin ac. Fusce massa hendrerit venenatis vivamus sociis eu eu potenti elementum eu suspendisse consectetur mattis id arcu aliquet mus adipiscing congue adipiscing feugiat curabitur natoque parturient.
@@ -27,7 +33,7 @@
                     {   
                         "template": "list",
                         "options": {
-                            "type" : "ul",
+                            "type": "default", 
                             "items": [
                                 "This is my list item"
                             ]

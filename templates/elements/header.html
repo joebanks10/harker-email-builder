@@ -1,0 +1,17 @@
+{% extends "elements/element.html" %}
+
+{% set defaults = {
+    text: ""
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}
+
+{% block rows %}
+    {% block header %}
+        <tr>
+            <td class="header">
+                {{ module.text }}
+            </td>
+        </tr>
+    {% endblock header %}
+{% endblock rows %}
