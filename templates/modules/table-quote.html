@@ -5,10 +5,19 @@
     cite: 'James Taylor, Grade 6 Parent'
 }) %}
 
+{% set defaults = {
+    padding_top: 40,
+    padding_bottom: 40
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}
+
 <table id="{{ module.id }}" class="table-quote {{ module_classes(module.classes) }}" width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-        <td height="40"></td>
-    </tr>
+    {% if module.padding_top %}
+        <tr>
+            <td height="{{ module.padding_top|default(40) }}"></td>
+        </tr>
+    {% endif %}
     <tr>
         <td align="center">
             <table class="table-inner" width="600" border="0" align="center" cellpadding="0" cellspacing="0" >
@@ -36,7 +45,9 @@
             </table>
         </td>
     </tr>
-    <tr>
-        <td height="20"></td>
-    </tr>
+    {% if module.padding_bottom %}
+        <tr>
+            <td height="{{ module.padding_bottom|default(40) }}"></td>
+        </tr>
+    {% endif %}
 </table>
