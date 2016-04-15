@@ -1,21 +1,19 @@
 {% set defaults = {
-    padding_top: 0,
-    padding_bottom: 20
+    element_class: "",
+    classes: "",
+    style: "",
+    attributes: "",
+    text: ""
 } %}
 
 {% set module = defaults|merge( module|default({}) ) %}
 
-{% if module.padding_top %}
-    <tr>
-        <td height="{{ module.padding_top }}"></td>
-    </tr>
-{% endif %}
-
 {% block rows %}
+    <tr>
+        <td class="element {{ module.element_class }} {{ module.classes }}" style="{{ module.style }}" {{ module.attributes }}>
+            {% block cell %}
+                {{ module.text }}
+            {% endblock cell %}
+        </td>
+    </tr>
 {% endblock rows %}
-
-{% if module.padding_bottom %}
-<tr>
-    <td height="{{ module.padding_bottom }}"></td>
-</tr>
-{% endif %}

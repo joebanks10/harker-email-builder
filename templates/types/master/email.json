@@ -9,6 +9,18 @@
                 "background_img": "",
                 "elements": [
                     {   
+                        "template": "title",
+                        "options": {
+                            "text": "Title Goes Here!"
+                        }
+                    },
+                    {   
+                        "template": "subtitle",
+                        "options": {
+                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit"
+                        }
+                    },
+                    {   
                         "template": "img",
                         "options": {
                             "src": "http://placehold.it/600x150?text=first+image",
@@ -18,7 +30,14 @@
                     {   
                         "template": "header",
                         "options": {
-                            "text": "Header"
+                            "text": "Header",
+                            "style": "padding-bottom:0;"
+                        }
+                    },
+                    {   
+                        "template": "subheader",
+                        "options": {
+                            "text": "Subheader"
                         }
                     },
                     {   
@@ -35,8 +54,19 @@
                         "options": {
                             "type": "default", 
                             "items": [
-                                "This is my list item"
+                                "This is my list item",
+                                "This is my list item again",
+                                "And another one!"
                             ]
+                        }
+                    },
+                    {   
+                        "template": "button",
+                        "options": {
+                            "type": "primary",
+                            "url": "#",
+                            "text": "CTA GOES HERE",
+                            "width": ""
                         }
                     }
                 ]

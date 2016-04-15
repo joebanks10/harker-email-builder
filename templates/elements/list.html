@@ -1,7 +1,9 @@
 {% extends "elements/element.html" %}
 
 {% set defaults = {
+    element_class: "list",
     type: "ordered",
+    width: "100%",
     bullet: {
         url: "#{ROOT_IMG_DIR_URL}check.png",
         width: 17
@@ -16,58 +18,56 @@
 {% set module = defaults|merge( module|default({}) ) %}
 
 {% block rows %}
-    {% block list %}
-        <tr>
-            <td class="list {{ "list-#{module.type|default("default")}" }}">
-                <table class="table-list" align="left" width="100%" border="0" cellspacing="0" cellpadding="0">
-                    {% for item in module.items %}
-                        <tr>
-                            <td class="list-item">
-                                <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td height="10"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
-                                                <tr>
-                                                    {% block bullet %}
-                                                        {% if module.bullet %}
-                                                            {% if module.type == 'ol' %}
-                                                                <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet list-item-text">
-                                                                    {{ loop.index }}.
-                                                                </td>
-                                                            {% elseif module.type == 'ul' %}
-                                                                <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet list-item-text">
-                                                                    &bull;
-                                                                </td>
-                                                            {% elseif module.type == 'unstyled' %}
-                                                            {% else %}
-                                                                <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet img-container">
-                                                                    <img src="{{ module.bullet.url|default("#{ROOT_IMG_DIR_URL}check.png") }}" width="{{ module.bullet.width|default(17) }}" alt="bullet">
-                                                                </td>
-                                                                <td width="15"></td>
-                                                            {% endif %}
+    <tr>
+        <td class="element {{ module.element_class }} {{ "list-#{module.type|default("default")}" }} {{ module.classes }}">
+            <table class="table-list" align="left" width="100%" border="0" cellspacing="0" cellpadding="0">
+                {% for item in module.items %}
+                    <tr>
+                        <td class="list-item">
+                            <table width="{{ module.width }}" border="0" align="left" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td height="10"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                {% block bullet %}
+                                                    {% if module.bullet %}
+                                                        {% if module.type == 'ol' %}
+                                                            <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet list-item-text">
+                                                                {{ loop.index }}.
+                                                            </td>
+                                                        {% elseif module.type == 'ul' %}
+                                                            <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet list-item-text">
+                                                                &bull;
+                                                            </td>
+                                                        {% elseif module.type == 'unstyled' %}
+                                                        {% else %}
+                                                            <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet img-container">
+                                                                <img src="{{ module.bullet.url|default("#{ROOT_IMG_DIR_URL}check.png") }}" width="{{ module.bullet.width|default(17) }}" alt="bullet">
+                                                            </td>
+                                                            <td width="15"></td>
                                                         {% endif %}
-                                                    {% endblock bullet %}
-                                                    {% block list_item_text %}
-                                                    <td class="list-item-text" valign="top">
-                                                        {{ item }}
-                                                    </td>
-                                                    {% endblock list_item_text %}
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td height="10"></td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </table>
-            </td>
-        </tr>
-    {% endblock list %}
+                                                    {% endif %}
+                                                {% endblock bullet %}
+                                                {% block list_item_text %}
+                                                <td class="list-item-text" valign="top">
+                                                    {{ item }}
+                                                </td>
+                                                {% endblock list_item_text %}
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="10"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </td>
+    </tr>
 {% endblock rows %}

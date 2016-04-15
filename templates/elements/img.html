@@ -1,18 +1,21 @@
 {% extends "elements/element.html" %}
 
 {% set defaults = {
+    element_class: "img-container",
     url: "",
-    alt: ""
+    alt: "",
+    img_class: "img-full",
+    align: "center"
 } %}
 
 {% set module = defaults|merge( module|default({}) ) %}
 
 {% block rows %}
-    {% block img %}
-        <tr>
-            <td class="img-container" align="center">
-                <img class="img-full" src="{{ module.src }}" alt="{{ module.alt }}">
-            </td>
-        </tr>
-    {% endblock img %}
+    <tr>
+        <td class="element {{ module.element_class }} {{ module.classes }}" align="{{ module.align }}" {{ module.attributes }}>
+            {% block cell %}
+                <img class="{{ module.img_class }}" width="{{ module.width }}" src="{{ module.src }}" alt="{{ module.alt }}">
+            {% endblock cell %}
+        </td>
+    </tr>
 {% endblock rows %}
