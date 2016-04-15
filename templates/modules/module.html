@@ -1,29 +1,25 @@
 {% set defaults = {
     id: "",
+    module_class: "",
     classes: "",
-    padding_top: 40,
-    padding_bottom: 40,
-    background_img: ""
+    style: "",
+    attributes: "",
+    text: ""
 } %}
 
 {% set module = defaults|merge( module|default({}) ) %}
 
-<table id="{{ module.id }}" class="table-1-column {{ module_classes(module.classes) }}" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+<table id="{{ module.id }}" class="table-module {{ module.module_class }} {{ module_classes(module.classes) }}" style="{{ module.style }}" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" {{ module.attributes }}>
     <tr>
         <td class="background" align="center" background="{{ module.background_img }}" style="background-image: url({{ module.background_img }})">
             <table align="center" class="table-inner" width="600" border="0" cellspacing="0" cellpadding="0">
-                {% if module.padding_top %}
-                    <tr>
-                        <td height="{{ module.padding_top }}"></td>
-                    </tr>
-                {% endif %}  
-                {% block inner %}
-                {% endblock inner %}
-                {% if module.padding_bottom %}
-                    <tr>
-                        <td height="{{ module.padding_bottom }}"></td>
-                    </tr>
-                {% endif %} 
+                <tr>
+                    <td class="container">
+                        {% block container %}
+                            {{ module.text }}
+                        {% endblock container %}
+                    </td>
+                </tr>
             </table>
         </td>
     </tr>

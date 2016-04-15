@@ -47,6 +47,10 @@ img {
     border: 0px;
 }
 
+
+/* Elements
+-------------------------------------------- */
+
 .element {
     padding-bottom: 21px;
 }
@@ -125,6 +129,15 @@ h2 {
     display: block;
     color: #ffffff;
     text-decoration: none; 
+}
+
+
+/* Modules
+-------------------------------------------- */
+
+.container {
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .table-button-secondary {

@@ -39,12 +39,12 @@
                             {% block content_left %}
                                 {% if module.list %}
                                 <tr>
-                                    <td class="content">
-                                        {% include "elements/list.html" with { module: {
+                                    {% include "elements/list.html" with { module: 
+                                        {
                                             bullet: '',
                                             items: module.list
-                                        }} %}
-                                    </td>
+                                        }
+                                    } %}
                                 </tr>
                                 {% endif %}
                             {% endblock content_left %}

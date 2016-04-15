@@ -8,12 +8,10 @@
 
 {% set module = defaults|merge( module|default({}) ) %}
 
-{% block rows %}
-    <tr>
-        <td class="element {{ module.element_class }} {{ module.classes }}" style="{{ module.style }}" {{ module.attributes }}>
-            {% block cell %}
-                {{ module.text }}
-            {% endblock cell %}
-        </td>
-    </tr>
-{% endblock rows %}
+{% block element %}
+    <td class="element {{ module.element_class }} {{ module.classes }}" style="{{ module.style }}" {{ module.attributes }}>
+        {% block element_content %}
+            {{ module.text }}
+        {% endblock element_content %}
+    </td>
+{% endblock element %}

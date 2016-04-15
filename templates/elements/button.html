@@ -11,7 +11,7 @@
 
 {% set module = defaults|merge(module|default({})) %}
 
-{% block cell %}
+{% block element_content %}
     <table class="table-button table-button-{{ module.type }}" width="{{ module.width }}" border="0" align="{{ module.align }}" cellpadding="0" cellspacing="0">
         <tr>
             <td class="button" valign="middle" align="center">
@@ -19,4 +19,4 @@
             </td>
         </tr>
     </table>
-{% endblock cell %}
+{% endblock element_content %}
