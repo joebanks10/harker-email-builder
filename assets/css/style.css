@@ -102,7 +102,7 @@ h2 {
 .content {
     font-family: 'Open Sans', Arial, sans-serif; 
     font-size: 14px; 
-    line-height: 28px;
+    line-height: 22px;
     color: #676767; 
     text-align: left;
 }
@@ -138,6 +138,14 @@ h2 {
 .container {
     padding-top: 40px;
     padding-bottom: 40px;
+}
+
+.row {
+    padding-bottom: 40px;
+}
+
+tr:last-child > .row {
+    padding-bottom: 0;
 }
 
 .table-button-secondary {

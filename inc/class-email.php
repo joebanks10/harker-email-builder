@@ -183,11 +183,9 @@ class Email {
     }
 
     public function get_table_position($direction) {
-        $position = '';
+        $position = 'left'; // default
 
-        if($direction == 'ltr') {
-            $position = 'left';
-        } else if ($direction == 'rtl') {
+        if ($direction == 'rtl') {
             $position = 'right';
         }
 

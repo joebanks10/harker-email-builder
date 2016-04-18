@@ -2,11 +2,12 @@
     "title": "Master Template",
     "modules": [
         {
-            "template": "col-1",
+            "template": "grid",
             "options": {
                 "id": "",
                 "classes": "",
                 "background_img": "",
+                "column_count": 2,
                 "columns": [
                     {
                         "elements": [
@@ -20,13 +21,6 @@
                                 "template": "subtitle",
                                 "options": {
                                     "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit"
-                                }
-                            },
-                            {   
-                                "template": "img",
-                                "options": {
-                                    "src": "http://placehold.it/600x150?text=first+image",
-                                    "alt": "placeholder image"
                                 }
                             },
                             {   
@@ -69,6 +63,18 @@
                                     "url": "#",
                                     "text": "CTA GOES HERE",
                                     "width": ""
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {   
+                                "template": "img",
+                                "options": {
+                                    "src": "http://placehold.it/600x400?text=placeholder",
+                                    "alt": "placeholder image",
+                                    "width": "100%"
                                 }
                             }
                         ]
