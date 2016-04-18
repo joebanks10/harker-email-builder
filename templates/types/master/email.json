@@ -7,67 +7,71 @@
                 "id": "",
                 "classes": "",
                 "background_img": "",
-                "elements": [
-                    {   
-                        "template": "title",
-                        "options": {
-                            "text": "Title Goes Here!"
-                        }
-                    },
-                    {   
-                        "template": "subtitle",
-                        "options": {
-                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit"
-                        }
-                    },
-                    {   
-                        "template": "img",
-                        "options": {
-                            "src": "http://placehold.it/600x150?text=first+image",
-                            "alt": "placeholder image"
-                        }
-                    },
-                    {   
-                        "template": "header",
-                        "options": {
-                            "text": "Header",
-                            "style": "padding-bottom:0;"
-                        }
-                    },
-                    {   
-                        "template": "subheader",
-                        "options": {
-                            "text": "Subheader"
-                        }
-                    },
-                    {   
-                        "template": "content",
-                        "options": {
-                            "text": "Consectetur ornare neque mattis est scelerisque platea a parturient molestie parturient laoreet a proin ac. Fusce massa hendrerit venenatis vivamus sociis eu eu potenti elementum eu suspendisse consectetur mattis id arcu aliquet mus adipiscing congue adipiscing feugiat curabitur natoque parturient.
-                                <br>
-                                <br>
-                                Pulvinar mi nullam mi morbi eleifend a etiam adipiscing scelerisque curabitur a vestibulum condimentum natoque himenaeos condimentum et fames tincidunt habitasse scelerisque nam inceptos bibendum accumsan a parturient. Massa dignissim in id justo parturient augue cubilia nam lacinia a a quisque rutrum purus a a. Iaculis elit mus rhoncus eros dui torquent adipiscing tincidunt nisl mus platea pretium nam aliquam a nec gravida sem dis suscipit commodo felis vestibulum ad a. A parturient netus nunc iaculis volutpat ac ante ligula a pulvinar a consectetur luctus vestibulum a. Ad lacus et bibendum magnis aliquet lobortis elementum scelerisque cum molestie a tristique curabitur eu."
-                        }
-                    },
-                    {   
-                        "template": "list",
-                        "options": {
-                            "type": "default", 
-                            "items": [
-                                "This is my list item",
-                                "This is my list item again",
-                                "And another one!"
-                            ]
-                        }
-                    },
-                    {   
-                        "template": "button",
-                        "options": {
-                            "type": "primary",
-                            "url": "#",
-                            "text": "CTA GOES HERE",
-                            "width": ""
-                        }
+                "columns": [
+                    {
+                        "elements": [
+                            {   
+                                "template": "title",
+                                "options": {
+                                    "text": "Title Goes Here!"
+                                }
+                            },
+                            {   
+                                "template": "subtitle",
+                                "options": {
+                                    "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit"
+                                }
+                            },
+                            {   
+                                "template": "img",
+                                "options": {
+                                    "src": "http://placehold.it/600x150?text=first+image",
+                                    "alt": "placeholder image"
+                                }
+                            },
+                            {   
+                                "template": "header",
+                                "options": {
+                                    "text": "Header",
+                                    "style": "padding-bottom:0;"
+                                }
+                            },
+                            {   
+                                "template": "subheader",
+                                "options": {
+                                    "text": "Subheader"
+                                }
+                            },
+                            {   
+                                "template": "content",
+                                "options": {
+                                    "text": "Consectetur ornare neque mattis est scelerisque platea a parturient molestie parturient laoreet a proin ac. Fusce massa hendrerit venenatis vivamus sociis eu eu potenti elementum eu suspendisse consectetur mattis id arcu aliquet mus adipiscing congue adipiscing feugiat curabitur natoque parturient.
+                                        <br>
+                                        <br>
+                                        Pulvinar mi nullam mi morbi eleifend a etiam adipiscing scelerisque curabitur a vestibulum condimentum natoque himenaeos condimentum et fames tincidunt habitasse scelerisque nam inceptos bibendum accumsan a parturient. Massa dignissim in id justo parturient augue cubilia nam lacinia a a quisque rutrum purus a a. Iaculis elit mus rhoncus eros dui torquent adipiscing tincidunt nisl mus platea pretium nam aliquam a nec gravida sem dis suscipit commodo felis vestibulum ad a. A parturient netus nunc iaculis volutpat ac ante ligula a pulvinar a consectetur luctus vestibulum a. Ad lacus et bibendum magnis aliquet lobortis elementum scelerisque cum molestie a tristique curabitur eu."
+                                }
+                            },
+                            {   
+                                "template": "list",
+                                "options": {
+                                    "type": "default", 
+                                    "items": [
+                                        "This is my list item",
+                                        "This is my list item again",
+                                        "And another one!"
+                                    ]
+                                }
+                            },
+                            {   
+                                "template": "button",
+                                "options": {
+                                    "type": "primary",
+                                    "url": "#",
+                                    "text": "CTA GOES HERE",
+                                    "width": ""
+                                }
+                            }
+                        ]
                     }
                 ]
             }

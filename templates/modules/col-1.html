@@ -7,13 +7,15 @@
 {% set module = defaults|merge( module|default({}) ) %}
 
 {% block container %}
-    <table class="table-col-1" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
-        {% block col_1 %}
-            {% for element in module.elements %}
-                <tr>
-                    {% include "#{element.template}.html" with { module: element.options } %}
-                </tr>
-            {% endfor %}
-        {% endblock col_1 %}
-    </table>
+    {% for column in module.columns %}
+        <table class="table-col-{{ loop.index }}" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+            {% block col_1 %}
+                {% for element in column.elements %}
+                    <tr>
+                        {% include "#{element.template}.html" with { module: element.options } %}
+                    </tr>
+                {% endfor %}
+            {% endblock col_1 %}
+        </table>
+    {% endfor %}
 {% endblock container %}
