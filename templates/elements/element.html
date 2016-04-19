@@ -1,4 +1,5 @@
 {% set defaults = {
+    id: "",
     element_class: "",
     classes: "",
     style: "",
@@ -9,7 +10,7 @@
 {% set module = defaults|merge( module|default({}) ) %}
 
 {% block element %}
-    <td class="element {{ module.element_class }} {{ module.classes }}" style="{{ module.style }}" {{ module.attributes }}>
+    <td id="{{ module.id }}" class="element {{ module.element_class }} {{ module.classes }}" style="{{ module.style }}" {{ module.attributes }}>
         {% block element_content %}
             {{ module.text }}
         {% endblock element_content %}
