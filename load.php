@@ -8,9 +8,9 @@ if ( $_SERVER['SERVER_NAME'] == 'localhost' ) {
 
 // constants
 define('ROOT_DIR', dirname(__file__));
-define('ROOT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/email-builder/');
-define('ROOT_CSS_DIR_URL', ROOT_URL . 'assets/css/');
-define('ROOT_IMG_DIR_URL', ROOT_URL . 'assets/img/');
+define('ROOT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/email-builder');
+define('ROOT_CSS_DIR_URL', ROOT_URL . '/assets/css');
+define('ROOT_IMG_DIR_URL', ROOT_URL . '/assets/img');
 
 // include third-party dependencies
 require_once ROOT_DIR . "/vendor/autoload.php";

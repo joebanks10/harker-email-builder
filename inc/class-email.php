@@ -156,6 +156,19 @@ class Email {
         return $json;
     }
 
+    static public function get_email_url($email_path) {
+        $email_url = '';
+        $email_dirname = basename($email_path);
+
+        if ( preg_match('/templates\/types/', $email_path) ) {
+            $email_url = ROOT_URL . '/templates/types/' . $email_dirname;
+        } else {
+            $email_url = ROOT_URL . '/emails/' . $email_dirname;
+        }
+
+        return $email_url;
+    }
+
     // TEMPLATE FUNCTIONS
     // ------------------------------------------
 
