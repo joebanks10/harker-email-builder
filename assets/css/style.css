@@ -55,11 +55,15 @@ img {
     padding-bottom: 21px;
 }
 
+tr:last-child > .element {
+    padding-bottom: 0;
+}
+
 .title {
     font-family: 'Open Sans', Arial, sans-serif; 
     font-size: 28px;
     line-height: 40.6px;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     color: #3B3B3B; 
     font-weight: bold; 
     text-align: center;
@@ -469,16 +473,7 @@ tr:last-child > .row {
     border: 1px solid #ffffff;
 }
 
-.color-bg .header,
-.color-bg .content,
-.color-bg .table-button-outline .button,
-.color-bg .table-button-outline .button a,
-.color-bg .list-item-text,
-.color-bg a,
-.white-text .header, 
-.white-text .subheader, 
-.white-text h2,
-.white-text .content,
+.white-text .element,
 .white-text .table-button-outline .button,
 .white-text .table-button-outline .button a,
 .white-text .list-item-text,

@@ -2,7 +2,7 @@
 
 {% set defaults = {
     element_class: "list",
-    type: "ordered",
+    type: "",
     width: "100%",
     bullet: {
         url: "#{ROOT_IMG_DIR_URL}/check.png",
@@ -35,15 +35,16 @@
                                     <tr>
                                         {% block bullet %}
                                             {% if module.bullet %}
-                                                {% if module.type == 'ol' %}
+                                                {% if module.type == 'ordered' %}
                                                     <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet list-item-text">
                                                         {{ loop.index }}.
                                                     </td>
-                                                {% elseif module.type == 'ul' %}
+                                                {% elseif module.type == 'unordered' %}
                                                     <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet list-item-text">
                                                         &bull;
                                                     </td>
                                                 {% elseif module.type == 'unstyled' %}
+                                                    <!-- unstyled -->
                                                 {% else %}
                                                     <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet img-container">
                                                         <img src="{{ module.bullet.url|default("#{ROOT_IMG_DIR_URL}check.png") }}" width="{{ module.bullet.width|default(17) }}" alt="bullet">

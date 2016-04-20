@@ -5,17 +5,27 @@
     style: "",
     attributes: "",
     text: "",
-    width: 600
+    width: 600,
+    collapse_gutters: false,
+    table_style: "",
+    background_img: "",
+    background_style: ""
 } %}
 
 {% set module = defaults|merge( module|default({}) ) %}
 
-<table id="{{ module.id }}" class="table-module {{ module.module_class }} {{ module_classes(module.classes) }}" style="{{ module.style }}" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" {{ module.attributes }}>
+{% if module.collapse_gutters %}
+    {% set table_inner_class = "table-full" %}
+{% else %}
+    {% set table_inner_class = "table-inner" %}
+{% endif %}
+
+<table id="{{ module.id }}" class="table-module {{ module.module_class }} {{ module_classes(module.classes) }}" style="{{ module.table_style }}" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" {{ module.attributes }}>
     <tr>
-        <td class="background" align="center" background="{{ module.background_img }}" style="background-image: url({{ module.background_img }})">
-            <table align="center" class="table-inner" width="{{ module.width }}" border="0" cellspacing="0" cellpadding="0">
+        <td class="background" align="center" background="{{ module.background_img }}" style="background-image: url({{ module.background_img }}) {{ module.background_style }}">
+            <table align="center" class="{{ table_inner_class }}" width="{{ module.width }}" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td class="container">
+                    <td class="container" style="{{ module.style }}">
                         {% block container %}
                             {{ module.text }}
                         {% endblock container %}
