@@ -164,16 +164,16 @@
         },
         {
             "template": "grid",
-            "classes": "module-photo-text blue-bg",
-            "column_count": 2,
             "options": {
+                "classes": "module-photo-text green-bg white-text",
+                "column_count": 2,
                 "columns": [
                     {
                         "elements": [
                             {
                                 "template": "img",
                                 "options": {
-                                    "href": "http://dummyimage.com/300x200/cccccc/333333.gif&text=big+image",
+                                    "src": "http://dummyimage.com/300x200/cccccc/333333.gif&text=placeholder+image",
                                     "width": "100%"
                                 }
                             }
@@ -198,6 +198,99 @@
                                 "template": "content",
                                 "options": {
                                     "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "classes": "module-photo-text",
+                "column_count": 2,
+                "column_direction": "rtl",
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "img",
+                                "options": {
+                                    "src": "http://dummyimage.com/300x200/cccccc/333333.gif&text=placeholder+image",
+                                    "width": "100%"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Module Header",
+                                    "style": "padding-bottom: 0;"
+                                }
+                            },
+                            {
+                                "template": "subheader",
+                                "options": {
+                                    "text": "Module Subeader"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "classes": "module-cta white-text",
+                "background_img": "http://skylark.harker.org/email-builder/assets/img/cta-bg.jpg",
+                "column_count": 2,
+                "columns": [
+                    {
+                        "width": "400",
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Module Header"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "width": "180",
+                        "elements": [
+                            {
+                                "template": "button",
+                                "options": {
+                                    "text": "CTA TEXT HERE",
+                                    "href": "http://www.harker.org",
+                                    "width": "100%"
+                                }
+                            },
+                            {
+                                "template": "button",
+                                "options": {
+                                    "text": "CTA TEXT HERE",
+                                    "href": "http://www.harker.org",
+                                    "width": "100%",
+                                    "type": "outline"
                                 }
                             }
                         ]

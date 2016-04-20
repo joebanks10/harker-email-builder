@@ -91,7 +91,7 @@ tr:last-child > .element {
 
 .subheader, h2 {
     font-family: 'Open Sans', Arial, sans-serif; 
-    font-size: 24px; 
+    font-size: 20px; 
     line-height: 34.8px;
     color: #3B3B3B; 
     font-weight: 100; 
@@ -138,6 +138,11 @@ h2 {
 
 /* Modules
 -------------------------------------------- */
+
+.background {
+    background-size: cover; 
+    background-position: center center;
+}
 
 .container {
     padding-top: 40px;
@@ -374,12 +379,6 @@ tr:last-child > .row {
 
 .table-cta {
     background-color: #ffffff;
-}
-
-.table-cta .background {
-    background-color: #3b3b3b;
-    background-size: cover; 
-    background-position: bottom;
 }
 
 .table-cta .background-shadow {
