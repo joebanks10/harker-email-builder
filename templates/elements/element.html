@@ -3,16 +3,15 @@
     element_class: "",
     classes: "",
     style: "",
+    align: "left",
     attributes: "",
     text: ""
 } %}
 
 {% set module = defaults|merge( module|default({}) ) %}
 
-{% block element %}
-    <td id="{{ module.id }}" class="element {{ module.element_class }} {{ module.classes }}" style="{{ module.style }}" {{ module.attributes }}>
-        {% block element_content %}
-            {{ module.text }}
-        {% endblock element_content %}
-    </td>
-{% endblock element %}
+<td id="{{ module.id }}" class="element {{ module.element_class }} {{ module.classes }}" style="{{ module.style }}" align="{{ module.align }}" {{ module.attributes }}>
+    {% block element_content %}
+        {{ module.text }}
+    {% endblock element_content %}
+</td>
