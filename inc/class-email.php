@@ -21,7 +21,7 @@ class Email {
             'email_dir' => dirname(__file__),
             'email_template' => 'email.html',
             'email_data' => 'email.json',
-            'stylesheet_url' => ROOT_CSS_DIR_URL . 'style.css',
+            'stylesheet_url' => ROOT_CSS_DIR_URL . '/style.css',
             'stylesheet_addons_url' => '',
             'img_dir_url' => ROOT_IMG_DIR_URL
         );
@@ -158,17 +158,8 @@ class Email {
         return $json;
     }
 
-    static public function get_email_url($email_path) {
-        $email_url = '';
-        $email_dirname = basename($email_path);
-
-        if ( preg_match('/templates\/types/', $email_path) ) {
-            $email_url = ROOT_URL . '/templates/types/' . $email_dirname;
-        } else {
-            $email_url = ROOT_URL . '/emails/' . $email_dirname;
-        }
-
-        return $email_url;
+    static public function get_email_url() {
+        return "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     }
 
     // TEMPLATE FUNCTIONS
