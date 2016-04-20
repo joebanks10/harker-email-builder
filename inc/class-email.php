@@ -19,7 +19,8 @@ class Email {
 
         $defaults = array(
             'email_dir' => dirname(__file__),
-            'email_filename' => 'email.html',
+            'email_template' => 'email.html',
+            'email_data' => 'email.json',
             'stylesheet_url' => ROOT_CSS_DIR_URL . 'style.css',
             'stylesheet_addons_url' => '',
             'img_dir_url' => ROOT_IMG_DIR_URL
@@ -104,7 +105,7 @@ class Email {
     private function render_email($is_inline = false, $data = array()) {
 
         $email_dir = $this->settings['email_dir'];
-        $email_file = $this->settings['email_filename'];
+        $email_file = $this->settings['email_template'];
 
         if ( file_exists("$email_dir/$email_file") ) {
             $file = '@email/' . $email_file;
@@ -145,9 +146,10 @@ class Email {
 
     private function get_data() {
         $json = [];
+        $email_data = $this->settings['email_data'];
 
-        if ( file_exists($this->settings['email_dir'] . '/email.json') ) {
-            $content = file_get_contents($this->settings['email_dir'] . '/email.json');
+        if ( file_exists($this->settings['email_dir'] . '/' . $email_data) ) {
+            $content = file_get_contents($this->settings['email_dir'] . '/' . $email_data);
             $content = preg_replace( "/\r|\n/", "", $content ); // remove new lines for json decoding
 
             $json = json_decode($content, true); // returns associative array
