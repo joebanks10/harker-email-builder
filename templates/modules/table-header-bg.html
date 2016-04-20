@@ -45,13 +45,13 @@
                         {% endif %}
                     {% endblock title %}
                     {% block subtitle %}
-                        {% if module.subtitle|raw %}
+                        {% if module.subtitle %}
                         <tr>
                             <td height="40"></td>
                         </tr>
                         <tr>
                             <td class="subtitle" align="center">
-                                {{ module.subtitle }}
+                                {{ module.subtitle|raw }}
                             </td>
                         </tr>
                         {% endif %}
