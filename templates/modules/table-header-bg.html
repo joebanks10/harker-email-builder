@@ -45,7 +45,7 @@
                         {% endif %}
                     {% endblock title %}
                     {% block subtitle %}
-                        {% if module.subtitle %}
+                        {% if module.subtitle|raw %}
                         <tr>
                             <td height="40"></td>
                         </tr>
