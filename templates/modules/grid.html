@@ -4,7 +4,7 @@
     module_class: "module-grid",
     column_count: 1,
     column_direction: 'ltr',
-    gutter_width: 10,
+    gutter_width: 20,
     gutter_height: 40
 } %}
 
@@ -13,7 +13,8 @@
 {% block container %}
     {% set private = {
         column_width: (module.width - ((module.column_count-1) * module.gutter_width)) / module.column_count|round(1, 'floor'),
-        column_align: table_position(module.column_direction)
+        column_align: table_position(module.column_direction),
+        gutter_width: module.gutter_width - 2
     } %}
 
     {% set module = module|merge(private) %}
