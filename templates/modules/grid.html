@@ -12,7 +12,7 @@
 
 {% block container %}
     {% set private = {
-        column_width: (module.width - ((module.column_count-1) * module.gutter_width)) / module.column_count|round(1, 'floor'),
+        column_width: (module.width - ((module.column_count-1) * module.gutter_width)) / module.column_count|round(1, 'floor') - 1,
         column_align: table_position(module.column_direction)
     } %}
 
