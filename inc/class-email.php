@@ -159,7 +159,7 @@ class Email {
     }
 
     static public function get_email_url() {
-        $url_parts = explode('?', $_SERVER[REQUEST_URI]);
+        $url_parts = explode('?', $_SERVER['REQUEST_URI']);
         $url = $uri_parts[0]; // URL w/o arguments
 
         return "http://$_SERVER[HTTP_HOST]$url";
