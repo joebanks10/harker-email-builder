@@ -417,6 +417,10 @@ tr:last-child > .row {
 /* Utility Classes
 -------------------------------------------- */
 
+.white-text {
+    background-color: #333333;
+}
+
 .gray-bg, .gray-bg .background {
     background-color: #eeeeee;
 }
