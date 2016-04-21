@@ -145,7 +145,7 @@ class Email {
     }
 
     private function get_data() {
-        $json = [];
+        $json = array();
         $email_data = $this->settings['email_data'];
 
         if ( file_exists($this->settings['email_dir'] . '/' . $email_data) ) {
