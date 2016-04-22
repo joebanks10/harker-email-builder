@@ -24,12 +24,12 @@
                         {% include "#{module.template}.html" with { module: module.options|default({}) } %}
                     {% endfor %}
                 {% else %}
-                    {% include "modules/table-header-bar.html" %}
+                    {% include "topbar.html" %}
                 {% endif %}
             {% endblock header %}
             
             {% block content %}
-                {% for module in email.modules|default([]) %}
+                {% for module in email.content|default([]) %}
                     {% include "#{module.template}.html" with { module: module.options|default({}) } %}
                 {% endfor %}
             {% endblock content %}

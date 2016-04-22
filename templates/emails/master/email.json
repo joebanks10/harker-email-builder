@@ -1,14 +1,39 @@
  {
     "title": "Master Template",
-    "modules": [
+    
+    // "header": [
+    //     // Custom Header - edit existing topbar module or add new modules
+    //     {
+    //         "template": "topbar",
+    //         "options": {
+    //             "img": {
+    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
+    //                 "alt": "Updated Alt Tag"
+    //                 "width": 215
+    //             }
+    //         }
+    //     }
+    // ],
+    
+    "content": [
+        // Content Modules - add modules at this level
+        // Templates: grid
+        // Standard Options: id, class, style (for td.container), attributes, width, text, 
+        // collapse_gutters, background_img, background_style (for td.background), 
+        // table_style (for table.module)
         {
             "template": "grid",
             "options": {
-                "classes": "module-title",
-                "column_count": 1,
+                // Module options: class, column_count
+                "class": "module-title", // give the module a class name (optional)
+                "column_count": 1, // define number of columns here (default: 1)
                 "columns": [
+                    // add/edit columns here
                     {
                         "elements": [
+                            // Add/edit elements at this level
+                            // Available templates: title, subtitle, header, subheader, content, 
+                            // img, list, button
                             {   
                                 "template": "title",
                                 "options": {
@@ -29,7 +54,7 @@
         {
             "template": "grid",
             "options": {
-                "classes": "module-hero white-text",
+                "class": "module-hero white-text",
                 "background_img": "http://skylark.harker.org/email-builder/assets/img/header-bg-1.jpg",
                 "style": "padding: 80px 0;",
                 "columns": [
@@ -68,7 +93,7 @@
         {
             "template": "grid",
             "options": {
-                "classes": "module-big-img gray-bg",
+                "class": "module-big-img gray-bg",
                 "style": "padding: 0;",
                 "collapse_gutters": true,
                 "columns": [
@@ -90,7 +115,7 @@
         {
             "template": "grid",
             "options": {
-                "classes": "module-full-text",
+                "class": "module-full-text",
                 "columns": [
                     {
                         "elements": [
@@ -165,7 +190,7 @@
         {
             "template": "grid",
             "options": {
-                "classes": "module-photo-text green-bg white-text",
+                "class": "module-photo-text green-bg white-text",
                 "column_count": 2,
                 "columns": [
                     {
@@ -208,7 +233,7 @@
         {
             "template": "grid",
             "options": {
-                "classes": "module-photo-text",
+                "class": "module-photo-text",
                 "column_count": 2,
                 "column_direction": "rtl",
                 "columns": [
@@ -252,7 +277,7 @@
         {
             "template": "grid",
             "options": {
-                "classes": "module-cta white-text",
+                "class": "module-cta white-text",
                 "background_img": "http://skylark.harker.org/email-builder/assets/img/cta-bg.jpg",
                 "column_count": 2,
                 "columns": [

@@ -1,0 +1,24 @@
+{% extends "modules/grid.html" %}
+
+{% set defaults = {
+    module_class: "module-topbar",
+    columns: [
+        {
+            width: "auto",
+            elements: [
+                {
+                    template: "img",
+                    options: {
+                        class: "logo-container",
+                        src: module.img.src|default("#{ROOT_IMG_DIR_URL}/img0.png"),
+                        alt: module.img.alt|default("Harker Logo"),
+                        width: module.img.width|default(215),
+                        img_class: module.img.class|default("")
+                    }
+                }
+            ]
+        }
+    ]
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}

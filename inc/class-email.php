@@ -65,9 +65,9 @@ class Email {
 
         // add template paths to loader
         $loader->setPaths(array(
-            ROOT_DIR . '/templates',
+            ROOT_DIR . '/templates/elements',
             ROOT_DIR . '/templates/modules',
-            ROOT_DIR . '/templates/elements'
+            ROOT_DIR . '/templates'
         ));
         $loader->setPaths(array(
             $this->settings['email_dir']
@@ -151,6 +151,7 @@ class Email {
 
         if ( file_exists($this->settings['email_dir'] . '/' . $email_data) ) {
             $content = file_get_contents($this->settings['email_dir'] . '/' . $email_data);
+            $content = preg_replace("#(/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/)|([\s\t]//.*)|(^//.*)#", '', $content); // remove comments
             $content = preg_replace( "/\r|\n/", "", $content ); // remove new lines for json decoding
 
             $json = json_decode($content, true); // returns associative array
@@ -236,16 +237,20 @@ class Email {
 
     public function get_column_width($column, $module) {
         $container_width = $module['width'] - (($module['column_count'] - 1) * $module['gutter_width']);
-        $column_width = $container_width; // default
+        $column_width = ""; // default
         $column_reduction = 1; // reduce width for Outlook 07/10/11
 
         if ( !isset($column['width']) ) {
             // if there is no column width defined
-            $column_width = floor($container_width / $module['column_count']) - $column_reduction;
+            if ($module['column_count'] == 1) {
+                $column_width = "100%";
+            } else {
+                $column_width = floor($container_width / $module['column_count']) - $column_reduction;
+            }
         } else if ( isset($column['width']) && is_numeric($column['width']) && $column['width'] >= 0 && $column['width'] <= $container_width ) {
             // if column width is a valid pixel number
             $column_width = $column['width'];
-        } else if ( preg_match('/%/', $column['width']) ) {
+        } else if ( isset($column['width']) && preg_match('/%/', $column['width']) ) {
             // if column width is a percentage
             $column_width = floor((intval($column['width'])/100) * $container_width) - $column_reduction;
         }
