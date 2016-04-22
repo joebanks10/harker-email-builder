@@ -174,7 +174,7 @@
                                 "template": "img",
                                 "options": {
                                     "src": "http://dummyimage.com/290x200/cccccc/333333.gif&text=placeholder+image",
-                                    "width": "290"
+                                    "width": "100%"
                                 }
                             }
                         ]
@@ -218,7 +218,7 @@
                                 "template": "img",
                                 "options": {
                                     "src": "http://dummyimage.com/290x200/cccccc/333333.gif&text=placeholder+image",
-                                    "width": "290"
+                                    "width": "100%"
                                 }
                             }
                         ]
