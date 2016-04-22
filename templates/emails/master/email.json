@@ -173,8 +173,8 @@
                             {
                                 "template": "img",
                                 "options": {
-                                    "src": "http://dummyimage.com/280x200/cccccc/333333.gif&text=placeholder+image",
-                                    "width": "100%"
+                                    "src": "http://dummyimage.com/290x200/cccccc/333333.gif&text=placeholder+image",
+                                    "width": "290"
                                 }
                             }
                         ]
@@ -217,8 +217,8 @@
                             {
                                 "template": "img",
                                 "options": {
-                                    "src": "http://dummyimage.com/280x200/cccccc/333333.gif&text=placeholder+image",
-                                    "width": "100%"
+                                    "src": "http://dummyimage.com/290x200/cccccc/333333.gif&text=placeholder+image",
+                                    "width": "290"
                                 }
                             }
                         ]
