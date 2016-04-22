@@ -181,6 +181,8 @@ tr:last-child > .row {
 
 
 .list-item {
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #dddddd; /* #ecf0f1*/
 }
 
