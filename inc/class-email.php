@@ -252,7 +252,11 @@ class Email {
             $column_width = $column['width'];
         } else if ( isset($column['width']) && preg_match('/%/', $column['width']) ) {
             // if column width is a percentage
-            $column_width = floor((intval($column['width'])/100) * $container_width) - $column_reduction;
+            if ( $column['width'] == '100%' ) {
+                $column_width = "100%";
+            } else {
+                $column_width = floor((intval($column['width'])/100) * $container_width) - $column_reduction;
+            }
         }
 
         return $column_width;

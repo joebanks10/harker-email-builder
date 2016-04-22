@@ -1,8 +1,8 @@
  {
     "title": "Master Template",
     
+    // Custom Header
     // "header": [
-    //     // Custom Header - edit existing topbar module or add new modules
     //     {
     //         "template": "topbar",
     //         "options": {
@@ -15,112 +15,39 @@
     //     }
     // ],
     
+    // Content Modules
     "content": [
-        // Content Modules - add modules at this level
-        // Templates: grid
-        // Standard Options: id, class, style (for td.container), attributes, width, text, 
-        // collapse_gutters, background_img, background_style (for td.background), 
-        // table_style (for table.module)
         {
-            "template": "grid",
+            // Templates: module, grid
+            "template": "grid", 
             "options": {
-                // Module options: class, column_count
-                "class": "module-title", // give the module a class name (optional)
-                "column_count": 1, // define number of columns here (default: 1)
-                "columns": [
-                    // add/edit columns here
-                    {
-                        "elements": [
-                            // Add/edit elements at this level
-                            // Available templates: title, subtitle, header, subheader, content, 
-                            // img, list, button
-                            {   
-                                "template": "title",
-                                "options": {
-                                    "text": "SOME BIG EVENT TITLE CAN GO HERE"
-                                }
-                            },
-                            {   
-                                "template": "subtitle",
-                                "options": {
-                                    "text": "Sep. 10, 2016 | 7 p.m. | Nichol's Hall"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "template": "grid",
-            "options": {
-                "class": "module-hero white-text",
-                "background_img": "http://skylark.harker.org/email-builder/assets/img/header-bg-1.jpg",
-                "style": "padding: 80px 0;",
-                "columns": [
-                    {
-                        "elements": [
-                            {   
-                                "template": "img",
-                                "options": {
-                                    "src": "http://skylark.harker.org/email-builder/assets/img/img1.png",
-                                    "alt": "Harker Logo",
-                                    "img_class": "",
-                                    "style": "padding-bottom: 40px;"
-                                }
-                            },
-                            {   
-                                "template": "subtitle",
-                                "options": {
-                                    "text": "A SUBTITLE CAN GO HERE, MAYBE SOME IMPORTANT INFO OR NOTHING AT ALL",
-                                    "style": "padding-bottom: 40px;"
-                                }
-                            },
-                            {   
-                                "template": "button",
-                                "options": {
-                                    "type": "secondary",
-                                    "href": "http://www.harker.org",
-                                    "text": "CLICK ME NOW!",
-                                    "align": "center"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "template": "grid",
-            "options": {
-                "class": "module-big-img gray-bg",
-                "style": "padding: 0;",
-                "collapse_gutters": true,
-                "columns": [
-                    {
-                        "elements": [
-                            {   
-                                "template": "img",
-                                "options": {
-                                    "src": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image",
-                                    "alt": "Big Image",
-                                    "style": "padding: 0;"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "template": "grid",
-            "options": {
+                // Standard Module Options: id, class, text, 
+                // width, collapse_gutters (remove outer gutters on mobile), 
+                // background_img (url), background_style (for td.background), 
+                // style (for td.container), table_style (for table.module)
+                // 
+                // Grid Options: columns (required for grid), 
+                // column_count, column_direction (ltr or rtl), 
+                // gutter_width, gutter_height
                 "class": "module-full-text",
                 "columns": [
                     {
+                        // Column Options: width, elements
+                        "width": "100%",
                         "elements": [
+                            {   
+                                // Templates: title, subtitle, header, subheader, 
+                                // content, img, list, button
+                                "template": "img",
+                                "options": {
+                                    // Standard Element Options: class, style, align
+                                    "src": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image",
+                                    "alt": "Big Image",
+                                    "style": "padding-bottom: 40px;"
+                                }
+                            },
                             {
-                                "template": "title",
+                                "template": "title", 
                                 "options": {
                                     "text": "Some Title Can Go Here",
                                     "style": "padding-bottom: 20px;"
@@ -143,7 +70,14 @@
                             {   
                                 "template": "header",
                                 "options": {
-                                    "text": "Module Header"
+                                    "text": "Module Header",
+                                    "style": "padding-bottom: 0;"
+                                }
+                            },
+                            {   
+                                "template": "subheader",
+                                "options": {
+                                    "text": "Module Subeader"
                                 }
                             },
                             {   
@@ -162,6 +96,7 @@
                             {
                                 "template": "list",
                                 "options": {
+                                    "type": "default", // default, ordered, unordered, unstyled
                                     "items": [
                                         "Item #1",
                                         "Item #2",
@@ -178,6 +113,7 @@
                             {   
                                 "template": "button",
                                 "options": {
+                                    "type": "primary", // primary, secondary, outline
                                     "text": "Learn More About Cool Stuff",
                                     "href": "http://www.harker.org"
                                 }
@@ -267,6 +203,67 @@
                                 "template": "content",
                                 "options": {
                                     "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "module-hero white-text",
+                "background_img": "http://skylark.harker.org/email-builder/assets/img/header-bg-1.jpg",
+                "style": "padding: 80px 0;",
+                "columns": [
+                    {
+                        "elements": [
+                            {   
+                                "template": "img",
+                                "options": {
+                                    "src": "http://skylark.harker.org/email-builder/assets/img/img1.png",
+                                    "alt": "Harker Logo",
+                                    "img_class": "",
+                                    "style": "padding-bottom: 40px;"
+                                }
+                            },
+                            {   
+                                "template": "subtitle",
+                                "options": {
+                                    "text": "A SUBTITLE CAN GO HERE, MAYBE SOME IMPORTANT INFO OR NOTHING AT ALL",
+                                    "style": "padding-bottom: 40px;"
+                                }
+                            },
+                            {   
+                                "template": "button",
+                                "options": {
+                                    "type": "secondary",
+                                    "href": "http://www.harker.org",
+                                    "text": "CLICK ME NOW!",
+                                    "align": "center"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "module-big-img gray-bg",
+                "style": "padding: 0;",
+                "collapse_gutters": true,
+                "columns": [
+                    {
+                        "elements": [
+                            {   
+                                "template": "img",
+                                "options": {
+                                    "src": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image",
+                                    "alt": "Big Image",
+                                    "style": "padding: 0;"
                                 }
                             }
                         ]

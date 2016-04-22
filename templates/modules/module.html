@@ -27,7 +27,13 @@
                 <tr>
                     <td class="container" style="{{ module.style }}">
                         {% block container %}
-                            {{ module.text }}
+                            <table widht="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td class="content">
+                                        {{ module.text }}
+                                    </td>
+                                </tr>
+                            </table>
                         {% endblock container %}
                     </td>
                 </tr>
