@@ -182,7 +182,7 @@ tr:last-child > .row {
 
 
 .list-item {
-    border-bottom: 1px solid #ecf0f1;
+    border-bottom: 1px solid #dddddd; /* #ecf0f1*/
 }
 
 .bullet.img-container {

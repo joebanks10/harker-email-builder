@@ -51,6 +51,7 @@ class Email {
         $this->add_function('opposite_direction', array($this, 'get_opposite_direction'));
         $this->add_function('table_position', array($this, 'get_table_position'));
         $this->add_function('render_file', array($this, 'render_file'));
+        $this->add_function('get_column_width', array($this, 'get_column_width'));
 
         $this->rendered = $this->render_email($is_inline, $data);
 
@@ -231,6 +232,25 @@ class Email {
         }
 
         return $feed;
+    }
+
+    public function get_column_width($column, $module) {
+        $container_width = $module['width'] - (($module['column_count'] - 1) * $module['gutter_width']);
+        $column_width = $container_width; // default
+        $column_reduction = 1; // reduce width for Outlook 07/10/11
+
+        if ( !isset($column['width']) ) {
+            // if there is no column width defined
+            $column_width = floor($container_width / $module['column_count']) - $column_reduction;
+        } else if ( isset($column['width']) && is_numeric($column['width']) && $column['width'] >= 0 && $column['width'] <= $container_width ) {
+            // if column width is a valid pixel number
+            $column_width = $column['width'];
+        } else if ( preg_match('/%/', $column['width']) ) {
+            // if column width is a percentage
+            $column_width = floor((intval($column['width'])/100) * $container_width) - $column_reduction;
+        }
+
+        return $column_width;
     }
 
 }

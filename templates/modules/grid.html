@@ -11,21 +11,17 @@
 {% set module = defaults|merge( module|default({}) ) %}
 
 {% block container %}
-    {% set private = {
-        column_width: (module.width - ((module.column_count-1) * module.gutter_width)) / module.column_count|round(1, 'floor'),
-        column_align: table_position(module.column_direction),
-        column_reduction: 1
-    } %}
-
-    {% set module = module|merge(private) %}
+    {% set column_align = table_position(module.column_direction) %}
 
     <table class="table-rows" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
         {% for row in module.columns|batch(module.column_count) %}
             <tr>
                 <td class="row">
                     {% for column in row %}
-                        {% if loop.index in range(1, module.column_count-1) %}
-                            <table class="table-full" width="{{ column.width|default(module.column_width) - module.column_reduction }}" border="0" align="{{ module.column_align }}" cellpadding="0" cellspacing="0">
+                        {% set column_width = get_column_width(column, module) %}
+
+                        {% if loop.index in range(1, module.column_count - 1) %}
+                            <table class="table-full" width="{{ column_width }}" border="0" align="{{ column_align }}" cellpadding="0" cellspacing="0">
                                 {% for element in column.elements %}
                                     <tr>
                                         {% include "#{element.template}.html" with { module: element.options } %}
@@ -33,7 +29,7 @@
                                 {% endfor %}
                             </table>
                             {% if module.column_count != 1 %}
-                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="{{ module.column_align }}">
+                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="{{ column_align }}">
                                     <tr>
                                         <td height="{{ module.gutter_height }}" style="font-size: 0;line-height: 0;border-collapse: collapse;">
                                             <p style="padding-left: {{ module.gutter_width }}px;">&nbsp;</p>
@@ -42,7 +38,7 @@
                                 </table>
                             {% endif %}
                         {% else %}
-                            <table class="table-full" width="{{ column.width|default(module.column_width) - module.column_reduction }}" border="0" align="{{ opposite_direction(module.column_align) }}" cellpadding="0" cellspacing="0">
+                            <table class="table-full" width="{{ column_width }}" border="0" align="{{ opposite_direction(column_align) }}" cellpadding="0" cellspacing="0">
                                 {% for element in column.elements %}
                                     <tr>
                                         {% include "#{element.template}.html" with { module: element.options } %}
