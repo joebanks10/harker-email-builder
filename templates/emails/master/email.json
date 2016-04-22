@@ -32,7 +32,7 @@
                 "class": "module-full-text",
                 "columns": [
                     {
-                        // Column Options: width, elements
+                        // Column Options: width (percent or numeric), elements
                         "width": "100%",
                         "elements": [
                             {   
@@ -321,4 +321,32 @@
             }
         }
     ]
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
  }

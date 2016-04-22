@@ -40,7 +40,8 @@
                         {% include "#{module.template}.html" with { module: module.options|default({}) } %}
                     {% endfor %}
                 {% else %}
-                    {% include "modules/table-footer.html" %}
+                    {% include "footer.html" %}
+                    {% include "bottombar.html" %}
                 {% endif %}
             {% endblock footer %}
         </td>
