@@ -58,6 +58,10 @@ tr:last-child > .element {
     padding-bottom: 0;
 }
 
+tr:first-child > .element {
+    padding-top: 0;
+}
+
 .title {
     font-family: 'Open Sans', Arial, sans-serif; 
     font-size: 28px;
@@ -107,6 +111,15 @@ h2 {
     font-size: 14px; 
     line-height: 22px;
     color: #676767; 
+    text-align: left;
+}
+
+.intro {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 18px;
+    line-height: 32px;
+    color: #555555;
+    font-style: italic;
     text-align: left;
 }
 
@@ -182,7 +195,7 @@ h2 {
 
 .background {
     background-size: cover; 
-    background-position: center center;
+    background-position: top center;
 }
 
 .container {
@@ -401,7 +414,6 @@ tr:last-child > .row {
     color: #DCAA00;
 }
 
-.color-bg .table-button-outline .button,
 .white-text .table-button-outline .button {
     border: 1px solid #ffffff;
 }

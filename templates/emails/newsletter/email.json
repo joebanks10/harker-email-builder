@@ -1,0 +1,270 @@
+ {
+    "title": "Newsletter Template",
+    
+    // Custom Header
+    // "header": [
+    //     {
+    //         "template": "topbar",
+    //         "options": {
+    //             "img": {
+    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
+    //                 "alt": "Updated Alt Tag"
+    //                 "width": 215
+    //             }
+    //         }
+    //     }
+    // ],
+    
+    // Modules
+    // 
+    // Templates: module, grid
+    // 
+    // Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+        {
+            "template": "grid",
+            "options": {
+                "class": "module-hero white-text",
+                "background_img": "http://skylark.harker.org/email-builder/assets/img/hero-capital-giving.jpg",
+                "style": "padding-top: 100px; padding-bottom: 100px;",
+                "columns": [
+                    {
+                        "elements": [
+                            {   
+                                "template": "title",
+                                "options": {
+                                    "text": "Performing Arts and Gym Project",
+                                    "style": "padding-bottom: 0;"
+                                }
+                            },
+                            {   
+                                "template": "subtitle",
+                                "options": {
+                                    "text": "APRIL UPDATE"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid", 
+            "options": {
+                "class": "module-intro",
+                "columns": [
+                    {
+                        "elements": [
+                            {   
+                                "template": "content",
+                                "options": {
+                                    "class": "intro",
+                                    "text": "Welcome to the first in a series of monthly messages updating you on the exciting and historic construction of our new facilities on the upper school campus. We’ll include construction photos and video, traffic and safety tips, and some fun tidbits from our community. Enjoy!"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "gray-bg",
+                "column_count": 2,
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "img",
+                                "options": {
+                                    "src": "http://dummyimage.com/290x200/cccccc/333333.gif&text=placeholder+image",
+                                    "width": "100%"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Module Header",
+                                    "style": "padding-bottom: 0;"
+                                }
+                            },
+                            {
+                                "template": "subheader",
+                                "options": {
+                                    "text": "Module Subeader"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
+                                }
+                            },
+                            {
+                                "template": "button",
+                                "options": {
+                                    "href": "#",
+                                    "text": "Click this Button!"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "column_count": 2,
+                "column_direction": "rtl",
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "img",
+                                "options": {
+                                    "src": "http://dummyimage.com/290x200/cccccc/333333.gif&text=placeholder+image",
+                                    "width": "100%"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Module Header",
+                                    "style": "padding-bottom: 0;"
+                                }
+                            },
+                            {
+                                "template": "subheader",
+                                "options": {
+                                    "text": "Module Subeader"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
+                                }
+                            },
+                            {
+                                "template": "list",
+                                "options": {
+                                    "items": [
+                                        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+                                        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+                                        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "gray-bg",
+                "columns": [
+                    {
+                        "elements": [
+                            {   
+                                "template": "header",
+                                "options": {
+                                    "text": "Module Header"
+                                }
+                            },
+                            {   
+                                "template": "content",
+                                "options": {
+                                    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae libero, eaque laudantium explicabo. Atque adipisci autem, accusamus temporibus iste, odit animi dicta harum modi officia quia quis, dignissimos. Aspernatur, in.
+                                    <br>
+                                    <br>
+                                    Consequuntur neque perferendis excepturi iste vero quia tenetur quis magni cum blanditiis repudiandae, suscipit eos modi tempore, fugiat quod beatae nesciunt quo eligendi. Neque eveniet velit dignissimos beatae, nihil eaque."
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Module Header"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "If you have questions, concerns, ideas or high-fives on any of this month’s report, contact us!
+                                        <br><br>
+                                        <h2>Giving and Support:</h2>
+                                        Melinda Gonzales, Managing Director of Advancement <br>
+                                        <a href=\"mailto:melinda.gonzales@harker.org\">melinda.gonzales@harker.org</a>; 408.345.9621
+                                        <br><br>
+                                        <h2>News and Communication:</h2>
+                                        Pam Dickinson, Office of Communication Director <br>
+                                        <a href=\"mailto:pam.dickinson@harker.org\">pam.dickinson@harker.org</a>; 408.345.9273
+                                        <br><br>
+                                        <h2>Traffic Flow, Parking and Shuttles:</h2> 
+                                        Greg Lawson, Assistant Head of School for Non-Academic Affairs <br>
+                                        <a href=\"mailto:greg.lawson@harker.org\">greg.lawson@harker.org</a>; 408.345.9600"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }
