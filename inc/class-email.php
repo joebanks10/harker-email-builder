@@ -178,7 +178,7 @@ class Email {
         $index = $this->get_index();
         $alt = ( $index % 2 ) ? 'odd' : 'even';
 
-        return "module-$index $other_classes";
+        return "module-$index module-$alt $other_classes";
     }
 
     public function get_opposite_direction($direction) {
