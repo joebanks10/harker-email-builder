@@ -1,19 +1,20 @@
  {
-    "title": "Master Template",
+    "title": "Summer Template",
     
     // Custom Header
-    // "header": [
-    //     {
-    //         "template": "topbar",
-    //         "options": {
-    //             "img": {
-    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
-    //                 "alt": "Updated Alt Tag"
-    //                 "width": 215
-    //             }
-    //         }
-    //     }
-    // ],
+    "header": [
+        {
+            "template": "topbar",
+            "options": {
+                "class": "topbar-summer",
+                "img": {
+                    "src": "http://skylark.harker.org/emails/messages/summer/2016/camp-plus/images/img0.png",
+                    "alt": "Harker Summer",
+                    "width": 200
+                }
+            }
+        }
+    ],
     
     // Modules
     // 
@@ -31,7 +32,7 @@
         {
             "template": "grid", 
             "options": {
-                "class": "module-full-text",
+                "class": "blue-bg white-text",
 
                 // Columns
                 // 
@@ -121,7 +122,7 @@
                             {   
                                 "template": "button",
                                 "options": {
-                                    "type": "primary", // primary, secondary, outline
+                                    "type": "secondary", // primary, secondary, outline
                                     "text": "Learn More About Cool Stuff",
                                     "href": "http://www.harker.org"
                                 }
@@ -134,7 +135,6 @@
         {
             "template": "grid",
             "options": {
-                "class": "module-photo-text green-bg white-text",
                 "column_count": 2,
                 "columns": [
                     {
@@ -177,7 +177,7 @@
         {
             "template": "grid",
             "options": {
-                "class": "module-photo-text",
+                "class": "blue-bg white-text",
                 "column_count": 2,
                 "column_direction": "rtl",
                 "columns": [
@@ -211,116 +211,6 @@
                                 "template": "content",
                                 "options": {
                                     "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "template": "grid",
-            "options": {
-                "class": "module-hero white-text",
-                "background_img": "http://skylark.harker.org/email-builder/assets/img/header-bg-1.jpg",
-                "style": "padding: 80px 0;",
-                "columns": [
-                    {
-                        "elements": [
-                            {   
-                                "template": "img",
-                                "options": {
-                                    "src": "http://skylark.harker.org/email-builder/assets/img/img1.png",
-                                    "alt": "Harker Logo",
-                                    "img_class": "",
-                                    "style": "padding-bottom: 40px;"
-                                }
-                            },
-                            {   
-                                "template": "subtitle",
-                                "options": {
-                                    "text": "A SUBTITLE CAN GO HERE, MAYBE SOME IMPORTANT INFO OR NOTHING AT ALL",
-                                    "style": "padding-bottom: 40px;"
-                                }
-                            },
-                            {   
-                                "template": "button",
-                                "options": {
-                                    "type": "secondary",
-                                    "href": "http://www.harker.org",
-                                    "text": "CLICK ME NOW!",
-                                    "align": "center"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "template": "grid",
-            "options": {
-                "class": "module-big-img gray-bg",
-                "style": "padding: 0;",
-                "collapse_gutters": true,
-                "columns": [
-                    {
-                        "elements": [
-                            {   
-                                "template": "img",
-                                "options": {
-                                    "src": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image",
-                                    "alt": "Big Image",
-                                    "style": "padding: 0;"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "template": "grid",
-            "options": {
-                "class": "module-cta white-text",
-                "background_img": "http://skylark.harker.org/email-builder/assets/img/cta-bg.jpg",
-                "column_count": 2,
-                "columns": [
-                    {
-                        "width": "67%",
-                        "elements": [
-                            {
-                                "template": "header",
-                                "options": {
-                                    "text": "Module Header"
-                                }
-                            },
-                            {
-                                "template": "content",
-                                "options": {
-                                    "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "width": "33%",
-                        "elements": [
-                            {
-                                "template": "button",
-                                "options": {
-                                    "text": "CTA TEXT HERE",
-                                    "href": "http://www.harker.org",
-                                    "width": "100%"
-                                }
-                            },
-                            {
-                                "template": "button",
-                                "options": {
-                                    "text": "CTA TEXT HERE",
-                                    "href": "http://www.harker.org",
-                                    "width": "100%",
-                                    "type": "outline"
                                 }
                             }
                         ]

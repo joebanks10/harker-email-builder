@@ -64,7 +64,7 @@
                             {   
                                 "template": "content",
                                 "options": {
-                                    "class": "intro",
+                                    "class": "content-intro",
                                     "text": "Welcome to the first in a series of monthly messages updating you on the exciting and historic construction of our new facilities on the upper school campus. We’ll include construction photos and video, traffic and safety tips, and some fun tidbits from our community. Enjoy!"
                                 }
                             }

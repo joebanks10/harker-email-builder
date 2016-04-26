@@ -20,7 +20,7 @@
     {% set table_inner_class = "table-inner" %}
 {% endif %}
 
-<table id="{{ module.id }}" class="table-module {{ module.module_class }} {{ module_classes(module.class) }}" style="{{ module.table_style }}" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" {{ module.attributes }}>
+<table id="{{ module.id }}" class="module {{ module.module_class }} {{ module_classes(module.class) }}" style="{{ module.table_style }}" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" {{ module.attributes }}>
     <tr>
         <td class="background" align="center" background="{{ module.background_img }}" style="background-image: url({{ module.background_img }}) {{ module.background_style }}">
             <table align="center" class="{{ table_inner_class }}" width="{{ module.width }}" border="0" cellspacing="0" cellpadding="0">
