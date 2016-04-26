@@ -242,11 +242,6 @@ tr:last-child > .row {
 }
 
 
-.table-3-columns {
-    background-color: #efefef;
-}
-
-
 .table-article .header {
     font-size: 14px; 
     line-height: 28px;
@@ -256,16 +251,6 @@ tr:last-child > .row {
 .table-article .content {
     font-size: 12px; 
     line-height: 18px;
-}
-
-
-.table-list-left {
-    background-color: #ffffff;
-}
-
-
-.table-list-right {
-    background-color: #ffffff;
 }
 
 
@@ -294,15 +279,6 @@ tr:last-child > .row {
     line-height: 26.1px;
 }
 
-
-.table-photo-right {
-    background-color: #f6f6f6;
-}
-
-
-.table-quote-text {
-    background-color: #ffffff;
-}
 
 .table-panel {
     background-color: #ecf0f1;
