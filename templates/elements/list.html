@@ -5,7 +5,7 @@
     type: "",
     width: "100%",
     bullet: {
-        url: "#{ROOT_IMG_DIR_URL}/check.png",
+        url: "http://skylark.harker.org/email-builder/assets/img/check.png",
         width: 17
     },
     items: [
@@ -41,7 +41,7 @@
                                         <!-- unstyled -->
                                     {% else %}
                                         <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet img-container">
-                                            <img src="{{ module.bullet.url|default("#{ROOT_IMG_DIR_URL}check.png") }}" width="{{ module.bullet.width|default(17) }}" alt="bullet">
+                                            <img src="{{ module.bullet.url|default("http://skylark.harker.org/email-builder/assets/img/check.png") }}" width="{{ module.bullet.width|default(17) }}" alt="bullet">
                                         </td>
                                         <td width="15"></td>
                                     {% endif %}
