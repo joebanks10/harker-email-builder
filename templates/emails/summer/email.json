@@ -168,6 +168,14 @@
                                 "options": {
                                     "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
                                 }
+                            },
+                            {   
+                                "template": "button",
+                                "options": {
+                                    "type": "primary", // primary, secondary, outline
+                                    "text": "Learn More About Cool Stuff",
+                                    "href": "http://www.harker.org"
+                                }
                             }
                         ]
                     }
@@ -211,6 +219,14 @@
                                 "template": "content",
                                 "options": {
                                     "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
+                                }
+                            },
+                            {   
+                                "template": "button",
+                                "options": {
+                                    "type": "secondary", // primary, secondary, outline
+                                    "text": "Learn More About Cool Stuff",
+                                    "href": "http://www.harker.org"
                                 }
                             }
                         ]
