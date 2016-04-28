@@ -51,7 +51,8 @@
                                 "options": {
                                     "src": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image",
                                     "alt": "Big Image",
-                                    "style": "padding-bottom: 40px;"
+                                    "style": "padding-bottom: 40px;",
+                                    "href": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image"
                                 }
                             },
                             {

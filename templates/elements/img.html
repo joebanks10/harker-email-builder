@@ -6,11 +6,18 @@
     alt: "",
     img_class: "img-full",
     align: "center",
-    width: ""
+    width: "",
+    href: ""
 } %}
 
 {% set module = defaults|merge( module|default({}) ) %}
 
 {% block element_content %}
+    {% if module.href %}
+        <a href="{{ module.href }}">
+    {% endif %}
     <img class="{{ module.img_class }}" width="{{ module.width }}" src="{{ module.src }}" alt="{{ module.alt }}">
+    {% if module.href %}
+        </a>
+    {% endif %}
 {% endblock element_content %}
