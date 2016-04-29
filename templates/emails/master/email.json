@@ -219,7 +219,7 @@
             }
         },
 
-        // Three Columns w/ Articles (using grid template)
+        // Three Columns w/ Articles (using element-grid template)
         {
             "template": "element-grid",
             "options": {
