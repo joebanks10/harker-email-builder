@@ -34,7 +34,6 @@
         {
             "template": "grid", 
             "options": {
-                "class": "",
 
                 // Columns
                 // 
