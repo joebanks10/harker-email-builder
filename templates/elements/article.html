@@ -1,0 +1,41 @@
+{% extends "elements/element.html" %}
+
+{% set defaults = {
+    element_class: "article",
+    width: "",
+    img: {
+        width: "100%"
+    },
+    header: {
+        text: "Article Header"
+    },
+    content: {},
+    button: {
+        type: "outline",
+        width: "100%"
+    }
+} %}
+
+{% set module = defaults|merge(module|default({})) %}
+
+{% set img = defaults.img|merge(module.img) %}
+{% set header = defaults.header|merge(module.header) %}
+{% set content = defaults.content|merge(module.content) %}
+{% set button = defaults.button|merge(module.button) %}
+
+{% block element_content %}
+    <table class="table-article" width="{{ module.width }}" border="0" align="{{ module.align }}" cellpadding="0" cellspacing="0">
+        <tr>
+            {% include "img.html" with { module: img } %}
+        </tr>
+        <tr>
+            {% include "header.html" with { module: header } %}
+        </tr>
+        <tr>
+            {% include "content.html" with { module: content } %}
+        </tr>
+        <tr>
+            {% include "button.html" with { module: button } %}
+        </tr>
+    </table>
+{% endblock element_content %}

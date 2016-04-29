@@ -219,6 +219,65 @@
             }
         },
 
+        // Three Columns w/ Articles (using grid template)
+        {
+            "template": "grid",
+            "options": {
+                "class": "gray-bg",
+                "column_count": 3,
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "article",
+                                "options": {
+                                    "img": {},
+                                    "header": {},
+                                    "content": {},
+                                    "button": {}
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "article"
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "article"
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "article"
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "article"
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "article"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+
         // Single Column w/ Background Image (using grid template)
         {
             "template": "grid",

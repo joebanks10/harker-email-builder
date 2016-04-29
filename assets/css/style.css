@@ -127,7 +127,7 @@ tr:first-child > .element {
     text-align: left;
 }
 
-.img-container {
+.element-img {
     line-height: 0px;
 }
 
@@ -242,15 +242,19 @@ tr:last-child > .row {
 }
 
 
-.table-article .header {
+.article .header {
     font-size: 14px; 
     line-height: 28px;
     color: #555; 
 }
 
-.table-article .content {
+.article .content {
     font-size: 12px; 
     line-height: 18px;
+}
+
+.article .img {
+    width: 100%;
 }
 
 
