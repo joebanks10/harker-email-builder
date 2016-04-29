@@ -18,7 +18,7 @@
     // Modules
     // 
     // Templates: grid, two-columns, three-columns, 
-    // content-sidebar, sidebar-content
+    // content-sidebar, sidebar-content, element-grid
     // 
     // Standard Options: id, class, text, 
     // width, collapse_gutters (remove outer gutters on mobile), 
