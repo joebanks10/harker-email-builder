@@ -10,7 +10,7 @@ define('ROOT_DIR', dirname(__file__));
 if ( $_SERVER['SERVER_NAME'] == 'localhost' ) {
     define('ROOT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/email-builder');
 } else if ( $_SERVER['SERVER_NAME'] == 'skylark.harker.org' ) {
-    define('ROOT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/email-builder/staging');
+    define('ROOT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/email-builder/v2');
 }
 
 define('ROOT_CSS_DIR_URL', ROOT_URL . '/assets/css');
