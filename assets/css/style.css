@@ -258,15 +258,11 @@ tr:last-child > .row {
 }
 
 
-.table-events {
-    background-color: #efefef;
-}
-
 .table-date {
     background-color: #9C0947;
 }
 
-.table-date .date {
+.date {
     font-family: 'Open Sans', Arial, sans-serif; 
     font-size: 18px; 
     line-height: 26.1px;
@@ -280,9 +276,10 @@ tr:last-child > .row {
 }
 
 
-.table-event .header {
+.event .header {
     font-size: 18px; 
     line-height: 26.1px;
+    padding-bottom: 0;
 }
 
 
