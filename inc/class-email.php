@@ -52,6 +52,7 @@ class Email {
         $this->add_function('table_position', array($this, 'get_table_position'));
         $this->add_function('render_file', array($this, 'render_file'));
         $this->add_function('get_column_width', array($this, 'get_column_width'));
+        $this->add_function('convert_elements_to_columns', array($this, 'convert_elements_to_columns'));
 
         $this->rendered = $this->render_email($is_inline, $data);
 
@@ -260,6 +261,20 @@ class Email {
         }
 
         return $column_width;
+    }
+
+    public function convert_elements_to_columns($elements = array()) {
+        $columns = array();
+
+        foreach($elements as $element) {
+            $columns[] = array(
+                "elements" => array(
+                    $element
+                )
+            );
+        }
+
+        return $columns;
     }
 
 }

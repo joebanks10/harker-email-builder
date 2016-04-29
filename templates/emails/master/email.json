@@ -221,58 +221,27 @@
 
         // Three Columns w/ Articles (using grid template)
         {
-            "template": "grid",
+            "template": "element-grid",
             "options": {
                 "class": "gray-bg",
-                "column_count": 3,
-                "columns": [
+                "elements": [
                     {
-                        "elements": [
-                            {
-                                "template": "article",
-                                "options": {
-                                    "img": {},
-                                    "header": {},
-                                    "content": {},
-                                    "button": {}
-                                }
-                            }
-                        ]
+                        "template": "article"
                     },
                     {
-                        "elements": [
-                            {
-                                "template": "article"
-                            }
-                        ]
+                        "template": "article"
                     },
                     {
-                        "elements": [
-                            {
-                                "template": "article"
-                            }
-                        ]
+                        "template": "article"
                     },
                     {
-                        "elements": [
-                            {
-                                "template": "article"
-                            }
-                        ]
+                        "template": "article"
                     },
                     {
-                        "elements": [
-                            {
-                                "template": "article"
-                            }
-                        ]
+                        "template": "article"
                     },
                     {
-                        "elements": [
-                            {
-                                "template": "article"
-                            }
-                        ]
+                        "template": "article"
                     }
                 ]
             }
