@@ -1,0 +1,17 @@
+{% extends "modules/grid.html" %}
+
+{% set defaults = {
+    column_count: 2,
+    columns: [
+        {
+            width: "67%",
+            elements: module.content|default([])
+        },
+        {
+            width: "33%",
+            elements: module.sidebar|default([])
+        }
+    ]
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}

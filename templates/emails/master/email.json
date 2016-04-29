@@ -17,7 +17,8 @@
     
     // Modules
     // 
-    // Templates: module, grid
+    // Templates: grid, two-columns, three-columns, 
+    // content-sidebar, sidebar-content
     // 
     // Standard Options: id, class, text, 
     // width, collapse_gutters (remove outer gutters on mobile), 
@@ -28,10 +29,11 @@
     // column_count, column_direction (ltr or rtl), 
     // gutter_width, gutter_height
     "content": [
+
+        // Single Column (using grid template)
         {
             "template": "grid", 
             "options": {
-                "class": "module-full-text",
 
                 // Columns
                 // 
@@ -132,10 +134,12 @@
                 ]
             }
         },
+
+        // Two Columns (using grid template)
         {
             "template": "grid",
             "options": {
-                "class": "module-photo-text green-bg white-text",
+                "class": "green-bg white-text",
                 "column_count": 2,
                 "columns": [
                     {
@@ -175,54 +179,51 @@
                 ]
             }
         },
+
+        // Two Columns, Right-to-Left (using two-columns template)
         {
-            "template": "grid",
+            "template": "two-columns",
             "options": {
-                "class": "module-photo-text",
-                "column_count": 2,
+                "class": "",
                 "column_direction": "rtl",
-                "columns": [
+                "content_1": [
                     {
-                        "elements": [
-                            {
-                                "template": "img",
-                                "options": {
-                                    "src": "http://dummyimage.com/290x200/cccccc/333333.gif&text=placeholder+image",
-                                    "width": "100%"
-                                }
-                            }
-                        ]
+                        "template": "img",
+                        "options": {
+                            "src": "http://dummyimage.com/290x200/cccccc/333333.gif&text=placeholder+image",
+                            "width": "100%"
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Module Header",
+                            "style": "padding-bottom: 0;"
+                        }
                     },
                     {
-                        "elements": [
-                            {
-                                "template": "header",
-                                "options": {
-                                    "text": "Module Header",
-                                    "style": "padding-bottom: 0;"
-                                }
-                            },
-                            {
-                                "template": "subheader",
-                                "options": {
-                                    "text": "Module Subeader"
-                                }
-                            },
-                            {
-                                "template": "content",
-                                "options": {
-                                    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
-                                }
-                            }
-                        ]
+                        "template": "subheader",
+                        "options": {
+                            "text": "Module Subeader"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
+                        }
                     }
                 ]
             }
         },
+
+        // Single Column w/ Background Image (using grid template)
         {
             "template": "grid",
             "options": {
-                "class": "module-hero white-text",
+                "class": "white-text",
                 "background_img": "http://skylark.harker.org/email-builder/assets/img/header-bg-1.jpg",
                 "style": "padding: 80px 0;",
                 "columns": [
@@ -258,32 +259,32 @@
                 ]
             }
         },
+
+        // Single Column w/ Big Image (using one-column template)
         {
-            "template": "grid",
+            "template": "one-column",
             "options": {
-                "class": "module-big-img gray-bg",
+                "class": "gray-bg",
                 "style": "padding: 0;",
                 "collapse_gutters": true,
-                "columns": [
-                    {
-                        "elements": [
-                            {   
-                                "template": "img",
-                                "options": {
-                                    "src": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image",
-                                    "alt": "Big Image",
-                                    "style": "padding: 0;"
-                                }
-                            }
-                        ]
+                "content": [
+                    {   
+                        "template": "img",
+                        "options": {
+                            "src": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image",
+                            "alt": "Big Image",
+                            "style": "padding: 0;"
+                        }
                     }
                 ]
             }
         },
+        
+        // Content Left, Sidebar Right (using grid template)
         {
             "template": "grid",
             "options": {
-                "class": "module-cta white-text",
+                "class": "white-text",
                 "background_img": "http://skylark.harker.org/email-builder/assets/img/cta-bg.jpg",
                 "column_count": 2,
                 "columns": [
@@ -328,8 +329,41 @@
                     }
                 ]
             }
+        },
+
+        // Content Left, Sidebar Right (using content-sidebar template)
+        {
+            "template": "content-sidebar",
+            "options": {
+                "class": "",
+                "content": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Module Header"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+                        }
+                    }
+                ],
+                "sidebar": [
+                    {
+                        "template": "button",
+                        "options": {
+                            "text": "CTA TEXT HERE",
+                            "href": "http://www.harker.org",
+                            "width": "100%"
+                        }
+                    }
+                ]
+            }
         }
-    ]
+
+    ] // end of content modules
 
     // Custom Footer
     // ,"footer": [
