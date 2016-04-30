@@ -68,13 +68,13 @@ tr:first-child > .element {
 -------------------------------------------- */
 
 .element {
-    padding-bottom: 24px;
+    padding-bottom: 26px;
 }
 
 .title {
     font-family: 'Open Sans', Arial, sans-serif; 
     font-size: 28px;
-    line-height: 40.6px;
+    line-height: 44px;
     letter-spacing: 2px;
     color: #3B3B3B; 
     font-weight: bold; 
@@ -84,8 +84,8 @@ tr:first-child > .element {
 
 .subtitle {
     font-family: 'Open Sans', Arial, sans-serif; 
-    font-size: 14px;
-    line-height: 28px; 
+    font-size: 16px;
+    line-height: 32px; 
     letter-spacing: 2px;
     color: #676767;
     text-align: center;
