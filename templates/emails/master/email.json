@@ -249,7 +249,7 @@
 
         // Calendar Listing
         {
-            "template": "calendar-listing",
+            "template": "calendar-list",
             "options": {
                 "class": "",
                 "dates": [
