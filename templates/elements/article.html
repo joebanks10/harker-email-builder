@@ -38,22 +38,22 @@
     <table class="table-article" width="{{ module.width }}" border="0" align="{{ module.align }}" cellpadding="0" cellspacing="0">
         {% if img %}
             <tr>
-                {% include "img.html" with { module: img } %}
+                {% include "elements/img.html" with { module: img } %}
             </tr>
         {% endif %}
         {% if header %}
             <tr>
-                {% include "header.html" with { module: header } %}
+                {% include "elements/header.html" with { module: header } %}
             </tr>
         {% endif %}
         {% if content %}
             <tr>
-                {% include "content.html" with { module: content } %}
+                {% include "elements/content.html" with { module: content } %}
             </tr>
         {% endif %}
         {% if button %}
             <tr>
-                {% include "button.html" with { module: button } %}
+                {% include "elements/button.html" with { module: button } %}
             </tr>
         {% endif %}
     </table>

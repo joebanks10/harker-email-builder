@@ -5,50 +5,25 @@
     column_count: 1,
     column_direction: 'ltr',
     gutter_width: 20,
-    gutter_height: 40
+    gutter_height: 40,
+    columns: []
 } %}
 
 {% set module = defaults|merge( module|default({}) ) %}
 
 {% block container %}
-    {% set column_align = table_position(module.column_direction) %}
-
-    <table class="table-rows" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
-        {% for row in module.columns|batch(module.column_count) %}
-            <tr>
-                <td class="row">
-                    {% for column in row %}
-                        {% set column_width = get_column_width(column, module) %}
-
-                        {% if loop.index in range(1, module.column_count - 1) %}
-                            <table class="table-full" width="{{ column_width }}" border="0" align="{{ column_align }}" cellpadding="0" cellspacing="0">
-                                {% for element in column.elements %}
-                                    <tr>
-                                        {% include "#{element.template}.html" with { module: element.options } %}
-                                    </tr>
-                                {% endfor %}
-                            </table>
-                            {% if module.column_count != 1 %}
-                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="{{ column_align }}">
-                                    <tr>
-                                        <td height="{{ module.gutter_height }}" style="font-size: 0;line-height: 0;border-collapse: collapse;">
-                                            <p style="padding-left: {{ module.gutter_width }}px;">&nbsp;</p>
-                                        </td>
-                                    </tr>
-                                </table>
-                            {% endif %}
-                        {% else %}
-                            <table class="table-full" width="{{ column_width }}" border="0" align="{{ opposite_direction(column_align) }}" cellpadding="0" cellspacing="0">
-                                {% for element in column.elements %}
-                                    <tr>
-                                        {% include "#{element.template}.html" with { module: element.options } %}
-                                    </tr>
-                                {% endfor %}
-                            </table>
-                        {% endif %}
-                    {% endfor %}
-                </td>
-            </tr>
-        {% endfor %}
+    {% set grid = {
+        width: module.width,
+        column_count: module.column_count,
+        column_direction: module.column_direction,
+        gutter_width: module.gutter_width,
+        gutter_height: module.gutter_height,
+        columns: module.columns
+    } %}
+    
+    <table class="table-full" width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            {% include "elements/grid.html" with { module: grid } %}
+        </tr>
     </table>
 {% endblock container %}

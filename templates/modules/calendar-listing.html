@@ -1,0 +1,8 @@
+{% extends "modules/grid.html" %}
+
+{% set defaults = {
+    column_count: 2,
+    columns: convert_dates_to_columns(module.dates|default([]))
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}

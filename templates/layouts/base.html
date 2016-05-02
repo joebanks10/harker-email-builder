@@ -21,27 +21,27 @@
             {% block header %}
                 {% if email.header %}
                     {% for module in email.header %}
-                        {% include "#{module.template}.html" with { module: module.options|default({}) } %}
+                        {% include "modules/#{module.template}.html" with { module: module.options|default({}) } %}
                     {% endfor %}
                 {% else %}
-                    {% include "topbar.html" %}
+                    {% include "modules/topbar.html" %}
                 {% endif %}
             {% endblock header %}
             
             {% block content %}
                 {% for module in email.content|default([]) %}
-                    {% include "#{module.template}.html" with { module: module.options|default({}) } %}
+                    {% include "modules/#{module.template}.html" with { module: module.options|default({}) } %}
                 {% endfor %}
             {% endblock content %}
             
             {% block footer %}
                 {% if email.footer %}
                     {% for module in email.footer %}
-                        {% include "#{module.template}.html" with { module: module.options|default({}) } %}
+                        {% include "modules/#{module.template}.html" with { module: module.options|default({}) } %}
                     {% endfor %}
                 {% else %}
-                    {% include "footer.html" %}
-                    {% include "bottombar.html" %}
+                    {% include "modules/footer.html" %}
+                    {% include "modules/bottombar.html" %}
                 {% endif %}
             {% endblock footer %}
         </td>

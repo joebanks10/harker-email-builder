@@ -23,10 +23,10 @@
 {% block element_content %}
     <table class="table-event" width="{{ module.width }}" border="0" align="{{ module.align }}" cellpadding="0" cellspacing="0">
         <tr>
-            {% include "header.html" with { module: header } %}
+            {% include "elements/header.html" with { module: header } %}
         </tr>
         <tr>
-            {% include "content.html" with { module: content } %}
+            {% include "elements/content.html" with { module: content } %}
         </tr>
     </table>
 {% endblock element_content %}

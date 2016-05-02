@@ -53,6 +53,7 @@ class Email {
         $this->add_function('render_file', array($this, 'render_file'));
         $this->add_function('get_column_width', array($this, 'get_column_width'));
         $this->add_function('convert_elements_to_columns', array($this, 'convert_elements_to_columns'));
+        $this->add_function('convert_dates_to_columns', array($this, 'convert_dates_to_columns'));
 
         $this->rendered = $this->render_email($is_inline, $data);
 
@@ -66,8 +67,6 @@ class Email {
 
         // add template paths to loader
         $loader->setPaths(array(
-            ROOT_DIR . '/templates/elements',
-            ROOT_DIR . '/templates/modules',
             ROOT_DIR . '/templates'
         ));
         $loader->setPaths(array(
@@ -271,6 +270,60 @@ class Email {
                 "elements" => array(
                     $element
                 )
+            );
+        }
+
+        return $columns;
+    }
+
+    public function convert_dates_to_columns($dates = array()) {
+        $columns = array();
+
+        foreach($dates as $date) {
+
+            $day = array(
+                array(
+                    'template' => 'date',
+                    'options' => array(
+                        'text' => $date['date']
+                    )
+                )
+            );
+
+            $events = array();
+            foreach($date['events'] as $event) {
+                $events[] = array(
+                    'template' => 'event',
+                    'options' => array(
+                        'header' => array(
+                            'text' => $event['header']
+                        ),
+                        'content' => array(
+                            'text' => $event['content']
+                        )
+                    )
+                );
+            }
+
+            $columns[] = array(
+                'elements' => array(
+                    array(
+                        'template' => 'grid',
+                        'options' => array(
+                            'column_count' => 2,
+                            'columns' => array(
+                                array(
+                                    'width' => 64,
+                                    'elements' => $day
+                                ), 
+                                array(
+                                    'width' => 203,
+                                    'elements' => $events
+                                ) 
+                            ) // end columns
+                        ) // end element options
+                    ) // end element
+                ) // end elements
             );
         }
 

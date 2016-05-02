@@ -247,6 +247,127 @@
             }
         },
 
+        // Calendar Listing
+        {
+            "template": "calendar-listing",
+            "options": {
+                "class": "",
+                "dates": [
+                    {
+                        "date": "Jan. 1",
+                        "events": [
+                            {
+                                "header": "Event Header",
+                                "content": "7 p.m. | Saratoga Campus"
+                            },
+                            {
+                                "header": "Event Header",
+                                "content": "7 p.m. | Saratoga Campus"
+                            },
+                            {
+                                "header": "Event Header",
+                                "content": "7 p.m. | Saratoga Campus"
+                            }
+                        ]
+                    },
+                    {
+                        "date": "Jan. 2",
+                        "events": [
+                            {
+                                "header": "Event Header",
+                                "content": "7 p.m. | Saratoga Campus"
+                            },
+                            {
+                                "header": "Event Header",
+                                "content": "7 p.m. | Saratoga Campus"
+                            },
+                            {
+                                "header": "Event Header",
+                                "content": "7 p.m. | Saratoga Campus"
+                            }
+                        ]
+                    },
+                    {
+                        "date": "Jan. 3",
+                        "events": [
+                            {
+                                "header": "Event Header",
+                                "content": "7 p.m. | Saratoga Campus"
+                            },
+                            {
+                                "header": "Event Header",
+                                "content": "7 p.m. | Saratoga Campus"
+                            },
+                            {
+                                "header": "Event Header",
+                                "content": "7 p.m. | Saratoga Campus"
+                            }
+                        ]
+                    },
+                    {
+                        "date": "Jan. 4",
+                        "events": [
+                            {
+                                "header": "Event Header",
+                                "content": "7 p.m. | Saratoga Campus"
+                            },
+                            {
+                                "header": "Event Header",
+                                "content": "7 p.m. | Saratoga Campus"
+                            },
+                            {
+                                "header": "Event Header",
+                                "content": "7 p.m. | Saratoga Campus"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+
+        // Two Columns w/ Images/Promos (using element-grid template)
+        {
+            "template": "element-grid",
+            "options": {
+                "class": "gray-bg",
+                "column_count": 2,
+                "elements": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "https://www.harker.org/uploaded/assets/graphics/promos/SUM_web_PPortal_F_1617.jpg",
+                            "href": "#",
+                            "width": "100%"
+                        }
+                    },
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "https://www.harker.org/uploaded/assets/graphics/promos/ADV_AGiving_May_31_HPP_F_1516.png",
+                            "href": "#",
+                            "width": "100%"
+                        }
+                    },
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "http://www.harker.org/uploaded/assets/graphics/promos/corporate/portal/ADV_GrandparentsDay_LS_HPP_F_1516.png",
+                            "href": "#",
+                            "width": "100%"
+                        }
+                    },
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "http://www.harker.org/uploaded/assets/graphics/promos/SUM_SFGiants_Baseballcamp_HPP_F_1617.png",
+                            "href": "#",
+                            "width": "100%"
+                        }
+                    }
+                ]
+            }
+        },
+
         // Single Column w/ Background Image (using grid template)
         {
             "template": "grid",
