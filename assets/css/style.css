@@ -25,7 +25,6 @@ table table table { table-layout: auto; }
 img { display: block !important; }
 table td { border-collapse: collapse; }
 .yshortcuts a { border-bottom: none !important; }
-img:hover { opacity: 0.9 !important; }
 a { 
     color: #00809E; 
 }
@@ -471,7 +470,6 @@ h2 {
     /* image */
     img[class="img-full"] { 
         width: 100% !important; 
-        height: auto !important; 
     }
 }
 
