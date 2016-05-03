@@ -7,6 +7,7 @@
     img_class: "img-full",
     align: "center",
     width: "",
+    height: "",
     href: ""
 } %}
 
@@ -16,7 +17,7 @@
     {% if module.href %}
         <a href="{{ module.href }}">
     {% endif %}
-    <img class="{{ module.img_class }}" width="{{ module.width }}" src="{{ module.src }}" alt="{{ module.alt }}">
+    <img class="{{ module.img_class }}" width="{{ module.width }}" height="{{ module.height }}" src="{{ module.src }}" alt="{{ module.alt }}">
     {% if module.href %}
         </a>
     {% endif %}
