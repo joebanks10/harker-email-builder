@@ -252,6 +252,9 @@
             "template": "calendar-list",
             "options": {
                 "class": "",
+                "ical": "http://www.harker.org/calendar/page_3624.ics",
+                "start_date": "Jan. 10, 2016",
+                "end_date": "Jan. 18, 2016",
                 "dates": [
                     {
                         "date": "Jan. 1",

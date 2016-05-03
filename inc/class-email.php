@@ -160,6 +160,59 @@ class Email {
         return $json;
     }
 
+    private function format_time($date) {
+        $time = date('g:i a', $date);
+
+        $time = str_replace(':00', '', $time);
+        $time = str_replace('am', 'a.m.', $time);
+        $time = str_replace('pm', 'p.m.', $time);
+
+        return $time;
+    }
+
+    private function get_time_period($time) {
+        $parts = explode(' ', $time);
+        $period = (isset($parts[1])) ? $parts[1] : '';
+
+        return $period;
+    }
+
+    public function get_event_content($event) {
+        $content = '';
+        $has_start = false;
+
+        if ( isset($event['start']) && date('g:i a', $event['start']) != '12:00 am' ) {
+            // start time exists
+            $has_start = true;
+            $start_time = $this->format_time($event['start']);
+
+            $content .= $start_time;
+        }
+
+        if ( $has_start && isset($event['end']) ) {
+            $end_time = $this->format_time($event['end']);
+            
+            $start_period = $this->get_time_period($start_time);
+            $end_period = $this->get_time_period($end_time);
+
+            if ( $start_period == $end_period ) {
+                $content = str_replace(array(' a.m.', ' p.m.'), '', $content);
+            }
+
+            $content .= ' to ' . $end_time;
+        }
+
+        if ( $has_start && isset($event['location']) ) {
+            $content .= ' | ' . $event['location'];
+        }
+
+        if ( isset($event['permalink']) ) {
+            $content .= '<a class="event-link" href="'. $event['permalink'] . '">View details</a>';
+        }
+
+        return $content;
+    }
+
     static public function get_email_url() {
         $url_parts = explode('?', $_SERVER['REQUEST_URI']);
         $url = $url_parts[0]; // URL w/o arguments
@@ -222,8 +275,9 @@ class Email {
         return $feed['items'];
     }
 
-    public function get_ical_items($url = '', $start_date = false, $end_date = false, $group_by_date = false) {
+    public function get_ical_items($url = '', $start_date = false, $end_date = false) {
         $url = empty($url) ? 'http://www.harker.org/calendar/page_2302.ics' : $url;
+        $group_by_date = true;
 
         $feed = new ICS_Feed($url, $start_date, $end_date, $group_by_date);
         $feed = $feed->get_events();
@@ -232,9 +286,43 @@ class Email {
             return array();
         }
 
-        echo '<pre>'; print_r( $feed ); echo '</pre>';
+        // Sample Array
+        // $dates = array(
+        //     array(
+        //         'date' => 'Jan. 1',
+        //         'events' => array(
+        //             array(
+        //                 'header' => 'Header Text',
+        //                 'content' => '7 to 9 p.m. | Saratoga Campus<br>View details'
+        //             ) end event
+        //         ) // end events
+        //     ) // end date
+        // );
 
-        return $feed;
+        $dates = array();
+        foreach($feed as $current_date) {
+            $date = $current_date['date'];
+            $events = array();
+            
+            foreach($current_date['events'] as $event) {
+                $header = addslashes($event['title']);
+                $content = $this->get_event_content($event);
+
+                // add event
+                $events[] = array(
+                    'header' => $header,
+                    'content' => $content
+                );
+            }
+
+            // add date
+            $dates[] = array(
+                'date' => $date,
+                'events' => $events
+            );
+        }
+
+        return $dates;
     }
 
     public function get_column_width($column, $module) {
@@ -280,10 +368,14 @@ class Email {
 
     public function convert_dates_to_columns($dates = array()) {
         $columns = array();
-
+ 
         foreach($dates as $date) {
 
-            $day = array(
+            if ( !(isset($date['date']) && isset($date['events'])) ) {
+                continue;
+            }
+
+            $date_element = array(
                 array(
                     'template' => 'date',
                     'options' => array(
@@ -292,9 +384,9 @@ class Email {
                 )
             );
 
-            $events = array();
+            $event_elements = array();
             foreach($date['events'] as $event) {
-                $events[] = array(
+                $event_elements[] = array(
                     'template' => 'event',
                     'options' => array(
                         'header' => array(
@@ -316,11 +408,11 @@ class Email {
                             'columns' => array(
                                 array(
                                     'width' => 64,
-                                    'elements' => $day
+                                    'elements' => $date_element
                                 ), 
                                 array(
                                     'width' => 203,
-                                    'elements' => $events
+                                    'elements' => $event_elements
                                 ) 
                             ) // end columns
                         ) // end element options

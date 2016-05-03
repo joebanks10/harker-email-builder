@@ -60,7 +60,7 @@ class ICS_Feed {
         $events = $ical->events();
         $array = array();
 
-        $current_date = '';
+        $current_date = 0;
         $current_events = array();
 
         foreach ($events as $event) {
@@ -98,20 +98,23 @@ class ICS_Feed {
             // add item to array
             if ($this->group_by_date) {
                 
-                if ($item['start'] != $current_date) {
+                // check if date has changed
+                if (date('M. j, Y', $item['start']) != date('M. j, Y', $current_date)) {
+                    // check if date is defined
                     if ($current_date) {
-
                         // add date and events to array
                         $array[] = array(
-                            'date' => date('D., M. j, Y', $current_date),
+                            'date' => date('M. j', $current_date),
                             'events' => $current_events
                         );
                     }
 
+                    // set date to new date and reset events
                     $current_date = $item['start'];
                     $current_events = array();
                 }
 
+                // add event to current date's events
                 $current_events[] = $item;
 
             } else {
@@ -123,13 +126,12 @@ class ICS_Feed {
         // add last date if grouping by date
         if ($this->group_by_date && $current_date) {
             $array[] = array(
-                'date' => date('D., M. j, Y', $current_date),
+                'date' => date('M. j', $current_date),
                 'events' => $current_events
             );
         }
 
         $this->array = $array;
-
         return $this->array;
     }
 
