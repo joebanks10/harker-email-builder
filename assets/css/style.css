@@ -437,7 +437,6 @@ tr:last-child > .row {
     /* image */
     img[class="img-full"] { 
         width: 100% !important; 
-        height: auto !important; 
     }
 }
 
