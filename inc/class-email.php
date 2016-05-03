@@ -46,7 +46,7 @@ class Email {
 
         // Add template functions
         // $this->add_function('rss', array($this, 'get_rss_items'));
-        // $this->add_function('ical', array($this, 'get_ics_items'));
+        $this->add_function('ical', array($this, 'get_ical_items'));
         $this->add_function('module_classes', array($this, 'get_module_classes'));
         $this->add_function('opposite_direction', array($this, 'get_opposite_direction'));
         $this->add_function('table_position', array($this, 'get_table_position'));
@@ -222,15 +222,17 @@ class Email {
         return $feed['items'];
     }
 
-    public function get_ics_items($url = '', $page_id) {
+    public function get_ical_items($url = '', $start_date = false, $end_date = false, $group_by_date = false) {
         $url = empty($url) ? 'http://www.harker.org/calendar/page_2302.ics' : $url;
 
-        $feed = new ICS_Feed($url, $page_id);
-        $feed = $feed->get_array();
+        $feed = new ICS_Feed($url, $start_date, $end_date, $group_by_date);
+        $feed = $feed->get_events();
 
         if ( ! $feed ) {
             return array();
         }
+
+        echo '<pre>'; print_r( $feed ); echo '</pre>';
 
         return $feed;
     }

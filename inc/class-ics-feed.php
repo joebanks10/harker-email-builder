@@ -6,22 +6,20 @@ class ICS_Feed {
     private $array;
     private $hkr_page_id;
 
-    public function __construct($url, $hkr_page_id = '2302') {
+    public function __construct($url, $start_date = false, $end_date = false, $group_by_date = false) {
         // instantiate object and array
     
-        $this->hkr_page_id = $hkr_page_id;
+        $this->get_page_id($url);
+        $this->start_date = strtotime($start_date);
+        $this->end_date = strtotime($end_date);
+        $this->group_by_date = (bool) $group_by_date;
+
+        if ($this->start_date > $this->end_date) {
+            throw new Exception('Start date is after end date.');
+        }
 
         $this->create_ics_object($url);
         $this->create_ics_array();
-    }
-
-    /**
-     * Returns ICal feed object
-     * 
-     * @return object ICal feed object
-     */
-    public function get_object() {
-        return $this->object;
     }
 
     /**
@@ -29,8 +27,18 @@ class ICS_Feed {
      * 
      * @return array The feed as an array
      */
-    public function get_array() {
+    public function get_events() {
         return $this->array;
+    }
+
+    private function get_page_id($url) {
+        // http://www.harker.org/calendar/page_2302.ics
+        // http://www.harker.org/calendar/calendar_2854.ics
+        
+        $url_parts = explode('.ics', $url);
+        $url_parts = (isset($url_parts[0])) ? explode('_', $url_parts[0]) : array();
+
+        $this->hkr_page_id = (isset($url_parts[1])) ? trim($url_parts[1]) : '2302';
     }
 
     /**
@@ -47,13 +55,19 @@ class ICS_Feed {
 
     private function create_ics_array() {
         $ical = ( isset($this->object) ) ? $this->object : $this->create_ics_object();
+        $this->object = $ical;
 
         $events = $ical->events();
         $array = array();
 
-        // echo '<pre>'; print_r( $events ); echo '</pre>'; die();
+        $current_date = '';
+        $current_events = array();
 
         foreach ($events as $event) {
+            if (!$this->is_valid_event($event)) {
+                continue;
+            }
+
             $item = array();
 
             if ( isset($event['UID']) ) {
@@ -81,14 +95,57 @@ class ICS_Feed {
                 $item['permalink'] = 'http://www.harker.org/page.cfm?id=' . $this->hkr_page_id . '&verbose=' . $item['id'];
             }
 
-            $array[] = $item;
+            // add item to array
+            if ($this->group_by_date) {
+                
+                if ($item['start'] != $current_date) {
+                    if ($current_date) {
+
+                        // add date and events to array
+                        $array[] = array(
+                            'date' => date('D., M. j, Y', $current_date),
+                            'events' => $current_events
+                        );
+                    }
+
+                    $current_date = $item['start'];
+                    $current_events = array();
+                }
+
+                $current_events[] = $item;
+
+            } else {
+                $array[] = $item;
+            }
+            
         }
 
-        // echo '<pre>'; print_r( $array ); echo '</pre>'; die();
+        // add last date if grouping by date
+        if ($this->group_by_date && $current_date) {
+            $array[] = array(
+                'date' => date('D., M. j, Y', $current_date),
+                'events' => $current_events
+            );
+        }
 
         $this->array = $array;
 
         return $this->array;
+    }
+
+    private function is_valid_event($event) {
+        $is_valid = true;
+        $event_start = $this->object->iCalDateToUnixTimestamp($event['DTSTART']);
+
+        if ($this->start_date && ($event_start < $this->start_date)) {
+            $is_valid = false;
+        }
+
+        if ($this->end_date && ($event_start > $this->end_date)) {
+            $is_valid = false;
+        }
+
+        return $is_valid;
     }
 
 }
