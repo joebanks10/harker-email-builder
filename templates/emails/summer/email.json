@@ -10,7 +10,8 @@
                 "img": {
                     "src": "http://skylark.harker.org/emails/messages/summer/2016/camp-plus/images/img0.png",
                     "alt": "Harker Summer",
-                    "width": 200
+                    "width": 200,
+                    "height": 58
                 }
             }
         }
