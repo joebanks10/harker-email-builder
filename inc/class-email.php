@@ -407,11 +407,11 @@ class Email {
                             'column_count' => 2,
                             'columns' => array(
                                 array(
-                                    'width' => 64,
+                                    'width' => 68,
                                     'elements' => $date_element
                                 ), 
                                 array(
-                                    'width' => 203,
+                                    'width' => 199,
                                     'elements' => $event_elements
                                 ) 
                             ) // end columns

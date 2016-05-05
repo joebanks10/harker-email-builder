@@ -267,8 +267,8 @@ tr:last-child > .row {
 
 .date {
     font-family: 'Open Sans', Arial, sans-serif; 
-    font-size: 18px; 
-    line-height: 26.1px;
+    font-size: 16px; 
+    line-height: 24px;
     color: #ffffff; 
     font-weight: bold; 
     text-align: center;
@@ -278,11 +278,23 @@ tr:last-child > .row {
     padding-right: 15px; 
 }
 
+.event {
+    padding-bottom: 16px;
+}
 
 .event .header {
-    font-size: 18px; 
-    line-height: 26.1px;
+    font-size: 16px; 
+    line-height: 24px;
     padding-bottom: 0;
+}
+
+.event .content {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.event-link {
+    display: block;
 }
 
 
