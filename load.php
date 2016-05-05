@@ -2,6 +2,7 @@
 
 // debug
 ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // constants
@@ -22,4 +23,5 @@ require_once ROOT_DIR . "/vendor/autoload.php";
 // include author files
 require_once ROOT_DIR . "/inc/class-rss-feed.php";
 require_once ROOT_DIR . "/inc/class-ics-feed.php";
+require_once ROOT_DIR . "/inc/class-template-extensions.php";
 require_once ROOT_DIR . "/inc/class-email.php";
