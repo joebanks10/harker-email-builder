@@ -1,0 +1,33 @@
+{% extends "elements/element.html" %}
+
+{% set defaults = {
+    element_class: "calendar-list-item",
+    date: "Jan. 1",
+    date_width: 68,
+    events: []
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}
+
+{% block element_content %}
+    <table class="table-calendar-list-item" width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            {% include "elements/date.html" with { module: {
+                text: module.date,
+                width: module.date_width
+            } } %}
+            <td class="events" valign="top">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    {% for event in module.events %}
+                        <tr>
+                            {% include "elements/event.html" with { module: {
+                                header: { text: event.header },
+                                content: { text: event.content }
+                            } } %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </td>    
+        </tr>
+    </table>
+{% endblock element_content %}

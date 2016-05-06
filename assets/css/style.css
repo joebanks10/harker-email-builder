@@ -282,8 +282,12 @@ tr:last-child > .row {
     display: block;
 }
 
+.events {
+    padding-left: 20px;   
+}
+
 .event {
-    padding-bottom: 16px;
+    padding-bottom: 15px;
 }
 
 .event .header {
@@ -451,11 +455,6 @@ tr:last-child > .row {
         text-align: center !important;
     }
     
-    table[class="table-date"] { width: auto !important; }
-    td[class="date"] {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
     span[class="month"] { display: inline; }
     span[class="day"] { display: inline; }
     
@@ -484,11 +483,6 @@ td[class="hide"] {
         text-align: center !important;
     }
 
-    table[class="table-date"] { width: auto !important; }
-    td[class="date"] {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
     span[class="month"] { display: inline; }
     span[class="day"] { display: inline; }
     
