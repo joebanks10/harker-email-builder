@@ -83,11 +83,11 @@ class Template_Extensions {
 
         $dates = array();
         foreach($feed as $current_date) {
-            $date = $current_date['date'];
+            $date = $this->format_date($current_date['date']);
             $events = array();
             
             foreach($current_date['events'] as $event) {
-                $header = addslashes($event['title']);
+                $header = $event['title'];
                 $content = $this->get_event_content($event);
 
                 // add event
@@ -150,6 +150,8 @@ class Template_Extensions {
 
     public function convert_dates_to_columns($dates = array()) {
         $columns = array();
+        $date_width = 68;
+        $events_width = 199;
  
         foreach($dates as $date) {
 
@@ -161,6 +163,7 @@ class Template_Extensions {
                 array(
                     'template' => 'date',
                     'options' => array(
+                        'width' => $date_width,
                         'text' => $date['date']
                     )
                 )
@@ -189,11 +192,11 @@ class Template_Extensions {
                             'column_count' => 2,
                             'columns' => array(
                                 array(
-                                    'width' => 68,
+                                    'width' => $date_width,
                                     'elements' => $date_element
                                 ), 
                                 array(
-                                    'width' => 199,
+                                    'width' => $events_width,
                                     'elements' => $event_elements
                                 ) 
                             ) // end columns
@@ -216,8 +219,98 @@ class Template_Extensions {
         return $index;
     }
 
-    private function format_time($date) {
-        $time = date('g:i a', $date);
+    public function get_event_content($event) {
+        $content = '';
+
+        if ( isset($event['start']) && isset($event['end']) ) {
+            $content .= $this->format_time_range($event['start'], $event['end']);
+        } elseif ( isset($event['start']) ) {
+            $content .= $this->format_time_range($event['start']);
+        }
+
+        if ( !empty($content) && isset($event['location']) ) {
+            $content .= ' | ' . $event['location'];
+        }
+
+        if ( isset($event['permalink']) ) {
+            $content .= '<a class="event-link" href="'. $event['permalink'] . '">View details</a>';
+        }
+
+        return $content;
+    }
+
+    private function format_date($timestamp) {
+        $month = $this->format_month($timestamp);
+        $day = $this->format_day($timestamp);
+
+        return "$month<br>$day";        
+    }
+
+    private function format_month($timestamp) {
+        $month = date('F', $timestamp);
+
+        // Abbreviate Jan., Feb., Aug., Sept., Oct., Nov. and Dec.
+        switch($month) {
+            case 'January':
+                $month = 'Jan.';
+                break;
+            case 'February':
+                $month = 'Feb.';
+                break;
+            case 'August':
+                $month = 'Aug.';
+                break;
+            case 'September':
+                $month = 'Sept.';
+                break;
+            case 'October':
+                $month = 'Oct.';
+                break;
+            case 'November':
+                $month = 'Nov.';
+                break;
+            case 'December':
+                $month = 'Dec.';
+                break;
+        }
+
+        return $month;
+    }
+
+    private function format_day($timestamp) {
+        return date('j', $timestamp);
+    }
+
+    private function format_time_range($start_time, $end_time = false) {
+        $content = '';
+        $has_start = false;
+
+        if ( date('g:i a', $start_time) != '12:00 am' ) {
+            // start time exists
+            $has_start = true;
+            $start_time = $this->format_time($start_time);
+
+            $content .= $start_time;
+        }
+
+        if ( $has_start && $end_time ) {
+            $end_time = $this->format_time($end_time);
+            
+            $start_period = $this->get_time_period($start_time);
+            $end_period = $this->get_time_period($end_time);
+
+            if ( $start_period == $end_period ) {
+                $content = str_replace(array(' a.m.', ' p.m.'), '', $content);
+            }
+
+            $content .= ' to ' . $end_time;
+        }
+
+        return $content;
+    }
+
+    private function format_time($timestamp) {
+        $time = date('g:i a', $timestamp);
 
         $time = str_replace(':00', '', $time);
         $time = str_replace('am', 'a.m.', $time);
@@ -231,42 +324,6 @@ class Template_Extensions {
         $period = (isset($parts[1])) ? $parts[1] : '';
 
         return $period;
-    }
-
-    public function get_event_content($event) {
-        $content = '';
-        $has_start = false;
-
-        if ( isset($event['start']) && date('g:i a', $event['start']) != '12:00 am' ) {
-            // start time exists
-            $has_start = true;
-            $start_time = $this->format_time($event['start']);
-
-            $content .= $start_time;
-        }
-
-        if ( $has_start && isset($event['end']) ) {
-            $end_time = $this->format_time($event['end']);
-            
-            $start_period = $this->get_time_period($start_time);
-            $end_period = $this->get_time_period($end_time);
-
-            if ( $start_period == $end_period ) {
-                $content = str_replace(array(' a.m.', ' p.m.'), '', $content);
-            }
-
-            $content .= ' to ' . $end_time;
-        }
-
-        if ( $has_start && isset($event['location']) ) {
-            $content .= ' | ' . $event['location'];
-        }
-
-        if ( isset($event['permalink']) ) {
-            $content .= '<a class="event-link" href="'. $event['permalink'] . '">View details</a>';
-        }
-
-        return $content;
     }
 
 }

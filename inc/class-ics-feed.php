@@ -103,10 +103,7 @@ class ICS_Feed {
                     // check if date is defined
                     if ($current_date) {
                         // add date and events to array
-                        $array[] = array(
-                            'date' => date('M. j', $current_date),
-                            'events' => $current_events
-                        );
+                        $array[] = $this->create_date_group($current_date, $current_events);
                     }
 
                     // set date to new date and reset events
@@ -125,14 +122,18 @@ class ICS_Feed {
 
         // add last date if grouping by date
         if ($this->group_by_date && $current_date) {
-            $array[] = array(
-                'date' => date('M. j', $current_date),
-                'events' => $current_events
-            );
+            $array[] = $this->create_date_group($current_date, $current_events);
         }
 
         $this->array = $array;
         return $this->array;
+    }
+
+    private function create_date_group($date, $events = array()) {
+        return array(
+            'date' => $date,
+            'events' => $events
+        );
     }
 
     private function is_valid_event($event) {
