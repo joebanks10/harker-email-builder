@@ -278,6 +278,10 @@ tr:last-child > .row {
     padding-right: 5px; 
 }
 
+.month, .day {
+    display: block;
+}
+
 .event {
     padding-bottom: 16px;
 }
@@ -446,6 +450,15 @@ tr:last-child > .row {
         width: 100% !important; 
         text-align: center !important;
     }
+    
+    table[class="table-date"] { width: auto !important; }
+    td[class="date"] {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    span[class="month"] { display: inline; }
+    span[class="day"] { display: inline; }
+    
     /* image */
     img[class="img-full"] { 
         width: 100% !important; 
@@ -470,6 +483,15 @@ td[class="hide"] {
         width: 100% !important; 
         text-align: center !important;
     }
+
+    table[class="table-date"] { width: auto !important; }
+    td[class="date"] {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    span[class="month"] { display: inline; }
+    span[class="day"] { display: inline; }
+    
     /* image */
     img[class="img-full"] { width: 100% !important; }
     img[class="img-hide"] { 

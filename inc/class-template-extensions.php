@@ -115,7 +115,7 @@ class Template_Extensions {
         if ( !isset($column['width']) ) {
             // if there is no column width defined
             if ($module['column_count'] == 1) {
-                $column_width = "100%";
+                $column_width = $module['width'];
             } else {
                 $column_width = floor($container_width / $module['column_count']) - $column_reduction;
             }
@@ -125,7 +125,7 @@ class Template_Extensions {
         } else if ( isset($column['width']) && preg_match('/%/', $column['width']) ) {
             // if column width is a percentage
             if ( $column['width'] == '100%' ) {
-                $column_width = "100%";
+                $column_width = $module['width'];
             } else {
                 $column_width = floor((intval($column['width'])/100) * $container_width) - $column_reduction;
             }
@@ -150,8 +150,8 @@ class Template_Extensions {
 
     public function convert_dates_to_columns($dates = array()) {
         $columns = array();
-        $date_width = 68;
-        $events_width = 199;
+        $date_width = "25%"; // 68 / 269
+        $events_width = "75%"; // 199 / 269
  
         foreach($dates as $date) {
 
@@ -163,7 +163,6 @@ class Template_Extensions {
                 array(
                     'template' => 'date',
                     'options' => array(
-                        'width' => $date_width,
                         'text' => $date['date']
                     )
                 )
@@ -243,7 +242,7 @@ class Template_Extensions {
         $month = $this->format_month($timestamp);
         $day = $this->format_day($timestamp);
 
-        return "$month<br>$day";        
+        return "<span class=\"month\">$month</span><span class=\"day\">$day</span>";        
     }
 
     private function format_month($timestamp) {
