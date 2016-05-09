@@ -68,7 +68,11 @@ tr:first-child > .element {
 -------------------------------------------- */
 
 .element {
-    padding-bottom: 26px;
+    padding-bottom: 15px;
+}
+
+.element-list {
+    padding-bottom: 30px;
 }
 
 .title {
@@ -455,9 +459,6 @@ tr:last-child > .row {
         text-align: center !important;
     }
     
-    span[class="month"] { display: inline; }
-    span[class="day"] { display: inline; }
-    
     /* image */
     img[class="img-full"] { 
         width: 100% !important; 
@@ -482,9 +483,6 @@ td[class="hide"] {
         width: 100% !important; 
         text-align: center !important;
     }
-
-    span[class="month"] { display: inline; }
-    span[class="day"] { display: inline; }
     
     /* image */
     img[class="img-full"] { width: 100% !important; }

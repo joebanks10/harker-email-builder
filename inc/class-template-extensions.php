@@ -232,7 +232,7 @@ class Template_Extensions {
         }
 
         if ( isset($event['permalink']) ) {
-            $content .= '<a class="event-link" href="'. $event['permalink'] . '">View details</a>';
+            $content .= '<span class="event-link"><a href="'. $event['permalink'] . '">View details</a></span>';
         }
 
         return $content;

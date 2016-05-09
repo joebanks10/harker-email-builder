@@ -219,115 +219,6 @@
             }
         },
 
-        // Two Columns, Right-to-Left (using two-columns template)
-        {
-            "template": "two-columns",
-            "options": {
-                "class": "",
-                "content_1": [
-                    {
-                        "template": "calendar-list",
-                        "options": {
-                            "ical": "http://www.harker.org/calendar/page_3562.ics",
-                            "start_date": "March 20, 2016",
-                            "end_date": "March 27, 2016",
-                            "dates": [
-                                {
-                                    "date": "Jan. 1",
-                                    "events": [
-                                        {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
-                                        },
-                                        {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
-                                        },
-                                        {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "date": "Jan. 2",
-                                    "events": [
-                                        {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
-                                        },
-                                        {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
-                                        },
-                                        {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "date": "Jan. 3",
-                                    "events": [
-                                        {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
-                                        },
-                                        {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
-                                        },
-                                        {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "date": "Jan. 4",
-                                    "events": [
-                                        {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
-                                        },
-                                        {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
-                                        },
-                                        {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "content_2": [
-                    {
-                        "template": "header",
-                        "options": {
-                            "text": "Module Header",
-                            "style": "padding-bottom: 0;"
-                        }
-                    },
-                    {
-                        "template": "subheader",
-                        "options": {
-                            "text": "Module Subeader"
-                        }
-                    },
-                    {
-                        "template": "content",
-                        "options": {
-                            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
-                        }
-                    }
-                ]
-            }
-        },
-
         // Three Columns w/ Articles (using element-grid template)
         {
             "template": "element-grid",
@@ -357,85 +248,104 @@
         },
 
         // Calendar Listing
-        // {
-        //     "template": "calendar-list",
-        //     "options": {
-        //         "class": "",
-        //         "ical": "http://www.harker.org/calendar/page_3562.ics",
-        //         "start_date": "Jan 20, 2016",
-        //         "end_date": "Jan 27, 2016",
-        //         "dates": [
-        //             {
-        //                 "date": "Jan. 1",
-        //                 "events": [
-        //                     {
-        //                         "header": "Event Header",
-        //                         "content": "7 p.m. | Saratoga Campus"
-        //                     },
-        //                     {
-        //                         "header": "Event Header",
-        //                         "content": "7 p.m. | Saratoga Campus"
-        //                     },
-        //                     {
-        //                         "header": "Event Header",
-        //                         "content": "7 p.m. | Saratoga Campus"
-        //                     }
-        //                 ]
-        //             },
-        //             {
-        //                 "date": "Jan. 2",
-        //                 "events": [
-        //                     {
-        //                         "header": "Event Header",
-        //                         "content": "7 p.m. | Saratoga Campus"
-        //                     },
-        //                     {
-        //                         "header": "Event Header",
-        //                         "content": "7 p.m. | Saratoga Campus"
-        //                     },
-        //                     {
-        //                         "header": "Event Header",
-        //                         "content": "7 p.m. | Saratoga Campus"
-        //                     }
-        //                 ]
-        //             },
-        //             {
-        //                 "date": "Jan. 3",
-        //                 "events": [
-        //                     {
-        //                         "header": "Event Header",
-        //                         "content": "7 p.m. | Saratoga Campus"
-        //                     },
-        //                     {
-        //                         "header": "Event Header",
-        //                         "content": "7 p.m. | Saratoga Campus"
-        //                     },
-        //                     {
-        //                         "header": "Event Header",
-        //                         "content": "7 p.m. | Saratoga Campus"
-        //                     }
-        //                 ]
-        //             },
-        //             {
-        //                 "date": "Jan. 4",
-        //                 "events": [
-        //                     {
-        //                         "header": "Event Header",
-        //                         "content": "7 p.m. | Saratoga Campus"
-        //                     },
-        //                     {
-        //                         "header": "Event Header",
-        //                         "content": "7 p.m. | Saratoga Campus"
-        //                     },
-        //                     {
-        //                         "header": "Event Header",
-        //                         "content": "7 p.m. | Saratoga Campus"
-        //                     }
-        //                 ]
-        //             }
-        //         ]
-        //     }
-        // },
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "",
+                "content_1": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Module Header"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "style": "font-size:14px; line-height: 24px;",
+                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "calendar-list",
+                        "options": {
+                            "dates": [
+                                {
+                                    "date": "Jan.<br>1",
+                                    "events": [
+                                        {
+                                            "header": "Event Header",
+                                            "content": "7 p.m. | Saratoga Campus"
+                                        },
+                                        {
+                                            "header": "Event Header",
+                                            "content": "7 p.m. | Saratoga Campus"
+                                        },
+                                        {
+                                            "header": "Event Header",
+                                            "content": "7 p.m. | Saratoga Campus"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "date": "Jan.<br>2",
+                                    "events": [
+                                        {
+                                            "header": "Event Header",
+                                            "content": "7 p.m. | Saratoga Campus"
+                                        },
+                                        {
+                                            "header": "Event Header",
+                                            "content": "7 p.m. | Saratoga Campus"
+                                        },
+                                        {
+                                            "header": "Event Header",
+                                            "content": "7 p.m. | Saratoga Campus"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "date": "Jan.<br>3",
+                                    "events": [
+                                        {
+                                            "header": "Event Header",
+                                            "content": "7 p.m. | Saratoga Campus"
+                                        },
+                                        {
+                                            "header": "Event Header",
+                                            "content": "7 p.m. | Saratoga Campus"
+                                        },
+                                        {
+                                            "header": "Event Header",
+                                            "content": "7 p.m. | Saratoga Campus"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "date": "Jan.<br>4",
+                                    "events": [
+                                        {
+                                            "header": "Event Header",
+                                            "content": "7 p.m. | Saratoga Campus"
+                                        },
+                                        {
+                                            "header": "Event Header",
+                                            "content": "7 p.m. | Saratoga Campus"
+                                        },
+                                        {
+                                            "header": "Event Header",
+                                            "content": "7 p.m. | Saratoga Campus"
+                                        }
+                                    ]
+                                }
+                            ]  
+                        }
+                    }
+                ]
+            }
+        },
 
         // Two Columns w/ Images/Promos (using element-grid template)
         {
