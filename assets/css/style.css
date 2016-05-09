@@ -282,8 +282,14 @@ tr:last-child > .row {
     padding-right: 5px; 
 }
 
-.month, .day {
+.month, .day, .day-of-week {
     display: block;
+}
+
+.day-of-week {
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: normal;
 }
 
 .events {

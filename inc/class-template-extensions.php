@@ -241,8 +241,9 @@ class Template_Extensions {
     private function format_date($timestamp) {
         $month = $this->format_month($timestamp);
         $day = $this->format_day($timestamp);
+        $day_of_week = $this->format_day_of_week($timestamp);
 
-        return "<span class=\"month\">$month</span><span class=\"day\">$day</span>";        
+        return "<span class=\"day-of-week\">$day_of_week</span> <span class=\"month\">$month</span> <span class=\"day\">$day</span>";        
     }
 
     private function format_month($timestamp) {
@@ -274,6 +275,10 @@ class Template_Extensions {
         }
 
         return $month;
+    }
+
+    private function format_day_of_week($timestamp) {
+        return date('l', $timestamp);
     }
 
     private function format_day($timestamp) {
