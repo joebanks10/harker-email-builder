@@ -2,7 +2,18 @@
 
 {% set defaults = {
     element_class: "header",
-    text: "Module Header"
+    text: "Module Header",
+    href: ""
 } %}
 
 {% set module = defaults|merge( module|default({}) ) %}
+
+{% block element_content %}
+    {% if module.href %}
+        <a href="{{ module.href }}">
+    {% endif %}
+    {{ module.text }}
+    {% if module.href %}
+        </a>
+    {% endif %}
+{% endblock element_content %}

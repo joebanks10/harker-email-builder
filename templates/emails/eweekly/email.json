@@ -60,6 +60,7 @@
                                 {
                                     "template": "article",
                                     "options": {
+                                        "permalink": "#",
                                         "img": "",
                                         "button": "",
                                         "header": {
@@ -70,6 +71,7 @@
                                 {
                                     "template": "article",
                                     "options": {
+                                        "permalink": "#",
                                         "img": "",
                                         "button": "",
                                         "header": {
@@ -80,6 +82,7 @@
                                 {
                                     "template": "article",
                                     "options": {
+                                        "permalink": "#",
                                         "img": "",
                                         "button": "",
                                         "header": {
@@ -104,7 +107,7 @@
                                 {
                                     "template": "article",
                                     "options": {
-                                        "img": "",
+                                        "permalink": "http://news.harker.org",
                                         "header": {
                                             "text": "Harker Takes Historic First Step at Groundbreaking Ceremony"
                                         },
@@ -119,6 +122,7 @@
                                 {
                                     "template": "article",
                                     "options": {
+                                        "permalink": "http://news.harker.org",
                                         "img": "",
                                         "header": {
                                             "text": "Preschoolers Raise Butterflies and Then Set Them Free"
@@ -134,6 +138,7 @@
                                 {
                                     "template": "article",
                                     "options": {
+                                        "permalink": "http://news.harker.org",
                                         "img": "",
                                         "header": {
                                             "text": "Middle School Latinists Collect Impressive Bag of Medals in Latin and Myth Exams"
@@ -161,22 +166,18 @@
                             "class": "photos",
                             "elements": [
                                 {
-                                    "template": "img",
+                                    "template": "article",
                                     "options": {
-                                        "src": "http://dummyimage.com/290x200/cccccc/333333.gif&text=placeholder+image",
-                                        "width": "100%"
-                                    }
-                                },
-                                {
-                                    "template": "header",
-                                    "options": {
-                                        "text": "Performing Arts Center and Athletics Center Groundbreaking"
-                                    }
-                                },
-                                {
-                                    "template": "content",
-                                    "options": {
-                                        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
+                                        "permalink": "#",
+                                        "header": {
+                                            "text": "Performing Arts Center and Athletics Center Groundbreaking"
+                                        },
+                                        "content": {
+                                            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
+                                        },
+                                        "button": {
+                                            "text": "View Photo Gallery"
+                                        }
                                     }
                                 }
                             ]

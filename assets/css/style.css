@@ -105,6 +105,14 @@ tr:first-child > .element {
     text-align: left;
 }
 
+.header a {
+    text-decoration: none;
+}
+
+.header a:hover, .header a:focus {
+    text-decoration: underline;
+}
+
 .subheader {
     font-family: 'Open Sans', Arial, sans-serif; 
     font-size: 20px; 
