@@ -5,6 +5,7 @@
     src: "http://dummyimage.com/600x400/cccccc/333333.gif&text=placeholder+image",
     alt: "",
     img_class: "img-full",
+    img_style: "",
     align: "center",
     width: "",
     height: "",
@@ -17,7 +18,7 @@
     {% if module.href %}
         <a href="{{ module.href }}">
     {% endif %}
-    <img class="{{ module.img_class }}" width="{{ module.width }}" height="{{ module.height }}" src="{{ module.src }}" alt="{{ module.alt }}">
+    <img class="{{ module.img_class }}" width="{{ module.width }}" height="{{ module.height }}" style="{{ module.img_style }}" src="{{ module.src }}" alt="{{ module.alt }}">
     {% if module.href %}
         </a>
     {% endif %}

@@ -3,11 +3,8 @@
 class Email {
 
     private $settings;
-    private $index;
-
     private $loader;
     private $twig;
-    
     private $rendered;
 
     /**
@@ -43,20 +40,9 @@ class Email {
 
         $this->loader = $this->create_loader();
         $this->twig = $this->create_environment();
-
-        // Add template functions
-        // $this->add_function('rss', array($this, 'get_rss_items'));
-        // $this->add_function('ical', array($this, 'get_ics_items'));
-        $this->add_function('module_classes', array($this, 'get_module_classes'));
-        $this->add_function('opposite_direction', array($this, 'get_opposite_direction'));
-        $this->add_function('table_position', array($this, 'get_table_position'));
-        $this->add_function('render_file', array($this, 'render_file'));
-        $this->add_function('get_column_width', array($this, 'get_column_width'));
-        $this->add_function('convert_elements_to_columns', array($this, 'convert_elements_to_columns'));
-        $this->add_function('convert_dates_to_columns', array($this, 'convert_dates_to_columns'));
+        $this->extend_twig();
 
         $this->rendered = $this->render_email($is_inline, $data);
-
         echo $this->rendered;
     }
 
@@ -89,6 +75,27 @@ class Email {
         }
 
         return $twig;
+    }
+
+    private function extend_twig() {
+        global $template_extensions;
+
+        // general
+        $this->add_function('render_file', array($template_extensions, 'render_file'));
+
+        // grid
+        $this->add_function('module_classes', array($template_extensions, 'get_module_classes'));
+        $this->add_function('opposite_direction', array($template_extensions, 'get_opposite_direction'));
+        $this->add_function('table_position', array($template_extensions, 'get_table_position'));
+        $this->add_function('get_column_width', array($template_extensions, 'get_column_width'));
+        $this->add_function('convert_elements_to_columns', array($template_extensions, 'convert_elements_to_columns'));
+        
+        // calendar list
+        $this->add_function('ical', array($template_extensions, 'get_ical_items'));
+        $this->add_function('convert_dates_to_columns', array($template_extensions, 'convert_dates_to_columns'));
+
+        // article list
+        $this->add_function('rss', array($this, 'get_rss_items'));
     }
 
     private function add_function($name, $callback) {
@@ -135,10 +142,10 @@ class Email {
     }
 
     private function get_styles() {
-        $css = $this->render_file($this->settings['stylesheet_url']);
+        $css = file_get_contents($this->settings['stylesheet_url']);
 
         if ( $this->settings['stylesheet_addons_url'] ) {
-            $addons = $this->render_file($this->settings['stylesheet_addons_url']);
+            $addons = file_get_contents($this->settings['stylesheet_addons_url']);
             $css = ( $addons ) ? $css . $addons : $css;
         }
 
@@ -165,169 +172,6 @@ class Email {
         $url = $url_parts[0]; // URL w/o arguments
 
         return "http://$_SERVER[HTTP_HOST]$url";
-    }
-
-    // TEMPLATE FUNCTIONS
-    // ------------------------------------------
-
-    public function render_file($file) {
-        return file_get_contents($file);
-    }
-
-    public function get_module_classes($other_classes = '') {
-        $index = $this->get_index();
-        $alt = ( $index % 2 ) ? 'odd' : 'even';
-
-        return "module-$index module-$alt $other_classes";
-    }
-
-    public function get_opposite_direction($direction) {
-        $opposite = '';
-
-        if($direction == 'left') {
-            $opposite = 'right';
-        } else if ($direction == 'right') {
-            $opposite = 'left';
-        }
-
-        return $opposite;
-    }
-
-    public function get_table_position($direction) {
-        $position = 'left'; // default
-
-        if ($direction == 'rtl') {
-            $position = 'right';
-        }
-
-        return $position;
-    }
-
-    private function get_index($increment = true) {
-        $index = ($increment) ? $this->index++ : $this->index;
-
-        return $index;
-    }
-
-    public function get_rss_items($url = '') {
-        $url = empty($url) ? 'http://rss.cnn.com/rss/cnn_topstories.rss' : $url;
-
-        $feed = new RSS_Feed($url);
-        $feed = $feed->get_array();
-
-        if ( ! $feed ) {
-            return array();
-        }
-
-        return $feed['items'];
-    }
-
-    public function get_ics_items($url = '', $page_id) {
-        $url = empty($url) ? 'http://www.harker.org/calendar/page_2302.ics' : $url;
-
-        $feed = new ICS_Feed($url, $page_id);
-        $feed = $feed->get_array();
-
-        if ( ! $feed ) {
-            return array();
-        }
-
-        return $feed;
-    }
-
-    public function get_column_width($column, $module) {
-        $container_width = $module['width'] - (($module['column_count'] - 1) * $module['gutter_width']);
-        $column_width = ""; // default
-        $column_reduction = 1; // reduce width for Outlook 07/10/11
-
-        if ( !isset($column['width']) ) {
-            // if there is no column width defined
-            if ($module['column_count'] == 1) {
-                $column_width = "100%";
-            } else {
-                $column_width = floor($container_width / $module['column_count']) - $column_reduction;
-            }
-        } else if ( isset($column['width']) && is_numeric($column['width']) && $column['width'] >= 0 && $column['width'] <= $container_width ) {
-            // if column width is a valid pixel number
-            $column_width = $column['width'];
-        } else if ( isset($column['width']) && preg_match('/%/', $column['width']) ) {
-            // if column width is a percentage
-            if ( $column['width'] == '100%' ) {
-                $column_width = "100%";
-            } else {
-                $column_width = floor((intval($column['width'])/100) * $container_width) - $column_reduction;
-            }
-        }
-
-        return $column_width;
-    }
-
-    public function convert_elements_to_columns($elements = array()) {
-        $columns = array();
-
-        foreach($elements as $element) {
-            $columns[] = array(
-                "elements" => array(
-                    $element
-                )
-            );
-        }
-
-        return $columns;
-    }
-
-    public function convert_dates_to_columns($dates = array()) {
-        $columns = array();
-
-        foreach($dates as $date) {
-
-            $day = array(
-                array(
-                    'template' => 'date',
-                    'options' => array(
-                        'text' => $date['date']
-                    )
-                )
-            );
-
-            $events = array();
-            foreach($date['events'] as $event) {
-                $events[] = array(
-                    'template' => 'event',
-                    'options' => array(
-                        'header' => array(
-                            'text' => $event['header']
-                        ),
-                        'content' => array(
-                            'text' => $event['content']
-                        )
-                    )
-                );
-            }
-
-            $columns[] = array(
-                'elements' => array(
-                    array(
-                        'template' => 'grid',
-                        'options' => array(
-                            'column_count' => 2,
-                            'columns' => array(
-                                array(
-                                    'width' => 64,
-                                    'elements' => $day
-                                ), 
-                                array(
-                                    'width' => 203,
-                                    'elements' => $events
-                                ) 
-                            ) // end columns
-                        ) // end element options
-                    ) // end element
-                ) // end elements
-            );
-        }
-
-        return $columns;
     }
 
 }

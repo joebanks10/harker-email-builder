@@ -1,0 +1,237 @@
+ {
+    "title": "eWeekly Template",
+    
+    // Custom Header
+    // "header": [
+    //     {
+    //         "template": "topbar",
+    //         "options": {
+    //             "img": {
+    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
+    //                 "alt": "Updated Alt Tag"
+    //                 "width": 215
+    //             }
+    //         }
+    //     }
+    // ],
+    
+    // Modules
+    // 
+    // Templates: grid, two-columns, three-columns, 
+    // content-sidebar, sidebar-content, element-grid
+    // 
+    // Standard Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // 
+    // Grid Options: columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+
+        // Two Columns (using two-columns template)
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "",
+                "content_1": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Upcoming Events"
+                        }
+                    },
+                    {
+                        "template": "calendar-list",
+                        "options": {
+                            "ical": "http://www.harker.org/calendar/page_3624.ics",
+                            "start_date": "May 6, 2016",
+                            "end_date": "May 15, 2016"
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "announcements",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Announcements"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "permalink": "#",
+                                        "img": "",
+                                        "button": "",
+                                        "header": {
+                                            "text": "Annye Rothenberg to Speak on \"How to Prepare Your Child for Kindergarten\""
+                                        }
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "permalink": "#",
+                                        "img": "",
+                                        "button": "",
+                                        "header": {
+                                            "text": "Sports Report May 2, 2016"
+                                        }
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "permalink": "#",
+                                        "img": "",
+                                        "button": "",
+                                        "header": {
+                                            "text": "Kindergarten Shows Added to Harker's New Video On Demand Download Page!"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "news",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "News"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "permalink": "http://news.harker.org",
+                                        "img": {
+                                            "width": 289
+                                        },
+                                        "header": {
+                                            "text": "Harker Takes Historic First Step at Groundbreaking Ceremony"
+                                        },
+                                        "content": {
+                                            "text": "Harker took a historic step toward building the new athletic center and performing arts center as students, faculty, staff, donors and the board of trustees broke ground at a special afternoon ceremony."
+                                        },
+                                        "button": {
+                                            "text": "Read More"
+                                        }
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "permalink": "http://news.harker.org",
+                                        "img": "",
+                                        "header": {
+                                            "text": "Preschoolers Raise Butterflies and Then Set Them Free"
+                                        },
+                                        "content": {
+                                            "text": "The Acorn Cottage at Harker Preschool raised a swarm of Painted Lady butterflies over the past few weeks and set them free!"
+                                        },
+                                        "button": {
+                                            "text": "Read More"
+                                        }
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "permalink": "http://news.harker.org",
+                                        "img": "",
+                                        "header": {
+                                            "text": "Middle School Latinists Collect Impressive Bag of Medals in Latin and Myth Exams"
+                                        },
+                                        "content": {
+                                            "text": "All middle school Latinists participated in the National Latin Exam and the National Mythology Exam, and Harker had great results!"
+                                        },
+                                        "button": {
+                                            "text": "Read More"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "photos",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Photos"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "permalink": "#",
+                                        "img": {
+                                            "width": 289
+                                        },
+                                        "header": {
+                                            "text": "Performing Arts Center and Athletics Center Groundbreaking"
+                                        },
+                                        "content": {
+                                            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
+                                        },
+                                        "button": {
+                                            "text": "View Photo Gallery"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+
+    ] // end of content modules
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }

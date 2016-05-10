@@ -2,17 +2,21 @@
 
 {% set defaults = {
     element_class: "article",
-    width: "",
+    width: "100%",
+    permalink: "",
     img: {
-        width: "100%"
+        width: "100%",
+        href: module.permalink
     },
     header: {
-        text: "Article Header"
+        text: "Article Header",
+        href: module.permalink
     },
     content: {},
     button: {
         type: "outline",
-        width: "100%"
+        width: "100%",
+        href: module.permalink
     }
 } %}
 

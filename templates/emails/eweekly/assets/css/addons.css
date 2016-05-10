@@ -1,0 +1,15 @@
+/* styles here will be appended to main stylesheet (defined in index.php) */
+
+.news .article {
+    padding-bottom: 30px;
+}
+
+.photos .article .header {
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.photos .article .content {
+    font-size: 12px;
+    line-height: 20px;
+}

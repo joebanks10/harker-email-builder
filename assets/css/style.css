@@ -68,7 +68,11 @@ tr:first-child > .element {
 -------------------------------------------- */
 
 .element {
-    padding-bottom: 26px;
+    padding-bottom: 15px;
+}
+
+.element-list {
+    padding-bottom: 30px;
 }
 
 .title {
@@ -99,6 +103,14 @@ tr:first-child > .element {
     color: #3B3B3B; 
     font-weight: bold; 
     text-align: left;
+}
+
+.header a {
+    text-decoration: none;
+}
+
+.header a:hover, .header a:focus {
+    text-decoration: underline;
 }
 
 .subheader {
@@ -267,22 +279,44 @@ tr:last-child > .row {
 
 .date {
     font-family: 'Open Sans', Arial, sans-serif; 
-    font-size: 18px; 
-    line-height: 26.1px;
+    font-size: 16px; 
+    line-height: 24px;
     color: #ffffff; 
     font-weight: bold; 
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
-    padding-left: 15px; 
-    padding-right: 15px; 
+    padding-left: 5px; 
+    padding-right: 5px; 
 }
 
+.day-of-week {
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: normal;
+}
+
+.events {
+    padding-left: 20px;  
+}
+
+.event {
+    padding-bottom: 15px;
+}
 
 .event .header {
-    font-size: 18px; 
-    line-height: 26.1px;
+    font-size: 16px; 
+    line-height: 24px;
     padding-bottom: 0;
+}
+
+.event .content {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.event-link {
+    display: block;
 }
 
 
@@ -434,6 +468,7 @@ tr:last-child > .row {
         width: 100% !important; 
         text-align: center !important;
     }
+    
     /* image */
     img[class="img-full"] { 
         width: 100% !important; 
@@ -458,6 +493,7 @@ td[class="hide"] {
         width: 100% !important; 
         text-align: center !important;
     }
+    
     /* image */
     img[class="img-full"] { width: 100% !important; }
     img[class="img-hide"] { 
