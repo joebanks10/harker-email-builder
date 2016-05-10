@@ -37,6 +37,12 @@
                 "class": "",
                 "content_1": [
                     {
+                        "template": "header",
+                        "options": {
+                            "text": "Upcoming Events"
+                        }
+                    },
+                    {
                         "template": "calendar-list",
                         "options": {
                             "ical": "http://www.harker.org/calendar/page_3624.ics",
@@ -47,15 +53,17 @@
                 ],
                 "content_2": [
                     {
-                        "template": "header",
-                        "options": {
-                            "text": "Announcements"
-                        }
-                    },
-                    {
                         "template": "element-list",
                         "options": {
                             "class": "announcements",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Announcements"
+                                    }
+                                }
+                            ],
                             "elements": [
                                 {
                                     "template": "article",
@@ -94,20 +102,25 @@
                         }
                     },
                     {
-                        "template": "header",
-                        "options": {
-                            "text": "News"
-                        }
-                    },
-                    {
                         "template": "element-list",
                         "options": {
                             "class": "news",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "News"
+                                    }
+                                }
+                            ],
                             "elements": [
                                 {
                                     "template": "article",
                                     "options": {
                                         "permalink": "http://news.harker.org",
+                                        "img": {
+                                            "width": 289
+                                        },
                                         "header": {
                                             "text": "Harker Takes Historic First Step at Groundbreaking Ceremony"
                                         },
@@ -155,20 +168,25 @@
                         }
                     },
                     {
-                        "template": "header",
-                        "options": {
-                            "text": "Photos"
-                        }
-                    },
-                    {
                         "template": "element-list",
                         "options": {
                             "class": "photos",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Photos"
+                                    }
+                                }
+                            ],
                             "elements": [
                                 {
                                     "template": "article",
                                     "options": {
                                         "permalink": "#",
+                                        "img": {
+                                            "width": 289
+                                        },
                                         "header": {
                                             "text": "Performing Arts Center and Athletics Center Groundbreaking"
                                         },

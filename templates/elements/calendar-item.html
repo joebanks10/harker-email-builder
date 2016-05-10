@@ -1,7 +1,7 @@
 {% extends "elements/element.html" %}
 
 {% set defaults = {
-    element_class: "calendar-list-item",
+    element_class: "calendar-item",
     date: "Jan. 1",
     date_width: 68,
     events: []
@@ -10,7 +10,7 @@
 {% set module = defaults|merge( module|default({}) ) %}
 
 {% block element_content %}
-    <table class="table-calendar-list-item" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <table class="table-calendar-item" width="100%" border="0" cellpadding="0" cellspacing="0">
         <tr>
             {% include "elements/date.html" with { module: {
                 text: module.date,

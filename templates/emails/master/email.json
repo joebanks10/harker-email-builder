@@ -226,22 +226,52 @@
                 "class": "gray-bg",
                 "elements": [
                     {
-                        "template": "article"
+                        "template": "article",
+                        "options": {
+                            "img": {
+                                "width": 185
+                            }
+                        }
                     },
                     {
-                        "template": "article"
+                        "template": "article",
+                        "options": {
+                            "img": {
+                                "width": 185
+                            }
+                        }
                     },
                     {
-                        "template": "article"
+                        "template": "article",
+                        "options": {
+                            "img": {
+                                "width": 185
+                            }
+                        }
                     },
                     {
-                        "template": "article"
+                        "template": "article",
+                        "options": {
+                            "img": {
+                                "width": 185
+                            }
+                        }
                     },
                     {
-                        "template": "article"
+                        "template": "article",
+                        "options": {
+                            "img": {
+                                "width": 185
+                            }
+                        }
                     },
                     {
-                        "template": "article"
+                        "template": "article",
+                        "options": {
+                            "img": {
+                                "width": 185
+                            }
+                        }
                     }
                 ]
             }
@@ -253,21 +283,6 @@
             "options": {
                 "class": "",
                 "content_1": [
-                    {
-                        "template": "header",
-                        "options": {
-                            "text": "Module Header"
-                        }
-                    },
-                    {
-                        "template": "content",
-                        "options": {
-                            "style": "font-size:14px; line-height: 24px;",
-                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
-                        }
-                    }
-                ],
-                "content_2": [
                     {
                         "template": "calendar-list",
                         "options": {
@@ -343,6 +358,21 @@
                             ]  
                         }
                     }
+                ],
+                "content_2": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Module Header"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "style": "font-size:14px; line-height: 24px;",
+                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+                        }
+                    }
                 ]
             }
         },
@@ -359,7 +389,7 @@
                         "options": {
                             "src": "https://www.harker.org/uploaded/assets/graphics/promos/SUM_web_PPortal_F_1617.jpg",
                             "href": "#",
-                            "width": "100%"
+                            "width": 289
                         }
                     },
                     {
@@ -367,7 +397,7 @@
                         "options": {
                             "src": "https://www.harker.org/uploaded/assets/graphics/promos/ADV_AGiving_May_31_HPP_F_1516.png",
                             "href": "#",
-                            "width": "100%"
+                            "width": 289
                         }
                     },
                     {
@@ -375,7 +405,7 @@
                         "options": {
                             "src": "http://www.harker.org/uploaded/assets/graphics/promos/corporate/portal/ADV_GrandparentsDay_LS_HPP_F_1516.png",
                             "href": "#",
-                            "width": "100%"
+                            "width": 289
                         }
                     },
                     {
@@ -383,7 +413,7 @@
                         "options": {
                             "src": "http://www.harker.org/uploaded/assets/graphics/promos/SUM_SFGiants_Baseballcamp_HPP_F_1617.png",
                             "href": "#",
-                            "width": "100%"
+                            "width": 289
                         }
                     }
                 ]

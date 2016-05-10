@@ -243,7 +243,7 @@ class Template_Extensions {
         $day = $this->format_day($timestamp);
         $day_of_week = $this->format_day_of_week($timestamp);
 
-        return "<span class=\"day-of-week\">$day_of_week</span> <span class=\"month\">$month</span> <span class=\"day\">$day</span>";        
+        return "<div class=\"day-of-week\">$day_of_week</div><div class=\"month\">$month</div><div class=\"day\">$day</div>";        
     }
 
     private function format_month($timestamp) {
