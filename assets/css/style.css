@@ -152,10 +152,10 @@ tr:first-child > .element {
 
 .content-intro {
     font-family: 'Open Sans', Arial, sans-serif;
-    font-size: 18px;
-    line-height: 32px;
-    color: #555555;
-    font-style: italic;
+    font-size: 23px;
+    font-weight: 100;
+    line-height: 36px;
+    color: #333;
     text-align: left;
 }
 
