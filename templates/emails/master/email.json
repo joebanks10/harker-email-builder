@@ -68,7 +68,8 @@
                                 "template": "subtitle",
                                 "options": {
                                     "text": "Some Text Goes Here | And Here",
-                                    "style": "font-size: 20px; padding-bottom: 0;"
+                                    "class": "subtitle-lg",
+                                    "style": "padding-bottom: 0;"
                                 }
                             },
                             {
