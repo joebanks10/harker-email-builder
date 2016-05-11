@@ -90,10 +90,13 @@ class Template_Extensions {
                 $header = $event['title'];
                 $content = $this->get_event_content($event);
 
+                $header_element = ( !empty($header) ) ? array( 'text' => $header ) : array();
+                $content_element = ( !empty($content) ) ? array( 'text' => $content ) : array();
+
                 // add event
                 $events[] = array(
-                    'header' => $header,
-                    'content' => $content
+                    'header' => $header_element,
+                    'content' => $content_element
                 );
             }
 
@@ -110,7 +113,7 @@ class Template_Extensions {
     public function get_column_width($column, $module) {
         $container_width = $module['width'] - (($module['column_count'] - 1) * $module['gutter_width']);
         $column_width = ""; // default
-        $column_reduction = 1; // reduce width for Outlook 07/10/11
+        $column_reduction = 0; // reduce width for Outlook 07/10/13 - removed this because of conditional HTML solution
 
         if ( !isset($column['width']) ) {
             // if there is no column width defined
