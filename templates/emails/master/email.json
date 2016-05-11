@@ -292,16 +292,16 @@
                                     "date": "Jan.<br>1",
                                     "events": [
                                         {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
+                                            "header": { "text": "Event Header" },
+                                            "content": { "text": "7 p.m. | Saratoga Campus" }
                                         },
                                         {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
+                                            "header": { "text": "Event Header" },
+                                            "content": { "text": "7 p.m. | Saratoga Campus" }
                                         },
                                         {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
+                                            "header": { "text": "Event Header" },
+                                            "content": { "text": "7 p.m. | Saratoga Campus" }
                                         }
                                     ]
                                 },
@@ -309,16 +309,16 @@
                                     "date": "Jan.<br>2",
                                     "events": [
                                         {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
+                                            "header": { "text": "Event Header" },
+                                            "content": { "text": "7 p.m. | Saratoga Campus" }
                                         },
                                         {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
+                                            "header": { "text": "Event Header" },
+                                            "content": { "text": "7 p.m. | Saratoga Campus" }
                                         },
                                         {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
+                                            "header": { "text": "Event Header" },
+                                            "content": { "text": "7 p.m. | Saratoga Campus" }
                                         }
                                     ]
                                 },
@@ -326,16 +326,16 @@
                                     "date": "Jan.<br>3",
                                     "events": [
                                         {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
+                                            "header": { "text": "Event Header" },
+                                            "content": { "text": "7 p.m. | Saratoga Campus" }
                                         },
                                         {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
+                                            "header": { "text": "Event Header" },
+                                            "content": { "text": "7 p.m. | Saratoga Campus" }
                                         },
                                         {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
+                                            "header": { "text": "Event Header" },
+                                            "content": { "text": "7 p.m. | Saratoga Campus" }
                                         }
                                     ]
                                 },
@@ -343,16 +343,16 @@
                                     "date": "Jan.<br>4",
                                     "events": [
                                         {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
+                                            "header": { "text": "Event Header" },
+                                            "content": { "text": "7 p.m. | Saratoga Campus" }
                                         },
                                         {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
+                                            "header": { "text": "Event Header" },
+                                            "content": { "text": "7 p.m. | Saratoga Campus" }
                                         },
                                         {
-                                            "header": "Event Header",
-                                            "content": "7 p.m. | Saratoga Campus"
+                                            "header": { "text": "Event Header" },
+                                            "content": { "text": "7 p.m. | Saratoga Campus" }
                                         }
                                     ]
                                 }
