@@ -209,6 +209,24 @@ tr:first-child > .element {
     font-weight: bold;
 }
 
+.table-button-text {
+    background-color: transparent;
+}
+
+.table-button-text .button,
+.table-button-text .button a {
+    color: #00809E;
+}
+
+.table-button-text .button {
+    text-align: left;
+    padding: 0;
+}
+
+.table-button-text .button a {
+    text-decoration: underline; 
+}
+
 
 .list-item {
     padding-top: 10px;
@@ -464,6 +482,8 @@ tr:last-child > .row {
 .white-text .element,
 .white-text .table-button-outline .button,
 .white-text .table-button-outline .button a,
+.white-text .table-button-text .button,
+.white-text .table-button-text .button a,
 .white-text .list-item-text,
 .white-text a  {
     color: #ffffff;
