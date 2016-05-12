@@ -209,6 +209,28 @@ tr:first-child > .element {
     font-weight: bold;
 }
 
+.table-button-text {
+    background-color: transparent;
+}
+
+.table-button-text .button,
+.table-button-text .button a {
+    color: #00809E;
+}
+
+.table-button-text .button {
+    text-align: left;
+    padding: 0;
+}
+
+.table-button-text .button a {
+    text-decoration: underline; 
+}
+
+
+.list {
+    padding-left: 15px;
+}
 
 .list-item {
     padding-top: 10px;
@@ -216,16 +238,36 @@ tr:first-child > .element {
     border-bottom: 1px solid #dddddd; /* #ecf0f1*/
 }
 
+.list-collapse .list-item {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
 .bullet.img-container {
     padding-top: 4px;
 }
 
+.bullet-text,
 .list-item-text {
     font-family: 'Open Sans', Arial, sans-serif; 
-    font-size: 14px; 
-    line-height: 21px;
+    font-size: 16px;
+    line-height: 26px;
     color: #676767;
     text-align: left;
+}
+
+.list-item-text {
+    padding-left: 15px;
+}
+
+.list-unstyled .list-item-text,
+.list-unordered .list-item-text {
+    padding-left: 0;
+}
+
+.list-ordered .list-item-text {
+    padding-left: 10px;
 }
 
 
@@ -464,6 +506,8 @@ tr:last-child > .row {
 .white-text .element,
 .white-text .table-button-outline .button,
 .white-text .table-button-outline .button a,
+.white-text .table-button-text .button,
+.white-text .table-button-text .button a,
 .white-text .list-item-text,
 .white-text a  {
     color: #ffffff;

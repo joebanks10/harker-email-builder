@@ -16,6 +16,7 @@ class Email {
 
         $defaults = array(
             'email_dir' => dirname(__file__),
+            'email_url' => '',
             'email_template' => 'email.html',
             'email_data' => 'email.json',
             'stylesheet_url' => ROOT_CSS_DIR_URL . '/style.css',
@@ -40,7 +41,7 @@ class Email {
 
         $this->loader = $this->create_loader();
         $this->twig = $this->create_environment();
-        $this->extend_twig();
+        $this->extend_twig($data);
 
         $this->rendered = $this->render_email($is_inline, $data);
         echo $this->rendered;
@@ -77,8 +78,8 @@ class Email {
         return $twig;
     }
 
-    private function extend_twig() {
-        global $template_extensions;
+    private function extend_twig($data = array()) {
+        $template_extensions = new Template_Extensions($data);
 
         // general
         $this->add_function('render_file', array($template_extensions, 'render_file'));
@@ -89,6 +90,7 @@ class Email {
         $this->add_function('table_position', array($template_extensions, 'get_table_position'));
         $this->add_function('get_column_width', array($template_extensions, 'get_column_width'));
         $this->add_function('convert_elements_to_columns', array($template_extensions, 'convert_elements_to_columns'));
+        $this->add_function('get_image_url', array($template_extensions, 'get_image_url'));
         
         // calendar list
         $this->add_function('ical', array($template_extensions, 'get_ical_items'));
@@ -169,7 +171,7 @@ class Email {
 
     static public function get_email_url() {
         $url_parts = explode('?', $_SERVER['REQUEST_URI']);
-        $url = $url_parts[0]; // URL w/o arguments
+        $url = preg_replace('/\/$/', '', $url_parts[0]); // URL w/o arguments
 
         return "http://$_SERVER[HTTP_HOST]$url";
     }
