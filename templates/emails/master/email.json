@@ -110,10 +110,11 @@
                                 "template": "list",
                                 "options": {
                                     "type": "default", // default, ordered, unordered, unstyled
+                                    // "class": "list-collapse",
                                     "items": [
-                                        "Item #1",
-                                        "Item #2",
-                                        "Item #3"
+                                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                                        "Recusandae voluptate aspernatur perferendis quod, iste odit.",
+                                        "In amet minus, repellendus, alias voluptatum eligendi."
                                     ]
                                 }
                             },
