@@ -17,7 +17,7 @@
     {% if module.href %}
         <a href="{{ module.href }}">
     {% endif %}
-    <img class="{{ module.img_class }}" width="{{ module.width }}" style="{{ module.img_style }}" src="{{ module.src }}" alt="{{ module.alt }}">
+    <img class="{{ module.img_class }}" width="{{ module.width }}" style="{{ module.img_style }}" src="{{ get_image_url(module.src) }}" alt="{{ module.alt }}">
     {% if module.href %}
         </a>
     {% endif %}

@@ -51,9 +51,10 @@
                             {  
                                 "template": "img",
                                 "options": {
-                                    "src": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image",
+                                    "src": "eagles.jpg",
                                     "alt": "Big Image",
                                     "style": "padding-bottom: 40px;",
+                                    "width": 600,
                                     "href": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image"
                                 }
                             },

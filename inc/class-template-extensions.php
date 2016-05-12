@@ -3,9 +3,11 @@
 class Template_Extensions {
 
     private $index;
+    private $data;
 
-    public function __construct() {
+    public function __construct($data = array()) {
         $this->index = 0;
+        $this->data = $data;
     }
     
     // TEMPLATE FUNCTIONS
@@ -42,6 +44,48 @@ class Template_Extensions {
         }
 
         return $position;
+    }
+
+    public function get_column_width($column, $module) {
+        $container_width = $module['width'] - (($module['column_count'] - 1) * $module['gutter_width']);
+        $column_width = ""; // default
+        $column_reduction = 0; // reduce width for Outlook 07/10/13 - removed this because of conditional HTML solution
+
+        if ( !isset($column['width']) ) {
+            // if there is no column width defined
+            if ($module['column_count'] == 1) {
+                $column_width = $module['width'];
+            } else {
+                $column_width = floor($container_width / $module['column_count']) - $column_reduction;
+            }
+        } else if ( isset($column['width']) && is_numeric($column['width']) && $column['width'] >= 0 && $column['width'] <= $container_width ) {
+            // if column width is a valid pixel number
+            $column_width = $column['width'];
+        } else if ( isset($column['width']) && preg_match('/%/', $column['width']) ) {
+            // if column width is a percentage
+            if ( $column['width'] == '100%' ) {
+                $column_width = $module['width'];
+            } else {
+                $column_width = floor((intval($column['width'])/100) * $container_width) - $column_reduction;
+            }
+        }
+
+        return $column_width;
+    }
+
+    public function get_image_url($url) {
+        if ( preg_match('/^http/', $url) ) {
+            return $url; // no processing needed
+        }
+
+        if ( preg_match('/^~\//', $url) ) {
+            $url = preg_replace('/^~\//', '', $url);
+            $url = $this->data['ROOT_IMG_DIR_URL'] . '/' . $url;
+        } else {
+            $url = $this->data['email']['img_dir_url'] . '/' . $url;
+        }
+
+        return $url;
     }
 
     public function get_rss_items($url = '') {
@@ -108,33 +152,6 @@ class Template_Extensions {
         }
 
         return $dates;
-    }
-
-    public function get_column_width($column, $module) {
-        $container_width = $module['width'] - (($module['column_count'] - 1) * $module['gutter_width']);
-        $column_width = ""; // default
-        $column_reduction = 0; // reduce width for Outlook 07/10/13 - removed this because of conditional HTML solution
-
-        if ( !isset($column['width']) ) {
-            // if there is no column width defined
-            if ($module['column_count'] == 1) {
-                $column_width = $module['width'];
-            } else {
-                $column_width = floor($container_width / $module['column_count']) - $column_reduction;
-            }
-        } else if ( isset($column['width']) && is_numeric($column['width']) && $column['width'] >= 0 && $column['width'] <= $container_width ) {
-            // if column width is a valid pixel number
-            $column_width = $column['width'];
-        } else if ( isset($column['width']) && preg_match('/%/', $column['width']) ) {
-            // if column width is a percentage
-            if ( $column['width'] == '100%' ) {
-                $column_width = $module['width'];
-            } else {
-                $column_width = floor((intval($column['width'])/100) * $container_width) - $column_reduction;
-            }
-        }
-
-        return $column_width;
     }
 
     public function convert_elements_to_columns($elements = array()) {
@@ -334,7 +351,5 @@ class Template_Extensions {
     }
 
 }
-
-$template_extensions = new Template_Extensions();
 
 ?>
