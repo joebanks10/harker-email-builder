@@ -51,7 +51,7 @@
                             {  
                                 "template": "img",
                                 "options": {
-                                    "src": "eagles.jpg",
+                                    "src": "eagles-test.jpg",
                                     "alt": "Big Image",
                                     "style": "padding-bottom: 40px;",
                                     "width": 600,
