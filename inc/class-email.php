@@ -21,7 +21,8 @@ class Email {
             'email_data' => 'email.json',
             'stylesheet_url' => ROOT_CSS_DIR_URL . '/style.css',
             'stylesheet_addons_url' => '',
-            'img_dir_url' => ROOT_IMG_DIR_URL
+            'img_dir_url' => ROOT_IMG_DIR_URL,
+            'debug' => EMAIL_BUILDER_DEBUG
         );
 
         $constants = array(
@@ -31,6 +32,12 @@ class Email {
 
         $this->settings = array_merge($defaults, $args);
         $this->index = 0;
+
+        if ($this->settings['debug']) {
+            ini_set('display_errors', 1);
+            ini_set('display_startup_errors', 1);
+            error_reporting(E_ALL);
+        }
 
         $is_inline = isset($_GET['inline']);
         
@@ -63,16 +70,16 @@ class Email {
         return $loader;
     }
 
-    private function create_environment($debug = false) {
+    private function create_environment() {
 
         // create twig environment
         $twig = new Twig_Environment($this->loader, array(
             'cache' => ROOT_DIR . '/cache/twig',
-            'debug' => $debug,
+            'debug' => $this->settings['debug'],
             'autoescape' => false
         ));
 
-        if ( $debug ) {
+        if ( $this->settings['debug'] ) {
             $twig->addExtension(new Twig_Extension_Debug());
         }
 
@@ -165,6 +172,12 @@ class Email {
             $content = preg_replace( "/\r|\n/", "", $content ); // remove new lines for json decoding
 
             $json = json_decode($content, true); // returns associative array
+
+            if ( !$json ) {
+                throw new Exception('Unable to parse data file at ' . $this->settings['email_dir'] . '/' . $email_data);
+            }
+        } else {
+            throw new Exception('Unable to find data file at ' . $this->settings['email_dir'] . '/' . $email_data);
         }
 
         return $json;
