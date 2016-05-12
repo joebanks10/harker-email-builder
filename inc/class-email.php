@@ -67,6 +67,7 @@ class Email {
 
         // create twig environment
         $twig = new Twig_Environment($this->loader, array(
+            'cache' => ROOT_DIR . '/cache/twig',
             'debug' => $debug,
             'autoescape' => false
         ));
