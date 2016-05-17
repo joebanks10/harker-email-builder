@@ -19,7 +19,7 @@ class ICS_Feed {
         }
 
         $this->create_ics_object($url);
-        $this->create_ics_array();
+        $this->create_ics_array($url);
     }
 
     /**
@@ -53,8 +53,8 @@ class ICS_Feed {
         return $this->object;
     }
 
-    private function create_ics_array() {
-        $ical = ( isset($this->object) ) ? $this->object : $this->create_ics_object();
+    private function create_ics_array($url) {
+        $ical = ( isset($this->object) ) ? $this->object : $this->create_ics_object($url);
         $this->object = $ical;
 
         $events = $ical->events();
