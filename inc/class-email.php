@@ -8,7 +8,6 @@ class Email {
     private $twig;
     private $cache;
     private $last_modified;
-    private $rendered;
 
     /**
      * Create and render the twig template
@@ -43,7 +42,10 @@ class Email {
 
         $this->id = date('Y') . '/' . basename($this->settings['email_dir']);
         $this->index = 0;
-        $this->cache = $this->create_cache();
+
+        if ( EMAIL_BUILDER_CACHE ) {
+            $this->cache = $this->create_cache();
+        }
 
         $is_inline = isset($_GET['inline']);
         
@@ -126,6 +128,16 @@ class Email {
     }
 
     private function render_email($is_inline = false, $data = array()) {
+        if ( EMAIL_BUILDER_CACHE ) {
+            echo $this->get_cached_email($is_inline, $data);
+        } else {
+            echo $this->get_rendered_email($is_inline, $data);
+        }
+
+        echo $email;
+    }
+
+    private function get_cached_email($is_inline = false, $data = array()) {
         if ( isset($_GET['empty_cache']) ) {
             $this->cache->deleteItem($this->id);
         }
@@ -150,9 +162,7 @@ class Email {
             $this->cache->save($item);
         } 
 
-        $this->rendered = $email;
-
-        echo $email;
+        return $email;
     }
 
     private function get_rendered_email($is_inline = false, $data = array()) {

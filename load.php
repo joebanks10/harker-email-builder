@@ -4,7 +4,7 @@
 date_default_timezone_set('America/Los_Angeles');
 
 // debugging
-define('EMAIL_BUILDER_DEBUG', false);
+define('EMAIL_BUILDER_DEBUG', true);
 
 if (EMAIL_BUILDER_DEBUG) {
     // echo phpversion(); skylark: 5.3.6
@@ -12,6 +12,9 @@ if (EMAIL_BUILDER_DEBUG) {
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 }
+
+// cache
+define('EMAIL_BUILDER_CACHE', true);
 
 // paths
 define('ROOT_DIR', dirname(__file__));
