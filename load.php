@@ -14,7 +14,7 @@ if (EMAIL_BUILDER_DEBUG) {
 }
 
 // cache
-define('EMAIL_BUILDER_CACHE', true);
+define('EMAIL_BUILDER_CACHE', false);
 
 // paths
 define('ROOT_DIR', dirname(__file__));
