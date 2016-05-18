@@ -7,6 +7,7 @@ date_default_timezone_set('America/Los_Angeles');
 define('EMAIL_BUILDER_DEBUG', true);
 
 if (EMAIL_BUILDER_DEBUG) {
+    echo phpversion();
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
