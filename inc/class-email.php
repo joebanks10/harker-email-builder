@@ -2,10 +2,12 @@
 
 class Email {
 
+    private $id;
     private $settings;
     private $loader;
     private $twig;
-    private $rendered;
+    private $cache;
+    private $last_modified;
 
     /**
      * Create and render the twig template
@@ -21,7 +23,8 @@ class Email {
             'email_data' => 'email.json',
             'stylesheet_url' => ROOT_CSS_DIR_URL . '/style.css',
             'stylesheet_addons_url' => '',
-            'img_dir_url' => ROOT_IMG_DIR_URL
+            'img_dir_url' => ROOT_IMG_DIR_URL,
+            'debug' => EMAIL_BUILDER_DEBUG
         );
 
         $constants = array(
@@ -30,7 +33,19 @@ class Email {
         );
 
         $this->settings = array_merge($defaults, $args);
+
+        if ($this->settings['debug']) {
+            ini_set('display_errors', 1);
+            ini_set('display_startup_errors', 1);
+            error_reporting(E_ALL);
+        }
+
+        $this->id = date('Y') . '/' . basename($this->settings['email_dir']);
         $this->index = 0;
+
+        if ( EMAIL_BUILDER_CACHE ) {
+            $this->cache = $this->create_cache();
+        }
 
         $is_inline = isset($_GET['inline']);
         
@@ -43,8 +58,7 @@ class Email {
         $this->twig = $this->create_environment();
         $this->extend_twig($data);
 
-        $this->rendered = $this->render_email($is_inline, $data);
-        echo $this->rendered;
+        $this->render_email($is_inline, $data);
     }
 
     private function create_loader() {
@@ -63,16 +77,16 @@ class Email {
         return $loader;
     }
 
-    private function create_environment($debug = false) {
+    private function create_environment() {
 
         // create twig environment
         $twig = new Twig_Environment($this->loader, array(
             'cache' => ROOT_DIR . '/cache/twig',
-            'debug' => $debug,
+            'debug' => $this->settings['debug'],
             'autoescape' => false
         ));
 
-        if ( $debug ) {
+        if ( $this->settings['debug'] ) {
             $twig->addExtension(new Twig_Extension_Debug());
         }
 
@@ -114,7 +128,44 @@ class Email {
     }
 
     private function render_email($is_inline = false, $data = array()) {
+        if ( EMAIL_BUILDER_CACHE ) {
+            echo $this->get_cached_email($is_inline, $data);
+        } else {
+            echo $this->get_rendered_email($is_inline, $data);
+        }
 
+        echo $email;
+    }
+
+    private function get_cached_email($is_inline = false, $data = array()) {
+        if ( isset($_GET['empty_cache']) ) {
+            $this->cache->deleteItem($this->id);
+        }
+
+        $cached_item_path = $this->id . '/' . $this->last_modified;
+        if ($is_inline) {
+            $cached_item_path .= '/inline';
+        }
+
+        $item = $this->cache->getItem($cached_item_path);
+        $email = $item->get();
+
+        if ( $item->isMiss() ) {
+            $item->lock();
+
+            $email = $this->get_rendered_email($is_inline, $data);
+
+            $item->set($email);
+            $item->expiresAfter(3600); // 1 hour
+
+            $this->cache->deleteItem($this->id); // clear cache for email
+            $this->cache->save($item);
+        } 
+
+        return $email;
+    }
+
+    private function get_rendered_email($is_inline = false, $data = array()) {
         $email_dir = $this->settings['email_dir'];
         $email_file = $this->settings['email_template'];
 
@@ -157,17 +208,34 @@ class Email {
 
     private function get_data() {
         $json = array();
-        $email_data = $this->settings['email_data'];
+        $path = $this->settings['email_dir'] . '/' . $this->settings['email_data'];
 
-        if ( file_exists($this->settings['email_dir'] . '/' . $email_data) ) {
-            $content = file_get_contents($this->settings['email_dir'] . '/' . $email_data);
+        if ( file_exists($path) ) {
+            $content = file_get_contents($path);
             $content = preg_replace("#(/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/)|([\s\t]//.*)|(^//.*)#", '', $content); // remove comments
             $content = preg_replace( "/\r|\n/", "", $content ); // remove new lines for json decoding
 
             $json = json_decode($content, true); // returns associative array
+
+            if ( !$json ) {
+                throw new Exception('Unable to parse data file at ' . $path);
+            }
+        } else {
+            throw new Exception('Unable to find data file at ' . $path);
         }
 
+        // set last modified time for email (used for cache)
+        $this->last_modified = filemtime($path);
+
         return $json;
+    }
+
+    private function create_cache() {
+        $driver = new Stash\Driver\FileSystem(array(
+            'path' => ROOT_DIR . '/cache/email'
+        ));
+
+        return new Stash\Pool($driver);
     }
 
     static public function get_email_url() {

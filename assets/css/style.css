@@ -227,8 +227,7 @@ tr:first-child > .element {
     text-decoration: underline; 
 }
 
-
-.list {
+.list-indent {
     padding-left: 15px;
 }
 

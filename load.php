@@ -1,14 +1,22 @@
 <?php
 
-// debug
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 // set default timezone
 date_default_timezone_set('America/Los_Angeles');
 
-// constants
+// debugging
+define('EMAIL_BUILDER_DEBUG', true);
+
+if (EMAIL_BUILDER_DEBUG) {
+    // echo phpversion(); skylark: 5.3.6
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+}
+
+// cache
+define('EMAIL_BUILDER_CACHE', false);
+
+// paths
 define('ROOT_DIR', dirname(__file__));
 
 if ( $_SERVER['SERVER_NAME'] == 'localhost' ) {
