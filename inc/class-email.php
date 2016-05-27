@@ -129,9 +129,9 @@ class Email {
 
     private function render_email($is_inline = false, $data = array()) {
         if ( EMAIL_BUILDER_CACHE ) {
-            echo $this->get_cached_email($is_inline, $data);
+            $email = $this->get_cached_email($is_inline, $data);
         } else {
-            echo $this->get_rendered_email($is_inline, $data);
+            $email = $this->get_rendered_email($is_inline, $data);
         }
 
         echo $email;
