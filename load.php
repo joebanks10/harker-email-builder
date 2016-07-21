@@ -6,8 +6,6 @@ date_default_timezone_set('America/Los_Angeles');
 // debugging
 define('EMAIL_BUILDER_DEBUG', true);
 
-phpinfo(); exit();
-
 if (EMAIL_BUILDER_DEBUG) {
     // echo phpversion(); skylark: 5.3.6
     ini_set('display_errors', 1);
