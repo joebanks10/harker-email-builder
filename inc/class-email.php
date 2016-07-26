@@ -48,8 +48,10 @@ class Email {
         }
 
         $is_inline = isset($_GET['inline']);
+
+        $wp_email = new WP_Email('http://localhost/wp-dev/wp-json/wp/v2/email/2038');
         
-        $email_data = array_merge($this->settings, $this->get_data());
+        $email_data = array_merge($this->settings, $wp_email->get_data());
         $data = array_merge(array(
             'email' => $email_data
         ), $constants);
