@@ -43,7 +43,6 @@ img {
 h2, h3, h4 {
     font-family: 'Open Sans', Arial, sans-serif; 
     color: #3B3B3B; 
-    text-align: left;
     margin-top: 0;
     margin-bottom: 15px;
 }
@@ -97,7 +96,6 @@ tr:first-child > .element {
     letter-spacing: 2px;
     color: #3B3B3B; 
     font-weight: bold; 
-    text-align: center;
     padding-bottom: 15px;
 }
 
@@ -107,7 +105,6 @@ tr:first-child > .element {
     line-height: 26px; 
     letter-spacing: 2px;
     color: #676767;
-    text-align: center;
     padding-bottom: 15px;
 }
 
@@ -122,7 +119,6 @@ tr:first-child > .element {
     line-height: 34.8px;
     color: #3B3B3B; 
     font-weight: bold; 
-    text-align: left;
 }
 
 .header a {
@@ -139,7 +135,6 @@ tr:first-child > .element {
     line-height: 34.8px;
     color: #3B3B3B; 
     font-weight: 100; 
-    text-align: left;
 }
 
 .content {
@@ -147,7 +142,6 @@ tr:first-child > .element {
     font-size: 16px; 
     line-height: 26px;
     color: #676767; 
-    text-align: left;
 }
 
 .content-intro {
@@ -156,7 +150,6 @@ tr:first-child > .element {
     font-weight: 100;
     line-height: 36px;
     color: #333;
-    text-align: left;
 }
 
 .element-img {

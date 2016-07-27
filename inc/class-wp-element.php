@@ -32,6 +32,25 @@ class WP_Element {
             return !empty($key) and $key != 'acf_fc_layout';
         });
 
+        // get template specific options
+        $template_options = $this->get_template_options($wp_data['acf_fc_layout']);
+
+        // merge options
+        $options = array_merge($options, $template_options);
+
+        return $options;
+    }
+
+    private function get_template_options($wp_template) {
+        $options = array();
+        $wp_data = $this->wp_data;
+
+        if ($wp_template == 'list') {
+            $options['items'] = array_map(function($item) {
+                return $item['text'];
+            }, $wp_data['items']);
+        }
+
         return $options;
     }
 
