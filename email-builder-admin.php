@@ -13,6 +13,8 @@ namespace HKR\Email_Builder_Admin;
 define('PATH', plugin_dir_path(__FILE__));
 define('URL', plugin_dir_url(__FILE__));
 
+require_once(PATH . "vendor/autoload.php");
+
 require_once(PATH . 'inc/class-singleton.php');
 require_once(PATH . 'inc/class-acf.php');
 require_once(PATH . 'inc/class-email-post-type.php');

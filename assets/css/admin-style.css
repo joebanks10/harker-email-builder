@@ -27,32 +27,32 @@
 .acf-flexible-content .layout {
     border-width: 0;
 }
+.layout:hover {
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
 .acf-flexible-content .layout .acf-fc-layout-handle,
 .layout > .acf-fields {
-    border: 1px solid #e5e5e5;
+    border: 1px solid #ddd;
     -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.04);
     box-shadow: 0 1px 1px rgba(0,0,0,.04);
 }
 .acf-flexible-content .layout .acf-fc-layout-handle {
+    background: #f5f5f5;
     font-weight: bold;
-    background: #fafafa;
+}
+.acf-flexible-content .layout > .acf-fc-layout-handle:hover {
+    background: #f1f1f1;
+    border-color: #999;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 .acf-flexible-content .layout.-collapsed .acf-fc-layout-handle {
     border-bottom-width: 1px;
 }
-.acf-flexible-content .layout:hover > .acf-fc-layout-handle {
-    border-color: #999;
-    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);
-    box-shadow: 0 1px 2px rgba(0,0,0,.1);
-}
 .layout > .acf-fields {
     border-top-width: 0;
 }
-.layout:hover > .acf-fields {
-    border-color: #999;
-}
-
-
 
 /* disable left align for Columns field */
 .acf-fields.-left > .columns {
@@ -79,7 +79,7 @@
 }
 
 .acf-repeater .acf-table {
-    border-color: #ddd;
+    border-color: #e5e5e5;
     background: #fff;
 }
 .acf-repeater.-row > table > tbody > tr > td, 
@@ -102,11 +102,6 @@
 }
 .acf-repeater .acf-row-handle.order {
     color: #555;
-    -webkit-transition: background .25s;
-    -moz-transition: background .25s;
-    -ms-transition: background .25s;
-    -o-transition: background .25s;
-    transition: background .25s;
 }
 .acf-repeater .acf-row-handle.order:hover {
     background: #f1f1f1;
