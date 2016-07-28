@@ -1,6 +1,6 @@
 /* general style tweaks */
 .acf-fields > .acf-field {
-    border-top-color: #dfdfdf;
+    border-top-color: #e5e5e5;
 }
 .acf-field .acf-label label {
     color: #333;
@@ -25,12 +25,34 @@
 
 /* styles flexible content field type */
 .acf-flexible-content .layout {
-    border-color: #ccc;
+    border-width: 0;
+}
+.acf-flexible-content .layout .acf-fc-layout-handle,
+.layout > .acf-fields {
+    border: 1px solid #e5e5e5;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
 }
 .acf-flexible-content .layout .acf-fc-layout-handle {
     font-weight: bold;
-    border-color: #ddd;
+    background: #fafafa;
 }
+.acf-flexible-content .layout.-collapsed .acf-fc-layout-handle {
+    border-bottom-width: 1px;
+}
+.acf-flexible-content .layout:hover > .acf-fc-layout-handle {
+    border-color: #999;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+.layout > .acf-fields {
+    border-top-width: 0;
+}
+.layout:hover > .acf-fields {
+    border-color: #999;
+}
+
+
 
 /* disable left align for Columns field */
 .acf-fields.-left > .columns {
@@ -48,10 +70,6 @@
     float: none;
 }
 
-.columns .acf-row > .acf-fields {
-    background: #f5f5f5;
-}
-
 .columns-1 > .acf-label {
     display: none;
 }
@@ -61,23 +79,16 @@
 }
 
 .acf-repeater .acf-table {
-    border-color: #ccc;
-    border-width: 0;
+    border-color: #ddd;
+    background: #fff;
 }
 .acf-repeater.-row > table > tbody > tr > td, 
 .acf-repeater.-block > table > tbody > tr > td {
-    border-top-color: #ccc;
+    border-top-color: #ddd;
 }
-.acf-repeater .acf-row-handle.order,
-.acf-repeater .acf-row > .acf-fields.-left > .acf-field:before,
+.acf-repeater .acf-row-handle.order + td,
 .acf-repeater .acf-row-handle.remove {
-    background: #eee;
-}
-.acf-repeater .acf-row > .acf-fields.-left > .acf-field:before {
-    border-right-width: 1px;
-}
-.acf-repeater .acf-row-handle.order {
-    color: #555;
+    border-color: #e5e5e5;
 }
 .acf-repeater .acf-row-handle {
     vertical-align: top !important;
@@ -85,7 +96,29 @@
     padding-bottom: 16px;
     font-weight: bold;
 }
-/* .wp-core-ui .acf-flexible-content .acf-field .acf-button */
+.acf-repeater .acf-row-handle.order,
+.acf-repeater .acf-row-handle.remove {
+    background: #f5f5f5;
+}
+.acf-repeater .acf-row-handle.order {
+    color: #555;
+    -webkit-transition: background .25s;
+    -moz-transition: background .25s;
+    -ms-transition: background .25s;
+    -o-transition: background .25s;
+    transition: background .25s;
+}
+.acf-repeater .acf-row-handle.order:hover {
+    background: #f1f1f1;
+}
+.acf-repeater .acf-row > .acf-fields.-left > .acf-field:before {
+    background: transparent;
+}
+.acf-repeater .acf-row > .acf-fields.-left > .acf-field:before {
+    border-right-width: 1px;
+}
+
+/* repeater button */
 .acf-repeater > .acf-actions .acf-button {
     color: #555;
     border-color: #ccc;
@@ -101,20 +134,24 @@
     color: #23282d;
 }
 
+/* tabs */
+.acf-fields > .acf-tab-wrap {
+    background: transparent;
+}
 .acf-fields > .acf-tab-wrap .acf-tab-group,
 .acf-tab-group li a,
 .acf-tab-group li.active a {
-    border-color: #ccc;
+    border-color: #ddd;
 }
 .acf-fields.-left > .acf-tab-wrap .acf-tab-group {
     padding-left: 10px;
 }
 .acf-tab-group li a,
 .acf-tab-group li.active a {
-    color: #555;
+    color: #333;
 }
 .acf-tab-group li a {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: normal;
     padding: 3px 5px;
 }
