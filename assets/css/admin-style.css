@@ -1,3 +1,4 @@
+/* general style tweaks */
 .acf-fields > .acf-field {
     border-top-color: #dfdfdf;
 }
@@ -5,6 +6,7 @@
     color: #333;
 }
 
+/* set static width for left aligned field labels */
 .acf-fields.-left > .acf-field > .acf-label,
 .acf-fields.-left > .acf-field:before {
     width: 150px;
@@ -14,11 +16,14 @@
     float: none;
     margin-left: 150px;
 }
+
+/* styles for left aligned field labels */
 .acf-fields.-left > .acf-field:before {
-    background: #fff;
+    background: transparent;
     border-right-width: 0;
 }
 
+/* styles flexible content field type */
 .acf-flexible-content .layout {
     border-color: #ccc;
 }
@@ -27,6 +32,7 @@
     border-color: #ddd;
 }
 
+/* disable left align for Columns field */
 .acf-fields.-left > .columns {
     margin: 0;
     padding: 15px 12px;
@@ -42,8 +48,12 @@
     float: none;
 }
 
-.elements {
+.columns .acf-row > .acf-fields {
     background: #f5f5f5;
+}
+
+.columns-1 > .acf-label {
+    display: none;
 }
 
 .list-items .acf-table {
@@ -52,16 +62,18 @@
 
 .acf-repeater .acf-table {
     border-color: #ccc;
+    border-width: 0;
 }
 .acf-repeater.-row > table > tbody > tr > td, 
 .acf-repeater.-block > table > tbody > tr > td {
     border-top-color: #ccc;
 }
-.acf-repeater .acf-row-handle.order {
-    background: #f5f5f5;
+.acf-repeater .acf-row-handle.order,
+.acf-repeater .acf-row > .acf-fields.-left > .acf-field:before,
+.acf-repeater .acf-row-handle.remove {
+    background: #eee;
 }
 .acf-repeater .acf-row > .acf-fields.-left > .acf-field:before {
-    background: #f6f6f6;
     border-right-width: 1px;
 }
 .acf-repeater .acf-row-handle.order {
@@ -73,14 +85,26 @@
     padding-bottom: 16px;
     font-weight: bold;
 }
-
-.acf-fields > .acf-tab-wrap {
-    /*background: #eee;*/
+/* .wp-core-ui .acf-flexible-content .acf-field .acf-button */
+.acf-repeater > .acf-actions .acf-button {
+    color: #555;
+    border-color: #ccc;
+    background: #f7f7f7;
+    -webkit-box-shadow: 0 1px 0 #ccc;
+    box-shadow: 0 1px 0 #ccc;
+    text-shadow: none;
 }
+.acf-repeater > .acf-actions .acf-button:focus,
+.acf-repeater > .acf-actions .acf-button:hover {
+    background: #fafafa;
+    border-color: #999;
+    color: #23282d;
+}
+
 .acf-fields > .acf-tab-wrap .acf-tab-group,
 .acf-tab-group li a,
 .acf-tab-group li.active a {
-    border-color: #ddd;
+    border-color: #ccc;
 }
 .acf-fields.-left > .acf-tab-wrap .acf-tab-group {
     padding-left: 10px;
@@ -102,21 +126,6 @@
     float: left;
     margin-left: 0;
     margin-right: 5px;
-}
-
-.wp-core-ui .acf-flexible-content .acf-field .acf-button {
-    color: #555;
-    border-color: #ccc;
-    background: #f7f7f7;
-    -webkit-box-shadow: 0 1px 0 #ccc;
-    box-shadow: 0 1px 0 #ccc;
-    text-shadow: none;
-}
-.wp-core-ui .acf-flexible-content .acf-field .acf-button:focus,
-.wp-core-ui .acf-flexible-content .acf-field .acf-button:hover {
-    background: #fafafa;
-    border-color: #999;
-    color: #23282d;
 }
 
 .acf-field .wp-editor-tabs {
