@@ -1,0 +1,44 @@
+[
+    {
+        "name": "johngrogg/ics-parser",
+        "version": "1.0.3",
+        "version_normalized": "1.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/johngrogg/ics-parser.git",
+            "reference": "6085a18242eaf98e6586e3defa7705fa207847ac"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/johngrogg/ics-parser/zipball/6085a18242eaf98e6586e3defa7705fa207847ac",
+            "reference": "6085a18242eaf98e6586e3defa7705fa207847ac",
+            "shasum": ""
+        },
+        "time": "2016-03-16 13:31:55",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "class.iCalReader.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "Martin Thoma",
+                "email": "info@martin-thoma.de",
+                "role": "Original Developer"
+            },
+            {
+                "name": "John Grogg",
+                "email": "john.grogg@gmail.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "Ics file parser",
+        "keywords": [
+            "ical",
+            "ics"
+        ]
+    }
+]
