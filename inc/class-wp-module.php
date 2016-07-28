@@ -78,18 +78,22 @@ class WP_Module {
 
     private function get_template_options($wp_template) {
         $wp_columns = $this->wp_data['columns'];
-        $column_options = isset(self::$templates[$wp_template]) ? self::$templates[$wp_template] : array('columns');
+        $column_options = isset(self::$templates[$wp_template]) ? self::$templates[$wp_template] : array('columns' => array());
         
         $i = 0;
         foreach($column_options as $key => $option) {
-            $wp_column = $wp_columns[$i++];
-
             if ($key == 'columns') {
-                $column_options[$key][] = array(
-                    'width' => $wp_column['width'],
-                    'elements' => $this->get_elements($wp_column['elements'])
-                );
+                // add to columns array
+                foreach($wp_columns as $wp_column) {
+                    $column_options['columns'][] = array(
+                        'width' => $wp_column['width'],
+                        'elements' => $this->get_elements($wp_column['elements'])
+                    );
+                }
+                break;
             } else {
+                $wp_column = $wp_columns[$i++];
+
                 $column_options[$key] = $this->get_elements($wp_column['elements']);
             }
         }
