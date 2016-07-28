@@ -27,14 +27,16 @@ class acf_field {
 		// register field
 		add_filter("acf/get_field_types",								array($this, 'get_field_types'), 10, 1);
 		add_filter("acf/get_valid_field/type={$this->name}",			array($this, 'get_valid_field'), 10, 1);
-
+		
+		
 		// value
 		$this->add_filter("acf/load_value/type={$this->name}",			array($this, 'load_value'), 10, 3);
 		$this->add_filter("acf/update_value/type={$this->name}",		array($this, 'update_value'), 10, 3);
 		$this->add_filter("acf/format_value/type={$this->name}",		array($this, 'format_value'), 10, 3);
 		$this->add_filter("acf/validate_value/type={$this->name}",		array($this, 'validate_value'), 10, 4);
 		$this->add_action("acf/delete_value/type={$this->name}",		array($this, 'delete_value'), 10, 3);
-
+		
+		
 		// field
 		$this->add_filter("acf/load_field/type={$this->name}",				array($this, 'load_field'), 10, 1);
 		$this->add_filter("acf/update_field/type={$this->name}",			array($this, 'update_field'), 10, 1);
@@ -78,7 +80,7 @@ class acf_field {
 	*/
 	
 	function add_filter($tag, $function_to_add, $priority = 10, $accepted_args = 1) {
-
+		
 		if( is_callable($function_to_add) )
 		{
 			add_filter($tag, $function_to_add, $priority, $accepted_args);

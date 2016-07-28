@@ -5,10 +5,15 @@ class Email_Post_Type {
 
     public function __construct() {
         add_action( 'init', array($this, 'init') );
+        add_filter( 'template_redirect', array($this, 'template_redirect') );
     }
 
     public function init() {
         $this->register_post_type();
+    }
+
+    public function template_redirect() {
+        $this->email_template();
     }
 
     private function register_post_type() {
@@ -36,6 +41,7 @@ class Email_Post_Type {
             'publicly_queryable' => true,
             'show_ui'            => true,
             'show_in_menu'       => true,
+            'show_in_rest'       => true,
             'query_var'          => true,
             'rewrite'            => array( 'slug' => 'email' ),
             'capability_type'    => 'post',
@@ -47,6 +53,15 @@ class Email_Post_Type {
         );
 
         register_post_type( 'email', $args );
+    }
+
+    private function email_template() {
+        global $post;
+
+        if (is_single() && $post->post_type == 'email') {
+            wp_redirect(home_url("/wp-json/wp/v2/email/{$post->ID}"));
+            exit();
+        }
     }
 
 }

@@ -106,6 +106,14 @@ http://support.advancedcustomfields.com/
 
 == Changelog ==
 
+= 5.4.0 =
+* Gallery field: Removed 'Preview Size' setting and improved UI
+* Clone field: Added new field
+* Core: Added new basic cache system to improve page load times
+* Core: Fixed many revisions bugs
+* Core: Added new settings for 'google_api_key' and 'google_api_client'
+* Core: Minor fixes and improvements
+
 = 5.3.9.2 =
 * Time Picker field: Added compatibility with previous 3rd party field settings
 * Core: Fixed JS error setting l10n for Select2 with 3rd party libraries

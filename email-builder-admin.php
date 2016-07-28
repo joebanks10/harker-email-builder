@@ -26,11 +26,72 @@ class Plugin extends \HKR\Singleton {
             'dir_url' => URL . 'vendor/advanced-custom-fields-pro/'
         ));
 
-        $email = new Email_Post_Type();
+        add_action('init', array($this, 'init'));
 
-        // Create email post type
-        //      Create email post type form
-        // Render JSON data
+        $email = new Email_Post_Type();
+    }
+
+    public function init() {
+        add_action('acf/input/admin_enqueue_scripts', array($this, 'acf_admin_styles'));
+        add_action('acf/input/admin_enqueue_scripts', array($this, 'acf_admin_scripts'));
+        
+        add_action('acf/fields/flexible_content/layout_title/name=modules', array($this, 'module_title'), 10, 4);
+        add_action('acf/fields/flexible_content/layout_title/name=elements', array($this, 'element_title'), 10, 4);
+
+        add_filter('acf_the_content', array($this, 'the_content'), 9);
+        // add_filter('acf/prepare_field/name=columns', array($this, 'prep_field'));
+    }
+
+    public function prep_field($field) {
+        echo '<pre>'; print_r( $field ); echo '</pre>';
+
+        return $field;
+    }
+
+    public function acf_admin_styles() {
+        wp_enqueue_style( 'hkr_email_builder_admin_style', URL . 'assets/css/admin-style.css' );
+    }
+    public function acf_admin_scripts() {
+        wp_enqueue_script( 'hkr_email_builder_admin_script', URL . 'assets/js/admin-script.js', array('jquery'), false, true);
+    }
+
+    public function module_title($title, $field, $layout, $i) {
+        $module_title = get_sub_field('title');
+
+        if (empty($module_title)) {
+            return $title;
+        }
+
+        $layout = "<span class=\"hkr-tmpl-label hkr-tmpl-module\">$title</span>";
+
+        $title = ($module_title) ? "<span class=\"hkr-mod-title\">$module_title</span> $layout" : "$layout";
+        
+        return $title;
+    }
+
+    public function element_title($title, $field, $layout, $i) {
+        $text = get_sub_field('text');
+
+        if (empty($text)) {
+            return $title;
+        }
+
+        $layout = "<span class=\"hkr-tmpl-label hkr-tmpl-element\">$title</span>";
+        $text = wp_trim_words(strip_tags($text), 5);
+        $title = "<span class=\"hkr-element-title\">$text</span> $layout";
+        
+        return $title;
+    }
+
+    public function the_content($value) {
+        global $post;
+        
+        if ($post->post_type == 'email') {
+            remove_filter( 'acf_the_content', 'wpautop' );
+            $value = nl2br($value);
+        }
+
+        return $value;
     }
 
 }

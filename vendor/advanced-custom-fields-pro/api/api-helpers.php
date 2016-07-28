@@ -1312,51 +1312,6 @@ function acf_decode_taxonomy_term( $string ) {
 
 
 /*
-*  acf_cache_get
-*
-*  This function is a wrapper for the wp_cache_get to allow for 3rd party customization
-*
-*  @type	function
-*  @date	4/12/2013
-*  @since	5.0.0
-*
-*  @param	$post_id (int)
-*  @return	$post_id (int)
-*/
-
-/*
-function acf_cache_get( $key, &$found ) {
-	
-	// vars
-	$group = 'acf';
-	$force = false;
-	
-	
-	// load from cache
-	$cache = wp_cache_get( $key, $group, $force, $found );
-	
-	
-	// allow 3rd party customization if cache was not found
-	if( !$found )
-	{
-		$custom = apply_filters("acf/get_cache/{$key}", $cache);
-		
-		if( $custom !== $cache )
-		{
-			$cache = $custom;
-			$found = true;
-		}
-	}
-	
-	
-	// return
-	return $cache;
-	
-}
-*/
-
-
-/*
 *  acf_get_array
 *
 *  This function will force a variable to become an array
@@ -2890,8 +2845,13 @@ function acf_get_valid_post_id( $post_id = 0 ) {
 	// $post_id may be an object
 	if( is_object($post_id) ) {
 		
+		// post
+		if( isset($post_id->post_type, $post_id->ID) ) {
+		
+			$post_id = $post_id->ID;
+			
 		// user
-		if( isset($post_id->roles, $post_id->ID) ) {
+		} elseif( isset($post_id->roles, $post_id->ID) ) {
 		
 			$post_id = 'user_' . $post_id->ID;
 		
@@ -2904,11 +2864,6 @@ function acf_get_valid_post_id( $post_id = 0 ) {
 		} elseif( isset($post_id->comment_ID) ) {
 		
 			$post_id = 'comment_' . $post_id->comment_ID;
-		
-		// post
-		} elseif( isset($post_id->ID) ) {
-		
-			$post_id = $post_id->ID;
 		
 		// default
 		} else {
@@ -2971,6 +2926,110 @@ function acf_get_valid_post_id( $post_id = 0 ) {
 	return $post_id;
 	
 }
+
+
+
+/*
+*  acf_get_post_id_info
+*
+*  This function will return the type and id for a given $post_id string
+*
+*  @type	function
+*  @date	2/07/2016
+*  @since	5.4.0
+*
+*  @param	$post_id (mixed)
+*  @return	$info (array)
+*/
+
+function acf_get_post_id_info( $post_id = 0 ) {
+	
+	// vars
+	$info = array(
+		'type'	=> 'post',
+		'id'	=> 0
+	);
+	
+	// bail early if no $post_id
+	if( !$post_id ) return $info;
+	
+	
+	// check cache
+	// - this function will most likely be called multiple times (saving loading fields from post)
+	//$cache_key = "get_post_id_info/post_id={$post_id}";
+	
+	//if( acf_isset_cache($cache_key) ) return acf_get_cache($cache_key);
+	
+	
+	// numeric
+	if( is_numeric($post_id) ) {
+		
+		$info['id'] = (int) $post_id;
+	
+	// string
+	} elseif( is_string($post_id) ) {
+		
+		// vars
+		$glue = '_';
+		$type = explode($glue, $post_id);
+		$id = array_pop($type);
+		$type = implode($glue, $type);
+		$meta = array('post', 'user', 'comment'); // add in 'term'
+		
+				
+		// meta
+		if( is_numeric($id) && in_array($type, $meta) ) {
+			
+			$info['type'] = $type;
+			$info['id'] = (int) $id;
+		
+		// option	
+		} else {
+			
+			$info['type'] = 'option';
+			$info['id'] = $post_id;
+			
+		}
+		
+	}
+	
+	
+	// update cache
+	//acf_set_cache($cache_key, $info);
+	
+	
+	// return
+	return $info;
+	
+}
+
+/*
+echo '<pre>';
+	print_r( acf_get_post_id_info(4) );
+echo '</pre>';
+echo '<pre>';
+	print_r( acf_get_post_id_info('post_4') );
+echo '</pre>';
+echo '<pre>';
+	print_r( acf_get_post_id_info('user_123') );
+echo '</pre>';
+echo '<pre>';
+	print_r( acf_get_post_id_info('term_567') );
+echo '</pre>';
+echo '<pre>';
+	print_r( acf_get_post_id_info('comment_6') );
+echo '</pre>';
+echo '<pre>';
+	print_r( acf_get_post_id_info('options_lol!') );
+echo '</pre>';
+echo '<pre>';
+	print_r( acf_get_post_id_info('option') );
+echo '</pre>';
+echo '<pre>';
+	print_r( acf_get_post_id_info('options') );
+echo '</pre>';
+die;
+*/
 
 
 /*
@@ -4192,9 +4251,30 @@ function acf_get_browser() {
 *  @return	(boolean)
 */
 
-function acf_is_ajax() {
+function acf_is_ajax( $action = '' ) {
 	
-	return ( defined('DOING_AJAX') && DOING_AJAX );
+	// vars
+	$is_ajax = false;
+	
+	
+	// check if is doing ajax
+	if( defined('DOING_AJAX') && DOING_AJAX ) {
+		
+		$is_ajax = true;
+		
+	}
+	
+	
+	// check $action
+	if( $action && acf_maybe_get($_POST, 'action') !== $action ) {
+		
+		$is_ajax = false;
+		
+	}
+	
+	
+	// return
+	return $is_ajax;
 		
 }
 
@@ -4243,6 +4323,116 @@ function acf_format_date( $value, $format ) {
 	// return
 	return $value;
 	
+}
+
+
+/*
+*  acf_log
+*
+*  description
+*
+*  @type	function
+*  @date	24/06/2016
+*  @since	5.3.8
+*
+*  @param	$post_id (int)
+*  @return	$post_id (int)
+*/
+
+function acf_log() {
+	
+	// vars
+	$log = '';
+	$args = func_get_args();
+	
+	
+	// loop
+	foreach( $args as $i => $arg ) {
+		
+		if( is_array($arg) || is_object($arg) ) {
+			
+			$arg = print_r($arg, true);
+			
+		} elseif( is_bool($arg) ) {
+			
+			$arg = ( $arg ? 'true' : 'false' ) . ' (bool)';
+			
+		}
+		
+		
+		// update
+		$args[ $i ] = $arg;
+		
+	}
+	
+	
+	// log
+	error_log( implode(' ', $args) );
+	
+}
+
+
+/*
+*  acf_doing
+*
+*  This function will tell ACF what task it is doing
+*
+*  @type	function
+*  @date	28/06/2016
+*  @since	5.3.8
+*
+*  @param	$event (string)
+*  @param	context (string)
+*  @return	n/a
+*/
+
+function acf_doing( $event = '', $context = '' ) {
+	
+	acf_update_setting( 'doing', $event );
+	acf_update_setting( 'doing_context', $context );
+	
+}
+
+
+/*
+*  acf_is_doing
+*
+*  This function can be used to state what ACF is doing, or to check
+*
+*  @type	function
+*  @date	28/06/2016
+*  @since	5.3.8
+*
+*  @param	$event (string)
+*  @param	context (string)
+*  @return	(boolean)
+*/
+
+function acf_is_doing( $event = '', $context = '' ) {
+	
+	// vars
+	$doing = false;
+	
+	
+	// task
+	if( acf_get_setting('doing') === $event ) {
+		
+		$doing = true;
+		
+	}
+	
+	
+	// context
+	if( $context && acf_get_setting('doing_context') !== $context ) {
+		
+		$doing = false;
+		
+	}
+	
+	
+	// return
+	return $doing;
+		
 }
 
 

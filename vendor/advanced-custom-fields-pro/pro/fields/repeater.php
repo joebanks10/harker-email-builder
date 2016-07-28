@@ -497,7 +497,7 @@ class acf_field_repeater extends acf_field {
 	*/
 	
 	function load_value( $value, $post_id, $field ) {
-
+		
 		// bail early if no value
 		if( empty($value) || empty($field['sub_fields']) ) {
 			
@@ -810,6 +810,14 @@ class acf_field_repeater extends acf_field {
 		
 		// update $value and return to allow for the normal save function to run
 		$value = $total;
+		
+		
+		// save false for empty value
+		if( empty($value) ) {
+			
+			$value = '';
+		
+		}
 		
 		
 		// return

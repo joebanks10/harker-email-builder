@@ -4793,6 +4793,10 @@ var acf;
 	acf.fields.google_map = acf.field.extend({
 		
 		type: 'google_map',
+		api: {
+			sensor:		false,
+			libraries:	'places'
+		},
 		$el: null,
 		$search: null,
 		
@@ -4888,7 +4892,7 @@ var acf;
 				$.getScript('https://www.google.com/jsapi', function(){
 					
 					// load maps
-				    google.load('maps', '3', { other_params: 'sensor=false&libraries=places', callback: function(){
+				    google.load('maps', '3', { other_params: $.param(self.api), callback: function(){
 				    	
 				    	// set status
 				    	self.status = 'ready';
@@ -4914,7 +4918,7 @@ var acf;
 				
 				
 				// load maps
-			    google.load('maps', '3', { other_params: 'sensor=false&libraries=places', callback: function(){
+			    google.load('maps', '3', { other_params: $.param(self.api), callback: function(){
 			    	
 			    	// set status
 			    	self.status = 'ready';
@@ -8490,7 +8494,6 @@ var acf;
 			// select2 args
 			var select2_args = {
 				width:				'100%',
-				containerCssClass:	'-acf',
 				allowClear:			args.allow_null,
 				placeholder:		args.placeholder,
 				multiple:			args.multiple,
@@ -8546,11 +8549,13 @@ var acf;
 			
 		    
 		    // initial selection
+/*
 		    select2_args.initSelection = function( element, callback ) {
 				
 				callback( value );
 		        
 		    };
+*/
 		    
 		    
 		    // remove conflicting atts
@@ -8672,11 +8677,6 @@ var acf;
 */
 			
 
-			// attachment z-index fix
-			select2_args.dropdownCss = {
-				'z-index' : '999999999'
-			};
-			
 			
 			// reorder DOM
 			// - no need to reorder, the select field is needed to $_POST values
@@ -8688,7 +8688,11 @@ var acf;
 			
 			// add select2
 			//console.log( '%o %o ', $select, select2_args );
-			var container = $select.select2( select2_args );
+			var $container = $select.select2( select2_args );
+			
+			
+			// add class
+			$container.addClass('-acf');
 			
 		},
 		

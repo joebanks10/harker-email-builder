@@ -102,6 +102,10 @@ class acf_admin_field_group {
 		if( !acf_is_screen('acf-field-group') ) return;
 		
 		
+		// doing
+		acf_doing('edit', 'field_group');
+		
+		
 		// disable JSON to avoid conflicts between DB and JSON
 		acf_disable_local();
 		
@@ -461,6 +465,10 @@ class acf_admin_field_group {
 			return $post_id;
 			
 		}
+        
+        
+        // doing
+		acf_doing('save', 'field_group');
         
         
         // disable local to avoid conflicts between DB and local

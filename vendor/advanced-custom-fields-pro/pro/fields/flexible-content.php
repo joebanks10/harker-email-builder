@@ -59,6 +59,10 @@ class acf_field_flexible_content extends acf_field {
 		add_action('wp_ajax_nopriv_acf/fields/flexible_content/layout_title',	array($this, 'ajax_layout_title'));
 		
 		
+		// filters
+		add_filter('acf/clone_field', array($this, 'clone_field'), 10, 2);
+		
+		
 		// do not delete!
     	parent::__construct();
 		
@@ -1058,7 +1062,7 @@ class acf_field_flexible_content extends acf_field {
 		// save false for empty value
 		if( empty($order) ) {
 			
-			$order = false;
+			$order = '';
 		
 		}
 		
@@ -1390,6 +1394,40 @@ class acf_field_flexible_content extends acf_field {
 		
 		// return
 		return $title;
+		
+	}
+	
+	
+	/*
+	*  clone_field
+	*
+	*  This function will update clone field settings based on the origional field
+	*
+	*  @type	function
+	*  @date	28/06/2016
+	*  @since	5.3.8
+	*
+	*  @param	$clone (array)
+	*  @param	$field (array)
+	*  @return	$clone
+	*/
+	
+	function clone_field( $clone, $field ) {
+		
+		// vars
+		$parent_layout = acf_maybe_get( $field, 'parent_layout' );
+		
+		
+		// update
+		if( $parent_layout ) {
+			
+			$clone['parent_layout'] = $parent_layout;
+			
+		}
+		
+		
+		// return
+		return $clone;
 		
 	}
 	

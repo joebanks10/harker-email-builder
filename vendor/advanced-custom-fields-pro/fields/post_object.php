@@ -179,13 +179,13 @@ class acf_field_post_object extends acf_field {
 			foreach( array_keys($posts) as $post_id ) {
 				
 				// override data
-				$posts[ $post_id ] = $this->get_post_title( $posts[ $post_id ], $field, $options['post_id'] );
+				$posts[ $post_id ] = $this->get_post_title( $posts[ $post_id ], $field, $options['post_id'], $is_search );
 				
 			};
 			
 			
 			// order by search
-			if( $is_search ) {
+			if( $is_search && empty($args['orderby']) ) {
 				
 				$posts = acf_order_by_search( $posts, $args['s'] );
 				

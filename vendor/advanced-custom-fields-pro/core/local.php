@@ -204,7 +204,6 @@ class acf_local {
 	function add_field( $field ) {
 		
 		// vars
-		// - allow for the very unexpected case where no key or parent exist
 		$key = acf_maybe_get($field, 'key', '');
 		$parent = acf_maybe_get($field, 'parent', '');
 		
@@ -219,13 +218,6 @@ class acf_local {
 		
 		// add field
 		$this->fields[ $key ] = $field;
-		
-		
-		// clear cache
-		// - delete cache was origional added to ensure changes to JSON / PHP would appear in WP when using memcache
-		// - the downside is that wp_cache_delet is taxing on the system so has been commented out
-		//wp_cache_delete( "get_field/key={$key}", 'acf' );
-		//wp_cache_delete( "get_fields/parent={$parent}", 'acf' );
 		
 	}
 	

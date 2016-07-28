@@ -243,29 +243,26 @@ function get_field_objects( $post_id = false, $format_value = true, $load_value 
 	
 	// filter post_id
 	$post_id = acf_get_valid_post_id( $post_id );
-
-
+	$info = acf_get_post_id_info( $post_id );
+	
+	
 	// vars
 	$meta = array();
 	$fields = array();
 	
 				
 	// get field_names
-	if( is_numeric($post_id) ) {
+	if( $info['type'] == 'post' ) {
 		
-		$meta = get_post_meta( $post_id );
+		$meta = get_post_meta( $info['id'] );
 	
-	} elseif( strpos($post_id, 'user_') !== false ) {
+	} elseif( $info['type'] == 'user' ) {
 		
-		$user_id = (int) str_replace('user_', '', $post_id);
+		$meta = get_user_meta( $info['id'] );
 		
-		$meta = get_user_meta( $user_id );
+	} elseif( $info['type'] == 'comment' ) {
 		
-	} elseif( strpos($post_id, 'comment_') !== false ) {
-		
-		$comment_id = (int) str_replace('comment_', '', $post_id);
-		
-		$meta = get_comment_meta( $comment_id );
+		$meta = get_comment_meta( $info['id'] );
 		
 	} else {
 		

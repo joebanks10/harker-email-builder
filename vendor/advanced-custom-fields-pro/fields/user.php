@@ -126,6 +126,10 @@ class acf_field_user extends acf_field {
 		$args = apply_filters("acf/fields/user/query/key={$field['key']}",		$args, $field, $options['post_id']);
 		
 		
+		// is search
+		$is_search = !empty( $args['s'] );
+		
+		
 		// get users
 		$groups = acf_get_grouped_users( $args );
 		
@@ -154,7 +158,7 @@ class acf_field_user extends acf_field {
 			
 			
 			// order by search
-			if( !empty($args['s']) ) {
+			if( $is_search && empty($args['orderby']) ) {
 				
 				$users = acf_order_by_search( $users, $args['s'] );
 				

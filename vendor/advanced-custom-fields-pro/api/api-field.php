@@ -707,8 +707,12 @@ function acf_get_fields( $parent = false ) {
 	}
 	
 	
+	// filter
+	$fields = apply_filters('acf/get_fields', $fields, $parent);
+	
+	
 	// return
-	return apply_filters('acf/get_fields', $fields, $parent);
+	return $fields;
 	
 }
 
@@ -726,53 +730,68 @@ function acf_get_fields( $parent = false ) {
 *  @return	$fields (array)
 */
 
-function acf_get_fields_by_id( $id = 0 ) {
+function acf_get_fields_by_id( $parent_id = 0 ) {
+	
+	// bail early if no ID
+	if( !$parent_id ) return false;
+	
 	
 	// vars
 	$fields = array();
+	$post_ids = array();
+	$cache_key = "get_fields/ID={$parent_id}";
 	
 	
-	// bail early if no ID
-	if( empty($id) ) return false;
-	
-	
-	// cache
-	$found = false;
-	$cache = wp_cache_get( 'get_fields/parent=' . $id, 'acf', false, $found );
-	
-	if( $found ) return $cache;
-	
-	
-	// args
-	$args = array(
-		'posts_per_page'			=> -1,
-		'post_type'					=> 'acf-field',
-		'orderby'					=> 'menu_order',
-		'order'						=> 'ASC',
-		'suppress_filters'			=> true, // DO NOT allow WPML to modify the query
-		'post_parent'				=> $id,
-		'post_status'				=> 'publish, trash', // 'any' won't get trashed fields
-		'update_post_meta_cache'	=> false
-	);
+	// check cache for child ids
+	if( acf_isset_cache($cache_key) ) {
 		
+		$post_ids = acf_get_cache($cache_key);
 	
-	// load fields
-	$posts = get_posts( $args );
-	
-	if( $posts ) {
+	// query DB for child ids
+	} else {
 		
-		foreach( $posts as $post ) {
+		// query
+		$posts = get_posts(array(
+			'posts_per_page'			=> -1,
+			'post_type'					=> 'acf-field',
+			'orderby'					=> 'menu_order',
+			'order'						=> 'ASC',
+			'suppress_filters'			=> true, // DO NOT allow WPML to modify the query
+			'post_parent'				=> $parent_id,
+			'post_status'				=> 'publish, trash', // 'any' won't get trashed fields
+			'update_post_meta_cache'	=> false
+		));
+		
+		
+		// loop
+		if( $posts ) {
 			
-			$fields[] = acf_get_field( $post->ID );
-			
+			foreach( $posts as $post ) {
+				
+				$post_ids[] = $post->ID;
+				
+			}
+				
 		}
-			
+		
+		
+		// update cache
+		acf_set_cache($cache_key, $post_ids);
+		
 	}
 	
 	
-	// set cache
-	wp_cache_set( 'get_fields/parent=' . $id, $fields, 'acf' );
+	// bail early if no children
+	if( empty($post_ids) ) return false;
+	
+	
+	// load fields
+	foreach( $post_ids as $post_id ) {
 		
+		$fields[] = acf_get_field( $post_id );
+		
+	}
+	
 	
 	// return
 	return $fields;
@@ -801,22 +820,22 @@ function acf_get_field( $selector = null, $db_only = false ) {
 	$type = 'ID';
 	
 	
-	// is $selector an ID
+	// ID
 	if( is_numeric($selector) ) {
 		
 		// do nothing
 	
-	// is $selector a string (name|key)	
-	} elseif( is_string($selector) ) {
-		
-		$type = acf_is_field_key($selector) ? 'key' : 'name';
-	
-	// is $selector an object
+	// object
 	} elseif( is_object($selector) ) {
 		
 		$selector = $selector->ID;
 	
-	// selector not valid
+	// string
+	} elseif( is_string($selector) ) {
+		
+		$type = acf_is_field_key($selector) ? 'key' : 'name';
+	
+	// other
 	} else {
 		
 		return false;
@@ -824,58 +843,57 @@ function acf_get_field( $selector = null, $db_only = false ) {
 	}
 	
 	
-	// get cache key
+	// return early if cache is found
 	$cache_key = "get_field/{$type}={$selector}";
 	
-	
-	// get cache
-	if( !$db_only ) {
+	if( !$db_only && acf_isset_cache($cache_key) ) {
 		
-		$found = false;
-		$cache = wp_cache_get( $cache_key, 'acf', false, $found );
-		
-		if( $found ) return $cache;
+		return acf_get_cache($cache_key);
 		
 	}
 	
 	
-	// get field group from ID or key
+	// ID
 	if( $type == 'ID' ) {
 		
 		$field = _acf_get_field_by_id( $selector, $db_only );
-		
-	} elseif( $type == 'name' ) {
-		
-		$field = _acf_get_field_by_name( $selector, $db_only );
-		
-	} else {
+	
+	// key	
+	} elseif( $type == 'key' ) {
 		
 		$field = _acf_get_field_by_key( $selector, $db_only );
+	
+	// name (rare case)
+	} else {
+		
+		$field = _acf_get_field_by_name( $selector, $db_only );
 		
 	}
 	
 	
 	// bail early if db only value (no need to update cache)
-	if( $db_only ) {
-		
-		return $field;
-		
-	}
+	if( $db_only ) return $field;
+	
+	
+	// bail early if no field
+	if( !$field ) return false;
 	
 	
 	// filter for 3rd party customization
-	if( $field ) {
-		
-		$field = apply_filters( "acf/load_field", $field);
-		$field = apply_filters( "acf/load_field/type={$field['type']}", $field );
-		$field = apply_filters( "acf/load_field/name={$field['name']}", $field );
-		$field = apply_filters( "acf/load_field/key={$field['key']}", $field );
-		
-	}
+	$field = apply_filters( "acf/load_field", $field);
+	$field = apply_filters( "acf/load_field/type={$field['type']}", $field );
+	$field = apply_filters( "acf/load_field/name={$field['name']}", $field );
+	$field = apply_filters( "acf/load_field/key={$field['key']}", $field );
 	
 	
-	// set cache
-	wp_cache_set( $cache_key, $field, 'acf' );
+	// update cache
+	// - Use key instead of ID for best compatibility (not all fields exist in the DB)
+	$cache_key = acf_set_cache("get_field/key={$field['key']}", $field);
+	
+	
+	// update cache reference
+	// - allow cache to return if using an ID selector
+	acf_set_cache_reference("get_field/ID={$field['ID']}", $cache_key);
 
 	
 	// return
@@ -1312,9 +1330,7 @@ function acf_update_field( $field = false, $specific = false ) {
 	
     
     // clear cache
-	wp_cache_delete( "get_field/ID={$field['ID']}", 'acf' );
-	wp_cache_delete( "get_field/key={$field['key']}", 'acf' );
-	wp_cache_delete( "get_fields/parent={$field['parent']}", 'acf' );
+    acf_delete_cache("get_field/key={$field['key']}");
 	
 	
     // return
@@ -1542,13 +1558,12 @@ function acf_delete_field( $selector = 0 ) {
 	
 	
 	// clear cache
-	wp_cache_delete( "get_field/ID={$field['ID']}", 'acf' );
-	wp_cache_delete( "get_field/key={$field['key']}", 'acf' );
-	wp_cache_delete( "get_fields/parent={$field['parent']}", 'acf' );
+	acf_delete_cache("get_field/key={$field['key']}");
 	
 	
 	// return
 	return true;
+	
 }
 
 
@@ -1589,6 +1604,7 @@ function acf_trash_field( $selector = 0 ) {
 	
 	// return
 	return true;
+	
 }
 
 

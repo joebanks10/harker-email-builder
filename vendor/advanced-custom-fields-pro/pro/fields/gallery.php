@@ -36,7 +36,6 @@ class acf_field_gallery extends acf_field {
 		$this->label = __("Gallery",'acf');
 		$this->category = 'content';
 		$this->defaults = array(
-			'preview_size'	=> 'thumbnail',
 			'library'		=> 'all',
 			'min'			=> 0,
 			'max'			=> 0,
@@ -467,7 +466,6 @@ class acf_field_gallery extends acf_field {
 		$atts = array(
 			'id'				=> $field['id'],
 			'class'				=> "acf-gallery {$field['class']}",
-			'data-preview_size'	=> $field['preview_size'],
 			'data-library'		=> $field['library'],
 			'data-min'			=> $field['min'],
 			'data-max'			=> $field['max'],
@@ -516,7 +514,7 @@ class acf_field_gallery extends acf_field {
 					
 					
 					// thumbnail
-					$thumbnail = acf_get_post_thumbnail($a['ID'], $field['preview_size']);
+					$thumbnail = acf_get_post_thumbnail($a['ID'], 'medium');
 					
 					
 					// icon
@@ -647,16 +645,6 @@ class acf_field_gallery extends acf_field {
 			'instructions'	=> '',
 			'type'			=> 'number',
 			'name'			=> 'max'
-		));
-		
-		
-		// preview_size
-		acf_render_field_setting( $field, array(
-			'label'			=> __('Preview Size','acf'),
-			'instructions'	=> __('Shown when entering data','acf'),
-			'type'			=> 'select',
-			'name'			=> 'preview_size',
-			'choices'		=> acf_get_image_sizes()
 		));
 		
 		

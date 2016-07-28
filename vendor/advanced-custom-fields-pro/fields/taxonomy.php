@@ -337,7 +337,8 @@ class acf_field_taxonomy extends acf_field {
 		if( $field['load_terms'] ) {
 			
 			// get terms
-			$term_ids = wp_get_object_terms($post_id, $field['taxonomy'], array('fields' => 'ids', 'orderby' => 'none'));
+			$info = acf_get_post_id_info($post_id);
+			$term_ids = wp_get_object_terms($info['id'], $field['taxonomy'], array('fields' => 'ids', 'orderby' => 'none'));
 			
 			
 			// bail early if no terms
@@ -466,11 +467,14 @@ class acf_field_taxonomy extends acf_field {
 		if( empty($this->save_post_terms) ) return;
 		
 		
+		// vars
+		$info = acf_get_post_id_info($post_id);
+		
 		
 		// loop over terms
 		foreach( $this->save_post_terms as $taxonomy => $term_ids ){
 			
-			wp_set_object_terms( $post_id, $term_ids, $taxonomy, false );
+			wp_set_object_terms( $info['id'], $term_ids, $taxonomy, false );
 			
 			
 		}

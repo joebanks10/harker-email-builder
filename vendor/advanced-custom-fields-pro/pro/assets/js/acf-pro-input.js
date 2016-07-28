@@ -1910,7 +1910,7 @@
 				
 				
 				// maybe get preview size
-				data.url = acf.maybe_get(data, 'sizes.'+this.o.preview_size+'.url', data.url);
+				data.url = acf.maybe_get(data, 'sizes.medium.url', data.url);
 				
 			}
 			

@@ -2573,6 +2573,50 @@
 	
 	
 	/*
+	*  clone
+	*
+	*  This field type requires some extra logic for its settings
+	*
+	*  @type	function
+	*  @date	24/10/13
+	*  @since	5.0.0
+	*
+	*  @param	n/a
+	*  @return	n/a
+	*/
+	
+	var acf_settings_clone = acf.model.extend({
+		
+		filters: {
+			'select2_args':	'select2_args'
+		},
+		
+		event: function( e ){
+			
+			// override
+			return e.$el.closest('.acf-field-object');
+			
+		},
+		
+		select2_args: function( select2_args, $select, args ){
+			
+			// check if is clone
+			if( args.ajax_action == 'acf/fields/clone/query' ) {
+				
+				select2_args.closeOnSelect = false;
+				
+			}
+			
+			
+			// return
+			return select2_args;
+		}
+			
+		
+	});
+	
+	
+	/*
 	*  screen
 	*
 	*  description

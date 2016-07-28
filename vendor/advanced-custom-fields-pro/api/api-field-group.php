@@ -140,54 +140,71 @@ function acf_get_field_groups( $args = false ) {
 	
 	// vars
 	$field_groups = array();
+	$post_ids = array();
+	$cache_key = "get_field_groups";
 	
 	
-	// cache
-	$found = false;
-	$cache = wp_cache_get( 'get_field_groups', 'acf', false, $found );
-	
-	if( $found ) {
+	// check cache for ids
+	if( acf_isset_cache($cache_key) ) {
 		
-		return acf_filter_field_groups( $cache, $args );
+		$post_ids = acf_get_cache($cache_key);
+	
+	// query DB for child ids
+	} else {
+		
+		// query
+		$posts = get_posts(array(
+			'post_type'					=> 'acf-field-group',
+			'posts_per_page'			=> -1,
+			'orderby' 					=> 'menu_order title',
+			'order' 					=> 'asc',
+			'suppress_filters'			=> false, // allow WPML to modify the query
+			'post_status'				=> array('publish', 'acf-disabled'),
+			'update_post_meta_cache'	=> false
+		));
+		
+		
+		// loop
+		if( $posts ) {
+			
+			foreach( $posts as $post ) {
+				
+				$post_ids[] = $post->ID;
+				
+			}
+				
+		}
+		
+		
+		// update cache
+		acf_set_cache($cache_key, $post_ids);
 		
 	}
 	
 	
-	// load from DB
-	$posts = get_posts(array(
-		'post_type'					=> 'acf-field-group',
-		'posts_per_page'			=> -1,
-		'orderby' 					=> 'menu_order title',
-		'order' 					=> 'asc',
-		'suppress_filters'			=> false, // allow WPML to modify the query
-		'post_status'				=> array('publish', 'acf-disabled'),
-		'update_post_meta_cache'	=> false
-	));
-	
-	
-	// loop through and load field groups
-	if( $posts ) {
+	// load field groups
+	foreach( $post_ids as $post_id ) {
 		
-		foreach( $posts as $post ) {
-			
-			// add to return array
-			$field_groups[] = acf_get_field_group( $post );
-			
-		}
+		$field_groups[] = acf_get_field_group( $post_id );
 		
 	}
 	
 	
 	// filter
+	// - allows local field groups to be appended
 	$field_groups = apply_filters('acf/get_field_groups', $field_groups);
 	
 	
-	// set cache
-	wp_cache_set( 'get_field_groups', $field_groups, 'acf' );
-			
+	// filter via args
+	if( $args ) {
+		
+		$field_groups = acf_filter_field_groups( $field_groups, $args );
+		
+	}
+	
 	
 	// return		
-	return acf_filter_field_groups( $field_groups, $args );
+	return $field_groups;
 	
 }
 
@@ -261,28 +278,29 @@ function acf_filter_field_groups( $field_groups, $args = false ) {
 *  @return	$field_group (array)
 */
 
-function acf_get_field_group( $selector = false ) {
+function acf_get_field_group( $selector = null ) {
 	
 	// vars
 	$field_group = false;
-	$k = 'ID';
-	$v = 0;
+	$type = 'ID';
 	
 	
-	// $post_id or $key
+	// ID
 	if( is_numeric($selector) ) {
 		
-		$v = $selector;
-		
-	} elseif( is_string($selector) ) {
-		
-		$k = 'key';
-		$v = $selector;
-		
+		// do nothing
+	
+	// object
 	} elseif( is_object($selector) ) {
 		
-		$v = $selector->ID;
+		$selector = $selector->ID;
+	
+	// string
+	} elseif( is_string($selector) ) {
 		
+		$type = 'key';
+	
+	// other
 	} else {
 		
 		return false;
@@ -290,39 +308,50 @@ function acf_get_field_group( $selector = false ) {
 	}
 	
 	
-	// get cache key
-	$cache_key = "get_field_group/{$k}={$v}";
+	// return early if cache is found
+	$cache_key = "get_field_group/{$type}={$selector}";
 	
-	
-	// get cache
-	$found = false;
-	$cache = wp_cache_get( $cache_key, 'acf', false, $found );
-	
-	if( $found ) return $cache;
-	
-	
-	// get field group from ID or key
-	if( $k == 'ID' ) {
+	if( acf_isset_cache($cache_key) ) {
 		
-		$field_group = _acf_get_field_group_by_id( $v );
-		
-	} else {
-		
-		$field_group = _acf_get_field_group_by_key( $v );
+		return acf_get_cache($cache_key);
 		
 	}
+	
+	
+	// ID
+	if( $type == 'ID' ) {
+		
+		$field_group = _acf_get_field_group_by_id( $selector );
+	
+	// key	
+	} else {
+		
+		$field_group = _acf_get_field_group_by_key( $selector );
+	
+	}
+	
+	
+	// bail early if no field
+	if( !$field_group ) return false;
 	
 	
 	// filter for 3rd party customization
 	$field_group = apply_filters('acf/get_field_group', $field_group);
 	
 	
-	// set cache
-	wp_cache_set( $cache_key, $field_group, 'acf' );
+	// update cache
+	// - Use key instead of ID for best compatibility (not all field groups exist in the DB)
+	$cache_key = acf_set_cache("get_field_group/key={$field_group['key']}", $field_group);
+	
+	
+	// update cache reference
+	// - allow cache to return if using an ID selector
+	acf_set_cache_reference("get_field_group/ID={$field_group['ID']}", $cache_key);
 	
 	
 	// return
 	return $field_group;
+	
 }
 
 
@@ -551,9 +580,7 @@ function acf_update_field_group( $field_group = array() ) {
 	
 	
 	// clear cache
-	wp_cache_delete("get_field_group/ID={$field_group['ID']}", 'acf');
-	wp_cache_delete("get_field_group/key={$field_group['key']}", 'acf');
-	wp_cache_delete("get_field_groups", 'acf');
+	acf_delete_cache("get_field_group/key={$field_group['key']}");
 	
 	
     // return
