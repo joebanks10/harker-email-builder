@@ -1,5 +1,13 @@
 /* styles here will be appended to main stylesheet (defined in index.php) */
 
+.header {
+    padding-bottom: 0;
+}
+.description {
+    font-size: 12px;
+    line-height: 20px;
+}
+
 .news .article {
     padding-bottom: 30px;
 }
