@@ -336,6 +336,10 @@ tr:last-child > .row {
 }
 
 
+.calendar-item {
+    padding-bottom: 30px;
+}
+
 .table-date {
     background-color: #e6e6e6; /* red: #9C0947 */
     background-position: 0 0;
@@ -390,8 +394,8 @@ tr:last-child > .row {
 }
 
 .event .header {
-    font-size: 16px; 
-    line-height: 24px;
+    font-size: 14px; 
+    line-height: 21px;
     padding-bottom: 3px;
 }
 
