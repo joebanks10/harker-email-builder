@@ -7,14 +7,21 @@
     font-size: 12px;
     line-height: 20px;
 }
-
-.news .article {
-    padding-bottom: 30px;
+.article .header {
+    font-size: 16px;
+    line-height: 24px;
+    padding-bottom: 10px;
+}
+.article .content {
+    padding-bottom: 10px;
 }
 
-.photos .article .header {
-    font-size: 16px;
-    line-height: 26px;
+.home-games .list-item {
+    border: none;
+}
+
+.news .article {
+    padding-bottom: 20px;
 }
 
 .photos .article .content {

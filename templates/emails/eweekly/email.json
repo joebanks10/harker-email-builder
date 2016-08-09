@@ -232,6 +232,33 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "home-games",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Upcoming Home Games"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "list",
+                                    "options": {
+                                        "type": "unstyled",
+                                        "items": [
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4012\">Upper School Home Games</a>",
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4014\">Middle School Home Games</a>",
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4015\">Lower School Home Games</a>"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
                     }
                 ]
             }
