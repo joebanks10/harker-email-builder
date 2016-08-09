@@ -335,14 +335,14 @@ tr:last-child > .row {
 
 
 .table-date {
-    background-color: #9C0947;
+    background-color: #dddddd; /* red: #9C0947 */
 }
 
 .date {
     font-family: 'Open Sans', Arial, sans-serif; 
     font-size: 16px; 
     line-height: 24px;
-    color: #ffffff; 
+    color: ##3B3B3B; 
     font-weight: bold; 
     text-align: center;
     padding-top: 5px;
