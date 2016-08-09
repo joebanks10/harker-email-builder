@@ -345,8 +345,7 @@ tr:last-child > .row {
     font-family: 'Open Sans', Arial, sans-serif; 
     font-size: 16px; 
     line-height: 24px;
-    color: ##3B3B3B; 
-    font-weight: bold; 
+    color: #3B3B3B; 
     text-align: center;
     vertical-align: middle;
     height: 70px;
@@ -354,6 +353,9 @@ tr:last-child > .row {
 }
 
 .day-of-week, .month, .day {
+    font-family: 'Open Sans', Arial, sans-serif; 
+    color: #3B3B3B; 
+    text-align: center;
     width: 68px;
     overflow: hidden;
     white-space: nowrap;
@@ -368,11 +370,13 @@ tr:last-child > .row {
 .month {
     font-size: 16px;
     line-height: 16px;
+    font-weight: bold; 
 }
 
 .day {
     font-size: 32px;
     line-height: 28px;
+    font-weight: bold; 
 }
 
 .events {
