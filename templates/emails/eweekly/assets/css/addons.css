@@ -8,6 +8,10 @@
     line-height: 18px;
 }
 
+.calendar-list {
+    padding-bottom: 30px;
+}
+
 .home-games .list-item {
     border: none;
 }
