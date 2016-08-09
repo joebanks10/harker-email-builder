@@ -4,13 +4,15 @@
     element_class: "element-date",
     text: "Jan. 1",
     width: "100%",
-    align: "center"
+    align: "center",
+    background_img: "~/date-bg.png",
+    background_style: ""
 } %}
 
 {% set module = defaults|merge(module|default({})) %}
 
 {% block element_content %}
-    <table class="table-date" width="{{ module.width }}" border="0" align="{{ module.align }}" cellpadding="0" cellspacing="0">
+    <table class="table-date" width="{{ module.width }}" border="0" align="{{ module.align }}" cellpadding="0" cellspacing="0" background="{{ get_image_url(module.background_img) }}" style="background-image: url({{ get_image_url(module.background_img) }}) {{ module.background_style }}">
         <tr>
             <td class="date">
                 {{ module.text }}

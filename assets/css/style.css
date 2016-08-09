@@ -335,7 +335,10 @@ tr:last-child > .row {
 
 
 .table-date {
-    background-color: #dddddd; /* red: #9C0947 */
+    background-color: #e6e6e6; /* red: #9C0947 */
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    height: 70px;
 }
 
 .date {
@@ -345,16 +348,31 @@ tr:last-child > .row {
     color: ##3B3B3B; 
     font-weight: bold; 
     text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px; 
-    padding-right: 5px; 
+    vertical-align: middle;
+    height: 70px;
+    overflow: hidden;
+}
+
+.day-of-week, .month, .day {
+    width: 68px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .day-of-week {
-    font-size: 10px;
-    line-height: 12px;
+    font-size: 9px;
+    line-height: 14px;
     font-weight: normal;
+}
+
+.month {
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.day {
+    font-size: 32px;
+    line-height: 28px;
 }
 
 .events {

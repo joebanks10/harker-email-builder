@@ -259,50 +259,70 @@ class Template_Extensions {
     }
 
     private function format_date($timestamp) {
-        $month = $this->format_month($timestamp);
-        $day = $this->format_day($timestamp);
-        $day_of_week = $this->format_day_of_week($timestamp);
+        $month = $this->format_month($timestamp, 'M', true);
+        $day = $this->format_day($timestamp, 'j', true);
+        $day_of_week = $this->format_day_of_week($timestamp, 'l', true);
 
         return "<div class=\"day-of-week\">$day_of_week</div><div class=\"month\">$month</div><div class=\"day\">$day</div>";        
     }
 
-    private function format_month($timestamp) {
-        $month = date('F', $timestamp);
+    private function format_month($timestamp, $format = '', $uppercase = false) {
+        if ($format == 'abbreviate') {
+            // Abbreviate Jan., Feb., Aug., Sept., Oct., Nov. and Dec.
+            $month = date('F', $timestamp);
 
-        // Abbreviate Jan., Feb., Aug., Sept., Oct., Nov. and Dec.
-        switch($month) {
-            case 'January':
-                $month = 'Jan.';
-                break;
-            case 'February':
-                $month = 'Feb.';
-                break;
-            case 'August':
-                $month = 'Aug.';
-                break;
-            case 'September':
-                $month = 'Sept.';
-                break;
-            case 'October':
-                $month = 'Oct.';
-                break;
-            case 'November':
-                $month = 'Nov.';
-                break;
-            case 'December':
-                $month = 'Dec.';
-                break;
+            switch($month) {
+                case 'January':
+                    $month = 'Jan.';
+                    break;
+                case 'February':
+                    $month = 'Feb.';
+                    break;
+                case 'August':
+                    $month = 'Aug.';
+                    break;
+                case 'September':
+                    $month = 'Sept.';
+                    break;
+                case 'October':
+                    $month = 'Oct.';
+                    break;
+                case 'November':
+                    $month = 'Nov.';
+                    break;
+                case 'December':
+                    $month = 'Dec.';
+                    break;
+            }
+        } else {
+            $month = date($format, $timestamp);
         }
+
+        if ($uppercase) {
+            $month = strtoupper($month);
+        }            
 
         return $month;
     }
 
-    private function format_day_of_week($timestamp) {
-        return date('l', $timestamp);
+    private function format_day_of_week($timestamp, $format = 'l', $uppercase = false) {
+        $day_of_week = date($format, $timestamp);
+
+        if ($uppercase) {
+            $day_of_week = strtoupper($day_of_week);
+        } 
+
+        return $day_of_week;
     }
 
-    private function format_day($timestamp) {
-        return date('j', $timestamp);
+    private function format_day($timestamp, $format = 'j', $uppercase = false) {
+        $day = date($format, $timestamp);
+
+        if ($uppercase) {
+            $day = strtoupper($day);
+        } 
+
+        return $day;
     }
 
     private function format_time_range($start_time, $end_time = false) {
