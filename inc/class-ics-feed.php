@@ -8,10 +8,9 @@ class ICS_Feed {
 
     public function __construct($url, $start_date = false, $end_date = false, $group_by_date = false) {
         // instantiate object and array
-    
         $this->get_page_id($url);
-        $this->start_date = strtotime($start_date);
-        $this->end_date = strtotime($end_date);
+        $this->start_date = (is_int($start_date)) ? $start_date : strtotime($start_date);
+        $this->end_date = (is_int($end_date)) ? $end_date : strtotime($end_date);
         $this->group_by_date = (bool) $group_by_date;
 
         if ($this->start_date > $this->end_date) {
@@ -48,7 +47,7 @@ class ICS_Feed {
      * @return object      An instance of the ICal class
      */
     private function create_ics_object($url) {
-        $this->object = new ICal($url);
+        $this->object = new \ICal($url);
 
         return $this->object;
     }
@@ -64,8 +63,12 @@ class ICS_Feed {
         $current_events = array();
 
         foreach ($events as $event) {
-            if (!$this->is_valid_event($event)) {
+            if (!$this->in_lower_bound($event)) {
                 continue;
+            }
+
+            if (!$this->in_upper_bound($event)) {
+                break;
             }
 
             $item = array();
@@ -82,9 +85,6 @@ class ICS_Feed {
             if ( isset($event['DTEND']) ) {
                 $item['end'] = $ical->iCalDateToUnixTimestamp($event['DTEND']);
             }
-            if ( isset($event['DTSTAMP']) ) {
-                $item['timestamp'] = $ical->iCalDateToUnixTimestamp($event['DTSTAMP']);
-            }
             if ( isset($event['LOCATION']) ) {
                 $item['location'] = stripslashes($event['LOCATION']);
             }
@@ -97,9 +97,10 @@ class ICS_Feed {
 
             // add item to array
             if ($this->group_by_date) {
+                $start = $ical->iCalDateToUnixTimestamp($event['DTSTART']);
                 
                 // check if date has changed
-                if (date('M. j, Y', $item['start']) != date('M. j, Y', $current_date)) {
+                if (date('M. j, Y', $start) != date('M. j, Y', $current_date)) {
                     // check if date is defined
                     if ($current_date) {
                         // add date and events to array
@@ -107,7 +108,7 @@ class ICS_Feed {
                     }
 
                     // set date to new date and reset events
-                    $current_date = $item['start'];
+                    $current_date = $start;
                     $current_events = array();
                 }
 
@@ -136,13 +137,20 @@ class ICS_Feed {
         );
     }
 
-    private function is_valid_event($event) {
+    private function in_lower_bound($event) {
         $is_valid = true;
         $event_start = $this->object->iCalDateToUnixTimestamp($event['DTSTART']);
 
         if ($this->start_date && ($event_start < $this->start_date)) {
             $is_valid = false;
         }
+
+        return $is_valid;
+    }
+
+    private function in_upper_bound($event) {
+        $is_valid = true;
+        $event_start = $this->object->iCalDateToUnixTimestamp($event['DTSTART']);
 
         if ($this->end_date && ($event_start > $this->end_date)) {
             $is_valid = false;
