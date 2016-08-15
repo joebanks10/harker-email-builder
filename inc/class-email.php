@@ -48,12 +48,16 @@ class Email {
         }
 
         $is_inline = isset($_GET['inline']);
+        $wp_id = isset($_GET['wp_id']) ? $_GET['wp_id'] : false;
 
-        $wp_email = new WP_Email('http://localhost/wp-dev/wp-json/wp/v2/email/2038');
-        // echo '<pre>'; print_r( $wp_email->get_data() ); echo '</pre>';
-        // die();
+        if ($wp_id) {
+            $wp_email = new WP_Email('http://localhost/wp-dev/wp-json/wp/v2/email/' . $wp_id);
+            $json = $wp_email->get_data();
+        } else {
+            $json = $this->get_data();
+        }
         
-        $email_data = array_merge($this->settings, $wp_email->get_data());
+        $email_data = array_merge($this->settings, $json);
         $data = array_merge(array(
             'email' => $email_data
         ), $constants);

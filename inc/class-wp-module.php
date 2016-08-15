@@ -20,6 +20,10 @@ class WP_Module {
             'content_2' => array(), 
             'content_3' => array()
         ),
+        'content-sidebar' => array(
+            'content' => array(),
+            'sidebar' => array()
+        ),
         'grid' => array(
             'columns' => array()
         )
