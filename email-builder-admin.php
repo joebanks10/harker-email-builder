@@ -41,11 +41,18 @@ class Plugin extends \HKR\Singleton {
         add_action('acf/fields/flexible_content/layout_title/name=elements', array($this, 'element_title'), 10, 4);
 
         add_filter('acf_the_content', array($this, 'the_content'), 9);
+
+        add_filter('acf/prepare_field/key=field_57a4cc7bfc202', array($this, 'readonly_field')); // ical event id
+        add_filter('acf/prepare_field/key=field_57a4cd19fc205', array($this, 'readonly_field')); // ical event permalink
         // add_filter('acf/prepare_field/name=columns', array($this, 'prep_field'));
+
+        add_action('wp_ajax_get_ical_events', array($this, 'ajax_get_ical_events'));
+        add_action('wp_ajax_nopriv_get_ical_events', array($this, 'ajax_get_ical_events'));
     }
 
-    public function prep_field($field) {
-        echo '<pre>'; print_r( $field ); echo '</pre>';
+    public function readonly_field($field) {
+        // echo '<pre>'; print_r( $field ); echo '</pre>';
+        $field['readonly'] = true;
 
         return $field;
     }
@@ -94,6 +101,27 @@ class Plugin extends \HKR\Singleton {
         }
 
         return $value;
+    }
+
+    public function ajax_get_ical_events() {
+        require_once(PATH . 'inc/class-ics-feed.php');
+
+        $args = wp_parse_args( $_POST, array(
+            'url' => 'http://www.harker.org/calendar/page_3624.ics',
+            'start' => time(),
+            'end' => time() + (7*24*60*60)
+        ));
+
+        $feed = new \HKR\ICS_Feed($args['url'], $args['start'], $args['end']);
+        $events = array(
+            'events' => $feed->get_events()
+        );
+
+        header('Content-Type: application/json');
+
+        echo json_encode($events);
+
+        wp_die();
     }
 
 }
