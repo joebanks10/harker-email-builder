@@ -59,7 +59,8 @@ class Email_Post_Type {
         global $post;
 
         if (is_single() && $post->post_type == 'email') {
-            wp_redirect(home_url("/wp-json/wp/v2/email/{$post->ID}"));
+            wp_redirect("http://localhost/email-builder/templates/emails/master/?wp_id={$post->ID}");
+            // wp_redirect(home_url("/wp-json/wp/v2/email/{$post->ID}"));
             exit();
         }
     }
