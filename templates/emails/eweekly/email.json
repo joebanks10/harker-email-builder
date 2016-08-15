@@ -43,11 +43,45 @@
                         }
                     },
                     {
+                        "template": "content",
+                        "options" : {
+                            "text" : "View all events in the <a href=\"#\">school calendar</a>.",
+                            "class": "description"
+                        }
+                    },
+                    {
                         "template": "calendar-list",
                         "options": {
                             "ical": "http://www.harker.org/calendar/page_3624.ics",
-                            "start_date": "May 6, 2016",
-                            "end_date": "May 15, 2016"
+                            "start_date": "Aug. 15, 2016",
+                            "end_date": "Aug. 21, 2016"
+                        }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "home-games",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Upcoming Home Games"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "list",
+                                    "options": {
+                                        "type": "unstyled",
+                                        "items": [
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4012\">Upper School Home Games</a>",
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4014\">Middle School Home Games</a>",
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4015\">Lower School Home Games</a>"
+                                        ]
+                                    }
+                                }
+                            ]
                         }
                     }
                 ],
@@ -61,6 +95,13 @@
                                     "template": "header",
                                     "options": {
                                         "text": "Announcements"
+                                    }
+                                },
+                                {
+                                    "template": "content",
+                                    "options": {
+                                        "text": "View all announcements in <a href=\"http://www.harker.org/page.cfm?p=3566\">our archive</a>.",
+                                        "class": "description"
                                     }
                                 }
                             ],
@@ -111,6 +152,13 @@
                                     "options": {
                                         "text": "News"
                                     }
+                                },
+                                {
+                                    "template": "content",
+                                    "options": {
+                                        "text": "View all stories at <a href=\"http://news.harker.org\">Harker News</a>",
+                                        "class": "description"
+                                    }
                                 }
                             ],
                             "elements": [
@@ -118,9 +166,7 @@
                                     "template": "article",
                                     "options": {
                                         "permalink": "http://news.harker.org",
-                                        "img": {
-                                            "width": 289
-                                        },
+                                        "img": "",
                                         "header": {
                                             "text": "Harker Takes Historic First Step at Groundbreaking Ceremony"
                                         },
@@ -128,6 +174,7 @@
                                             "text": "Harker took a historic step toward building the new athletic center and performing arts center as students, faculty, staff, donors and the board of trustees broke ground at a special afternoon ceremony."
                                         },
                                         "button": {
+                                            "type": "text",
                                             "text": "Read More"
                                         }
                                     }
@@ -144,6 +191,7 @@
                                             "text": "The Acorn Cottage at Harker Preschool raised a swarm of Painted Lady butterflies over the past few weeks and set them free!"
                                         },
                                         "button": {
+                                            "type": "text",
                                             "text": "Read More"
                                         }
                                     }
@@ -160,6 +208,7 @@
                                             "text": "All middle school Latinists participated in the National Latin Exam and the National Mythology Exam, and Harker had great results!"
                                         },
                                         "button": {
+                                            "type": "text",
                                             "text": "Read More"
                                         }
                                     }
@@ -177,6 +226,13 @@
                                     "options": {
                                         "text": "Photos"
                                     }
+                                },
+                                {
+                                    "template": "content",
+                                    "options" : {
+                                        "text" : "View more photos in the <a href=\"#\">photo archive</a>.",
+                                        "class": "description"
+                                    }
                                 }
                             ],
                             "elements": [
@@ -191,7 +247,10 @@
                                             "text": "Performing Arts Center and Athletics Center Groundbreaking"
                                         },
                                         "content": {
-                                            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
+                                            "text": "View more photos in our <a href=\"#\">May galleries</a>. You may also access the photos from the parent portal.
+                                            <br>
+                                            <br>
+                                                <b>Note:</b> To download free photos or order prints, you must have a PhotoShelter account. <a href=\"#\">Sign up for free</a>."
                                         },
                                         "button": {
                                             "text": "View Photo Gallery"

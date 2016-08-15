@@ -1,15 +1,21 @@
 /* styles here will be appended to main stylesheet (defined in index.php) */
 
-.news .article {
+.header {
+    padding-bottom: 0;
+}
+.description {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.calendar-list {
     padding-bottom: 30px;
 }
 
-.photos .article .header {
-    font-size: 16px;
-    line-height: 26px;
+.home-games .list-item {
+    border: none;
 }
 
-.photos .article .content {
-    font-size: 12px;
-    line-height: 20px;
+.news .article {
+    padding-bottom: 20px;
 }

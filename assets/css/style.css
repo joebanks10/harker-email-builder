@@ -312,14 +312,16 @@ tr:last-child > .row {
 }
 
 .article .header {
-    font-size: 16px; 
-    line-height: 26px;
     color: #555; 
+    font-size: 16px; 
+    line-height: 24px;
+    padding-bottom: 10px;
 }
 
 .article .content {
     font-size: 12px; 
-    line-height: 20px;
+    line-height: 18px;
+    padding-bottom: 10px;
 }
 
 .article .button {
@@ -327,27 +329,53 @@ tr:last-child > .row {
 }
 
 
+.calendar-item {
+    padding-bottom: 30px;
+}
+
 .table-date {
-    background-color: #9C0947;
+    background-color: #e6e6e6; /* red: #9C0947 */
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    height: 70px;
 }
 
 .date {
     font-family: 'Open Sans', Arial, sans-serif; 
     font-size: 16px; 
     line-height: 24px;
-    color: #ffffff; 
-    font-weight: bold; 
+    color: #3B3B3B; 
     text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px; 
-    padding-right: 5px; 
+    vertical-align: middle;
+    height: 70px;
+    overflow: hidden;
+}
+
+.day-of-week, .month, .day {
+    font-family: 'Open Sans', Arial, sans-serif; 
+    color: #3B3B3B; 
+    text-align: center;
+    width: 68px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .day-of-week {
-    font-size: 10px;
-    line-height: 12px;
+    font-size: 9px;
+    line-height: 14px;
     font-weight: normal;
+}
+
+.month {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: bold; 
+}
+
+.day {
+    font-size: 32px;
+    line-height: 28px;
+    font-weight: bold; 
 }
 
 .events {
@@ -359,14 +387,14 @@ tr:last-child > .row {
 }
 
 .event .header {
-    font-size: 16px; 
-    line-height: 24px;
-    padding-bottom: 0;
+    font-size: 14px; 
+    line-height: 21px;
+    padding-bottom: 3px;
 }
 
 .event .content {
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 12px;
+    line-height: 18px;
 }
 
 .event-link {
