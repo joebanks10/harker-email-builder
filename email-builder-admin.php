@@ -44,17 +44,12 @@ class Plugin extends \HKR\Singleton {
 
         add_filter('acf/prepare_field/key=field_57a4cc7bfc202', array($this, 'readonly_field')); // ical event id
         add_filter('acf/prepare_field/key=field_57a4cd19fc205', array($this, 'readonly_field')); // ical event permalink
-        // add_filter('acf/prepare_field/name=columns', array($this, 'prep_field'));
+
+        add_filter('acf/format_value/type=date_picker', array($this, 'strtotime'));
+        add_filter('acf/format_value/type=date_time_picker', array($this, 'strtotime'));
 
         add_action('wp_ajax_get_ical_events', array($this, 'ajax_get_ical_events'));
         add_action('wp_ajax_nopriv_get_ical_events', array($this, 'ajax_get_ical_events'));
-    }
-
-    public function readonly_field($field) {
-        // echo '<pre>'; print_r( $field ); echo '</pre>';
-        $field['readonly'] = true;
-
-        return $field;
     }
 
     public function acf_admin_styles() {
@@ -98,6 +93,23 @@ class Plugin extends \HKR\Singleton {
         if ($post->post_type == 'email') {
             remove_filter( 'acf_the_content', 'wpautop' );
             $value = nl2br($value);
+        }
+
+        return $value;
+    }
+
+    public function readonly_field($field) {
+        $field['readonly'] = true;
+
+        return $field;
+    }
+
+    public function strtotime($value) {
+        if ( is_string($value) ) {
+            // set default timezone
+            date_default_timezone_set('America/Los_Angeles');
+
+            $value = strtotime($value);
         }
 
         return $value;
