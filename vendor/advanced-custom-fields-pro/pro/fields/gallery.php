@@ -224,10 +224,10 @@ class acf_field_gallery extends acf_field {
 		$r = array();
 		$order = 'DESC';
    		$args = acf_parse_args( $_POST, array(
-			'ids'			=>	0,
-			'sort'			=>	'date',
-			'field_key'		=>	'',
-			'nonce'			=>	'',
+			'ids'			=> 0,
+			'sort'			=> 'date',
+			'field_key'		=> '',
+			'nonce'			=> '',
 		));
 		
 		
@@ -517,7 +517,11 @@ class acf_field_gallery extends acf_field {
 					$thumbnail = acf_get_post_thumbnail($a['ID'], 'medium');
 					
 					
-					// icon
+					// remove filename if is image
+					if( $a['type'] == 'image' ) $a['filename'] = '';
+					
+					
+					// class
 					$a['class'] .= ' -' . $a['type'];
 					
 					if( $thumbnail['type'] == 'icon' ) {
@@ -534,17 +538,17 @@ class acf_field_gallery extends acf_field {
 							<div class="thumbnail">
 								<img src="<?php echo $thumbnail['url']; ?>" alt="" title="<?php echo $a['title']; ?>"/>
 							</div>
-							<div class="filename"><?php echo acf_get_truncated($a['filename'], 30); ?></div>
+							<?php if( $a['filename'] ): ?>
+							<div class="filename"><?php echo acf_get_truncated($a['filename'], 30); ?></div>	
+							<?php endif; ?>
 						</div>
 						<div class="actions acf-soh-target">
 							<a class="acf-icon -cancel dark acf-gallery-remove" href="#" data-id="<?php echo $a['ID']; ?>" title="<?php _e('Remove', 'acf'); ?>"></a>
 						</div>
 					</div>
-					
 				<?php endforeach; ?>
 				
 			<?php endif; ?>
-			
 			
 		</div>
 		
@@ -901,8 +905,10 @@ class acf_field_gallery extends acf_field {
 	
 }
 
-new acf_field_gallery();
 
-endif;
+// initialize
+acf_register_field_type( new acf_field_gallery() );
+
+endif; // class_exists check
 
 ?>

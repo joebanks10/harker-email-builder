@@ -1,34 +1,120 @@
 <?php 
 
 /*
+*  acf_is_array
+*
+*  This function will return true for a non empty array
+*
+*  @type	function
+*  @date	6/07/2016
+*  @since	5.4.0
+*
+*  @param	$array (array)
+*  @return	(boolean)
+*/
+
+function acf_is_array( $array ) {
+	
+	return ( is_array($array) && !empty($array) );
+	
+}
+
+
+/*
+*  acf_is_empty
+*
+*  This function will return true for an empty var (allows 0 as true)
+*
+*  @type	function
+*  @date	6/07/2016
+*  @since	5.4.0
+*
+*  @param	$value (mixed)
+*  @return	(boolean)
+*/
+
+function acf_is_empty( $value ) {
+	
+	return ( empty($value) && !is_numeric($value) );
+	
+}
+
+
+/*
 *  acf_get_setting
 *
-*  This function will return a value from the settings array found in the acf object
+*  alias of acf()->get_setting()
 *
 *  @type	function
 *  @date	28/09/13
 *  @since	5.0.0
 *
-*  @param	$name (string) the setting name to return
-*  @return	(mixed)
+*  @param	n/a
+*  @return	n/a
 */
 
-function acf_get_setting( $name, $default = null ) {
+function acf_get_setting( $name, $value = null ) {
+	
+	return acf()->get_setting( $name, $value );
+	
+}
+
+
+/*
+*  acf_update_setting
+*
+*  alias of acf()->update_setting()
+*
+*  @type	function
+*  @date	28/09/13
+*  @since	5.0.0
+*
+*  @param	$name (string)
+*  @param	$value (mixed)
+*  @return	n/a
+*/
+
+function acf_update_setting( $name, $value ) {
+	
+	return acf()->update_setting( $name, $value );
+	
+}
+
+
+/*
+*  acf_append_setting
+*
+*  This function will add a value into the settings array found in the acf object
+*
+*  @type	function
+*  @date	28/09/13
+*  @since	5.0.0
+*
+*  @param	$name (string)
+*  @param	$value (mixed)
+*  @return	n/a
+*/
+
+function acf_append_setting( $name, $value ) {
 	
 	// vars
-	$settings = acf()->settings;
+	$setting = acf_get_setting( $name, array() );
 	
 	
-	// find setting
-	$setting = acf_maybe_get( $settings, $name, $default );
+	// bail ealry if not array
+	if( !is_array($setting) ) return false;
 	
 	
-	// filter for 3rd party customization
-	$setting = apply_filters( "acf/settings/{$name}", $setting );
+	// append
+	$setting[] = $value;
+	
+	
+	// update
+	acf_update_setting( $name, $setting );
 	
 	
 	// return
-	return $setting;
+	return true;
 	
 }
 
@@ -54,56 +140,6 @@ function acf_get_compatibility( $name ) {
 
 
 /*
-*  acf_update_setting
-*
-*  This function will update a value into the settings array found in the acf object
-*
-*  @type	function
-*  @date	28/09/13
-*  @since	5.0.0
-*
-*  @param	$name (string)
-*  @param	$value (mixed)
-*  @return	n/a
-*/
-
-function acf_update_setting( $name, $value ) {
-	
-	acf()->settings[ $name ] = $value;
-	
-}
-
-
-/*
-*  acf_append_setting
-*
-*  This function will add a value into the settings array found in the acf object
-*
-*  @type	function
-*  @date	28/09/13
-*  @since	5.0.0
-*
-*  @param	$name (string)
-*  @param	$value (mixed)
-*  @return	n/a
-*/
-
-function acf_append_setting( $name, $value ) {
-	
-	// createa array if needed
-	if( !isset(acf()->settings[ $name ]) ) {
-		
-		acf()->settings[ $name ] = array();
-		
-	}
-	
-	
-	// append to array
-	acf()->settings[ $name ][] = $value;
-}
-
-
-/*
 *  acf_has_done
 *
 *  This function will return true if this action has already been done
@@ -119,7 +155,7 @@ function acf_append_setting( $name, $value ) {
 function acf_has_done( $name ) {
 	
 	// vars
-	$setting = 'has_done_' . $name;
+	$setting = "_has_done_{$name}";
 	
 	
 	// return true if already done
@@ -218,14 +254,6 @@ function acf_include( $file ) {
 
 function acf_parse_args( $args, $defaults = array() ) {
 	
-	// $args may not be na array!
-	if( !is_array($args) ) {
-		
-		$args = array();
-		
-	}
-	
-	
 	// parse args
 	$args = wp_parse_args( $args, $defaults );
 	
@@ -255,30 +283,9 @@ function acf_parse_args( $args, $defaults = array() ) {
 
 function acf_parse_types( $array ) {
 	
-	// some keys are restricted
-	$restricted = array(
-		'label',
-		'name',
-		'value',
-		'instructions',
-		'nonce'
-	);
-	
-	
-	// loop
-	foreach( array_keys($array) as $k ) {
-		
-		// parse type if not restricted
-		if( !in_array($k, $restricted, true) ) {
-			
-			$array[ $k ] = acf_parse_type( $array[ $k ] );
-			
-		}
-
-	}
-	
 	// return
-	return $array;
+	return array_map( 'acf_parse_type', $array );
+	
 }
 
 
@@ -296,27 +303,16 @@ function acf_parse_types( $array ) {
 */
 
 function acf_parse_type( $v ) {
-	
-	// test for array
-	if( is_array($v) ) {
 		
-		return acf_parse_types($v);
-	}
-	
-	
 	// bail early if not string
-	if( !is_string($v) ) {
-		
-		return $v;
-				
-	}
+	if( !is_string($v) ) return $v;
 	
 	
 	// trim
 	$v = trim($v);
 	
 	
-	// numbers
+	// convert int (string) to int
 	if( is_numeric($v) && strval((int)$v) === $v ) {
 		
 		$v = intval( $v );
@@ -680,16 +676,7 @@ function acf_get_pretty_post_types( $post_types = array() ) {
 	foreach( $post_types as $post_type ) {
 		
 		// vars
-		$label = $post_type;
-		
-		
-		// check that object exists (case exists when importing field group from another install and post type does not exist)
-		if( post_type_exists($post_type) ) {
-			
-			$obj = get_post_type_object($post_type);
-			$label = $obj->labels->singular_name;
-			
-		}
+		$label = acf_get_post_type_label($post_type);
 		
 		
 		// append to r
@@ -728,6 +715,42 @@ function acf_get_pretty_post_types( $post_types = array() ) {
 }
 
 
+
+/*
+*  acf_get_post_type_label
+*
+*  This function will return a pretty label for a specific post_type
+*
+*  @type	function
+*  @date	5/07/2016
+*  @since	5.4.0
+*
+*  @param	$post_type (string)
+*  @return	(string)
+*/
+
+function acf_get_post_type_label( $post_type ) {
+	
+	// vars
+	$label = $post_type;
+	
+		
+	// check that object exists
+	// - case exists when importing field group from another install and post type does not exist
+	if( post_type_exists($post_type) ) {
+		
+		$obj = get_post_type_object($post_type);
+		$label = $obj->labels->singular_name;
+		
+	}
+	
+	
+	// return
+	return $label;
+	
+}
+
+
 /*
 *  acf_verify_nonce
 *
@@ -747,12 +770,8 @@ function acf_verify_nonce( $value, $post_id = 0 ) {
 	$nonce = acf_maybe_get( $_POST, '_acfnonce' );
 	
 	
-	// bail early if no nonce or if nonce does not match (post|user|comment|term)
-	if( !$nonce || !wp_verify_nonce($nonce, $value) ) {
-		
-		return false;
-		
-	}
+	// bail early nonce does not match (post|user|comment|term)
+	if( !$nonce || !wp_verify_nonce($nonce, $value) ) return false;
 	
 	
 	// if saving specific post
@@ -773,12 +792,10 @@ function acf_verify_nonce( $value, $post_id = 0 ) {
 			
 			// do nothing (don't remove this if statement!)
 			
-		// 3. revision (this post is a revision of the post we were editing)
+		// 3. revision (this is an preview autosave)
 		} elseif( $post_parent === $form_post_id ) {
 			
-			// return true early and prevent $_POST['_acfnonce'] from being reset
-			// this will allow another save_post to save the real post
-			return true;
+			// do nothing (don't remove this if statement!)
 			
 		// 4. no match (this post is a custom created one during the save proccess via either WP or 3rd party)
 		} else {
@@ -1227,41 +1244,41 @@ function acf_get_term_title( $term ) {
 *  @return	(array)
 */
 
-function acf_decode_taxonomy_terms( $terms = false ) {
+function acf_decode_taxonomy_terms( $strings = false ) {
 	
-	// load all taxonomies if not specified in args
-	if( !$terms ) {
-		
-		$terms = acf_get_taxonomy_terms();
-		
-	}
+	// bail early if no terms
+	if( empty($strings) ) return false;
 	
 	
 	// vars
-	$r = array();
+	$terms = array();
 	
 	
-	foreach( $terms as $term ) {
+	// loop
+	foreach( $strings as $string ) {
 		
 		// vars
-		$data = acf_decode_taxonomy_term( $term );
+		$data = acf_decode_taxonomy_term( $string );
+		$taxonomy = $data['taxonomy'];
+		$term = $data['term'];
 		
 		
 		// create empty array
-		if( !array_key_exists($data['taxonomy'], $r) )
-		{
-			$r[ $data['taxonomy'] ] = array();
+		if( !isset($terms[ $taxonomy ]) ) {
+			
+			$terms[ $taxonomy ] = array();
+			
 		}
+				
 		
-		
-		// append to taxonomy
-		$r[ $data['taxonomy'] ][] = $data['term'];
+		// append
+		$terms[ $taxonomy ][] = $term;
 		
 	}
 	
 	
 	// return
-	return $r;
+	return $terms;
 	
 }
 
@@ -1353,7 +1370,49 @@ function acf_get_array( $var = false, $delimiter = ',' ) {
 	// place in array
 	return array( $var );
 	
-} 
+}
+
+
+/*
+*  acf_get_numeric
+*
+*  This function will return numeric values
+*
+*  @type	function
+*  @date	15/07/2016
+*  @since	5.4.0
+*
+*  @param	$value (mixed)
+*  @return	(mixed)
+*/
+
+function acf_get_numeric( $value = '' ) {
+	
+	// vars
+	$numbers = array();
+	$is_array = is_array($value);
+	
+	
+	// loop
+	foreach( (array) $value as $v ) {
+		
+		if( is_numeric($v) ) $numbers[] = (int) $v;
+		
+	}
+	
+	
+	// bail early if is empty
+	if( empty($numbers) ) return false;
+	
+	
+	// convert array
+	if( !$is_array ) $numbers = $numbers[0];
+	
+	
+	// return
+	return $numbers;
+	
+}
 
 
 /*
@@ -1377,7 +1436,7 @@ function acf_get_posts( $args = array() ) {
 	
 	// defaults
 	// leave suppress_filters as true becuase we don't want any plugins to modify the query as we know exactly what 
-	$args = acf_parse_args( $args, array(
+	$args = wp_parse_args( $args, array(
 		'posts_per_page'	=> -1,
 		'post_type'			=> '',
 		'post_status'		=> 'any'
@@ -1525,7 +1584,7 @@ function acf_get_grouped_posts( $args ) {
 	
 	
 	// defaults
-	$args = acf_parse_args( $args, array(
+	$args = wp_parse_args( $args, array(
 		'posts_per_page'			=> -1,
 		'paged'						=> 0,
 		'post_type'					=> 'post',
@@ -1719,33 +1778,45 @@ function acf_get_post_title( $post = 0, $is_search = false ) {
 	}
 	
 	
+	// status
+	if( get_post_status( $post->ID ) != "publish" ) {
+		
+		$append .= ' (' . get_post_status( $post->ID ) . ')';
+		
+	}
+	
+	
 	// ancestors
 	if( $post->post_type !== 'attachment' ) {
 		
 		// get ancestors
 		$ancestors = get_ancestors( $post->ID, $post->post_type );
-		$parent_id = acf_maybe_get( $ancestors, 0 );
-		$prepend = str_repeat('- ', count($ancestors));
+		$prepend .= str_repeat('- ', count($ancestors));
 		
 		
 		// add parent
-		if( $is_search && $parent_id ) {
+		if( $is_search && !empty($ancestors) ) {
 			
-			$append .= ' (Parent page: ' . get_the_title( $parent_id ) . ')';
+			// reverse
+			$ancestors = array_reverse($ancestors);
+			
+			
+			// convert id's into titles
+			foreach( $ancestors as $i => $id ) {
+				
+				$ancestors[ $i ] = get_the_title( $id );
+				
+			}
+			
+			
+			// append
+			$append .= ' | ' . __('Parent', 'acf') . ': ' . implode(' / ', $ancestors);
 			
 		}
 		
 	}
 	
 	
-	// status
-	if( get_post_status( $post->ID ) != "publish" ) {
-		
-		$append .= ' (' . get_post_status( $post->ID ) . ')';
-		
-	}
-	
-	
 	// merge
 	$title = $prepend . $title . $append;
 	
@@ -1754,77 +1825,6 @@ function acf_get_post_title( $post = 0, $is_search = false ) {
 	return $title;
 	
 }
-
-
-/*
-function acf_get_post_title( $post = 0, $is_search = false ) {
-	
-	// vars
-	$post = get_post($post);
-	$title = '';
-	$prepend = '';
-	$append = '';
-	
-    
-	// bail early if no post
-	if( !$post ) return '';
-	
-	
-	// title
-	$title = get_the_title( $post->ID );
-	
-	
-	// empty
-	if( $title === '' ) {
-		
-		$title = __('(no title)', 'acf');
-		
-	}
-	
-	
-	// ancestors
-	if( $post->post_type !== 'attachment' ) {
-		
-		// get ancestors
-		$ancestors = get_ancestors( $post->ID, $post->post_type );
-		$parent_id = acf_maybe_get( $ancestors, 0 );
-		
-		
-		// add parent
-		if( $is_search && !empty($ancestors) ) {
-			
-			foreach( $ancestors as $post_id ) {
-				
-				$prepend = get_the_title( $post_id ) . ' / ' . $prepend;
-				
-			}
-			
-		} else {
-			
-			$prepend = str_repeat('- ', count($ancestors));
-			
-		}	
-				
-	}
-	
-	
-	// status
-	if( get_post_status( $post->ID ) != "publish" ) {
-		
-		$append .= ' (' . get_post_status( $post->ID ) . ')';
-		
-	}
-	
-	
-	// merge
-	$title = $prepend . $title . $append;
-	
-	
-	// return
-	return $title;
-	
-}
-*/
 
 
 function acf_order_by_search( $array, $search ) {
@@ -1952,7 +1952,7 @@ function acf_get_grouped_users( $args = array() ) {
 	
 	
 	// defaults
-	$args = acf_parse_args( $args, array(
+	$args = wp_parse_args( $args, array(
 		'users_per_page'			=> -1,
 		'paged'						=> 0,
 		'role'         				=> '',
@@ -2593,6 +2593,68 @@ acf_update_setting('php_to_js_time_formats', array(
 
 
 /*
+*  acf_split_date_time
+*
+*  This function will split a format string into seperate date and time
+*
+*  @type	function
+*  @date	26/05/2016
+*  @since	5.3.8
+*
+*  @param	$date_time (string)
+*  @return	$formats (array)
+*/
+
+function acf_split_date_time( $date_time = '' ) {
+	
+	// vars
+	$php_date = acf_get_setting('php_to_js_date_formats');
+	$php_time = acf_get_setting('php_to_js_time_formats');
+	$chars = str_split($date_time);
+	$type = 'date';
+	
+	
+	// default
+	$data = array(
+		'date' => '',
+		'time' => ''
+	);
+	
+	
+	// loop
+	foreach( $chars as $i => $c ) {
+		
+		// find type
+		// - allow misc characters to append to previous type
+		if( isset($php_date[ $c ]) ) {
+			
+			$type = 'date';
+			
+		} elseif( isset($php_time[ $c ]) ) {
+			
+			$type = 'time';
+			
+		}
+		
+		
+		// append char
+		$data[ $type ] .= $c;
+		
+	}
+	
+	
+	// trim
+	$data['date'] = trim($data['date']);
+	$data['time'] = trim($data['time']);
+	
+	
+	// return
+	return $data;	
+	
+}
+
+
+/*
 *  acf_convert_date_to_php
 *
 *  This fucntion converts a date format string from JS to PHP
@@ -2729,7 +2791,7 @@ function acf_update_user_setting( $name, $value ) {
 	
 	
 	// delete setting (allow 0 to save)
-	if( !$value && !is_numeric($value) ) {
+	if( acf_is_empty($value) ) {
 		
 		unset($settings[ $name ]);
 	
@@ -2743,7 +2805,6 @@ function acf_update_user_setting( $name, $value ) {
 	
 	// update user data
 	return update_metadata('user', $user_id, 'acf_user_settings', $settings);
-	
 	
 }
 
@@ -3247,6 +3308,10 @@ function acf_update_nested_array( &$array, $ancestors, $value ) {
 */
 
 function acf_is_screen( $id = '' ) {
+	
+	// bail early if not defined
+	if( !function_exists('get_current_screen') ) return false;
+	
 	
 	// vars
 	$current_screen = get_current_screen();
@@ -4295,25 +4360,36 @@ function acf_is_ajax( $action = '' ) {
 */
 
 function acf_format_date( $value, $format ) {
-
+	
 	// bail early if no value
-	if( empty($value) ) return $value;
+	if( !$value ) return $value;
 	
 	
 	// attempt strtotime for standard date value
 	$unixtimestamp = strtotime($value);
 	
 	
-	// allow for timestamp value
-	if( !$unixtimestamp && is_numeric($value) ) {
+	// check strtotime
+	if( !$unixtimestamp ) {
 		
-		$unixtimestamp = $value;
+		// $value may already be a timestamp 
+		if( is_numeric($value) ) {
 			
+			$unixtimestamp = $value;
+		
+		// $value may be Unix epoch (1970-01-01)
+		} elseif( $value === '1970-01-01' ) {
+			
+			$unixtimestamp = 0;
+			
+		// error	
+		} else {
+			
+			return $value;
+			
+		}
+		
 	}
-	
-	
-	// bail early if timestamp error
-	if( !$unixtimestamp ) return $value;
 	
 	
 	// translate
@@ -4435,6 +4511,254 @@ function acf_is_doing( $event = '', $context = '' ) {
 		
 }
 
+
+/*
+*  acf_is_plugin_active
+*
+*  This function will return true if the ACF plugin is active
+*  - May be included within a theme or other plugin
+*
+*  @type	function
+*  @date	13/07/2016
+*  @since	5.4.0
+*
+*  @param	$basename (int)
+*  @return	$post_id (int)
+*/
+
+
+function acf_is_plugin_active() {
+	
+	// vars
+	$basename = acf_get_setting('basename');
+	
+	
+	// ensure is_plugin_active() exists (not on frontend)
+	if( !function_exists('is_plugin_active') ) {
+		
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		
+	}
+	
+	
+	// return
+	return is_plugin_active($basename);
+	
+}
+
+
+/*
+*  acf_enable_filter
+*
+*  This function will enable a filter
+*
+*  @type	function
+*  @date	15/07/2016
+*  @since	5.4.0
+*
+*  @param	$post_id (int)
+*  @return	$post_id (int)
+*/
+
+function acf_enable_filter( $filter = '' ) {
+	
+	// get filters
+	$filters = acf_get_setting('_filters', array());
+	
+	
+	// append
+	$filters[ $filter ] = true;
+	
+	
+	// update
+	acf_update_setting('_filters', $filters);
+	
+}
+
+
+/*
+*  acf_disable_filter
+*
+*  This function will disable a filter
+*
+*  @type	function
+*  @date	15/07/2016
+*  @since	5.4.0
+*
+*  @param	$post_id (int)
+*  @return	$post_id (int)
+*/
+
+function acf_disable_filter( $filter = '' ) {
+	
+	// get filters
+	$filters = acf_get_setting('_filters', array());
+	
+	
+	// append
+	$filters[ $filter ] = false;
+	
+	
+	// update
+	acf_update_setting('_filters', $filters);
+	
+}
+
+
+/*
+*  acf_enable_filters
+*
+*  ACF uses filters to modify field group and field data
+*  This function will enable them allowing ACF to interact with all data
+*
+*  @type	function
+*  @date	14/07/2016
+*  @since	5.4.0
+*
+*  @param	$post_id (int)
+*  @return	$post_id (int)
+*/
+
+function acf_enable_filters() {
+	
+	// get filters
+	$filters = acf_get_setting('_filters', array());
+	
+	
+	// loop
+	foreach( array_keys($filters) as $k ) {
+		
+		$filters[ $k ] = true;
+		
+	}
+	
+	
+	// update
+	acf_update_setting('_filters', $filters);
+	
+}
+
+
+/*
+*  acf_disable_filters
+*
+*  ACF uses filters to modify field group and field data
+*  This function will disable them allowing ACF to interact only with raw DB data
+*
+*  @type	function
+*  @date	14/07/2016
+*  @since	5.4.0
+*
+*  @param	$post_id (int)
+*  @return	$post_id (int)
+*/
+
+function acf_disable_filters() {
+	
+	// get filters
+	$filters = acf_get_setting('_filters', array());
+	
+	
+	// loop
+	foreach( array_keys($filters) as $k ) {
+		
+		$filters[ $k ] = false;
+		
+	}
+	
+	
+	// update
+	acf_update_setting('_filters', $filters);
+	
+}
+
+
+/*
+*  acf_is_filter_enabled
+*
+*  ACF uses filters to modify field group and field data
+*  This function will return true if they are enabled
+*
+*  @type	function
+*  @date	14/07/2016
+*  @since	5.4.0
+*
+*  @param	$post_id (int)
+*  @return	$post_id (int)
+*/
+
+function acf_is_filter_enabled( $filter = '' ) {
+	
+	// get filters
+	$filters = acf_get_setting('_filters', array());
+	
+	
+	// bail early if not set
+	return empty( $filters[ $filter ] ) ? false : true;
+	
+}
+
+
+/*
+*  acf_send_ajax_results
+*
+*  This function will print JSON data for a Select2 AJAX query
+*
+*  @type	function
+*  @date	19/07/2016
+*  @since	5.4.0
+*
+*  @param	$response (array)
+*  @return	n/a
+*/
+
+function acf_send_ajax_results( $response ) {
+	
+	// validate
+	$response = wp_parse_args($response, array(
+		'results'	=> false,
+		'more'		=> false,
+		'limit'		=> 0
+	));
+	
+	
+	// limit
+	if( $response['limit'] && $response['results']) {
+		
+		// vars
+		$total = 0;
+		
+		foreach( $response['results'] as $result ) {
+			
+			// parent
+			$total++;
+			
+			
+			// children
+			if( !empty($result['children']) ) {
+				
+				$total += count( $result['children'] );
+				
+			}
+			
+		}
+		
+		
+		// calc
+		if( $total >= $response['limit'] ) {
+			
+			$response['more'] = true;
+			
+		}
+		
+	}
+	
+	
+	// return
+	wp_send_json( $response );
+	
+}		
+		
 
 add_filter("acf/settings/slug", '_acf_settings_slug');
 

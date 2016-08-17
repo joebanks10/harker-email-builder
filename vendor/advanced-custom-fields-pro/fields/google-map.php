@@ -81,7 +81,7 @@ class acf_field_google_map extends acf_field {
 		
 		
 		// value
-		$field['value'] = acf_parse_args($field['value'], array(
+		$field['value'] = wp_parse_args($field['value'], array(
 			'address'	=> '',
 			'lat'		=> '',
 			'lng'		=> ''
@@ -301,16 +301,13 @@ class acf_field_google_map extends acf_field {
 	   	
 	   	
 	   	// filter
-	   	$settings = apply_filters('acf/fields/google_map/api', $api);
+	   	$api = apply_filters('acf/fields/google_map/api', $api);
 	   	
 	   	
 	   	// remove empty
 	   	if( empty($api['key']) ) unset($api['key']);
 	   	if( empty($api['client']) ) unset($api['client']);
-	   		
 	   	
-	   	// test
-	   	//$api['key'] = 'AIzaSyAF2jvUQDoWxyAMiNnU5ISF-GcAwoF7-_8';
 	   	
 ?>
 <script type="text/javascript">
@@ -319,10 +316,13 @@ acf.fields.google_map.api = <?php echo json_encode($api); ?>;
 <?php
 	
    	}
+   	
 }
 
-new acf_field_google_map();
 
-endif;
+// initialize
+acf_register_field_type( new acf_field_google_map() );
+
+endif; // class_exists check
 
 ?>

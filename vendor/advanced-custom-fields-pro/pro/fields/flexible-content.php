@@ -60,7 +60,7 @@ class acf_field_flexible_content extends acf_field {
 		
 		
 		// filters
-		add_filter('acf/clone_field', array($this, 'clone_field'), 10, 2);
+		add_filter('acf/clone_field', array($this, 'acf_clone_field'), 10, 2);
 		
 		
 		// do not delete!
@@ -711,6 +711,10 @@ class acf_field_flexible_content extends acf_field {
 				$sub_field = $layout[ $j ];
 				
 				
+				// bail ealry if no name (tab)
+				if( acf_is_empty($sub_field['name']) ) continue;
+				
+				
 				// update full name
 				$sub_field['name'] = "{$field['name']}_{$i}_{$sub_field['name']}";
 				
@@ -799,13 +803,17 @@ class acf_field_flexible_content extends acf_field {
 				$sub_field = $layout[ $j ];
 				
 				
-				// update $sub_field name
-				$sub_field['name'] = "{$field['name']}_{$i}_{$sub_field['name']}";
-					
-					
+				// bail ealry if no name (tab)
+				if( acf_is_empty($sub_field['name']) ) continue;
+				
+				
 				// extract value
 				$sub_value = acf_extract_var( $value[ $i ], $sub_field['key'] );
 				
+				
+				// update $sub_field name
+				$sub_field['name'] = "{$field['name']}_{$i}_{$sub_field['name']}";
+					
 				
 				// format value
 				$sub_value = acf_format_value( $sub_value, $post_id, $sub_field );
@@ -1295,10 +1303,10 @@ class acf_field_flexible_content extends acf_field {
 		
 		// options
    		$options = acf_parse_args( $_POST, array(
-			'post_id'		=>	0,
-			'i'				=>	0,
-			'field_key'		=>	'',
-			'nonce'			=>	'',
+			'post_id'		=> 0,
+			'i'				=> 0,
+			'field_key'		=> '',
+			'nonce'			=> '',
 			'layout'		=> '',
 			'acf'			=> array()
 		));
@@ -1399,7 +1407,7 @@ class acf_field_flexible_content extends acf_field {
 	
 	
 	/*
-	*  clone_field
+	*  acf_clone_field
 	*
 	*  This function will update clone field settings based on the origional field
 	*
@@ -1412,29 +1420,32 @@ class acf_field_flexible_content extends acf_field {
 	*  @return	$clone
 	*/
 	
-	function clone_field( $clone, $field ) {
+	function acf_clone_field( $field, $clone_field ) {
 		
-		// vars
-		$parent_layout = acf_maybe_get( $field, 'parent_layout' );
+		// remove parent_layout
+		// - allows a sub field to be rendered as a normal field
+		unset($field['parent_layout']);
 		
 		
-		// update
-		if( $parent_layout ) {
+		// attempt to merger parent_layout
+		if( isset($clone_field['parent_layout']) ) {
 			
-			$clone['parent_layout'] = $parent_layout;
+			$field['parent_layout'] = $clone_field['parent_layout'];
 			
 		}
 		
 		
 		// return
-		return $clone;
+		return $field;
 		
 	}
 	
 }
 
-new acf_field_flexible_content();
 
-endif;
+// initialize
+acf_register_field_type( new acf_field_flexible_content() );
+
+endif; // class_exists check
 
 ?>

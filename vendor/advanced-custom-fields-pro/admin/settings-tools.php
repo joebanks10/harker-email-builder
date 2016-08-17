@@ -71,8 +71,8 @@ class acf_settings_tools {
 	
 	function load() {
 		
-		// all export pages should not load local fields
-		acf_disable_local();
+		// disable filters to ensure ACF loads raw data from DB
+		acf_disable_filters();
 		
 		
 		// run import / export
@@ -137,10 +137,6 @@ class acf_settings_tools {
 	
 	function export() {
 		
-		// doing
-		acf_doing('export', 'json');
-		
-		
 		// vars
 		$json = $this->get_json();
 		
@@ -181,10 +177,6 @@ class acf_settings_tools {
 	*/
 	
 	function import() {
-		
-		// doing
-		acf_doing('import', 'json');
-		
 		
 		// validate
 		if( empty($_FILES['acf_import_file']) ) {
@@ -373,10 +365,6 @@ class acf_settings_tools {
 	*/
 	
 	function generate() {
-		
-		// doing
-		acf_doing('export', 'php');
-		
 		
 		// prevent default translation and fake __() within string
 		acf_update_setting('l10n_var_export', true);

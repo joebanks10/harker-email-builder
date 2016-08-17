@@ -430,10 +430,8 @@ function acf_delete_value( $post_id = 0, $field ) {
 
 function acf_copy_postmeta( $from_post_id, $to_post_id ) {
 	
-	acf_log('acf_copy_postmeta', $from_post_id, $to_post_id);
-	
 	// get all postmeta
-	$meta = get_post_custom( $from_post_id );
+	$meta = get_post_meta( $from_post_id );
 	
 	
 	// bail early if no meta
@@ -455,9 +453,13 @@ function acf_copy_postmeta( $from_post_id, $to_post_id ) {
 		$value = $value[0];
 		$key = $key[0];
 		
-				
+		
 		// bail early if $key is a not a field_key
 		if( !acf_is_field_key($key) ) continue;
+		
+		
+		// get_post_meta will return array before running maybe_unserialize
+		$value = maybe_unserialize( $value );
 		
 		
 		// add in slashes
@@ -475,8 +477,6 @@ function acf_copy_postmeta( $from_post_id, $to_post_id ) {
 		acf_update_metadata( $to_post_id, $name, $key, true );
 					
 	}
-	
-	acf_log('end acf_copy_postmeta');
 
 }
 

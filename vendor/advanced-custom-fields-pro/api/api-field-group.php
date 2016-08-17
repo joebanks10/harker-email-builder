@@ -53,7 +53,7 @@ function acf_is_field_group_key( $key = '' ) {
 function acf_get_valid_field_group( $field_group = false ) {
 	
 	// parse in defaults
-	$field_group = acf_parse_args( $field_group, array(
+	$field_group = wp_parse_args( $field_group, array(
 		'ID'					=> 0,
 		'key'					=> '',
 		'title'					=> '',
@@ -516,6 +516,10 @@ function acf_update_field_group( $field_group = array() ) {
 	$field_group = wp_unslash( $field_group );
 	
 	
+	// parse types (converts string '0' to int 0)
+	$field_group = acf_parse_types( $field_group );
+	
+	
 	// locations may contain 'uniquid' array keys
 	$field_group['location'] = array_values( $field_group['location'] );
 	
@@ -616,8 +620,8 @@ function acf_update_field_group_wp_unique_post_slug( $slug, $post_ID, $post_stat
 
 function acf_duplicate_field_group( $selector = 0, $new_post_id = 0 ) {
 	
-	// disable JSON to avoid conflicts between DB and JSON
-	acf_disable_local();
+	// disable filters to ensure ACF loads raw data from DB
+	acf_disable_filters();
 	
 	
 	// load the origional field gorup
@@ -740,8 +744,8 @@ function acf_get_field_count( $field_group ) {
 
 function acf_delete_field_group( $selector = 0 ) {
 	
-	// disable JSON to avoid conflicts between DB and JSON
-	acf_disable_local();
+	// disable filters to ensure ACF loads raw data from DB
+	acf_disable_filters();
 	
 	
 	// load the origional field gorup
@@ -795,8 +799,8 @@ function acf_delete_field_group( $selector = 0 ) {
 
 function acf_trash_field_group( $selector = 0 ) {
 	
-	// disable JSON to avoid conflicts between DB and JSON
-	acf_disable_local();
+	// disable filters to ensure ACF loads raw data from DB
+	acf_disable_filters();
 	
 	
 	// load the origional field gorup
@@ -850,8 +854,8 @@ function acf_trash_field_group( $selector = 0 ) {
 
 function acf_untrash_field_group( $selector = 0 ) {
 	
-	// disable JSON to avoid conflicts between DB and JSON
-	acf_disable_local();
+	// disable filters to ensure ACF loads raw data from DB
+	acf_disable_filters();
 	
 	
 	// load the origional field gorup
@@ -1014,6 +1018,10 @@ function acf_get_field_group_style( $field_group ) {
 
 function acf_import_field_group( $field_group ) {
 	
+	// disable filters to ensure ACF loads raw data from DB
+	acf_disable_filters();
+	
+	
 	// vars
 	$ref = array();
 	$order = array();
@@ -1029,10 +1037,6 @@ function acf_import_field_group( $field_group ) {
 	
 	// remove old fields
 	if( $field_group['ID'] ) {
-		
-		// disable local - important as to avoid 'acf_get_fields_by_id' returning fields with ID = 0
-		acf_disable_local();
-	
 		
 		// load fields
 		$db_fields = acf_get_fields_by_id( $field_group['ID'] );
@@ -1063,11 +1067,11 @@ function acf_import_field_group( $field_group ) {
 			
 		}
 		
-		
-		// enable local - important as to allow local to find new fields and save json file
-		acf_enable_local();
-		
 	}
+	
+	
+	// enable local filter for JSON to be created
+	acf_enable_filter('local');
 	
 			
 	// save field group

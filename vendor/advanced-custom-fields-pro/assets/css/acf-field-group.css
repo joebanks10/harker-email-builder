@@ -337,21 +337,6 @@ table.conditional-logic-rules tbody td {
   display: inline-block;
   width: 100px;
 }
-/*---------------------------------------------------------------------------------------------
-*
-*	Field: Clone
-*	
-*---------------------------------------------------------------------------------------------*/
-.acf-field-object-clone .li-field-name {
-  visibility: hidden;
-}
-.acf-field-object-clone tr[data-name="name"],
-.acf-field-object-clone tr[data-name="instructions"],
-.acf-field-object-clone tr[data-name="required"],
-.acf-field-object-clone tr[data-name="conditional_logic"],
-.acf-field-object-clone tr[data-name="wrapper"] {
-  display: none !important;
-}
 /*--------------------------------------------------------------------------------------------
 *
 *	RTL

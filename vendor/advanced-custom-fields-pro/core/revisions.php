@@ -147,7 +147,7 @@ class acf_revisions {
 	
 	function wp_save_post_revision_check_for_changes( $return, $last_revision, $post ) {
 		
-		acf_log('wp_save_post_revision_check_for_changes');
+		
 		// look for _acfchanged
 		if( acf_maybe_get($_POST, '_acfchanged') === '1' ) {
 			
@@ -207,7 +207,7 @@ class acf_revisions {
 		
 		
 		// get all postmeta
-		$meta = get_post_custom( $post_id );
+		$meta = get_post_meta( $post_id );
 		
 		
 		// bail early if no meta
@@ -307,6 +307,10 @@ class acf_revisions {
 		if( empty($value) ) return $value;
 		
 		
+		// value has not yet been 'maybe_unserialize'
+		$value = maybe_unserialize( $value );
+		
+		
 		// vars
 		$post_id = $post->ID;
 		
@@ -338,8 +342,8 @@ class acf_revisions {
 		
 		// return
 		return $value;
+		
 	}
-	
 	
 	
 	/*

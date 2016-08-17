@@ -25,12 +25,10 @@ class acf_cache {
 		// vars
 		$this->cache = array();
 		$this->reference = array();
-		$this->hits = array();
-		$this->misses = array();
 		
 		
-		// testing
-		//add_action('shutdown', array($this, 'shutdown'));
+		// prevent ACF from persistent cache
+		wp_cache_add_non_persistent_groups('acf');
 		
 	}
 	
@@ -51,7 +49,7 @@ class acf_cache {
 	function get_key( $key = '' ) {
 		
 		// check for reference
-		if( isset( $this->reference[ $key ] ) ) {
+		if( isset($this->reference[ $key ]) ) {
 			
 			$key = $this->reference[ $key ];
 				
@@ -68,7 +66,7 @@ class acf_cache {
 	/*
 	*  isset_cache
 	*
-	*  This function will return true if a cached data exists for teh given key
+	*  This function will return true if a cached data exists for the given key
 	*
 	*  @type	function
 	*  @date	30/06/2016
@@ -82,25 +80,15 @@ class acf_cache {
 		
 		// vars
 		$key = $this->get_key($key);
+		$found = false;
 		
 		
-		// isset
-		$isset = isset( $this->cache[ $key ] );
-		
-		
-		if( $isset ) {
-			
-			$this->hits[] = $key;
-			
-		} else {
-			
-			$this->misses[] = $key;
-			
-		}
+		// get cache
+		$cache = wp_cache_get($key, 'acf', false, $found);
 		
 		
 		// return
-		return $isset;
+		return $found;
 		
 	}
 	
@@ -122,19 +110,15 @@ class acf_cache {
 		
 		// vars
 		$key = $this->get_key($key);
-		$data = null;
+		$found = false;
 		
-			
-		// check cache
-		if( isset( $this->cache[ $key ] ) ) {
-			
-			$data = $this->cache[ $key ];
-			
-		}
+		
+		// get cache
+		$cache = wp_cache_get($key, 'acf', false, $found);
 		
 		
 		// return
-		return $data;		
+		return $cache;
 		
 	}
 	
@@ -155,9 +139,10 @@ class acf_cache {
 	
 	function set_cache( $key = '', $data = '' ) {
 		
-		$this->cache[ $key ] = $data;	
+		wp_cache_set($key, $data, 'acf');
 		
 		return $key;
+		
 	}
 	
 	
@@ -199,88 +184,15 @@ class acf_cache {
 	
 	function delete_cache( $key = '' ) {
 		
-		unset( $this->cache[ $key ] );
-		
-	}
-	
-	
-	/*
-	*  flush_cache
-	*
-	*  This function will delete all cached data
-	*
-	*  @type	function
-	*  @date	30/06/2016
-	*  @since	5.4.0
-	*
-	*  @param	$key (string)
-	*  @return	n/a
-	*/
-	
-	function flush_cache() {
-		
-		$this->cache = array();
-		$this->reference = array();
-		
-	}
-	
-	
-	/*
-	*  shutdown
-	*
-	*  Function used to log cache data
-	*
-	*  @type	function
-	*  @date	30/06/2016
-	*  @since	5.4.0
-	*
-	*  @param	n/a
-	*  @return	n/a
-	*/
-	
-	function shutdown() {
-		
-		// bail early if is ajax
-		if( acf_is_ajax() ) return;
-		
-		
-		acf_log('--- ACF Cache ---');
-		acf_log('Cache count: ', count($this->cache));
-		acf_log('Reference count: ', count($this->reference));
-		
-		
-		acf_log('Hits count: ', count($this->hits));
-		
-		foreach( $this->hits as $hit ) {
-			
-			acf_log('- ', $hit);
-			
-		}
-		
-		
-		acf_log('Misses count: ', count($this->misses));
-		
-		foreach( $this->misses as $miss ) {
-			
-			acf_log('- ', $miss);
-			
-		}
-		
-		
-		acf_log('-----------------');
+		return wp_cache_delete( $key, 'acf' );
 		
 	}
 	
 }
 
 
-// globals
-global $acf_cache;
-
-
 // initialize
-$acf_cache = new acf_cache();
-
+acf()->cache = new acf_cache();
 
 endif; // class_exists check
 
@@ -289,7 +201,7 @@ endif; // class_exists check
 /*
 *  acf_isset_cache
 *
-*  alias of $acf_cache->isset_cache()
+*  alias of acf()->cache->isset_cache()
 *
 *  @type	function
 *  @date	30/06/2016
@@ -301,9 +213,7 @@ endif; // class_exists check
 
 function acf_isset_cache( $key = '' ) {
 	
-	global $acf_cache;
-	
-	return $acf_cache->isset_cache( $key );
+	return acf()->cache->isset_cache( $key );
 	
 }
 
@@ -311,7 +221,7 @@ function acf_isset_cache( $key = '' ) {
 /*
 *  acf_get_cache
 *
-*  alias of $acf_cache->get_cache()
+*  alias of acf()->cache->get_cache()
 *
 *  @type	function
 *  @date	30/06/2016
@@ -323,9 +233,7 @@ function acf_isset_cache( $key = '' ) {
 
 function acf_get_cache( $key = '' ) {
 	
-	global $acf_cache;
-	
-	return $acf_cache->get_cache( $key );
+	return acf()->cache->get_cache( $key );
 	
 }
 
@@ -333,7 +241,7 @@ function acf_get_cache( $key = '' ) {
 /*
 *  acf_set_cache
 *
-*  alias of $acf_cache->set_cache()
+*  alias of acf()->cache->set_cache()
 *
 *  @type	function
 *  @date	30/06/2016
@@ -345,9 +253,7 @@ function acf_get_cache( $key = '' ) {
 
 function acf_set_cache( $key = '', $data ) {
 	
-	global $acf_cache;
-	
-	return $acf_cache->set_cache( $key, $data );
+	return acf()->cache->set_cache( $key, $data );
 	
 }
 
@@ -355,7 +261,7 @@ function acf_set_cache( $key = '', $data ) {
 /*
 *  acf_set_cache_reference
 *
-*  alias of $acf_cache->set_cache_reference()
+*  alias of acf()->cache->set_cache_reference()
 *
 *  @type	function
 *  @date	30/06/2016
@@ -367,9 +273,7 @@ function acf_set_cache( $key = '', $data ) {
 
 function acf_set_cache_reference( $key = '', $reference = '' ) {
 	
-	global $acf_cache;
-	
-	return $acf_cache->set_cache_reference( $key, $reference );
+	return acf()->cache->set_cache_reference( $key, $reference );
 	
 }
 
@@ -377,7 +281,7 @@ function acf_set_cache_reference( $key = '', $reference = '' ) {
 /*
 *  acf_delete_cache
 *
-*  alias of $acf_cache->delete_cache()
+*  alias of acf()->cache->delete_cache()
 *
 *  @type	function
 *  @date	30/06/2016
@@ -389,31 +293,7 @@ function acf_set_cache_reference( $key = '', $reference = '' ) {
 
 function acf_delete_cache( $key = '' ) {
 	
-	global $acf_cache;
-	
-	return $acf_cache->delete_cache( $key );
-	
-}
-
-
-/*
-*  acf_flush_cache
-*
-*  alias of $acf_cache->flush_cache()
-*
-*  @type	function
-*  @date	30/06/2016
-*  @since	5.4.0
-*
-*  @param	n/a
-*  @return	n/a
-*/
-
-function acf_flush_cache() {
-	
-	global $acf_cache;
-	
-	return $acf_cache->flush_cache();
+	return acf()->cache->delete_cache( $key );
 	
 }
 

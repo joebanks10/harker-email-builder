@@ -381,7 +381,6 @@ html[dir="rtl"] .acf-flexible-content .layout .acf-fc-layout-controlls {
   position: relative;
   /* sortable */
   /* active */
-  /* audio, video */
   /* icon */
   /* rtl */
 }
@@ -426,7 +425,6 @@ html[dir="rtl"] .acf-flexible-content .layout .acf-fc-layout-controlls {
   word-wrap: break-word;
   max-height: 90%;
   overflow: hidden;
-  display: none;
 }
 .acf-gallery .acf-gallery-attachment .actions {
   position: absolute;
@@ -447,15 +445,8 @@ html[dir="rtl"] .acf-flexible-content .layout .acf-fc-layout-controlls {
 .acf-gallery .acf-gallery-attachment.active .margin {
   box-shadow: 0 0 0 1px #FFFFFF, 0 0 0 5px #1E8CBE;
 }
-.acf-gallery .acf-gallery-attachment.-audio .filename,
-.acf-gallery .acf-gallery-attachment.-video .filename {
-  display: block;
-}
 .acf-gallery .acf-gallery-attachment.-icon .thumbnail img {
   transform: translate(-50%, -70%);
-}
-.acf-gallery .acf-gallery-attachment.-icon .filename {
-  display: block;
 }
 html[dir="rtl"] .acf-gallery .acf-gallery-attachment {
   float: right;
