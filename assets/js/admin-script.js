@@ -78,16 +78,24 @@
     acf.fields.repeater._add_ical_events = function(e) {
         var self = this,
             subfields = ['id', 'title', 'location', 'start', 'end', 'permalink'],
-
             data = {
                 'action': 'get_ical_events',
                 'url': e.$layout.find('.acf-field[data-name="ical"]').find('input[type="url"]').val(),
                 'start': e.$layout.find('.acf-field[data-name="start_date"]').find('.input-alt').val(),
                 'end': e.$layout.find('.acf-field[data-name="end_date"]').find('.input-alt').val()
-            };
+            },
+            result = confirm('This will copy the current iCal feed and make the events editable. The events will not sync with updates made to the live iCal feed.');
+
+        if (!result) {
+            return;
+        }
+
+        e.$field.addClass('events-loading');
 
         $.getJSON(ajaxurl, data, function(json) {
             self.add_rows(json.events, subfields);
+
+            e.$field.removeClass('events-loading').addClass('events-done');
         });
     };
 
@@ -195,10 +203,8 @@
 
             if (type === 'date_time_picker') {
                 $input = $input.siblings('input[type="text"]');
-
-                setTimeout(function() {
-                    $input.datepicker('setDate', new Date(data[field] * 1000));
-                }, 1);
+                console.log($input.data());
+                $input.datepicker('setDate', new Date(data[field] * 1000));
             } else {
                 $input.val(data[field]);
             }

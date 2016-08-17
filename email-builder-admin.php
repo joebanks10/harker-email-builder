@@ -42,6 +42,8 @@ class Plugin extends \HKR\Singleton {
 
         add_filter('acf_the_content', array($this, 'the_content'), 9);
 
+        add_action('acf/render_field/type=repeater', array($this, 'ajax_loading_img'), 9, 1);
+
         add_filter('acf/prepare_field/key=field_57a4cc7bfc202', array($this, 'readonly_field')); // ical event id
         add_filter('acf/prepare_field/key=field_57a4cd19fc205', array($this, 'readonly_field')); // ical event permalink
 
@@ -113,6 +115,12 @@ class Plugin extends \HKR\Singleton {
         }
 
         return $value;
+    }
+
+    function ajax_loading_img($field) {
+        if ($field['_name'] == 'events') {
+            echo '<p><img class="events-loading-img" alt="loading events..." src="' . home_url('/wp-admin/images/loading.gif') . '" /></p>';
+        }
     }
 
     public function ajax_get_ical_events() {

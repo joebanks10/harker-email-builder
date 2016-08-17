@@ -143,6 +143,16 @@ th[data-key="field_57a4cd19fc205"], td[data-key="field_57a4cd19fc205"], div[data
     display: none;
 }
 
+.events, 
+.events-loading .acf-repeater, 
+.events-done .events-loading-img {
+    display: none;
+}
+.events-loading,
+.events-done,
+.events-done .acf-repeater {
+    display: block;
+}
 
 /* tabs */
 .acf-fields > .acf-tab-wrap {
