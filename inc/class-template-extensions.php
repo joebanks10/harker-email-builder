@@ -131,7 +131,7 @@ class Template_Extensions {
             $events = array();
             
             foreach($current_date['events'] as $event) {
-                $header = $event['title'];
+                $header = $this->format_title($event['title']);
                 $content = $this->get_event_content($event);
 
                 $header_element = ( !empty($header) ) ? array( 'text' => $header ) : array();
@@ -152,6 +152,18 @@ class Template_Extensions {
         }
 
         return $dates;
+    }
+
+    public function format_title($title) {
+        $title = preg_replace('/PS/', 'Prechool', $title);
+        $title = preg_replace('/LS/', 'Lower School', $title);
+        $title = preg_replace('/MS/', 'Middle School', $title);
+        $title = preg_replace('/US/', 'Upper School', $title);
+
+        $title = preg_replace('/G8/', 'Grade 8', $title);
+        $title = preg_replace('/Mtg/', 'Meeting', $title);
+
+        return $title;
     }
 
     public function convert_elements_to_columns($elements = array()) {
