@@ -111,7 +111,7 @@ class Template_Extensions {
             $events = $args['events'];
         } else {
             // fetch events from ical feed
-            $url = empty($args['url']) ? 'http://www.harker.org/calendar/page_2302.ics' : $url;
+            $url = $args['ical'];
             $start_date = $args['start_date'];
             $end_date = $args['end_date'];
 
