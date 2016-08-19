@@ -77,29 +77,35 @@
 
     acf.fields.repeater._add_ical_events = function(e) {
         var self = this,
+            $layout = e.$field.closest('.layout'),
             subfields = ['id', 'title', 'location', 'start', 'end', 'permalink'],
             data = {
                 'action': 'get_ical_events',
                 'url': e.$layout.find('.acf-field[data-name="ical"]').find('input[type="url"]').val(),
                 'start': e.$layout.find('.acf-field[data-name="start_date"]').find('.input-alt').val(),
                 'end': e.$layout.find('.acf-field[data-name="end_date"]').find('.input-alt').val()
-            },
-            result = confirm('This will copy the current iCal feed and make the events editable. The events will not sync with updates made to the live iCal feed.');
+            };
 
-        if (!result) {
-            return;
-        }
-
-        e.$field.addClass('events-loading');
+        this.remove_all_rows();
+        e.$field.addClass('events-loading').removeClass('events-done');
+        $layout.addClass('has-loading-events');
 
         $.getJSON(ajaxurl, data, function(json) {
             self.add_rows(json.events, subfields);
 
             e.$field.removeClass('events-loading').addClass('events-done');
+            $layout.removeClass('has-loading-events').addClass('has-events');
         });
     };
 
     acf.fields.repeater._remove_all_rows = function() {
+        this.$field.removeClass('events-done');
+        this.$field.closest('.layout').removeClass('has-events');
+
+        this.remove_all_rows();
+    };
+
+    acf.fields.repeater.remove_all_rows = function() {
         var self = this;
 
         this.$tbody.children().not('.acf-clone').each(function() {
@@ -202,13 +208,29 @@
                 interval, date;
 
             if (type === 'date_time_picker') {
-                $input = $input.siblings('input[type="text"]');
-                console.log($input.data());
-                $input.datepicker('setDate', new Date(data[field] * 1000));
+                // save date for append action, which happens later
+                $field.data('json-date', new Date(data[field] * 1000));
             } else {
                 $input.val(data[field]);
             }
         });
     };
+
+    acf.add_action('append_field/type=date_time_picker', function($el){
+        var $input = $el.find('input[type="text"]'),
+            date = $el.data('json-date');
+
+        if (typeof date !== 'undefined') {
+            $input.datepicker('setDate', date); // this function takes fucking forever!
+            $el.removeData('json-date');
+        }
+    });
+
+    // modify default value 
+    // acf.add_filter('date_time_picker_args', function( args, $field ){
+    //     args['defaultDate'] = $field.data('json-date');
+
+    //     return args;       
+    // });
 
 })(jQuery);

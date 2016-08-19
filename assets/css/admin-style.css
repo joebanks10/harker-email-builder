@@ -154,6 +154,23 @@ th[data-key="field_57a4cd19fc205"], td[data-key="field_57a4cd19fc205"], div[data
     display: block;
 }
 
+.btn-remove-events,
+.loading-msg {
+    display: none;
+}
+.has-loading-events .loading-msg {
+    display: inline;
+}
+.has-events .btn-remove-events {
+    display: inline;
+}
+
+.has-loading-events .btn-add-events,
+.has-events .btn-add-events {
+    display: none;
+}
+
+
 /* tabs */
 .acf-fields > .acf-tab-wrap {
     background: transparent;
