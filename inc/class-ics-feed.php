@@ -12,6 +12,9 @@ class ICS_Feed {
         $this->start_date = (is_int($start_date)) ? $start_date : strtotime($start_date);
         $this->end_date = (is_int($end_date)) ? $end_date : strtotime($end_date);
 
+        // end timestamp is end of the "end day" (11:59:59)
+        $this->end_date = strtotime(date('Y-m-d', $this->end_date)) + 60*60*24 - 1;
+
         if ($this->start_date > $this->end_date) {
             throw new Exception('Start date is after end date.');
         }

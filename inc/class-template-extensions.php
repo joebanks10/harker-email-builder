@@ -233,7 +233,7 @@ class Template_Extensions {
     }
 
     private function format_event($data) {
-        $header = $data['title'];
+        $header = $this->format_title($data['title']);
         $content = $this->get_event_content($data);
 
         $header_element = ( !empty($header) ) ? array( 'text' => $header ) : array();
@@ -244,6 +244,18 @@ class Template_Extensions {
             'header' => $header_element,
             'content' => $content_element
         );
+    }
+
+    public function format_title($title) {
+        $title = preg_replace('/PS/', 'Prechool', $title);
+        $title = preg_replace('/LS/', 'Lower School', $title);
+        $title = preg_replace('/MS/', 'Middle School', $title);
+        $title = preg_replace('/US/', 'Upper School', $title);
+
+        $title = preg_replace('/G8/', 'Grade 8', $title);
+        $title = preg_replace('/Mtg/', 'Meeting', $title);
+
+        return $title;
     }
 
     public function get_event_content($event) {
