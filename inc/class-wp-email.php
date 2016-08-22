@@ -40,7 +40,7 @@ class WP_Email {
      */
     private function parse_wp_data($wp_data = array()) {
         $data['title'] = $wp_data['title']['rendered'];
-        $data['content'] = $this->get_modules( $wp_data['acf']['modules'] );
+        $data['content'] = $this->get_modules( $wp_data['acf']['content']['modules'] );
 
         return $data;
     }
