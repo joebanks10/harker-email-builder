@@ -51,17 +51,17 @@ class Template_Extensions {
         $column_width = ""; // default
         $column_reduction = 0; // reduce width for Outlook 07/10/13 - removed this because of conditional HTML solution
 
-        if ( !isset($column['width']) ) {
+        if ( empty($column['width']) ) {
             // if there is no column width defined
             if ($module['column_count'] == 1) {
                 $column_width = $module['width'];
             } else {
                 $column_width = floor($container_width / $module['column_count']) - $column_reduction;
             }
-        } else if ( isset($column['width']) && is_numeric($column['width']) && $column['width'] >= 0 && $column['width'] <= $container_width ) {
+        } else if ( !empty($column['width']) && is_numeric($column['width']) && $column['width'] >= 0 && $column['width'] <= $container_width ) {
             // if column width is a valid pixel number
             $column_width = $column['width'];
-        } else if ( isset($column['width']) && preg_match('/%/', $column['width']) ) {
+        } else if ( !empty($column['width']) && preg_match('/%/', $column['width']) ) {
             // if column width is a percentage
             if ( $column['width'] == '100%' ) {
                 $column_width = $module['width'];
@@ -101,69 +101,51 @@ class Template_Extensions {
         return $feed['items'];
     }
 
-    public function get_ical_items($url = '', $start_date = false, $end_date = false) {
-        $url = empty($url) ? 'http://www.harker.org/calendar/page_2302.ics' : $url;
-        $group_by_date = true;
+    public function get_ical_items($args) {
+        if (!empty($args['dates'])) {
+            // dates object was manually created
+            return $args['dates'];
+        }
 
-        $feed = new ICS_Feed($url, $start_date, $end_date, $group_by_date);
-        $feed = $feed->get_events();
+        if ( !empty($args['events']) ) {
+            $events = $args['events'];
+        } else {
+            // fetch events from ical feed
+            $url = $args['ical'];
+            $start_date = $args['start_date'];
+            $end_date = $args['end_date'];
 
-        if ( ! $feed ) {
+            $events = new ICS_Feed($url, $start_date, $end_date);
+            $events = $events->get_events();
+        }
+
+        if (empty($events)) {
             return array();
         }
 
-        // Sample Array
-        // $dates = array(
-        //     array(
-        //         'date' => 'Jan. 1',
-        //         'events' => array(
-        //             array(
-        //                 'header' => 'Header Text',
-        //                 'content' => '7 to 9 p.m. | Saratoga Campus<br>View details'
-        //             ) end event
-        //         ) // end events
-        //     ) // end date
-        // );
-
         $dates = array();
-        foreach($feed as $current_date) {
-            $date = $this->format_date($current_date['date']);
-            $events = array();
-            
-            foreach($current_date['events'] as $event) {
-                $header = $this->format_title($event['title']);
-                $content = $this->get_event_content($event);
+        $current_date = $events[0]['start']; // set to first date
+        $current_events = array();
 
-                $header_element = ( !empty($header) ) ? array( 'text' => $header ) : array();
-                $content_element = ( !empty($content) ) ? array( 'text' => $content ) : array();
-
-                // add event
-                $events[] = array(
-                    'header' => $header_element,
-                    'content' => $content_element
+        foreach($events as $event) {
+            // check if date has changed
+            if (date('M. j, Y', $event['start']) != date('M. j, Y', $current_date)) {
+                // add date and events to array
+                $dates[] = array(
+                    'date' => $this->format_date($current_date),
+                    'events' => $current_events
                 );
+
+                // set date to new date and reset events
+                $current_date = $event['start'];
+                $current_events = array();
             }
 
-            // add date
-            $dates[] = array(
-                'date' => $date,
-                'events' => $events
-            );
+            // add event to current date's events
+            $current_events[] = $this->format_event($event);
         }
 
         return $dates;
-    }
-
-    public function format_title($title) {
-        $title = preg_replace('/PS/', 'Prechool', $title);
-        $title = preg_replace('/LS/', 'Lower School', $title);
-        $title = preg_replace('/MS/', 'Middle School', $title);
-        $title = preg_replace('/US/', 'Upper School', $title);
-
-        $title = preg_replace('/G8/', 'Grade 8', $title);
-        $title = preg_replace('/Mtg/', 'Meeting', $title);
-
-        return $title;
     }
 
     public function convert_elements_to_columns($elements = array()) {
@@ -250,20 +232,46 @@ class Template_Extensions {
         return $index;
     }
 
+    private function format_event($data) {
+        $header = $this->format_title($data['title']);
+        $content = $this->get_event_content($data);
+
+        $header_element = ( !empty($header) ) ? array( 'text' => $header ) : array();
+        $content_element = ( !empty($content) ) ? array( 'text' => $content ) : array();
+
+        // add event
+        return array(
+            'header' => $header_element,
+            'content' => $content_element
+        );
+    }
+
+    public function format_title($title) {
+        $title = preg_replace('/PS/', 'Prechool', $title);
+        $title = preg_replace('/LS/', 'Lower School', $title);
+        $title = preg_replace('/MS/', 'Middle School', $title);
+        $title = preg_replace('/US/', 'Upper School', $title);
+
+        $title = preg_replace('/G8/', 'Grade 8', $title);
+        $title = preg_replace('/Mtg/', 'Meeting', $title);
+
+        return $title;
+    }
+
     public function get_event_content($event) {
         $content = '';
 
-        if ( isset($event['start']) && isset($event['end']) ) {
+        if ( !empty($event['start']) && !empty($event['end']) ) {
             $content .= $this->format_time_range($event['start'], $event['end']);
-        } elseif ( isset($event['start']) ) {
+        } elseif ( !empty($event['start']) ) {
             $content .= $this->format_time_range($event['start']);
         }
 
-        if ( !empty($content) && isset($event['location']) ) {
+        if ( !empty($content) && !empty($event['location']) ) {
             $content .= ' | ' . $event['location'];
         }
 
-        if ( isset($event['permalink']) ) {
+        if ( !empty($event['permalink']) ) {
             $content .= '<span class="event-link"><a href="'. $event['permalink'] . '">View details</a></span>';
         }
 
