@@ -58,7 +58,8 @@ class Plugin extends \HKR\Singleton {
         wp_enqueue_style( 'hkr_email_builder_admin_style', URL . 'assets/css/admin-style.css' );
     }
     public function acf_admin_scripts() {
-        wp_enqueue_script( 'hkr_email_builder_admin_script', URL . 'assets/js/admin-script.js', array('jquery'), false, true);
+        // wp_enqueue_script( 'dateformat', URL . 'assets/js/dateformat.js', array(), false, true);
+        wp_enqueue_script( 'hkr_email_builder_admin_script', URL . 'assets/js/admin-script.js', array('jquery', 'dateformat'), false, true);
     }
 
     public function module_title($title, $field, $layout, $i) {

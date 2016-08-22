@@ -153,11 +153,9 @@
 
         var $tr = this.$clone,
             $el,
+            $field = this.$field,
             self = this,
             rows = [];
-        
-        // reference
-        var $field = this.$field;
             
         data_array.forEach(function(data) {
             // duplicate
@@ -217,20 +215,13 @@
     };
 
     acf.add_action('append_field/type=date_time_picker', function($el){
-        var $input = $el.find('input[type="text"]'),
+        var $input = acf.fields.date_time_picker.$input,
             date = $el.data('json-date');
 
         if (typeof date !== 'undefined') {
-            $input.datepicker('setDate', date); // this function takes fucking forever!
+            $input.datepicker('setDate', date); 
             $el.removeData('json-date');
         }
     });
-
-    // modify default value 
-    // acf.add_filter('date_time_picker_args', function( args, $field ){
-    //     args['defaultDate'] = $field.data('json-date');
-
-    //     return args;       
-    // });
 
 })(jQuery);
