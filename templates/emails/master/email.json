@@ -480,6 +480,45 @@
             }
         },
 
+        // Single Column w/ Element Grid
+        {
+            "template": "one-column",
+            "options": {
+                "content": [
+                    {   
+                        "template": "grid",
+                        "options": {
+                            "column_count": 3,
+                            "stack": false,
+                            "columns" : [
+                                {
+                                    "elements": [
+                                        {
+                                            "template": "article"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "elements": [
+                                        {
+                                            "template": "article"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "elements": [
+                                        {
+                                            "template": "article"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+
         // Single Column w/ Big Image (using one-column template)
         {
             "template": "one-column",
