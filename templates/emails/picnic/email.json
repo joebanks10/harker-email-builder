@@ -1,0 +1,382 @@
+ {
+    "title": "Picnic Newsletter",
+    
+    // Custom Header
+    // "header": [
+    //     {
+    //         "template": "topbar",
+    //         "options": {
+    //             "img": {
+    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
+    //                 "alt": "Updated Alt Tag"
+    //                 "width": 215
+    //             }
+    //         }
+    //     }
+    // ],
+    
+    // Modules
+    // 
+    // Templates: grid, two-columns, three-columns, 
+    // content-sidebar, sidebar-content, element-grid
+    // 
+    // Standard Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // 
+    // Grid Options: columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+
+        // Header
+        {
+            "template": "one-column",
+            "options": {
+                "style": "padding: 0;",
+                "collapse_gutters": true,
+                "content": [
+                    {   
+                        "template": "img",
+                        "options": {
+                            "src": "header.png",
+                            "alt": "Something to Crow About",
+                            "style": "padding: 0;"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Intro
+        {
+            "template": "one-column", 
+            "options": {
+                "class": "harvest-red-bg white-text",
+                "content": [
+                    {   
+                        "template": "content",
+                        "options": {
+                            "text": "Something to Crow About will be arriving in your inbox each week to keep you updated on the latest Harvest Festival happenings! Make sure to read through it, click over to the website for more info and, of course, let us know if you have any questions!"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Save the Date
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "",
+                "content_1": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "picnic-66.png",
+                            "img_class": ""
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "66TH ANNUAL",
+                            "style": "padding-bottom: 0;"
+                        }
+                    },
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Family & Alumni Picnic"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Sun., Oct. 9, 2016<br>
+                                Blackford Campus<br>
+                                10 a.m.–3:30 p.m."
+                        }
+                    },
+                    {   
+                        "template": "button",
+                        "options": {
+                            "text": "Visit Website",
+                            "href": "http://www.harker.org/picnic"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Section - rtl
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "harvest-orange-bg white-text",
+                "column_direction": "rtl",
+                "content_1": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "eagle.png",
+                            "img_class": "",
+                            "img_style": "width: 150px"
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Section Header"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim."
+                        }
+                    },
+                    {   
+                        "template": "button",
+                        "options": {
+                            "type": "text",
+                            "text": "Learn More",
+                            "href": "http://www.harker.org/picnic"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Section - ltr
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "",
+                "content_1": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "desert-md.png",
+                            "img_class": ""
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Section Header"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim."
+                        }
+                    },
+                    {   
+                        "template": "button",
+                        "options": {
+                            "type": "text",
+                            "text": "Learn More",
+                            "href": "http://www.harker.org/picnic"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Section - rtl
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "harvest-brown-bg white-text",
+                "column_direction": "rtl",
+                "content_1": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "gasoline-md.png",
+                            "img_class": ""
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Section Header"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim."
+                        }
+                    },
+                    {   
+                        "template": "button",
+                        "options": {
+                            "type": "text",
+                            "text": "Learn More",
+                            "href": "http://www.harker.org/picnic"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Section - ltr
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "",
+                "content_1": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "car-md.png",
+                            "img_class": ""
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Section Header"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim."
+                        }
+                    },
+                    {   
+                        "template": "button",
+                        "options": {
+                            "type": "text",
+                            "text": "Learn More",
+                            "href": "http://www.harker.org/picnic"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Section - rtl
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "harvest-red-bg white-text",
+                "column_direction": "rtl",
+                "content_1": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "diner-md.png",
+                            "img_class": ""
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Section Header"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim."
+                        }
+                    },
+                    {   
+                        "template": "button",
+                        "options": {
+                            "type": "text",
+                            "text": "Learn More",
+                            "href": "http://www.harker.org/picnic"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Section - ltr
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "",
+                "content_1": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "frog.png",
+                            "img_class": ""
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Section Header"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim."
+                        }
+                    },
+                    {   
+                        "template": "button",
+                        "options": {
+                            "type": "text",
+                            "text": "Learn More",
+                            "href": "http://www.harker.org/picnic"
+                        }
+                    }
+                ]
+            }
+        }
+
+    ] // end of content modules
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }
