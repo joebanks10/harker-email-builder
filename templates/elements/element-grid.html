@@ -1,0 +1,54 @@
+{% extends "elements/element.html" %}
+
+{% set defaults = {
+    element_class: "element-grid",
+    header: [],
+    elements: [],
+    footer: []
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}
+
+{% block element_content %}
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        {% if header is not empty %}
+        <tr>
+            <td class="element-grid-header">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    {% for element in module.header %}
+                        <tr>
+                            {% include "elements/#{element.template}.html" with { module: element.options } %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+        {% endif %}
+        <tr>
+            <td class="element-grid-content">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    {% for row in module.content|batch(module.column_count) %}
+                        <tr>
+                            {% for element in row %}
+                                {% include "elements/#{element.template}.html" with { module: element.options } %}
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+        {% if footer is not empty %}
+        <tr>
+            <td class="element-grid-footer">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    {% for element in module.footer %}
+                        <tr>
+                            {% include "elements/#{element.template}.html" with { module: element.options } %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </td>
+        </tr>
+        {% endif %}
+    </table>
+{% endblock %}
