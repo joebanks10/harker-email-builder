@@ -8,6 +8,7 @@
     gutter_width: 20,
     gutter_height: 40,
     stack: true,
+    fix_rounding: true,
     columns: []
 } %}
 
@@ -15,6 +16,12 @@
 
 {% block element_content %}
     {% set column_align = table_position(module.column_direction) %}
+
+    {% if module.fix_rounding %}
+        {% set column_align_last = opposite_direction(column_align) %}
+    {% else %}
+        {% set column_align_last = column_align %}
+    {% endif %}
 
     {% if module.stack %}
         {% set column_class = 'table-full' %}
@@ -56,7 +63,7 @@
                             <!--[if gte mso 12]>
                                 </td><td class="row" valign="top">
                             <![endif]-->
-                            <table class="{{ column_class }}" width="{{ column_width }}" border="0" align="{{ column_align }}" cellpadding="0" cellspacing="0">
+                            <table class="{{ column_class }}" width="{{ column_width }}" border="0" align="{{ column_align_last }}" cellpadding="0" cellspacing="0">
                                 {% for element in column.elements %}
                                     {{ grid.element(element, column_width) }}
                                 {% endfor %}

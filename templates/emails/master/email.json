@@ -490,8 +490,10 @@
                         "options": {
                             "column_count": 3,
                             "stack": false,
+                            "fix_rounding": false,
                             "columns" : [
                                 {
+                                    "width": "20%",
                                     "elements": [
                                         {
                                             "template": "article"
@@ -499,6 +501,7 @@
                                     ]
                                 },
                                 {
+                                    "width": "20%",
                                     "elements": [
                                         {
                                             "template": "article"
@@ -506,6 +509,7 @@
                                     ]
                                 },
                                 {
+                                    "width": "20%",
                                     "elements": [
                                         {
                                             "template": "article"
