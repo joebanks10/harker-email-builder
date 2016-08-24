@@ -1,0 +1,10 @@
+{% extends "elements/element-list.html" %}
+
+{% set defaults = {
+    element_class: "article-list",
+    rss: '',
+    articles: [],
+    elements: rss(module)
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}

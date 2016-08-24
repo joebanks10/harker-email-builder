@@ -296,6 +296,22 @@
             }
         },
 
+        // Article Listing
+        {
+            "template": "one-column",
+            "options": {
+                "class" : "rss",
+                "content": [
+                    {
+                        "template": "article-list",
+                        "options": {
+                            "rss": "http://news.harker.org/feed/"
+                        }
+                    }
+                ]
+            }
+        },
+
         // Calendar Listing
         {
             "template": "two-columns",

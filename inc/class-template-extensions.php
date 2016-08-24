@@ -88,8 +88,12 @@ class Template_Extensions {
         return $url;
     }
 
-    public function get_rss_items($url = '') {
-        $url = empty($url) ? 'http://rss.cnn.com/rss/cnn_topstories.rss' : $url;
+    public function get_rss_items($args) {
+        if (!empty($args['articles'])) {
+            return $args['articles'];
+        }
+
+        $url = empty($args['rss']) ? 'http://rss.cnn.com/rss/cnn_topstories.rss' : $args['rss'];
 
         $feed = new RSS_Feed($url);
         $feed = $feed->get_array();
@@ -98,7 +102,37 @@ class Template_Extensions {
             return array();
         }
 
-        return $feed['items'];
+        return $this->get_articles($feed['items']);
+    }
+
+    private function get_articles($feed_items) {
+        $articles = array();
+
+        foreach($feed_items as $item) {
+            $articles[] = $this->get_article($item);
+        }
+
+        return $articles;
+    }
+
+    private function get_article($item) {
+        $options = array(
+            'permalink' => $item['permalink'],
+            'header' => array(
+                'text' => $item['title']
+            ),
+            'content' => array(
+                'text' => $item['description']
+            ),
+            'button' => array(
+                'text' => 'Read More'
+            )
+        );
+
+        return array(
+            'template' => 'article',
+            'options' => $options
+        );
     }
 
     public function get_ical_items($args) {
@@ -123,6 +157,11 @@ class Template_Extensions {
             return array();
         }
 
+        // return calendar items
+        return $this->get_calendar_items($events);
+    }
+
+    private function get_calendar_items($events) {
         $dates = array();
         $current_date = $events[0]['start']; // set to first date
         $current_events = array();
