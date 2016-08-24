@@ -145,6 +145,11 @@ class Template_Extensions {
             $current_events[] = $this->format_event($event);
         }
 
+        $dates[] = array(
+            'date' => $this->format_date($current_date),
+            'events' => $current_events
+        );
+
         return $dates;
     }
 
