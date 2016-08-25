@@ -116,23 +116,47 @@ class Template_Extensions {
     }
 
     private function get_article($item) {
+        $img = $this->get_article_image_url($item['content']);
+
         $options = array(
             'permalink' => $item['permalink'],
             'header' => array(
                 'text' => $item['title']
             ),
             'content' => array(
-                'text' => $item['description']
+                'text' => strip_tags($item['description'])
             ),
             'button' => array(
+                'type' => 'text',
                 'text' => 'Read More'
             )
         );
+
+        if ($img) {
+            $options['img'] = array(
+                'src' => $img
+            );
+        }
 
         return array(
             'template' => 'article',
             'options' => $options
         );
+    }
+
+    private function get_article_image_url($content) {
+        $dom = new DOMDocument;
+        $dom->loadHTML($content);
+        $images = $dom->getElementsByTagName('img');
+        
+        if ($images->length == 0) {
+            return null;
+        }
+
+        $image = $images->item(0);
+        $src = $image->attributes->getNamedItem('src')->value;
+
+        return $src;
     }
 
     public function get_ical_items($args) {

@@ -307,6 +307,10 @@ tr:last-child > .row {
     background-color: #05533E;
 }
 
+.article {
+    padding-bottom: 30px;
+}
+
 .article .img {
     width: 100%;
 }
