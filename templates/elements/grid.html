@@ -77,7 +77,9 @@
 {% endblock element_content %}
 
 {% macro element(element, column_width) %}
-    {% if element.template == "grid" %}
+    {% set grid_templates = ["grid", "element-grid", "article-grid"] %}
+
+    {% if element.template in grid_templates %}
         {% set options = { width: column_width }|merge(element.options|default({})) %}
     {% else %}
         {% set options = element.options|default({}) %}
