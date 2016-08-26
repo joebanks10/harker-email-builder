@@ -305,7 +305,11 @@
                     {
                         "template": "article-list",
                         "options": {
-                            "rss": "http://news.harker.org/feed/"
+                            "rss": "http://news.harker.org/feed/",
+                            "article": {
+                                "content": false,
+                                "button": false
+                            }
                         }
                     }
                 ]

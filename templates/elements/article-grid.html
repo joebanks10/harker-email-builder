@@ -4,7 +4,23 @@
     element_class: "article-grid",
     rss: '',
     articles: [],
-    elements: rss(module)
+    article: {
+        img: {
+            include: true,
+            link: true
+        },
+        header: {
+            include: true,
+            link: true
+        },
+        content: {
+            include: true,
+        },
+        button: {
+            include: true
+        }
+    }
 } %}
 
-{% set module = defaults|merge( module|default({}) ) %}
+{% set module = defaults|merge_r( module|default({}) ) %}
+{% set module = module|merge({elements: rss(module)}) %}

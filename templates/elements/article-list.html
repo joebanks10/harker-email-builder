@@ -7,8 +7,7 @@
     article: {
         img: {
             include: true,
-            link: true,
-            width: "100%"
+            link: true
         },
         header: {
             include: true,
@@ -18,13 +17,10 @@
             include: true,
         },
         button: {
-            include: true,
-            text: "Read More",
-            type: "outline",
-            width: "100%"
+            include: true
         }
     }
 } %}
 
-{% set module = defaults|merge(module|default({})) %}
+{% set module = defaults|merge_r(module|default({})) %}
 {% set module = module|merge({elements: rss(module)}) %}

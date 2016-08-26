@@ -121,6 +121,8 @@ class Email {
 
         // article list
         $this->add_function('rss', array($template_extensions, 'get_rss_items'));
+
+        $this->add_filter('merge_r', array($template_extensions, 'array_merge_recursive_distinct'));
     }
 
     private function add_function($name, $callback) {

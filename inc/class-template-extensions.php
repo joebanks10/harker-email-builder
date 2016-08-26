@@ -17,6 +17,26 @@ class Template_Extensions {
         return file_get_contents($file);
     }
 
+    /**
+     * From top comment in http://php.net/manual/en/function.array-merge-recursive.php
+     * @param  array  &$array1 First array
+     * @param  array  &$array2 Second array
+     * @return array           Array with second array merged into first
+     */
+    public function array_merge_recursive_distinct($array1, $array2) {
+        $merged = $array1;
+
+        foreach ($array2 as $key => &$value) {
+            if (is_array($value) && isset($merged[$key]) && is_array($merged[$key])) {
+                $merged[$key] = $this->array_merge_recursive_distinct($merged[$key], $value);
+            } else {
+                $merged[$key] = $value;
+            }
+        }
+
+        return $merged;
+    }
+
     public function get_module_classes($other_classes = '') {
         $index = $this->get_index(); 
         $alt = ( $index % 2 ) ? 'odd' : 'even';
@@ -122,31 +142,36 @@ class Template_Extensions {
         $options['permalink'] = $item['permalink'];
 
         if ($template['img']['include']) {
-            $options['img'] = array(
+            $options['img'] = array_merge($template['img'], array(
                 'src' => $this->get_article_image_url($item['content']),
                 'alt' => $item['title'],
                 'href' => ($template['img']['link']) ? $item['permalink'] : null
-            );
+            ));
+        } else {
+            $options['img'] = false;
         }
 
         if ($template['header']['include']) {
-            $options['header'] = array(
+            $options['header'] = array_merge($template['header'], array(
                 'text' => $item['title'],
                 'href' => ($template['header']['link']) ? $item['permalink'] : null
-            );
+            ));
+        } else {
+            $options['header'] = false;
         }
 
         if ($template['content']['include']) {
-            $options['content'] = array(
+            $options['content'] = array_merge($template['content'], array(
                 'text' => strip_tags($item['description'])
-            );
+            ));
+        } else {
+            $options['content'] = false;
         }
 
         if ($template['button']['include']) {
-            $options['button'] = array(
-                'type' => $template['button']['type'],
-                'text' => $template['button']['text']
-            );
+            $options['button'] = $template['button'];
+        } else {
+            $options['button'] = false;
         }
 
         return array(
