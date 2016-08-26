@@ -303,7 +303,7 @@
                 "class" : "rss",
                 "content": [
                     {
-                        "template": "article-grid",
+                        "template": "article-list",
                         "options": {
                             "rss": "http://news.harker.org/feed/"
                         }

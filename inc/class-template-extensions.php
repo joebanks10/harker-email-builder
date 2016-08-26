@@ -88,12 +88,12 @@ class Template_Extensions {
         return $url;
     }
 
-    public function get_rss_items($args) {
-        if (!empty($args['articles'])) {
-            return $args['articles'];
+    public function get_rss_items($module) {
+        if (!empty($module['articles'])) {
+            return $module['articles'];
         }
 
-        $url = empty($args['rss']) ? 'http://rss.cnn.com/rss/cnn_topstories.rss' : $args['rss'];
+        $url = empty($module['rss']) ? 'http://rss.cnn.com/rss/cnn_topstories.rss' : $module['rss'];
 
         $feed = new RSS_Feed($url);
         $feed = $feed->get_array();
@@ -102,39 +102,50 @@ class Template_Extensions {
             return array();
         }
 
-        return $this->get_articles($feed['items']);
+        return $this->get_articles($feed['items'], $module);
     }
 
-    private function get_articles($feed_items) {
+    private function get_articles($feed_items, $module) {
         $articles = array();
 
         foreach($feed_items as $item) {
-            $articles[] = $this->get_article($item);
+            $articles[] = $this->get_article($item, $module);
         }
 
         return $articles;
     }
 
-    private function get_article($item) {
-        $img = $this->get_article_image_url($item['content']);
+    private function get_article($item, $module) {
+        $options = array();
+        $template = $module['article'];
 
-        $options = array(
-            'permalink' => $item['permalink'],
-            'header' => array(
-                'text' => $item['title']
-            ),
-            'content' => array(
-                'text' => strip_tags($item['description'])
-            ),
-            'button' => array(
-                'type' => 'text',
-                'text' => 'Read More'
-            )
-        );
+        $options['permalink'] = $item['permalink'];
 
-        if ($img) {
+        if ($template['img']['include']) {
             $options['img'] = array(
-                'src' => $img
+                'src' => $this->get_article_image_url($item['content']),
+                'alt' => $item['title'],
+                'href' => ($template['img']['link']) ? $item['permalink'] : null
+            );
+        }
+
+        if ($template['header']['include']) {
+            $options['header'] = array(
+                'text' => $item['title'],
+                'href' => ($template['header']['link']) ? $item['permalink'] : null
+            );
+        }
+
+        if ($template['content']['include']) {
+            $options['content'] = array(
+                'text' => strip_tags($item['description'])
+            );
+        }
+
+        if ($template['button']['include']) {
+            $options['button'] = array(
+                'type' => $template['button']['type'],
+                'text' => $template['button']['text']
             );
         }
 

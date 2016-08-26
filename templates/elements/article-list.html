@@ -4,7 +4,27 @@
     element_class: "article-list",
     rss: '',
     articles: [],
-    elements: rss(module)
+    article: {
+        img: {
+            include: true,
+            link: true,
+            width: "100%"
+        },
+        header: {
+            include: true,
+            link: true
+        },
+        content: {
+            include: true,
+        },
+        button: {
+            include: true,
+            text: "Read More",
+            type: "outline",
+            width: "100%"
+        }
+    }
 } %}
 
-{% set module = defaults|merge( module|default({}) ) %}
+{% set module = defaults|merge(module|default({})) %}
+{% set module = module|merge({elements: rss(module)}) %}
