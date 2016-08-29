@@ -243,6 +243,14 @@
             "template": "element-grid",
             "options": {
                 "class": "gray-bg",
+                "header": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Module Header"
+                        }
+                    }
+                ],
                 "elements": [
                     {
                         "template": "article",
@@ -310,7 +318,15 @@
                             "article": {
                                 "content": false,
                                 "button": false
-                            }
+                            },
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Recent Stories"
+                                    }
+                                }
+                            ]
                         }
                     }
                 ]

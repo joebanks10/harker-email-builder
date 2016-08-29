@@ -11,7 +11,7 @@
 
 {% set module = defaults|merge( module|default({}) ) %}
 
-{% block container_td %}
+{% block content %}
     {% include "elements/grid.html" with { module: {
         width: module.width,
         column_count: module.column_count,
@@ -20,4 +20,4 @@
         gutter_height: module.gutter_height,
         columns: module.columns
     } } %}
-{% endblock container_td %}
+{% endblock content %}
