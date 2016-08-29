@@ -592,19 +592,37 @@
     //         "options": {
     //             "column_1": [
     //                  {
-    //                      "template": "content",
-    //                      "options": {
-    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
-    //                      }
-    //                  }
+    //                     "template": "header",
+    //                     "options": {
+    //                         "text": "Social Media"
+    //                     }
+    //                 },
+    //                 {
+    //                     "template": "list",
+    //                     "options": {
+    //                         "type": "unstyled",
+    //                         "items": [
+    //                             "<a href=\"http://facebook.com/harkerschool\">facebook.com/harkerschool</a>",
+    //                             "<a href=\"http://twitter.com/harkerschool\">twitter.com/harkerschool</a>",
+    //                             "<a href=\"http://instagram.com/harkerschool\">instagram.com/harkerschool</a>"        
+    //                         ]
+    //                     }
+    //                 }
     //             ],
     //             "column_2": [
     //                  {
-    //                      "template": "content",
-    //                      "options": {
-    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
-    //                      }
-    //                  }
+    //                     "template": "header",
+    //                     "options": {
+    //                         "text": "Contact Us"
+    //                     }
+    //                 },
+    //                 {
+    //                     "template": "content",
+    //                     "options": {
+    //                         "text": "500 Saratoga Ave., San Jose 95129<br>
+    //                                <a href=\"mailto:communications@harker.org\">communications@harker.org</a>"
+    //                     }
+    //                 }
     //             ]
     //         }
     //     },
