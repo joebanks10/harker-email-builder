@@ -296,6 +296,35 @@
             }
         },
 
+        {
+            "template": "content-sidebar",
+            "options": {
+                "column_direction": "rtl",
+                "content": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "FEATURED ARTICLE"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+                        }
+                    }
+                ],
+                "sidebar": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "width": "100%"
+                        }
+                    }
+                ]
+            }
+        },
+
         // Article Listing
         {
             "template": "one-column",
@@ -303,7 +332,7 @@
                 "class" : "rss",
                 "content": [
                     {
-                        "template": "article-list",
+                        "template": "article-grid",
                         "options": {
                             "rss": "http://news.harker.org/feed/",
                             "article": {

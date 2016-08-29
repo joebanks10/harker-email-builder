@@ -69,14 +69,13 @@ class Template_Extensions {
     public function get_column_width($column, $module) {
         $container_width = $module['width'] - (($module['column_count'] - 1) * $module['gutter_width']);
         $column_width = ""; // default
-        $column_reduction = 0; // reduce width for Outlook 07/10/13 - removed this because of conditional HTML solution
 
         if ( empty($column['width']) ) {
             // if there is no column width defined
             if ($module['column_count'] == 1) {
                 $column_width = $module['width'];
             } else {
-                $column_width = floor($container_width / $module['column_count']) - $column_reduction;
+                $column_width = floor($container_width / $module['column_count']);
             }
         } else if ( !empty($column['width']) && is_numeric($column['width']) && $column['width'] >= 0 && $column['width'] <= $container_width ) {
             // if column width is a valid pixel number
@@ -86,7 +85,7 @@ class Template_Extensions {
             if ( $column['width'] == '100%' ) {
                 $column_width = $module['width'];
             } else {
-                $column_width = floor((intval($column['width'])/100) * $container_width) - $column_reduction;
+                $column_width = floor((intval($column['width'])/100) * $container_width);
             }
         }
 
