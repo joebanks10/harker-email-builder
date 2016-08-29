@@ -1,8 +1,9 @@
-{% extends "elements/element-grid.html" %}
+{% extends "elements/element-list.html" %}
 
 {% set defaults = {
     element_class: "article-grid",
     rss: '',
+    feature: false,
     articles: [],
     article: {
         img: {
@@ -23,4 +24,30 @@
 } %}
 
 {% set module = defaults|merge_r( module|default({}) ) %}
-{% set module = module|merge({elements: rss(module)}) %}
+{% set feed = rss(module) %}
+
+{% if module.feature %}
+    {% set elements = [
+        {
+            template: "article-feature",
+            options: feed|first.options
+        },
+        {
+            template: "element-grid",
+            options: {
+                elements: feed|slice(1)
+            }
+        }
+    ] %}
+{% else %}
+    {% set elements = [
+        {
+            template: "element-grid",
+            options: {
+                elements: feed
+            }
+        }
+    ] %}
+{% endif %}
+
+{% set module = module|merge({elements: elements}) %}
