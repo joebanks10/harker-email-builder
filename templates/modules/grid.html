@@ -12,12 +12,14 @@
 {% set module = defaults|merge( module|default({}) ) %}
 
 {% block content %}
-    {% include "elements/grid.html" with { module: {
-        width: module.width,
-        column_count: module.column_count,
-        column_direction: module.column_direction,
-        gutter_width: module.gutter_width,
-        gutter_height: module.gutter_height,
-        columns: module.columns
-    } } %}
+    <tr>
+        {% include "elements/grid.html" with { module: {
+            width: module.width,
+            column_count: module.column_count,
+            column_direction: module.column_direction,
+            gutter_width: module.gutter_width,
+            gutter_height: module.gutter_height,
+            columns: module.columns
+        } } %}
+    </tr>
 {% endblock content %}

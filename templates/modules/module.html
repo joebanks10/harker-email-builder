@@ -32,37 +32,19 @@
                     <td class="container" style="{{ module.style }}">
                         {% block container %}
                             <table widht="100%" align="center" border="0" cellspacing="0" cellpadding="0">
-                                {% if module.header is not empty %}
-                                <tr>
-                                    {% block header %}
-                                        <td class="module-header">
-                                            {% for element in module.header %}
-                                                {{ grid.element(element, module.width) }}
-                                            {% endfor %}
-                                        </td>
-                                    {% endblock header %}
-                                </tr>
-                                {% endif %}
-                                <tr>
-                                    {% block content %}
-                                        <td class="module-content">
-                                            {% for element in module.content %}
-                                                {{ grid.element(element, module.width) }}
-                                            {% endfor %}
-                                        </td>
-                                    {% endblock content %}
-                                </tr>
-                                {% if module.footer is not empty %}
-                                <tr>
-                                    {% block footer %}
-                                        <td class="module-footer">
-                                            {% for element in module.footer %}
-                                                {{ grid.element(element, module.width) }}
-                                            {% endfor %}
-                                        </td>
-                                    {% endblock footer %}
-                                </tr>
-                                {% endif %}
+                                {% for element in module.header %}
+                                    {{ grid.element(element, module.width) }}
+                                {% endfor %}
+                                
+                                {% block content %}
+                                    {% for element in module.content %}
+                                        {{ grid.element(element, module.width) }}
+                                    {% endfor %}
+                                {% endblock content %}
+                                
+                                {% for element in module.footer %}
+                                    {{ grid.element(element, module.width) }}
+                                {% endfor %}
                             </table>
                         {% endblock container %}
                     </td>
