@@ -127,54 +127,59 @@ class Template_Extensions {
     private function get_articles($feed_items, $module) {
         $articles = array();
 
-        foreach($feed_items as $item) {
-            $articles[] = $this->get_article($item, $module);
+        foreach($feed_items as $i => $item) {
+            if ($module['feature'] && $i == 0) {
+                $articles[] = $this->get_article($item, $module, true);
+            } else {
+                $articles[] = $this->get_article($item, $module);
+            }
         }
 
         return $articles;
     }
 
-    private function get_article($item, $module) {
-        $options = array();
-        $template = $module['article'];
+    private function get_article($item, $module, $featured = false) {
+        $template = ($featured) ? 'article-feature' : 'article';
+        $settings = ($featured) ? $module['feature_article'] : $module['article'];
 
+        $options = array();
         $options['permalink'] = $item['permalink'];
 
-        if ($template['img']['include']) {
-            $options['img'] = array_merge($template['img'], array(
+        if ($settings['img']['include']) {
+            $options['img'] = array_merge($settings['img'], array(
                 'src' => $this->get_article_image_url($item['content']),
                 'alt' => $item['title'],
-                'href' => ($template['img']['link']) ? $item['permalink'] : null
+                'href' => ($settings['img']['link']) ? $item['permalink'] : null
             ));
         } else {
             $options['img'] = false;
         }
 
-        if ($template['header']['include']) {
-            $options['header'] = array_merge($template['header'], array(
+        if ($settings['header']['include']) {
+            $options['header'] = array_merge($settings['header'], array(
                 'text' => $item['title'],
-                'href' => ($template['header']['link']) ? $item['permalink'] : null
+                'href' => ($settings['header']['link']) ? $item['permalink'] : null
             ));
         } else {
             $options['header'] = false;
         }
 
-        if ($template['content']['include']) {
-            $options['content'] = array_merge($template['content'], array(
+        if ($settings['content']['include']) {
+            $options['content'] = array_merge($settings['content'], array(
                 'text' => strip_tags($item['description'])
             ));
         } else {
             $options['content'] = false;
         }
 
-        if ($template['button']['include']) {
-            $options['button'] = $template['button'];
+        if ($settings['button']['include']) {
+            $options['button'] = $settings['button'];
         } else {
             $options['button'] = false;
         }
 
         return array(
-            'template' => 'article',
+            'template' => $template,
             'options' => $options
         );
     }

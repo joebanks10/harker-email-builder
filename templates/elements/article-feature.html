@@ -20,48 +20,45 @@
     }
 } %}
 
-{% set module = defaults|merge(module|default({})) %}
-
-{% if module.img %}
-    {% set img = defaults.img|merge(module.img) %}
-{% endif %}
+{% set module = defaults|merge_r(module|default({})) %}
+{% set elements = [] %}
 
 {% if module.header %}
-    {% set header = defaults.header|merge(module.header) %}
+    {% set elements = elements|merge([{ 
+        template: "header", 
+        options: module.header 
+    }]) %}
 {% endif %}
 
 {% if module.content %}
-    {% set content = defaults.content|merge(module.content) %}
+    {% set elements = elements|merge([{ 
+        template: "content", 
+        options: module.content 
+    }]) %}
 {% endif %}
 
 {% if module.button %}
-    {% set button = defaults.button|merge(module.button) %}
+    {% set elements = elements|merge([{ 
+        template: "button", 
+        options: module.button 
+    }]) %}
 {% endif %}
 
 {% set grid = {
     column_count: 2,
     columns: [
         {
-            width: "186",
+            width: 186,
             elements: [
                 {
                     template: "img",
-                    options: img
+                    options: module.img
                 }
             ]
         },
         {
-            width: "394",
-            elements: [
-                {
-                    template: "header",
-                    options: header
-                },
-                {
-                    template: "content",
-                    options: content
-                }
-            ]
+            width: 394,
+            elements: elements
         }
     ]
 } %}

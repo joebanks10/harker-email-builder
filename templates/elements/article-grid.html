@@ -20,6 +20,22 @@
         button: {
             include: true
         }
+    },
+    feature_article: {
+        img: {
+            include: true,
+            link: true
+        },
+        header: {
+            include: true,
+            link: true
+        },
+        content: {
+            include: true,
+        },
+        button: {
+            include: true
+        }
     }
 } %}
 
@@ -28,10 +44,7 @@
 
 {% if module.feature %}
     {% set elements = [
-        {
-            template: "article-feature",
-            options: feed|first.options
-        },
+        feed|first,
         {
             template: "element-grid",
             options: {

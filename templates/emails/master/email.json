@@ -319,6 +319,9 @@
                                 "content": false,
                                 "button": false
                             },
+                            "feature_article": {
+                                "button": false
+                            },
                             "header": [
                                 {
                                     "template": "header",
