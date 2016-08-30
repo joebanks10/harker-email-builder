@@ -113,8 +113,11 @@ class Template_Extensions {
         }
 
         $url = empty($module['rss']) ? 'http://rss.cnn.com/rss/cnn_topstories.rss' : $module['rss'];
+        $args = array();
 
-        $feed = new RSS_Feed($url);
+        $args['count'] = (isset($module['count'])) ? $module['count'] : null;
+
+        $feed = new RSS_Feed($url, $args);
         $feed = $feed->get_array();
 
         if ( ! $feed ) {

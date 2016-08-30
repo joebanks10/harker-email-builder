@@ -87,7 +87,8 @@
                     {
                         "template": "article-grid",
                         "options": {
-                            "rss": "http://news.harker.org/feed/",
+                            "rss": "http://news.harker.org/feed/?posts_per_page=7",
+                            "count": 7,
                             "feature": true,
                             "article": {
                                 "content": false,
