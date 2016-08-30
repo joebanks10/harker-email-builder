@@ -307,24 +307,32 @@ tr:last-child > .row {
     background-color: #05533E;
 }
 
-.article .img {
+.article, .article-feature {
+    padding-bottom: 40px;
+}
+
+.article .img,
+.article-feature img {
     width: 100%;
 }
 
-.article .header {
+.article .header,
+.article-feature .header {
     color: #555; 
     font-size: 16px; 
     line-height: 24px;
     padding-bottom: 10px;
 }
 
-.article .content {
+.article .content,
+.article-feature .content {
     font-size: 12px; 
     line-height: 18px;
     padding-bottom: 10px;
 }
 
-.article .button {
+.article .button,
+.article-feature .button {
     font-size: 14px;
 }
 

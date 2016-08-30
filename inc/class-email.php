@@ -120,7 +120,9 @@ class Email {
         $this->add_function('convert_dates_to_columns', array($template_extensions, 'convert_dates_to_columns'));
 
         // article list
-        $this->add_function('rss', array($this, 'get_rss_items'));
+        $this->add_function('rss', array($template_extensions, 'get_rss_items'));
+
+        $this->add_filter('merge_r', array($template_extensions, 'array_merge_recursive_distinct'));
     }
 
     private function add_function($name, $callback) {

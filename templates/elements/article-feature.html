@@ -1,0 +1,66 @@
+{% extends "elements/grid.html" %}
+
+{% set defaults = {
+    element_class: "article-feature",
+    width: 600,
+    permalink: "",
+    img: {
+        width: "100%",
+        href: module.permalink
+    },
+    header: {
+        text: "Article Header",
+        href: module.permalink
+    },
+    content: {},
+    button: {
+        type: "outline",
+        width: "100%",
+        href: module.permalink
+    }
+} %}
+
+{% set module = defaults|merge_r(module|default({})) %}
+{% set elements = [] %}
+
+{% if module.header %}
+    {% set elements = elements|merge([{ 
+        template: "header", 
+        options: module.header 
+    }]) %}
+{% endif %}
+
+{% if module.content %}
+    {% set elements = elements|merge([{ 
+        template: "content", 
+        options: module.content 
+    }]) %}
+{% endif %}
+
+{% if module.button %}
+    {% set elements = elements|merge([{ 
+        template: "button", 
+        options: module.button 
+    }]) %}
+{% endif %}
+
+{% set grid = {
+    column_count: 2,
+    columns: [
+        {
+            width: 186,
+            elements: [
+                {
+                    template: "img",
+                    options: module.img
+                }
+            ]
+        },
+        {
+            width: 394,
+            elements: elements
+        }
+    ]
+} %}
+
+{% set module = module|merge(grid) %}
