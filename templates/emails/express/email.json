@@ -1,0 +1,227 @@
+ {
+    "title": "Harker Express Template",
+    
+    // Custom Header
+    // "header": [
+    //     {
+    //         "template": "topbar",
+    //         "options": {
+    //             "img": {
+    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
+    //                 "alt": "Updated Alt Tag"
+    //                 "width": 215
+    //             }
+    //         }
+    //     }
+    // ],
+    
+    // Modules
+    // 
+    // Templates: grid, two-columns, three-columns, 
+    // content-sidebar, sidebar-content, element-grid
+    // 
+    // Standard Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // 
+    // Grid Options: columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+
+        // Single Column (using grid template)
+        {
+            "template": "grid", 
+            "options": {
+
+                // Columns
+                // 
+                // Options: width (percent or numeric), elements
+                "columns": [
+                    {
+
+                        // Elements
+                        // 
+                        // Templates: title, subtitle, header, subheader, 
+                        // content, img, list, button
+                        // 
+                        // Standard Options: class, style, align
+                        "elements": [
+                            {
+                                "template": "header", 
+                                "options": {
+                                    "text": "Intro Letter or Featured Content"
+                                }
+                            },
+                            {   
+                                "template": "content",
+                                "options": {
+                                    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt similique, ipsum officia a velit. Nulla minus modi aliquam officia praesentium quae quis quasi corporis consequuntur, sapiente, ducimus alias dignissimos tenetur. 
+                                    <br>
+                                    <br>
+                                    Recusandae voluptate aspernatur perferendis quod, iste odit asperiores quibusdam fugit illo ea a odio officia earum quam, itaque quis velit reiciendis dolorum incidunt dolore animi debitis soluta nihil sed. Ratione."
+                                }
+                            },
+                            {   
+                                "template": "button",
+                                "options": {
+                                    "type": "primary", // primary, secondary, outline, text
+                                    "text": "Learn More",
+                                    "href": "http://www.harker.org",
+                                    "style": "padding-top: 10px"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+
+        // Article Listing
+        {
+            "template": "one-column",
+            "options": {
+                "class" : "rss gray-bg",
+                "content": [
+                    {
+                        "template": "article-grid",
+                        "options": {
+                            "rss": "http://news.harker.org/feed/",
+                            "feature": true,
+                            "article": {
+                                "content": false,
+                                "button": false
+                            },
+                            "feature_article": {
+                                "button": false
+                            },
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Recent Stories"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Two Columns
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "",
+                "header": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Social Media Post, Video, Photo or Publication"
+                        }
+                    }
+                ],
+                "content_1": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "width": 290
+                        }
+                    },
+                    {   
+                        "template": "button",
+                        "options": {
+                            "type": "primary", // primary, secondary, outline, text
+                            "text": "Call-to-Action",
+                            "href": "http://www.harker.org",
+                            "width": "100%",
+                            "style": "padding-top: 10px"
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "width": 290
+                        }
+                    },
+                    {   
+                        "template": "button",
+                        "options": {
+                            "type": "primary", // primary, secondary, outline, text
+                            "text": "Call-to-Action",
+                            "href": "http://www.harker.org",
+                            "width": "100%",
+                            "style": "padding-top: 10px"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Content Left, Sidebar Right
+        {
+            "template": "content-sidebar",
+            "options": {
+                "class": "gray-bg",
+                "content": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Poll or Survey"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+                        }
+                    }
+                ],
+                "sidebar": [
+                    {
+                        "template": "button",
+                        "options": {
+                            "type": "outline",
+                            "text": "Take Poll",
+                            "href": "http://www.harker.org",
+                            "width": "100%"
+                        }
+                    }
+                ]
+            }
+        }
+
+    ] // end of content modules
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }

@@ -1,0 +1,4 @@
+/* styles here will be appended to main stylesheet (defined in index.php) */
+.module-footer .background {
+    background-color: #ffffff;
+}
