@@ -1,0 +1,5 @@
+/* styles here will be appended to main stylesheet (defined in index.php) */
+.module-topbar .container .logo-container {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
