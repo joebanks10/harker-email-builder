@@ -70,10 +70,16 @@
                             "feature": true,
                             "article": {
                                 "content": false,
-                                "button": false
+                                "button": false,
+                                "img": {
+                                    "width": 186
+                                }
                             },
                             "feature_article": {
-                                "button": false
+                                "button": false,
+                                "img": {
+                                    "width": 186
+                                }
                             },
                             "header": [
                                 {
