@@ -1,7 +1,7 @@
 {% extends "modules/grid.html" %}
 
 {% set defaults = {
-    module_class: "module-topbar module-topbar-icons",
+    module_class: "module-topbar module-topbar-text",
     column_count: 2,
     gutter_height: 1,
     columns: [
@@ -35,46 +35,34 @@
                         gutter_height: 20,
                         columns: [
                             {
-                                width: 24,
+                                width: 44,
                                 elements: [
                                     {
-                                        template: "img",
+                                        template: "content",
                                         options: {
-                                            src: "~/login-icon.png",
-                                            width: 20,
-                                            height: 22,
-                                            href: "#",
-                                            img_class: ""
+                                            text: "<a href=\"#\">Portal</a>"
                                         }
                                     }
                                 ]
                             },
                             {
-                                width: 24,
+                                width: 44,
                                 elements: [
                                     {
-                                        template: "img",
+                                        template: "content",
                                         options: {
-                                            src: "~/news-icon.png",
-                                            width: 24,
-                                            height: 22,
-                                            href: "#",
-                                            img_class: ""
+                                            text: "<a href=\"#\">News</a>"
                                         }
                                     }
                                 ]
                             },
                             {
-                                width: 24,
+                                width: 44,
                                 elements: [
                                     {
-                                        template: "img",
+                                        template: "content",
                                         options: {
-                                            src: "~/home-icon.png",
-                                            width: 28,
-                                            height: 22,
-                                            href: "#",
-                                            img_class: ""
+                                            text: "<a href=\"#\">Home</a>"
                                         }
                                     }
                                 ]
@@ -88,3 +76,4 @@
 } %}
 
 {% set module = defaults|merge( module|default({}) ) %}
+                        

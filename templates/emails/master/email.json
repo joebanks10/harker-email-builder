@@ -7,9 +7,10 @@
     //         "template": "topbar",
     //         "options": {
     //             "img": {
-    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
-    //                 "alt": "Updated Alt Tag"
-    //                 "width": 215
+    //                 "src": "~/harker-logo.png",
+    //                 "alt": "Updated Alt Tag",
+    //                 "width": 183,
+    //                 "height": 32
     //             }
     //         }
     //     }

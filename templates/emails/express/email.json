@@ -2,18 +2,11 @@
     "title": "Harker Express Template",
     
     // Custom Header
-    // "header": [
-    //     {
-    //         "template": "topbar",
-    //         "options": {
-    //             "img": {
-    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png",
-    //                 "alt": "Updated Alt Tag",
-    //                 "width": 215
-    //             }
-    //         }
-    //     }
-    // ],
+    "header": [
+        {
+            "template": "topbar"
+        }
+    ],
     
     // Modules
     // 
