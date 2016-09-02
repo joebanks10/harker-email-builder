@@ -7,8 +7,8 @@
     //         "template": "topbar",
     //         "options": {
     //             "img": {
-    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
-    //                 "alt": "Updated Alt Tag"
+    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png",
+    //                 "alt": "Updated Alt Tag",
     //                 "width": 215
     //             }
     //         }
@@ -31,58 +31,43 @@
     "content": [
 
         // Single Column (using grid template)
-        {
-            "template": "grid", 
-            "options": {
-
-                // Columns
-                // 
-                // Options: width (percent or numeric), elements
-                "columns": [
-                    {
-
-                        // Elements
-                        // 
-                        // Templates: title, subtitle, header, subheader, 
-                        // content, img, list, button
-                        // 
-                        // Standard Options: class, style, align
-                        "elements": [
-                            {
-                                "template": "header", 
-                                "options": {
-                                    "text": "Intro Letter or Featured Media Content"
-                                }
-                            },
-                            {   
-                                "template": "content",
-                                "options": {
-                                    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt similique, ipsum officia a velit. Nulla minus modi aliquam officia praesentium quae quis quasi corporis consequuntur, sapiente, ducimus alias dignissimos tenetur. 
-                                    <br>
-                                    <br>
-                                    Recusandae voluptate aspernatur perferendis quod, iste odit asperiores quibusdam fugit illo ea a odio officia earum quam, itaque quis velit reiciendis dolorum incidunt dolore animi debitis soluta nihil sed. Ratione."
-                                }
-                            },
-                            {   
-                                "template": "button",
-                                "options": {
-                                    "type": "primary", // primary, secondary, outline, text
-                                    "text": "Learn More",
-                                    "href": "http://www.harker.org",
-                                    "style": "padding-top: 10px"
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
-        },
+        // {
+        //     "template": "one-column", 
+        //     "options": {
+        //         "content": [
+        //             {
+        //                 "template": "header", 
+        //                 "options": {
+        //                     "text": "Intro Letter or Featured Media Content"
+        //                 }
+        //             },
+        //             {   
+        //                 "template": "content",
+        //                 "options": {
+        //                     "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt similique, ipsum officia a velit. Nulla minus modi aliquam officia praesentium quae quis quasi corporis consequuntur, sapiente, ducimus alias dignissimos tenetur. 
+        //                     <br>
+        //                     <br>
+        //                     Recusandae voluptate aspernatur perferendis quod, iste odit asperiores quibusdam fugit illo ea a odio officia earum quam, itaque quis velit reiciendis dolorum incidunt dolore animi debitis soluta nihil sed. Ratione."
+        //                 }
+        //             },
+        //             {   
+        //                 "template": "button",
+        //                 "options": {
+        //                     "type": "primary", // primary, secondary, outline, text
+        //                     "text": "Learn More",
+        //                     "href": "http://www.harker.org",
+        //                     "style": "padding-top: 10px"
+        //                 }
+        //             }
+        //         ]
+        //     }
+        // },
 
         // Article Listing
         {
             "template": "one-column",
             "options": {
-                "class" : "rss gray-bg",
+                "class" : "rss",
                 "content": [
                     {
                         "template": "article-grid",
@@ -113,9 +98,10 @@
 
         // Two Columns
         {
-            "template": "two-columns",
+            "template": "element-grid",
             "options": {
-                "class": "",
+                "class": "gray-bg",
+                "column_count": 2,
                 "header": [
                     {
                         "template": "header",
@@ -124,39 +110,97 @@
                         }
                     }
                 ],
-                "content_1": [
+                "elements": [
                     {
-                        "template": "img",
+                        "template": "element-list",
                         "options": {
-                            "width": 290
+                            "elements": [
+                                {
+                                    "template": "img",
+                                    "options": {
+                                        "width": 290
+                                    }
+                                },
+                                {   
+                                    "template": "button",
+                                    "options": {
+                                        "type": "primary", // primary, secondary, outline, text
+                                        "text": "Call-to-Action",
+                                        "href": "http://www.harker.org",
+                                        "width": "100%",
+                                        "style": "padding-top: 10px"
+                                    }
+                                }
+                            ]
                         }
                     },
-                    {   
-                        "template": "button",
-                        "options": {
-                            "type": "primary", // primary, secondary, outline, text
-                            "text": "Call-to-Action",
-                            "href": "http://www.harker.org",
-                            "width": "100%",
-                            "style": "padding-top: 10px"
-                        }
-                    }
-                ],
-                "content_2": [
                     {
-                        "template": "img",
+                        "template": "element-list",
                         "options": {
-                            "width": 290
+                            "elements": [
+                                {
+                                    "template": "img",
+                                    "options": {
+                                        "width": 290
+                                    }
+                                },
+                                {   
+                                    "template": "button",
+                                    "options": {
+                                        "type": "primary", // primary, secondary, outline, text
+                                        "text": "Call-to-Action",
+                                        "href": "http://www.harker.org",
+                                        "width": "100%",
+                                        "style": "padding-top: 10px"
+                                    }
+                                }
+                            ]
                         }
                     },
-                    {   
-                        "template": "button",
+                    {
+                        "template": "element-list",
                         "options": {
-                            "type": "primary", // primary, secondary, outline, text
-                            "text": "Call-to-Action",
-                            "href": "http://www.harker.org",
-                            "width": "100%",
-                            "style": "padding-top: 10px"
+                            "elements": [
+                                {
+                                    "template": "img",
+                                    "options": {
+                                        "width": 290
+                                    }
+                                },
+                                {   
+                                    "template": "button",
+                                    "options": {
+                                        "type": "primary", // primary, secondary, outline, text
+                                        "text": "Call-to-Action",
+                                        "href": "http://www.harker.org",
+                                        "width": "100%",
+                                        "style": "padding-top: 10px"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "elements": [
+                                {
+                                    "template": "img",
+                                    "options": {
+                                        "width": 290
+                                    }
+                                },
+                                {   
+                                    "template": "button",
+                                    "options": {
+                                        "type": "primary", // primary, secondary, outline, text
+                                        "text": "Call-to-Action",
+                                        "href": "http://www.harker.org",
+                                        "width": "100%",
+                                        "style": "padding-top: 10px"
+                                    }
+                                }
+                            ]
                         }
                     }
                 ]
@@ -167,7 +211,6 @@
         {
             "template": "content-sidebar",
             "options": {
-                "class": "gray-bg",
                 "content": [
                     {
                         "template": "header",
@@ -190,6 +233,57 @@
                             "text": "Take Poll",
                             "href": "http://www.harker.org",
                             "width": "100%"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Promos
+        {
+            "template": "element-grid",
+            "options": {
+                "class": "gray-bg",
+                "column_count": 2,
+                "header": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Upcoming Events"
+                        }
+                    }
+                ],
+                "elements": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "https://www.harker.org/uploaded/assets/graphics/promos/SUM_web_PPortal_F_1617.jpg",
+                            "href": "#",
+                            "width": 289
+                        }
+                    },
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "https://www.harker.org/uploaded/assets/graphics/promos/ADV_AGiving_May_31_HPP_F_1516.png",
+                            "href": "#",
+                            "width": 289
+                        }
+                    },
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "http://www.harker.org/uploaded/assets/graphics/promos/corporate/portal/ADV_GrandparentsDay_LS_HPP_F_1516.png",
+                            "href": "#",
+                            "width": 289
+                        }
+                    },
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "http://www.harker.org/uploaded/assets/graphics/promos/SUM_SFGiants_Baseballcamp_HPP_F_1617.png",
+                            "href": "#",
+                            "width": 289
                         }
                     }
                 ]
