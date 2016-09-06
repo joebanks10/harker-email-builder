@@ -48,11 +48,11 @@
                         {% if loop.index in range(1, module.column_count - 1) %}
                             {% if loop.index == 1 and module.fix_outlook %}
                                 <!--[if gte mso 12]>
-                                    <td class="row" valign="top" width="{{ column_width }}">
+                                    <td valign="top" width="{{ column_width }}">
                                 <![endif]-->
                             {% elseif module.fix_outlook %}
                                 <!--[if gte mso 12]>
-                                   </td><td class="row" valign="top" width="{{ column_width }}">
+                                   </td><td valign="top" width="{{ column_width }}">
                                 <![endif]-->
                             {% endif %}
 
@@ -64,7 +64,7 @@
                             {% if module.column_count != 1 %}
                                 {% if module.fix_outlook %}
                                     <!--[if gte mso 12]>
-                                       </td><td class="row" valign="top" width="1">
+                                       </td><td valign="top" width="1">
                                     <![endif]-->
                                 {% endif %}
 
@@ -79,7 +79,7 @@
                         {% else %}
                             {% if module.fix_outlook %}
                                 <!--[if gte mso 12]>
-                                   </td><td class="row" valign="top" width="{{ column_width }}">
+                                   </td><td valign="top" width="{{ column_width }}">
                                 <![endif]-->
                             {% endif %}
 
