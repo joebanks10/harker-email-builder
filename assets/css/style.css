@@ -35,8 +35,6 @@ a {
 
 img {
     display: block; 
-    line-height: 0px; 
-    font-size: 0px; 
     border: 0px;
 }
 
@@ -150,10 +148,6 @@ tr:first-child > .element {
     font-weight: 100;
     line-height: 36px;
     color: #333;
-}
-
-.element-img {
-    line-height: 0px;
 }
 
 .table-button {
