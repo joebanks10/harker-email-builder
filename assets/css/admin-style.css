@@ -56,18 +56,22 @@
 
 /* disable left align for Columns field */
 .acf-fields.-left > .columns,
-.acf-fields.-left > .events {
+.acf-fields.-left > .events,
+.acf-fields.-left > .-remove-left {
     margin: 0;
     padding: 15px 12px;
 }
 .acf-fields.-left > .columns:before,
-.acf-fields.-left > .events:before {
+.acf-fields.-left > .events:before,
+.acf-fields.-left > .-remove-left:before {
     display: none;
 }
 .acf-fields.-left > .columns > .acf-label, 
 .acf-fields.-left > .columns > .acf-input,
 .acf-fields.-left > .events > .acf-label, 
-.acf-fields.-left > .events > .acf-input {
+.acf-fields.-left > .events > .acf-input,
+.acf-fields.-left > .-remove-left > .acf-label, 
+.acf-fields.-left > .-remove-left > .acf-input {
     width: auto;
     margin: 0 0 10px;
     padding: 0;
@@ -81,6 +85,7 @@
 .list-items .acf-table {
     clear: none;
 }
+
 
 .acf-repeater .acf-table {
     border-color: #e5e5e5;
