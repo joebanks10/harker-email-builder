@@ -263,7 +263,7 @@ class Template_Extensions {
         $title = preg_replace('/Grades? K-5/', 'K-5', $title);
         $title = preg_replace('/Mtg/', 'Meeting', $title);
         $title = preg_replace('/BBQ/', 'Barbecue', $title);
-        $title = preg_replace('/Back to School/', 'Back-to-School', $title);
+        $title = preg_replace('/[Bb]ack[-\s]to[-\s][Ss]chool/', 'Back-to-School', $title);
 
         return $title;
     }
