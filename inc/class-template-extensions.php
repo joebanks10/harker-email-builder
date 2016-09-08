@@ -262,6 +262,7 @@ class Template_Extensions {
         $title = preg_replace('/G(\d)/', 'Grade $1', $title);
         $title = preg_replace('/Grades? K-5/', 'K-5', $title);
         $title = preg_replace('/Mtg/', 'Meeting', $title);
+        $title = preg_replace('/BBQ/', 'Barbecue', $title);
         $title = preg_replace('/Back to School/', 'Back-to-School', $title);
 
         return $title;
@@ -277,7 +278,7 @@ class Template_Extensions {
         }
 
         if ( !empty($content) && !empty($event['location']) ) {
-            $content .= ' | ' . $event['location'];
+            $content .= ' | ' . $this->format_location($event['location']);
         }
 
         if ( !empty($event['permalink']) ) {
@@ -285,6 +286,12 @@ class Template_Extensions {
         }
 
         return $content;
+    }
+
+    private function format_location($location) {
+        $location = preg_replace('/^MPR$/', 'Blackford Multipurpose Room (MPR)', $location);
+
+        return $location;
     }
 
     private function format_date($timestamp) {
