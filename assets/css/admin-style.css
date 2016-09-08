@@ -78,6 +78,10 @@
     float: none;
 }
 
+.acf-fields.-left .acf-field-clone {
+    clear: none;
+}
+
 .columns-1 > .acf-label {
     display: none;
 }
