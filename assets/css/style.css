@@ -505,6 +505,9 @@ tr:last-child > .row {
 .gold-bg, .gold-bg .table-button-outline, .gold-bg .background { 
     background-color: #DCAA00; 
 }
+.seafoam-green-bg, .seafoam-green-bg .background {
+    background-color: #afd3c8;
+}
 
 .blue-bg .table-button-secondary .button,
 .blue-bg .table-button-secondary .button a {
@@ -529,6 +532,10 @@ tr:last-child > .row {
 .gold-bg .table-button-secondary .button,
 .gold-bg .table-button-secondary .button a {
     color: #DCAA00;
+}
+.seafoam-green-bg .table-button-secondary .button,
+.seafoam-green-bg .table-button-secondary .button a {
+    color: #afd3c8;
 }
 
 .white-text .table-button-outline .button {
