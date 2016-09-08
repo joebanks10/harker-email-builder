@@ -252,7 +252,7 @@ class Template_Extensions {
     }
 
     public function format_title($title) {
-        $title = preg_replace('/PS/', 'Prechool', $title);
+        $title = preg_replace('/PS/', 'Preschool', $title);
         $title = preg_replace('/LS/', 'Lower School', $title);
         $title = preg_replace('/MS/', 'Middle School', $title);
         $title = preg_replace('/US/', 'Upper School', $title);
