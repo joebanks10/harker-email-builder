@@ -252,13 +252,16 @@ class Template_Extensions {
     }
 
     public function format_title($title) {
+        // school acronyms
         $title = preg_replace('/PS/', 'Preschool', $title);
         $title = preg_replace('/LS/', 'Lower School', $title);
         $title = preg_replace('/MS/', 'Middle School', $title);
         $title = preg_replace('/US/', 'Upper School', $title);
 
-        $title = preg_replace('/G8/', 'Grade 8', $title);
+        // misc
+        $title = preg_replace('/G(\d)/', 'Grade $1', $title);
         $title = preg_replace('/Mtg/', 'Meeting', $title);
+        $title = preg_replace('/Back to School/', 'Back-to-School', $title);
 
         return $title;
     }
