@@ -78,7 +78,7 @@
     float: none;
 }
 
-.acf-fields.-left .acf-field-clone {
+.acf-fields.-left .acf-field {
     clear: none;
 }
 
@@ -88,6 +88,16 @@
 
 .list-items .acf-table {
     clear: none;
+}
+
+.-remove-clone-group > .acf-label {
+    display: none;
+}
+.-remove-clone-group .acf-clone-fields {
+    border: none;
+}
+.-remove-clone-group .acf-clone-fields > .acf-field {
+    padding: 0;
 }
 
 
