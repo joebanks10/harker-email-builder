@@ -77,16 +77,10 @@
                             "feature": true,
                             "article": {
                                 "content": false,
-                                "button": false,
-                                "img": {
-                                    "width": 186
-                                }
+                                "button": false
                             },
                             "feature_article": {
-                                "button": false,
-                                "img": {
-                                    "width": 186
-                                }
+                                "button": false
                             },
                             "header": [
                                 {
