@@ -29,26 +29,32 @@ class WP_Element_RSS extends WP_Element {
 
     protected function get_article_options($wp_article) {
         $article = array();
+        $includes = array('img', 'header', 'content', 'button');
 
         if (empty($wp_article['includes'])) {
             return array();
         }
 
-        foreach($wp_article['includes'] as $element) {
+        foreach($includes as $element) {
             $options = array();
+            $options['include'] = in_array($element, $wp_article['includes']);
 
-            switch($element) {
-                case 'img':
-                    $options['link'] = $wp_article['link_img'];
-                    break;
-                case 'header':
-                    $options['link'] = $wp_article['link_header'];
-                    break;
-                case 'button':
-                    $options['type'] = $wp_article['button_type'];
-                    $options['text'] = $wp_article['button_text'];
-                    $options['width'] = $wp_article['button_width'];
-                    break;
+            if ($options['include']) {
+
+                switch($element) {
+                    case 'img':
+                        $options['link'] = $wp_article['link_img'];
+                        break;
+                    case 'header':
+                        $options['link'] = $wp_article['link_header'];
+                        break;
+                    case 'button':
+                        $options['type'] = $wp_article['button_type'];
+                        $options['text'] = $wp_article['button_text'];
+                        $options['width'] = $wp_article['button_width'];
+                        break;
+                }
+                
             }
 
             $article[$element] = $options;
