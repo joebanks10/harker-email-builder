@@ -4,6 +4,12 @@ class WP_Element {
     
     private $wp_data;
     private $data;
+    private $classes = array();
+
+    // array(
+    //     'list' => 'WP_List_Element',
+    //     'element-list' => 'WP_Element_List_Element'
+    // );
 
     public function __construct($wp_data) {
         $this->wp_data = $wp_data;
@@ -16,16 +22,30 @@ class WP_Element {
 
     private function parse_wp_data() {
         $wp_data = $this->wp_data;
+        $template = $this->get_template();
+        $child_class = isset($this->classes[$template]) ? $this->classes[$template] : null;
 
-        $element = array(
-            'template' => $wp_data['acf_fc_layout'],
-            'options' => $this->get_options()
-        );
+        if ($child_class && get_class($this) === 'WP_Element') {
+            // create instance of child class for template and get data
+            $reflection = new ReflectionClass($child_class);
+            $instance = $reflection->newInstance($this->wp_data);
+            
+            $element = $instance->get_data();
+        } else {
+            $element = array(
+                'template' => $this->get_template(),
+                'options' => $this->get_options()
+            );
+        }
 
         return $element;
     }
 
-    private function get_options() {
+    protected function get_template() {
+        return isset($this->wp_data['acf_fc_layout']) ? $this->wp_data['acf_fc_layout'] : null;
+    }
+
+    protected function get_options() {
         $wp_data = $this->wp_data;
 
         $options = \HKR\array_filter_key($wp_data, function($key) {
@@ -39,7 +59,7 @@ class WP_Element {
         });
 
         // get template specific options
-        $template_options = $this->get_template_options($wp_data['acf_fc_layout']);
+        $template_options = $this->get_template_options();
 
         // merge options
         $options = array_merge($options, $template_options);
@@ -47,9 +67,10 @@ class WP_Element {
         return $options;
     }
 
-    private function get_template_options($wp_template) {
+    protected function get_template_options() {
         $options = array();
         $wp_data = $this->wp_data;
+        $wp_template = $wp_data['acf_fc_layout'];
 
         switch($wp_template) {
             case 'list':
@@ -58,23 +79,13 @@ class WP_Element {
                 }, $wp_data['items']);
                 break;
             case 'element-list':
-                $options['elements'] = $this->get_elements($wp_data['elements']);
+                $options['elements'] = array_map(function($element) {
+                    return new WP_Element($wp_element);
+                }, $wp_data['elements'] );
                 break;
         }
 
         return $options;
-    }
-
-    private function get_elements($wp_elements) {
-        $wp_elements = !empty($wp_elements) ? $wp_elements : array();
-
-        return array_map( array($this, 'get_element'), $wp_elements );
-    }
-
-    private function get_element($wp_element) {
-        $element = new WP_Element($wp_element);
-
-        return $element->get_data();
     }
 
 }
