@@ -6,7 +6,8 @@ class WP_Element {
     protected $data;
     protected $template_classes = array(
         'list' => 'WP_Element_List',
-        'element-list' => 'WP_Element_ElementList'
+        'element-list' => 'WP_Element_ElementList',
+        'rss-feed' => 'WP_Element_RSS'
     );
 
     public function __construct($wp_data) {
@@ -76,3 +77,4 @@ class WP_Element {
 // load child elements
 require_once ROOT_DIR . "/inc/class-wp-element-list.php";
 require_once ROOT_DIR . "/inc/class-wp-element-elementlist.php";
+require_once ROOT_DIR . "/inc/class-wp-element-rss.php";
