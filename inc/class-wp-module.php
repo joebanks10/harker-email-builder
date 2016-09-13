@@ -71,6 +71,9 @@ class WP_Module {
             return !empty($key) and $key != 'acf_fc_layout' and $key != 'columns';
         });
 
+        // get module header
+        $options['header'] = $this->get_elements($wp_data['header']['elements']);
+
         // get template specific options
         $template_options = $this->get_template_options($wp_data['acf_fc_layout']);
 
