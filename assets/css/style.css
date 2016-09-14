@@ -168,7 +168,7 @@ tr:first-child > .element {
 }
 
 .button a {
-    display: block;
+    /*display: block;*/
     color: #ffffff;
     text-decoration: none; 
 }
