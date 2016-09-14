@@ -318,7 +318,7 @@ tr:last-child > .row {
 .module-topbar .topbar-links .content a {
     color: #ffffff;
     font-size: 14px;
-    line-height: 24px;
+    line-height: normal;
     text-decoration: none;
 }
 
