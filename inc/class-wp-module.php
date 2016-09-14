@@ -8,24 +8,9 @@ class WP_Module {
     private $data;
 
     private static $templates = array(
-        'one-column' => array(
-            'content' => array()
-        ),
-        'two-columns' => array(
-            'content_1' => array(), 
-            'content_2' => array()
-        ),
-        'three-columns' => array(
-            'content_1' => array(), 
-            'content_2' => array(), 
-            'content_3' => array()
-        ),
         'content-sidebar' => array(
             'content' => array(),
             'sidebar' => array()
-        ),
-        'grid' => array(
-            'columns' => array()
         )
     );
 
@@ -71,6 +56,9 @@ class WP_Module {
             return !empty($key) and $key != 'acf_fc_layout' and $key != 'columns';
         });
 
+        // get module header
+        $options['header'] = $this->get_elements($wp_data['header']['elements']);
+
         // get template specific options
         $template_options = $this->get_template_options($wp_data['acf_fc_layout']);
 
@@ -83,19 +71,17 @@ class WP_Module {
     private function get_template_options($wp_template) {
         $wp_columns = $this->wp_data['columns'];
         $column_options = isset(self::$templates[$wp_template]) ? self::$templates[$wp_template] : array('columns' => array());
-        
         $i = 0;
-        foreach($column_options as $key => $option) {
-            if ($key == 'columns') {
-                // add to columns array
-                foreach($wp_columns as $wp_column) {
-                    $column_options['columns'][] = array(
-                        'width' => $wp_column['width'],
-                        'elements' => $this->get_elements($wp_column['elements'])
-                    );
-                }
-                break;
-            } else {
+        
+        if ( isset($column_options['columns']) ) {
+            foreach($wp_columns as $wp_column) {
+                $column_options['columns'][] = array(
+                    'width' => $wp_column['width'],
+                    'elements' => $this->get_elements($wp_column['elements'])
+                );
+            }
+        } else {
+            foreach($column_options as $key => $option) {
                 $wp_column = $wp_columns[$i++];
 
                 $column_options[$key] = $this->get_elements($wp_column['elements']);
