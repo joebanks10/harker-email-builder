@@ -6,6 +6,7 @@
     align: "left",
     valign: "top",
     width: "",
+    height: "",
     attributes: "",
     text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
 } %}
@@ -13,7 +14,7 @@
 {% set module = defaults|merge( module|default({}) ) %}
 
 {% block element %}
-    <td id="{{ module.id }}" class="element {{ module.element_class }} {{ module.class }}" width="{{ module.width }}" style="{{ module.style }}" align="{{ module.align }}" valign="{{ module.valign }}" {{ module.attributes }}>
+    <td id="{{ module.id }}" class="element {{ module.element_class }} {{ module.class }}" width="{{ module.width }}" height="{{ module.height }}" style="{{ module.style }}" align="{{ module.align }}" valign="{{ module.valign }}" {{ module.attributes }}>
         {% block element_content %}
             {{ module.text }}
         {% endblock element_content %}
