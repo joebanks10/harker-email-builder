@@ -18,6 +18,7 @@ require_once(PATH . "vendor/autoload.php");
 require_once(PATH . 'inc/class-singleton.php');
 require_once(PATH . 'inc/class-acf.php');
 require_once(PATH . 'inc/class-email-post-type.php');
+require_once(PATH . 'inc/class-banner-post-type.php');
 
 class Plugin extends \HKR\Singleton {
     
@@ -31,6 +32,7 @@ class Plugin extends \HKR\Singleton {
         add_action('init', array($this, 'init'));
 
         $email = new Email_Post_Type();
+        $banner = new Banner_Post_Type();
     }
 
     public function init() {
@@ -49,6 +51,8 @@ class Plugin extends \HKR\Singleton {
 
         add_filter('acf/format_value/type=date_picker', array($this, 'strtotime'));
         add_filter('acf/format_value/type=date_time_picker', array($this, 'strtotime'));
+
+        add_filter('acf/format_value/type=post_object', array($this, 'add_acf_fields'), 10, 3);
 
         add_action('wp_ajax_get_ical_events', array($this, 'ajax_get_ical_events'));
         add_action('wp_ajax_nopriv_get_ical_events', array($this, 'ajax_get_ical_events'));
@@ -116,6 +120,33 @@ class Plugin extends \HKR\Singleton {
         }
 
         return $value;
+    }
+
+    public function add_acf_fields($post_object, $post_id, $field) {
+        $transient_name = "hkr_email_{$post_id}_{$field['name']}_acf";
+
+        $fields = get_transient($transient_name);
+
+        // check if cached fields exist and if banner ids match and if modified dates match
+        if (!$fields || $post_object->ID != $fields['post_id'] || $post_object->post_modified != $fields['post_modified']) {
+            $fields = get_fields($post_object->ID);
+
+            if (empty($fields)) {
+                return $post_object;
+            }
+
+            // set id of post object to check for updates
+            $fields['post_id'] = $post_object->ID;
+            $fields['post_modified'] = $post_object->post_modified;
+
+            // cache for later
+            set_transient($transient_name, $fields);
+        }
+
+        // add acf to post object fields
+        $post_object->acf = $fields; 
+
+        return $post_object;
     }
 
     function ajax_loading_img($field) {
