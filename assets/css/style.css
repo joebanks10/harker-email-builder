@@ -581,8 +581,8 @@ tr:last-child > .row {
         text-align: center !important;
     }
     .module-topbar .container .logo-container {
-        border-right-width: 0;
-        border-left-width: 0;
+        border-right-width: 0 !important;
+        border-left-width: 0 !important;
         border-bottom: 1px solid #033e2f;
     }
     .topbar-links .content { text-align: center; }
@@ -612,8 +612,8 @@ td[class="hide"] {
         text-align: center !important;
     }
     .module-topbar .container .logo-container {
-        border-right-width: 0;
-        border-left-width: 0;
+        border-right-width: 0 !important;
+        border-left-width: 0 !important;;
         border-bottom: 1px solid #033e2f;
     }
     .topbar-links .content { text-align: center; }
