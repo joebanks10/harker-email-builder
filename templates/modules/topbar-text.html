@@ -23,56 +23,37 @@
             ]
         },
         {
-            width: "200",
+            width: "349",
             elements: [
                 {
-                    template: "grid",
+                    template: "element-list-inline",
                     options: {
                         class: "topbar-links",
-                        stack: false,
-                        fix_rounding: false,
-                        column_count: 3,
-                        column_direction: "rtl",
-                        gutter_height: 20,
-                        columns: [
+                        align: "right",
+                        elements: [
                             {
-                                width: 44,
-                                elements: [
-                                    {
-                                        template: "content",
-                                        options: {
-                                            text: "<a href=\"https://www.harker.org/login\">Portal</a>",
-                                            height: 24,
-                                            valign: "middle"
-                                        }
-                                    }
-                                ]
+                                template: "content",
+                                options: {
+                                    text: "<a href=\"http://www.harker.org\">Home</a>",
+                                    height: 48,
+                                    valign: "middle"
+                                }
                             },
                             {
-                                width: 44,
-                                elements: [
-                                    {
-                                        template: "content",
-                                        options: {
-                                            text: "<a href=\"http://news.harker.org\">News</a>",
-                                            height: 24,
-                                            valign: "middle"
-                                        }
-                                    }
-                                ]
+                                template: "content",
+                                options: {
+                                    text: "<a href=\"http://news.harker.org\">News</a>",
+                                    height: 48,
+                                    valign: "middle"
+                                }
                             },
                             {
-                                width: 44,
-                                elements: [
-                                    {
-                                        template: "content",
-                                        options: {
-                                            text: "<a href=\"http://www.harker.org\">Home</a>",
-                                            height: 24,
-                                            valign: "middle"
-                                        }
-                                    }
-                                ]
+                                template: "content",
+                                options: {
+                                    text: "<a href=\"https://www.harker.org/login\">Portal</a>",
+                                    height: 48,
+                                    valign: "middle"
+                                }
                             }
                         ]
                     }

@@ -322,6 +322,11 @@ tr:last-child > .row {
     text-decoration: none;
 }
 
+.module-topbar .topbar-links .content {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
 .article, .article-feature {
     padding-bottom: 40px;
 }
@@ -575,8 +580,7 @@ tr:last-child > .row {
         width: 100% !important; 
         text-align: center !important;
     }
-    .topbar-links { text-align: center; }
-    .topbar-links table[class="table-full"] { width: auto !important; }
+    .topbar-links .content { text-align: center; }
     
     /* image */
     img[class="img-full"] { 
@@ -602,8 +606,7 @@ td[class="hide"] {
         width: 100% !important; 
         text-align: center !important;
     }
-    .topbar-links { text-align: center; }
-    .topbar-links table[class="table-full"] { width: auto !important; }
+    .topbar-links .content { text-align: center; }
     
     /* image */
     img[class="img-full"] { width: 100% !important; }
