@@ -135,7 +135,7 @@ class Plugin extends \HKR\Singleton {
                 return $post_object;
             }
 
-            // set id of post object to check for updates
+            // set meta to check for changes in data
             $fields['post_id'] = $post_object->ID;
             $fields['post_modified'] = $post_object->post_modified;
 
