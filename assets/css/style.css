@@ -580,6 +580,11 @@ tr:last-child > .row {
         width: 100% !important; 
         text-align: center !important;
     }
+    .module-topbar .container .logo-container {
+        border-right-width: 0;
+        border-left-width: 0;
+        border-bottom: 1px solid #033e2f;
+    }
     .topbar-links .content { text-align: center; }
     
     /* image */
@@ -605,6 +610,11 @@ td[class="hide"] {
     table[class="table-full-center"] { 
         width: 100% !important; 
         text-align: center !important;
+    }
+    .module-topbar .container .logo-container {
+        border-right-width: 0;
+        border-left-width: 0;
+        border-bottom: 1px solid #033e2f;
     }
     .topbar-links .content { text-align: center; }
     
