@@ -252,6 +252,10 @@ class Template_Extensions {
     }
 
     public function format_title($title) {
+        // remove CHANGED: text
+        $parts = explode('CHANGED:', $title);
+        $title = trim($parts[0]);
+
         // school acronyms
         $title = preg_replace('/PS/', 'Preschool', $title);
         $title = preg_replace('/LS/', 'Lower School', $title);
