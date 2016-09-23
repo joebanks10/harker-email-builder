@@ -4,7 +4,14 @@
     // Custom Header
     "header": [
         {
-            "template": "topbar-text"
+            "template": "topbar-text",
+            "options": {
+                "img": {
+                    "src": "harker-news-express-logo-181x32.png",
+                    "width": 181,
+                    "height": 32
+                }
+            }
         }
     ],
     
