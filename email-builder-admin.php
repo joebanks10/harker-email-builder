@@ -19,6 +19,7 @@ require_once(PATH . 'inc/class-singleton.php');
 require_once(PATH . 'inc/class-acf.php');
 require_once(PATH . 'inc/class-email-post-type.php');
 require_once(PATH . 'inc/class-banner-post-type.php');
+require_once(PATH . 'inc/class-theme-post-type.php');
 
 class Plugin extends \HKR\Singleton {
     
@@ -32,6 +33,7 @@ class Plugin extends \HKR\Singleton {
         add_action('init', array($this, 'init'));
 
         $email = new Email_Post_Type();
+        $theme = new Theme_Post_Type();
         $banner = new Banner_Post_Type();
     }
 
@@ -123,6 +125,10 @@ class Plugin extends \HKR\Singleton {
     }
 
     public function add_acf_fields($post_object, $post_id, $field) {
+        if (!$post_object) {
+            return $post_object;
+        } 
+
         $transient_name = "hkr_email_{$post_id}_{$field['name']}_acf";
 
         $fields = get_transient($transient_name);

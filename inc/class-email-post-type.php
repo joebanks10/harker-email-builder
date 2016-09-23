@@ -48,6 +48,7 @@ class Email_Post_Type {
             'has_archive'        => true,
             'hierarchical'       => false,
             'menu_position'      => null,
+            'menu_icon'          => 'dashicons-email-alt',
             'taxonomies'         => array( 'category', 'post_tag' ),
             'supports'           => array( 'title', 'author' )
         );
