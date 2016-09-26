@@ -34,6 +34,14 @@ class Email {
 
         $this->settings = array_merge($defaults, $args);
 
+        if ($this->settings['stylesheet_addons_url']) {
+            $this->settings['stylesheet'] = file_get_contents($this->settings['stylesheet_url']);
+        }
+
+        if ($this->settings['stylesheet_addons_url']) {
+            $this->settings['stylesheet_addons'] = file_get_contents($this->settings['stylesheet_addons_url']);
+        }
+
         if ($this->settings['debug']) {
             ini_set('display_errors', 1);
             ini_set('display_startup_errors', 1);
@@ -50,6 +58,7 @@ class Email {
         $is_inline = isset($_GET['inline']);
         $wp_id = isset($_GET['wp_id']) ? $_GET['wp_id'] : false;
 
+        // get data from WordPress or JSON file
         if ($wp_id) {
             $wp_email = new WP_Email('http://localhost/wp-dev/wp-json/wp/v2/email/' . $wp_id);
             $json = $wp_email->get_data();

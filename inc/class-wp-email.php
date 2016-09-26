@@ -40,7 +40,20 @@ class WP_Email {
      */
     private function parse_wp_data($wp_data = array()) {
         $data['title'] = $wp_data['title']['rendered'];
+
+        if ($theme = $wp_data['acf']['theme']) {
+            $data['stylesheet_addons'] = $theme['acf']['custom_css'];
+        }
+
+        if ($header = $wp_data['acf']['header']) {
+            $data['header'] = $this->get_modules( $header['acf']['content']['modules'] );
+        }
+
         $data['content'] = $this->get_modules( $wp_data['acf']['content']['modules'] );
+
+        if ($footer = $wp_data['acf']['footer']) {
+            $data['footer'] = $this->get_modules( $footer['acf']['content']['modules'] );
+        }
 
         return $data;
     }
