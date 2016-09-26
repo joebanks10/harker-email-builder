@@ -106,7 +106,7 @@
                     {
                         "template": "article-grid",
                         "options": {
-                            "rss": "http://news.harker.org/feed/",
+                            "rss": "http://news.harker.org/tag/express/feed/",
                             "count": 7,
                             "feature": true,
                             "article": {
