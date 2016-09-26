@@ -6,11 +6,62 @@
         {
             "template": "topbar-text",
             "options": {
-                "img": {
-                    "src": "harker-news-express-logo-181x32.png",
-                    "width": 181,
-                    "height": 32
-                }
+                "columns": [
+                    {
+                        "width": "340",
+                        "elements": [
+                            {
+                                "template": "img",
+                                "options": {
+                                    "class": "logo-container",
+                                    "src": "harker-news-express-logo.png",
+                                    "alt": "Harker News Express",
+                                    "width": 312,
+                                    "height": 32,
+                                    "valign": "middle"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "width": "240",
+                        "elements": [
+                            {
+                                "template": "element-list-inline",
+                                "options": {
+                                    "class": "topbar-links",
+                                    "align": "right",
+                                    "elements": [
+                                        {
+                                            "template": "content",
+                                            "options": {
+                                                "text": "<a href=\"http://www.harker.org\">Home</a>",
+                                                "height": 48,
+                                                "valign": "middle"
+                                            }
+                                        },
+                                        {
+                                            "template": "content",
+                                            "options": {
+                                                "text": "<a href=\"http://news.harker.org\">News</a>",
+                                                "height": 48,
+                                                "valign": "middle"
+                                            }
+                                        },
+                                        {
+                                            "template": "content",
+                                            "options": {
+                                                "text": "<a href=\"https://www.harker.org/login\">Portal</a>",
+                                                "height": 48,
+                                                "valign": "middle"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }   
+                        ]
+                    }
+                ]
             }
         }
     ],
@@ -31,37 +82,20 @@
     "content": [
 
         // Single Column (using grid template)
-        // {
-        //     "template": "one-column", 
-        //     "options": {
-        //         "content": [
-        //             {
-        //                 "template": "header", 
-        //                 "options": {
-        //                     "text": "Intro Letter or Featured Media Content"
-        //                 }
-        //             },
-        //             {   
-        //                 "template": "content",
-        //                 "options": {
-        //                     "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt similique, ipsum officia a velit. Nulla minus modi aliquam officia praesentium quae quis quasi corporis consequuntur, sapiente, ducimus alias dignissimos tenetur. 
-        //                     <br>
-        //                     <br>
-        //                     Recusandae voluptate aspernatur perferendis quod, iste odit asperiores quibusdam fugit illo ea a odio officia earum quam, itaque quis velit reiciendis dolorum incidunt dolore animi debitis soluta nihil sed. Ratione."
-        //                 }
-        //             },
-        //             {   
-        //                 "template": "button",
-        //                 "options": {
-        //                     "type": "primary", // primary, secondary, outline, text
-        //                     "text": "Learn More",
-        //                     "href": "http://www.harker.org",
-        //                     "style": "padding-top: 10px"
-        //                 }
-        //             }
-        //         ]
-        //     }
-        // },
+        {
+            "template": "one-column", 
+            "options": {
+                "class": "gray-bg",
+                "content": [
+                    {   
+                        "template": "content",
+                        "options": {
+                            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt similique, ipsum officia a velit. Nulla minus modi aliquam officia praesentium quae quis quasi corporis consequuntur, sapiente, ducimus alias dignissimos tenetur."
+                        }
+                    }
+                ]
+            }
+        },
 
         // Article Listing
         {
@@ -86,7 +120,18 @@
                                 {
                                     "template": "header",
                                     "options": {
-                                        "text": "Recent Stories"
+                                        "text": "Top September Stories"
+                                    }
+                                }
+                            ],
+                            "footer": [
+                                {
+                                    "template": "button",
+                                    "options": {
+                                        "text": "Read More Stories at Harker News",
+                                        "href": "http://news.harker.org",
+                                        "align": "center",
+                                        "style": "padding-top: 10px"
                                     }
                                 }
                             ]
@@ -106,7 +151,7 @@
                     {
                         "template": "header",
                         "options": {
-                            "text": "Social Media Post, Video, Photo or Publication"
+                            "text": "Express Features"
                         }
                     }
                 ],
@@ -118,6 +163,9 @@
                                 {
                                     "template": "img",
                                     "options": {
+                                        "src": "youtube-cover.png",
+                                        "alt": "Middle School Flash Mob Video Cover",
+                                        "href": "https://www.youtube.com/watch?v=xVHzmS74MV4",
                                         "width": 290,
                                         "img_class": "img-full"
                                     }
@@ -126,8 +174,8 @@
                                     "template": "button",
                                     "options": {
                                         "type": "primary", // primary, secondary, outline, text
-                                        "text": "Call-to-Action",
-                                        "href": "http://www.harker.org",
+                                        "text": "Watch YouTube Video",
+                                        "href": "https://www.youtube.com/watch?v=xVHzmS74MV4",
                                         "width": "100%",
                                         "style": "padding-top: 10px"
                                     }
@@ -142,6 +190,9 @@
                                 {
                                     "template": "img",
                                     "options": {
+                                        "src": "instagram-cover.png",
+                                        "alt": "Upper School Dance",
+                                        "href": "https://www.instagram.com/p/BKlayz3DWA0/",
                                         "width": 290,
                                         "img_class": "img-full"
                                     }
@@ -150,8 +201,8 @@
                                     "template": "button",
                                     "options": {
                                         "type": "primary", // primary, secondary, outline, text
-                                        "text": "Call-to-Action",
-                                        "href": "http://www.harker.org",
+                                        "text": "Watch Instagram Video",
+                                        "href": "https://www.instagram.com/p/BKlayz3DWA0/",
                                         "width": "100%",
                                         "style": "padding-top: 10px"
                                     }
@@ -166,6 +217,9 @@
                                 {
                                     "template": "img",
                                     "options": {
+                                        "src": "facebook-cover.png",
+                                        "alt": "National Merit Semifinalists",
+                                        "href": "https://www.facebook.com/harkerschool/posts/10153903574445737",
                                         "width": 290,
                                         "img_class": "img-full"
                                     }
@@ -174,8 +228,8 @@
                                     "template": "button",
                                     "options": {
                                         "type": "primary", // primary, secondary, outline, text
-                                        "text": "Call-to-Action",
-                                        "href": "http://www.harker.org",
+                                        "text": "View Facebook Post",
+                                        "href": "https://www.facebook.com/harkerschool/posts/10153903574445737",
                                         "width": "100%",
                                         "style": "padding-top: 10px"
                                     }
@@ -190,6 +244,9 @@
                                 {
                                     "template": "img",
                                     "options": {
+                                        "src": "publication-cover.png",
+                                        "alt": "Guide to Philanthropy",
+                                        "href": "https://issuu.com/theharkerschool/docs/1507_har_guide2philanthrop_0716_vf2",
                                         "width": 290,
                                         "img_class": "img-full"
                                     }
@@ -198,8 +255,8 @@
                                     "template": "button",
                                     "options": {
                                         "type": "primary", // primary, secondary, outline, text
-                                        "text": "Call-to-Action",
-                                        "href": "http://www.harker.org",
+                                        "text": "Read the Guide to Philanthropy",
+                                        "href": "https://issuu.com/theharkerschool/docs/1507_har_guide2philanthrop_0716_vf2",
                                         "width": "100%",
                                         "style": "padding-top: 10px"
                                     }
@@ -220,13 +277,14 @@
                     {
                         "template": "header",
                         "options": {
-                            "text": "Poll or Survey"
+                            "text": "Question of the Month"
                         }
                     },
                     {
                         "template": "content",
                         "options": {
-                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+                            "text": "What's your favorite part about Fall?<br><br>
+                            Joe's Answer: Pumpkin Spice Lattes"
                         }
                     }
                 ],
@@ -235,7 +293,7 @@
                         "template": "button",
                         "options": {
                             "type": "outline",
-                            "text": "Take Poll",
+                            "text": "Answer Question",
                             "href": "http://www.harker.org",
                             "width": "100%"
                         }
@@ -262,8 +320,8 @@
                     {
                         "template": "img",
                         "options": {
-                            "src": "https://www.harker.org/uploaded/assets/graphics/promos/SUM_web_PPortal_F_1617.jpg",
-                            "href": "#",
+                            "src": "https://www.harker.org/uploaded/assets/graphics/promos/corporate/portal/eagle-store-promo.png",
+                            "href": "https://harkerschool.mybrightsites.com/account/login",
                             "width": 290,
                             "img_class": "img-full"
                         }
@@ -271,8 +329,8 @@
                     {
                         "template": "img",
                         "options": {
-                            "src": "https://www.harker.org/uploaded/assets/graphics/promos/ADV_AGiving_May_31_HPP_F_1516.png",
-                            "href": "#",
+                            "src": "https://www.harker.org/uploaded/assets/graphics/promos/ADV_Harvest_Fest_PPortal_F_1617.png",
+                            "href": "http://www.harker.org/picnic",
                             "width": 290,
                             "img_class": "img-full"
                         }
@@ -280,8 +338,8 @@
                     {
                         "template": "img",
                         "options": {
-                            "src": "http://www.harker.org/uploaded/assets/graphics/promos/corporate/portal/ADV_GrandparentsDay_LS_HPP_F_1516.png",
-                            "href": "#",
+                            "src": "http://www.harker.org/uploaded/assets/graphics/promos/PA_US_AroundTW_HPP_F_1617.png",
+                            "href": "http://www.harker.org/page.cfm?id=3564&verbose=247058",
                             "width": 290,
                             "img_class": "img-full"
                         }
@@ -289,8 +347,7 @@
                     {
                         "template": "img",
                         "options": {
-                            "src": "http://www.harker.org/uploaded/assets/graphics/promos/SUM_SFGiants_Baseballcamp_HPP_F_1617.png",
-                            "href": "#",
+                            "src": "homecoming-promo.jpg",
                             "width": 290,
                             "img_class": "img-full"
                         }

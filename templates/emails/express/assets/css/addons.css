@@ -2,3 +2,8 @@
 .module-footer .background {
     background-color: #ffffff;
 }
+
+.logo-container > img {
+    max-width: 100%;
+    height: auto;
+}
