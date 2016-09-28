@@ -90,7 +90,25 @@
                     {   
                         "template": "content",
                         "options": {
-                            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt similique, ipsum officia a velit. Nulla minus modi aliquam officia praesentium quae quis quasi corporis consequuntur, sapiente, ducimus alias dignissimos tenetur."
+                            "style": "font-size: 14px; line-height: 22px;",
+                            "text": "Welcome to the inaugural edition of the News Express! This monthly news
+                                blast partially replaces the Harker Quarterly magazine, which will now be
+                                published biannually (the first edition will mail this December so watch
+                                for a reminder on that!).
+                                <br>
+                                <br>
+                                At the end of each month all Harker families will receive the News
+                                Express, which is a quick recap of the month¹s top stories and features, a
+                                glance ahead at key community events coming up, and a short and sweet
+                                monthly poll on various topics (fun or informative!). Our goal is for the
+                                News Express to be bite-sized, informative and fun. Enjoy!
+                                <br>
+                                <br>
+                                Pam Dickinson, Director<br>
+                                Harker Office of Communication
+                                <br>
+                                <br>
+                                Questions or suggestions? Contact <a href=\"mailto:communications@harker.org\">communications@harker.org</a>."
                         }
                     }
                 ]
@@ -157,111 +175,87 @@
                 ],
                 "elements": [
                     {
-                        "template": "element-list",
+                        "template": "article",
                         "options": {
-                            "elements": [
-                                {
-                                    "template": "img",
-                                    "options": {
-                                        "src": "youtube-cover.png",
-                                        "alt": "Middle School Flash Mob Video Cover",
-                                        "href": "https://www.youtube.com/watch?v=xVHzmS74MV4",
-                                        "width": 290,
-                                        "img_class": "img-full"
-                                    }
-                                },
-                                {   
-                                    "template": "button",
-                                    "options": {
-                                        "type": "primary", // primary, secondary, outline, text
-                                        "text": "Watch YouTube Video",
-                                        "href": "https://www.youtube.com/watch?v=xVHzmS74MV4",
-                                        "width": "100%",
-                                        "style": "padding-top: 10px"
-                                    }
-                                }
-                            ]
+                            "permalink": "https://www.youtube.com/watch?v=xVHzmS74MV4",
+                            "img" : {
+                                "src": "youtube-cover.png",
+                                "alt": "Middle School Flash Mob Video Cover",
+                                "width": 290,
+                                "img_class": "img-full"
+                            },
+                            "header": {
+                                "text": "Middle School Flash Mob",
+                                "href": ""
+                            },
+                            "button": {   
+                                "type": "primary",
+                                "text": "Watch YouTube Video",
+                                "width": "100%"
+                            }
                         }
                     },
                     {
-                        "template": "element-list",
+                        "template": "article",
                         "options": {
-                            "elements": [
-                                {
-                                    "template": "img",
-                                    "options": {
-                                        "src": "instagram-cover.png",
-                                        "alt": "Upper School Dance",
-                                        "href": "https://www.instagram.com/p/BKlayz3DWA0/",
-                                        "width": 290,
-                                        "img_class": "img-full"
-                                    }
-                                },
-                                {   
-                                    "template": "button",
-                                    "options": {
-                                        "type": "primary", // primary, secondary, outline, text
-                                        "text": "Watch Instagram Video",
-                                        "href": "https://www.instagram.com/p/BKlayz3DWA0/",
-                                        "width": "100%",
-                                        "style": "padding-top: 10px"
-                                    }
-                                }
-                            ]
+                            "permalink": "https://www.instagram.com/p/BKlayz3DWA0/",
+                            "img": {
+                                "src": "instagram-cover.png",
+                                "alt": "Upper School Dance Production Auditions",
+                                "width": 290,
+                                "img_class": "img-full"
+                            },
+                            "header": {
+                                "text": "Upper School Dance Auditions",
+                                "href": ""
+                            },
+                            "button": {
+                                "type": "primary",
+                                "text": "Watch Instagram Video",
+                                "width": "100%"
+                            }
                         }
                     },
                     {
-                        "template": "element-list",
+                        "template": "article",
                         "options": {
-                            "elements": [
-                                {
-                                    "template": "img",
-                                    "options": {
-                                        "src": "facebook-cover.png",
-                                        "alt": "National Merit Semifinalists",
-                                        "href": "https://www.facebook.com/harkerschool/posts/10153903574445737",
-                                        "width": 290,
-                                        "img_class": "img-full"
-                                    }
-                                },
-                                {   
-                                    "template": "button",
-                                    "options": {
-                                        "type": "primary", // primary, secondary, outline, text
-                                        "text": "View Facebook Post",
-                                        "href": "https://www.facebook.com/harkerschool/posts/10153903574445737",
-                                        "width": "100%",
-                                        "style": "padding-top: 10px"
-                                    }
-                                }
-                            ]
+                            "permalink": "https://www.facebook.com/harkerschool/posts/10153903275115737",
+                            "img": {
+                                "src": "facebook-cover.png",
+                                "alt": "Hilarious September Sports Report from Journalism Department!",
+                                "width": 290,
+                                "img_class": "img-full"
+                            },
+                            "header": {
+                                "text": "Hilarious US Eagle Update from Spirit and Journalism Students!",
+                                "href": ""
+                            },
+                            "button": {
+                                "type": "primary",
+                                "text": "View Facebook Post",
+                                "width": "100%"
+                            }
                         }
                     },
                     {
-                        "template": "element-list",
+                        "template": "article",
                         "options": {
-                            "elements": [
-                                {
-                                    "template": "img",
-                                    "options": {
-                                        "src": "publication-cover.png",
-                                        "alt": "Guide to Philanthropy",
-                                        "href": "https://issuu.com/theharkerschool/docs/1507_har_guide2philanthrop_0716_vf2",
-                                        "width": 290,
-                                        "img_class": "img-full"
-                                    }
-                                },
-                                {   
-                                    "template": "button",
-                                    "options": {
-                                        "type": "primary", // primary, secondary, outline, text
-                                        "text": "Read the Guide to Philanthropy",
-                                        "href": "https://issuu.com/theharkerschool/docs/1507_har_guide2philanthrop_0716_vf2",
-                                        "width": "100%",
-                                        "style": "padding-top: 10px"
-                                    }
-                                }
-                            ]
+                            "permalink": "http://portals.harker.org",
+                            "img": {
+                                "src": "photo-cover.jpg",
+                                "alt": "Four Preschoolers Smiling",
+                                "width": 290,
+                                "img_class": "img-full"
+                            },
+                            "header": {
+                                "text": "September Photo Galleries",
+                                "href": ""
+                            },
+                            "button": {
+                                "type": "primary",
+                                "text": "View Photos",
+                                "width": "100%"
+                            }
                         }
                     }
                 ]
@@ -283,8 +277,7 @@
                     {
                         "template": "content",
                         "options": {
-                            "text": "What's your favorite part about Fall?<br><br>
-                            Joe's Answer: Pumpkin Spice Lattes"
+                            "text": "Approximately how many strawberries do lower school students eat in one month?"
                         }
                     }
                 ],
@@ -292,9 +285,9 @@
                     {
                         "template": "button",
                         "options": {
-                            "type": "outline",
+                            "type": "primary",
                             "text": "Answer Question",
-                            "href": "http://www.harker.org",
+                            "href": "https://www.surveymonkey.com/r/GJ9GSB7",
                             "width": "100%"
                         }
                     }
