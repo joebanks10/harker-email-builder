@@ -279,6 +279,18 @@
                         "options": {
                             "text": "Approximately how many strawberries do lower school students eat in one month?"
                         }
+                    },
+                    {
+                        "template": "list",
+                        "options": {
+                            "class": "list-collapse",
+                            "type": "unordered",
+                            "items": [
+                                "2,550",
+                                "7,200",
+                                "9,400"
+                            ]
+                        }
                     }
                 ],
                 "sidebar": [
@@ -286,7 +298,7 @@
                         "template": "button",
                         "options": {
                             "type": "primary",
-                            "text": "Answer Question",
+                            "text": "Choose Answer",
                             "href": "https://www.surveymonkey.com/r/GJ9GSB7",
                             "width": "100%"
                         }

@@ -469,7 +469,7 @@ tr:last-child > .row {
 
 
 .module-footer .background {
-    background-color: #ecf0f1;
+    background-color: #dddddd;
 }
 
 .module-footer .list-item {
@@ -477,16 +477,18 @@ tr:last-child > .row {
 }
 
 .module-bottombar .background {
-    background-color: #e2e6e7;
+    background-color: #05533E;
 }
 
 .module-bottombar .container {
     padding-top: 15px;
     padding-bottom: 15px;
+    color: #ffffff;
 }
 
 .module-bottombar .content {
     text-align: center;
+    color: #ffffff;
 }
 
 
