@@ -17,6 +17,26 @@ class Template_Extensions {
         return file_get_contents($file);
     }
 
+    /**
+     * From top comment in http://php.net/manual/en/function.array-merge-recursive.php
+     * @param  array  &$array1 First array
+     * @param  array  &$array2 Second array
+     * @return array           Array with second array merged into first
+     */
+    public function array_merge_recursive_distinct($array1, $array2) {
+        $merged = $array1;
+
+        foreach ($array2 as $key => &$value) {
+            if (is_array($value) && isset($merged[$key]) && is_array($merged[$key])) {
+                $merged[$key] = $this->array_merge_recursive_distinct($merged[$key], $value);
+            } else {
+                $merged[$key] = $value;
+            }
+        }
+
+        return $merged;
+    }
+
     public function get_module_classes($other_classes = '') {
         $index = $this->get_index(); 
         $alt = ( $index % 2 ) ? 'odd' : 'even';
@@ -49,14 +69,13 @@ class Template_Extensions {
     public function get_column_width($column, $module) {
         $container_width = $module['width'] - (($module['column_count'] - 1) * $module['gutter_width']);
         $column_width = ""; // default
-        $column_reduction = 0; // reduce width for Outlook 07/10/13 - removed this because of conditional HTML solution
 
         if ( empty($column['width']) ) {
             // if there is no column width defined
             if ($module['column_count'] == 1) {
                 $column_width = $module['width'];
             } else {
-                $column_width = floor($container_width / $module['column_count']) - $column_reduction;
+                $column_width = floor($container_width / $module['column_count']);
             }
         } else if ( !empty($column['width']) && is_numeric($column['width']) && $column['width'] >= 0 && $column['width'] <= $container_width ) {
             // if column width is a valid pixel number
@@ -66,7 +85,7 @@ class Template_Extensions {
             if ( $column['width'] == '100%' ) {
                 $column_width = $module['width'];
             } else {
-                $column_width = floor((intval($column['width'])/100) * $container_width) - $column_reduction;
+                $column_width = floor((intval($column['width'])/100) * $container_width);
             }
         }
 
@@ -88,17 +107,99 @@ class Template_Extensions {
         return $url;
     }
 
-    public function get_rss_items($url = '') {
-        $url = empty($url) ? 'http://rss.cnn.com/rss/cnn_topstories.rss' : $url;
+    public function get_rss_items($module) {
+        if (!empty($module['articles'])) {
+            return $module['articles'];
+        }
 
-        $feed = new RSS_Feed($url);
+        $url = empty($module['rss']) ? 'http://rss.cnn.com/rss/cnn_topstories.rss' : $module['rss'];
+        $args = array();
+
+        $args['count'] = (isset($module['count'])) ? $module['count'] : null;
+
+        $feed = new RSS_Feed($url, $args);
         $feed = $feed->get_array();
 
         if ( ! $feed ) {
             return array();
         }
 
-        return $feed['items'];
+        return $this->get_articles($feed['items'], $module);
+    }
+
+    private function get_articles($feed_items, $module) {
+        $articles = array();
+
+        foreach($feed_items as $i => $item) {
+            if ($module['feature'] && $i == 0) {
+                $articles[] = $this->get_article($item, $module, true);
+            } else {
+                $articles[] = $this->get_article($item, $module);
+            }
+        }
+
+        return $articles;
+    }
+
+    private function get_article($item, $module, $featured = false) {
+        $template = ($featured) ? 'article-feature' : 'article';
+        $settings = ($featured) ? $module['feature_article'] : $module['article'];
+
+        $options = array();
+        $options['permalink'] = $item['permalink'];
+
+        if ($settings['img']['include']) {
+            $options['img'] = array_merge($settings['img'], array(
+                'src' => $this->get_article_image_url($item['content']),
+                'alt' => $item['title'],
+                'href' => ($settings['img']['link']) ? $item['permalink'] : null
+            ));
+        } else {
+            $options['img'] = false;
+        }
+
+        if ($settings['header']['include']) {
+            $options['header'] = array_merge($settings['header'], array(
+                'text' => $item['title'],
+                'href' => ($settings['header']['link']) ? $item['permalink'] : null
+            ));
+        } else {
+            $options['header'] = false;
+        }
+
+        if ($settings['content']['include']) {
+            $options['content'] = array_merge($settings['content'], array(
+                'text' => strip_tags($item['description'])
+            ));
+        } else {
+            $options['content'] = false;
+        }
+
+        if ($settings['button']['include']) {
+            $options['button'] = $settings['button'];
+        } else {
+            $options['button'] = false;
+        }
+
+        return array(
+            'template' => $template,
+            'options' => $options
+        );
+    }
+
+    private function get_article_image_url($content) {
+        $dom = new DOMDocument;
+        $dom->loadHTML($content);
+        $images = $dom->getElementsByTagName('img');
+        
+        if ($images->length == 0) {
+            return null;
+        }
+
+        $image = $images->item(0);
+        $src = $image->attributes->getNamedItem('src')->value;
+
+        return $src;
     }
 
     public function get_ical_items($args) {
@@ -123,6 +224,11 @@ class Template_Extensions {
             return array();
         }
 
+        // return calendar items
+        return $this->get_calendar_items($events);
+    }
+
+    private function get_calendar_items($events) {
         $dates = array();
         $current_date = $events[0]['start']; // set to first date
         $current_events = array();

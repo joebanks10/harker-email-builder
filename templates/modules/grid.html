@@ -1,5 +1,4 @@
 {% extends "modules/module.html" %}
-{% import _self as grid %}
 
 {% set defaults = {
     module_class: "module-grid",
@@ -7,69 +6,26 @@
     column_direction: 'ltr',
     gutter_width: 20,
     gutter_height: 40,
+    stack: true,
+    fix_rounding: true,
+    fix_outlook: true,
     columns: []
 } %}
 
 {% set module = defaults|merge( module|default({}) ) %}
 
-{% block container %}
-    {% set column_align = table_position(module.column_direction) %}
-
-    <table class="table-full" align="center" width="{{ module.width }}" border="0" cellspacing="0" cellpadding="0">
-        {% for row in module.columns|batch(module.column_count) %}
-            <tr>
-                <td class="row" valign="top">
-                    {% for column in row %}
-                        {% set column_width = get_column_width(column, module) %}
-
-                        {% if loop.index in range(1, module.column_count - 1) %}
-                            {% if loop.index != 1 %}
-                                <!--[if gte mso 12]>
-                                   </td><td class="row" valign="top">
-                                <![endif]-->
-                            {% endif %}
-                            <table class="table-full" width="{{ column_width }}" border="0" align="{{ column_align }}" cellpadding="0" cellspacing="0">
-                                {% for element in column.elements %}
-                                    {{ grid.element(element, column_width) }}
-                                {% endfor %}
-                            </table>
-                            {% if module.column_count != 1 %}
-                                <!--[if gte mso 12]>
-                                   </td><td valign="top">
-                                <![endif]-->
-                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="{{ column_align }}">
-                                    <tr>
-                                        <td height="{{ module.gutter_height }}" style="font-size: 0;line-height: 0;border-collapse: collapse;">
-                                            <p style="padding-left: {{ module.gutter_width }}px; font-size: inherit;">&nbsp;</p>
-                                        </td>
-                                    </tr>
-                                </table>
-                            {% endif %}
-                        {% else %}
-                            <!--[if gte mso 12]>
-                                </td><td class="row" valign="top">
-                            <![endif]-->
-                            <table class="table-full" width="{{ column_width }}" border="0" align="{{ opposite_direction(column_align) }}" cellpadding="0" cellspacing="0">
-                                {% for element in column.elements %}
-                                    {{ grid.element(element, column_width) }}
-                                {% endfor %}
-                            </table>
-                        {% endif %}
-                    {% endfor %}
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
-{% endblock container %}
-
-{% macro element(element, column_width) %}
-    {% if element.template == "grid" %}
-        {% set options = { width: column_width }|merge(element.options|default({})) %}
-    {% else %}
-        {% set options = element.options|default({}) %}
-    {% endif %}
-
+{% block content %}
     <tr>
-        {% include "elements/#{element.template}.html" with { module: options } %}
+        {% include "elements/grid.html" with { module: {
+            width: module.width,
+            column_count: module.column_count,
+            column_direction: module.column_direction,
+            gutter_width: module.gutter_width,
+            gutter_height: module.gutter_height,
+            stack: module.stack,
+            fix_rounding: module.fix_rounding,
+            fix_outlook: module.fix_outlook,
+            columns: module.columns
+        } } %}
     </tr>
-{% endmacro %}
+{% endblock content %}

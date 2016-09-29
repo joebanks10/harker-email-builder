@@ -34,6 +34,14 @@ class Email {
 
         $this->settings = array_merge($defaults, $args);
 
+        if ($this->settings['stylesheet_addons_url']) {
+            $this->settings['stylesheet'] = file_get_contents($this->settings['stylesheet_url']);
+        }
+
+        if ($this->settings['stylesheet_addons_url']) {
+            $this->settings['stylesheet_addons'] = file_get_contents($this->settings['stylesheet_addons_url']);
+        }
+
         if ($this->settings['debug']) {
             ini_set('display_errors', 1);
             ini_set('display_startup_errors', 1);
@@ -48,8 +56,17 @@ class Email {
         }
 
         $is_inline = isset($_GET['inline']);
+        $wp_id = isset($_GET['wp_id']) ? $_GET['wp_id'] : false;
+
+        // get data from WordPress or JSON file
+        if ($wp_id) {
+            $wp_email = new WP_Email('http://localhost/wp-dev/wp-json/wp/v2/email/' . $wp_id);
+            $json = $wp_email->get_data();
+        } else {
+            $json = $this->get_data();
+        }
         
-        $email_data = array_merge($this->settings, $this->get_data());
+        $email_data = array_merge($this->settings, $json);
         $data = array_merge(array(
             'email' => $email_data
         ), $constants);
@@ -112,7 +129,9 @@ class Email {
         $this->add_function('convert_dates_to_columns', array($template_extensions, 'convert_dates_to_columns'));
 
         // article list
-        $this->add_function('rss', array($this, 'get_rss_items'));
+        $this->add_function('rss', array($template_extensions, 'get_rss_items'));
+
+        $this->add_filter('merge_r', array($template_extensions, 'array_merge_recursive_distinct'));
     }
 
     private function add_function($name, $callback) {

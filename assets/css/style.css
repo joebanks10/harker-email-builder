@@ -35,15 +35,12 @@ a {
 
 img {
     display: block; 
-    line-height: 0px; 
-    font-size: 0px; 
     border: 0px;
 }
 
 h2, h3, h4 {
     font-family: 'Open Sans', Arial, sans-serif; 
     color: #3B3B3B; 
-    text-align: left;
     margin-top: 0;
     margin-bottom: 15px;
 }
@@ -97,7 +94,6 @@ tr:first-child > .element {
     letter-spacing: 2px;
     color: #3B3B3B; 
     font-weight: bold; 
-    text-align: center;
     padding-bottom: 15px;
 }
 
@@ -107,7 +103,6 @@ tr:first-child > .element {
     line-height: 26px; 
     letter-spacing: 2px;
     color: #676767;
-    text-align: center;
     padding-bottom: 15px;
 }
 
@@ -122,7 +117,6 @@ tr:first-child > .element {
     line-height: 34.8px;
     color: #3B3B3B; 
     font-weight: bold; 
-    text-align: left;
 }
 
 .header a {
@@ -139,7 +133,6 @@ tr:first-child > .element {
     line-height: 34.8px;
     color: #3B3B3B; 
     font-weight: 100; 
-    text-align: left;
 }
 
 p, .content {
@@ -147,7 +140,6 @@ p, .content {
     font-size: 16px; 
     line-height: 26px;
     color: #676767; 
-    text-align: left;
 }
 
 p {
@@ -161,11 +153,6 @@ p {
     font-weight: 100;
     line-height: 36px;
     color: #333;
-    text-align: left;
-}
-
-.element-img {
-    line-height: 0px;
 }
 
 .table-button {
@@ -175,7 +162,7 @@ p {
 .button {
     font-family: 'Open Sans', Arial, sans-serif;
     font-size: 16px;
-    line-height: 26px;
+    line-height: normal;
     color: #ffffff;
     vertical-align: middle;
     text-align: center;
@@ -224,7 +211,6 @@ p {
 }
 
 .table-button-text .button {
-    text-align: left;
     padding: 0;
 }
 
@@ -312,31 +298,66 @@ tr:last-child > .row {
 .module-topbar .container .logo-container {
     padding-right: 20px;
     padding-left: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     border-right: 4px solid #033e2f; 
     border-left: 4px solid #033e2f; 
     background-color: #05533E;
 }
 
-.article .img {
+.module-topbar-icons .topbar-links .row {
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+
+.module-topbar-text .topbar-links .row {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.module-topbar .topbar-links img {
+    display: block;
+}
+
+.module-topbar .topbar-links .content,
+.module-topbar .topbar-links .content a {
+    color: #ffffff;
+    font-size: 14px;
+    line-height: normal;
+    text-decoration: none;
+}
+
+.module-topbar .topbar-links .content {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.article, .article-feature {
+    padding-bottom: 40px;
+}
+
+.article .img,
+.article-feature img {
     width: 100%;
 }
 
-.article .header {
+.article .header,
+.article-feature .header {
     color: #555; 
     font-size: 16px; 
     line-height: 24px;
     padding-bottom: 10px;
 }
 
-.article .content {
+.article .content,
+.article-feature .content {
     font-size: 12px; 
     line-height: 18px;
     padding-bottom: 10px;
 }
 
-.article .button {
+.article .button,
+.article-feature .button {
     font-size: 14px;
 }
 
@@ -453,7 +474,7 @@ tr:last-child > .row {
 
 
 .module-footer .background {
-    background-color: #ecf0f1;
+    background-color: #dddddd;
 }
 
 .module-footer .list-item {
@@ -461,16 +482,18 @@ tr:last-child > .row {
 }
 
 .module-bottombar .background {
-    background-color: #e2e6e7;
+    background-color: #05533E;
 }
 
 .module-bottombar .container {
     padding-top: 15px;
     padding-bottom: 15px;
+    color: #ffffff;
 }
 
 .module-bottombar .content {
     text-align: center;
+    color: #ffffff;
 }
 
 
@@ -571,6 +594,12 @@ tr:last-child > .row {
         width: 100% !important; 
         text-align: center !important;
     }
+    .module-topbar .container .logo-container {
+        border-right-width: 0 !important;
+        border-left-width: 0 !important;
+        border-bottom: 1px solid #033e2f;
+    }
+    .topbar-links .content { text-align: center; }
     
     /* image */
     img[class="img-full"] { 
@@ -596,6 +625,12 @@ td[class="hide"] {
         width: 100% !important; 
         text-align: center !important;
     }
+    .module-topbar .container .logo-container {
+        border-right-width: 0 !important;
+        border-left-width: 0 !important;;
+        border-bottom: 1px solid #033e2f;
+    }
+    .topbar-links .content { text-align: center; }
     
     /* image */
     img[class="img-full"] { width: 100% !important; }

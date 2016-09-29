@@ -1,0 +1,91 @@
+{% extends "modules/grid.html" %}
+
+{% set defaults = {
+    module_class: "module-topbar module-topbar-icons",
+    column_count: 2,
+    gutter_height: 1,
+    columns: [
+        {
+            width: "231",
+            elements: [
+                {
+                    template: "img",
+                    options: {
+                        class: "logo-container",
+                        src: module.img.src|default("#{ROOT_IMG_DIR_URL}/harker-logo.png"),
+                        alt: module.img.alt|default("Harker Logo"),
+                        width: module.img.width|default(183),
+                        height: module.img.height|default(32),
+                        img_class: module.img.class|default("")
+                    }
+                }
+            ]
+        },
+        {
+            width: "140",
+            elements: [
+                {
+                    template: "grid",
+                    options: {
+                        class: "topbar-links",
+                        stack: false,
+                        fix_rounding: false,
+                        fix_outlook: false,
+                        column_count: 3,
+                        column_direction: "rtl",
+                        gutter_height: 24,
+                        columns: [
+                            {
+                                width: 24,
+                                elements: [
+                                    {
+                                        template: "img",
+                                        options: {
+                                            src: "~/login-icon.png",
+                                            width: 20,
+                                            height: 22,
+                                            href: "https://www.harker.org/login",
+                                            img_class: ""
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                width: 24,
+                                elements: [
+                                    {
+                                        template: "img",
+                                        options: {
+                                            src: "~/news-icon.png",
+                                            width: 24,
+                                            height: 22,
+                                            href: "http://news.harker.org",
+                                            img_class: ""
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                width: 24,
+                                elements: [
+                                    {
+                                        template: "img",
+                                        options: {
+                                            src: "~/home-icon.png",
+                                            width: 28,
+                                            height: 22,
+                                            href: "http://www.harker.org",
+                                            img_class: ""
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }   
+            ]
+        }
+    ]
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}

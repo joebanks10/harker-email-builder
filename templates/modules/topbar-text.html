@@ -1,0 +1,67 @@
+{% extends "modules/grid.html" %}
+
+{% set defaults = {
+    module_class: "module-topbar module-topbar-text",
+    column_count: 2,
+    gutter_height: 1,
+    collapse_gutters: true,
+    columns: [
+        {
+            width: "231",
+            elements: [
+                {
+                    template: "img",
+                    options: {
+                        class: "logo-container",
+                        src: module.img.src|default("#{ROOT_IMG_DIR_URL}/harker-logo.png"),
+                        alt: module.img.alt|default("Harker Logo"),
+                        width: module.img.width|default(183),
+                        height: module.img.height|default(32),
+                        img_class: module.img.class|default("")
+                    }
+                }
+            ]
+        },
+        {
+            width: "349",
+            elements: [
+                {
+                    template: "element-list-inline",
+                    options: {
+                        class: "topbar-links",
+                        align: "right",
+                        elements: [
+                            {
+                                template: "content",
+                                options: {
+                                    text: "<a href=\"http://www.harker.org\">Home</a>",
+                                    height: 48,
+                                    valign: "middle"
+                                }
+                            },
+                            {
+                                template: "content",
+                                options: {
+                                    text: "<a href=\"http://news.harker.org\">News</a>",
+                                    height: 48,
+                                    valign: "middle"
+                                }
+                            },
+                            {
+                                template: "content",
+                                options: {
+                                    text: "<a href=\"https://www.harker.org/login\">Portal</a>",
+                                    height: 48,
+                                    valign: "middle"
+                                }
+                            }
+                        ]
+                    }
+                }   
+            ]
+        }
+    ]
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}
+                        

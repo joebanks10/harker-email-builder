@@ -7,9 +7,10 @@
     //         "template": "topbar",
     //         "options": {
     //             "img": {
-    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
-    //                 "alt": "Updated Alt Tag"
-    //                 "width": 215
+    //                 "src": "~/harker-logo.png",
+    //                 "alt": "Updated Alt Tag",
+    //                 "width": 183,
+    //                 "height": 32
     //             }
     //         }
     //     }
@@ -243,6 +244,14 @@
             "template": "element-grid",
             "options": {
                 "class": "gray-bg",
+                "header": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Module Header"
+                        }
+                    }
+                ],
                 "elements": [
                     {
                         "template": "article",
@@ -290,6 +299,38 @@
                             "img": {
                                 "width": 185
                             }
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Article Listing
+        {
+            "template": "one-column",
+            "options": {
+                "class" : "rss",
+                "content": [
+                    {
+                        "template": "article-grid",
+                        "options": {
+                            "rss": "http://news.harker.org/feed/",
+                            "feature": true,
+                            "article": {
+                                "content": false,
+                                "button": false
+                            },
+                            "feature_article": {
+                                "button": false
+                            },
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Recent Stories"
+                                    }
+                                }
+                            ]
                         }
                     }
                 ]
@@ -475,6 +516,49 @@
                                 }
                             }
                         ]
+                    }
+                ]
+            }
+        },
+
+        // Single Column w/ Element Grid
+        {
+            "template": "one-column",
+            "options": {
+                "content": [
+                    {   
+                        "template": "grid",
+                        "options": {
+                            "column_count": 3,
+                            "stack": false,
+                            "fix_rounding": false,
+                            "columns" : [
+                                {
+                                    "width": "20%",
+                                    "elements": [
+                                        {
+                                            "template": "article"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "width": "20%",
+                                    "elements": [
+                                        {
+                                            "template": "article"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "width": "20%",
+                                    "elements": [
+                                        {
+                                            "template": "article"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
                     }
                 ]
             }

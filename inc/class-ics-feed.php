@@ -6,12 +6,11 @@ class ICS_Feed {
     private $array;
     private $hkr_page_id;
 
-    public function __construct($url, $start_date = false, $end_date = false, $group_by_date = false) {
+    public function __construct($url, $start_date = false, $end_date = false) {
         // instantiate object and array
         $this->get_page_id($url);
         $this->start_date = (is_int($start_date)) ? $start_date : strtotime($start_date);
         $this->end_date = (is_int($end_date)) ? $end_date : strtotime($end_date);
-        $this->group_by_date = (bool) $group_by_date;
 
         // end timestamp is end of the "end day" (11:59:59)
         $this->end_date = strtotime(date('Y-m-d', $this->end_date)) + 60*60*24 - 1;
@@ -99,45 +98,11 @@ class ICS_Feed {
             }
 
             // add item to array
-            if ($this->group_by_date) {
-                $start = $ical->iCalDateToUnixTimestamp($event['DTSTART']);
-                
-                // check if date has changed
-                if (date('M. j, Y', $start) != date('M. j, Y', $current_date)) {
-                    // check if date is defined
-                    if ($current_date) {
-                        // add date and events to array
-                        $array[] = $this->create_date_group($current_date, $current_events);
-                    }
-
-                    // set date to new date and reset events
-                    $current_date = $start;
-                    $current_events = array();
-                }
-
-                // add event to current date's events
-                $current_events[] = $item;
-
-            } else {
-                $array[] = $item;
-            }
-            
-        }
-
-        // add last date if grouping by date
-        if ($this->group_by_date && $current_date) {
-            $array[] = $this->create_date_group($current_date, $current_events);
+            $array[] = $item;
         }
 
         $this->array = $array;
         return $this->array;
-    }
-
-    private function create_date_group($date, $events = array()) {
-        return array(
-            'date' => $date,
-            'events' => $events
-        );
     }
 
     private function in_lower_bound($event) {
