@@ -135,16 +135,11 @@ tr:first-child > .element {
     font-weight: 100; 
 }
 
-p, .content {
+.content {
     font-family: 'Open Sans', Arial, sans-serif; 
     font-size: 16px; 
     line-height: 26px;
     color: #676767; 
-}
-
-p {
-    margin-top: 0;
-    margin-bottom: 15px;
 }
 
 .content-intro {
