@@ -207,6 +207,7 @@ tr:first-child > .element {
 
 .table-button-text .button {
     padding: 0;
+    text-align: left;
 }
 
 .table-button-text .button a {
