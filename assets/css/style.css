@@ -18,10 +18,8 @@ body {
 }
 table { 
     border-spacing: 0; 
-    table-layout: fixed; 
     margin: 0 auto; 
 }
-table table table { table-layout: auto; }
 img { display: block !important; }
 table td { border-collapse: collapse; }
 .yshortcuts a { border-bottom: none !important; }
@@ -268,6 +266,12 @@ tr:first-child > .element {
 .container {
     padding-top: 40px;
     padding-bottom: 40px;
+}
+
+.table-inner > tr > .container,
+.table-inner > tbody > tr > .container {
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .row {
@@ -584,7 +588,7 @@ tr:last-child > .row {
 @media only screen and (max-width: 640px) {
     body { width: auto !important; 
     }
-    table[class="table-inner"] { width: 90% !important; }
+    table[class="table-inner"] { width: 100% !important; }
     table[class="table-full"] { width: 100% !important; }
     table[class="table-full-center"] { 
         width: 100% !important; 
@@ -615,7 +619,7 @@ td[class="hide"] {
 
 @media only screen and (max-width: 479px) {
     body { width: auto !important; }
-    table[class="table-inner"] { width: 90% !important; }
+    table[class="table-inner"] { width: 100% !important; }
     table[class="table-full"] { width: 100% !important; }
     table[class="table-full-center"] { 
         width: 100% !important; 
