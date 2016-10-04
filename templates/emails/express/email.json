@@ -87,11 +87,17 @@
             "options": {
                 "class": "gray-bg",
                 "content": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Welcome to the inaugural edition of the News Express!"
+                        }
+                    },
                     {   
                         "template": "content",
                         "options": {
                             "style": "font-size: 14px; line-height: 22px;",
-                            "text": "Welcome to the inaugural edition of the News Express! This monthly news
+                            "text": "This monthly news
                                 blast partially replaces the Harker Quarterly magazine, which will now be
                                 published biannually (the first edition will mail this December so watch
                                 for a reminder on that!).
