@@ -26,30 +26,32 @@
 
 <table id="{{ module.id }}" class="module {{ module.module_class }} {{ module_classes(module.class) }}" style="{{ module.table_style }}" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" {{ module.attributes }}>
     <tr>
-        <td class="background" align="center" background="{{ module.background_img }}" style="background-image: url({{ module.background_img }}) {{ module.background_style }}">
-            <table align="center" class="{{ table_inner_class }}" width="{{ module.width }}" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                    <td class="container" style="{{ module.style }}">
-                        {% block container %}
-                            <table widht="100%" align="center" border="0" cellspacing="0" cellpadding="0">
-                                {% for element in module.header %}
-                                    {{ grid.element(element, module.width) }}
-                                {% endfor %}
-                                
-                                {% block content %}
-                                    {% for element in module.content %}
+        <td class="background" align="center" background="{{ module.background_img }}" style="text-align: center; background-image: url({{ module.background_img }}) {{ module.background_style }}">
+            <center>
+                <table align="center" class="{{ table_inner_class }}" width="{{ module.width }}" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="container" style="{{ module.style }}">
+                            {% block container %}
+                                <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                    {% for element in module.header %}
                                         {{ grid.element(element, module.width) }}
                                     {% endfor %}
-                                {% endblock content %}
-                                
-                                {% for element in module.footer %}
-                                    {{ grid.element(element, module.width) }}
-                                {% endfor %}
-                            </table>
-                        {% endblock container %}
-                    </td>
-                </tr>
-            </table>
+                                    
+                                    {% block content %}
+                                        {% for element in module.content %}
+                                            {{ grid.element(element, module.width) }}
+                                        {% endfor %}
+                                    {% endblock content %}
+                                    
+                                    {% for element in module.footer %}
+                                        {{ grid.element(element, module.width) }}
+                                    {% endfor %}
+                                </table>
+                            {% endblock container %}
+                        </td>
+                    </tr>
+                </table>
+            </center>
         </td>
     </tr>
 </table>
