@@ -201,6 +201,10 @@ class Email {
             $email = $this->inline_css($email, $css);
         }
 
+        if (isset($_GET['minify'])) {
+            $email = preg_replace('/[\s\t\r\n]+/', ' ', $email);
+        }
+
         return $email;
     }
 
