@@ -639,6 +639,16 @@ td[class="hide"] {
         max-height: 0px !important; 
         max-width: 0px !important; 
     }
+
+    .event {
+        padding-bottom: 12px;
+    }
+
+    .event .header {
+        font-size: 12px;
+        line-height: 18px;
+        padding-bottom: 2px;
+    }
 }
 
 /* overwrite media query */
