@@ -21,40 +21,50 @@
 }) %}
 
 {% block element_content %}
-    <table class="table-list" align="left" width="100%" border="0" cellspacing="0" cellpadding="0">
-        {% for item in module.items %}
+    <table class="table-full" align="{{ module.align }}" height="{{ module.height }}" border="0" cellspacing="0" cellpadding="0">
+        {% if module.type == "inline" %}
             <tr>
-                <td class="list-item">
-                    <table width="{{ module.width }}" border="0" align="left" cellpadding="0" cellspacing="0">
-                        <tr>
-                            {% block bullet %}
-                                {% if module.bullet %}
-                                    {% if module.type == 'ordered' %}
-                                        <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet bullet-text">
-                                            {{ loop.index }}.
-                                        </td>
-                                    {% elseif module.type == 'unordered' %}
-                                        <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet bullet-text">
-                                            &bull;
-                                        </td>
-                                    {% elseif module.type == 'unstyled' %}
-                                        <!-- unstyled -->
-                                    {% else %}
-                                        <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet bullet-img img-container">
-                                            <img src="{{ module.bullet.url|default("http://skylark.harker.org/email-builder/assets/img/check.png") }}" width="{{ module.bullet.width|default(17) }}" alt="bullet">
-                                        </td>
-                                    {% endif %}
-                                {% endif %}
-                            {% endblock bullet %}
-                            {% block list_item_text %}
-                            <td class="list-item-text" valign="top">
-                                {{ item }}
-                            </td>
-                            {% endblock list_item_text %}
-                        </tr>
-                    </table>
-                </td>
+                {% for item in module.items %}
+                    <td class="list-item list-item-text">
+                        {{ item }}
+                    </td>
+                {% endfor %}
             </tr>
-        {% endfor %}
+        {% else %}
+            {% for item in module.items %}
+                <tr>
+                    <td class="list-item">
+                        <table width="{{ module.width }}" border="0" align="left" cellpadding="0" cellspacing="0">
+                            <tr>
+                                {% block bullet %}
+                                    {% if module.bullet %}
+                                        {% if module.type == 'ordered' %}
+                                            <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet bullet-text">
+                                                {{ loop.index }}.
+                                            </td>
+                                        {% elseif module.type == 'unordered' %}
+                                            <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet bullet-text">
+                                                &bull;
+                                            </td>
+                                        {% elseif module.type == 'unstyled' %}
+                                            <!-- unstyled -->
+                                        {% else %}
+                                            <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet bullet-img img-container">
+                                                <img src="{{ module.bullet.url|default("http://skylark.harker.org/email-builder/assets/img/check.png") }}" width="{{ module.bullet.width|default(17) }}" alt="bullet">
+                                            </td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endblock bullet %}
+                                {% block list_item_text %}
+                                <td class="list-item-text" valign="top">
+                                    {{ item }}
+                                </td>
+                                {% endblock list_item_text %}
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endif %}
     </table>
 {% endblock element_content %}
