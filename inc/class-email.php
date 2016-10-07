@@ -201,6 +201,10 @@ class Email {
             $email = $this->inline_css($email, $css);
         }
 
+        if (isset($_GET['minify'])) {
+            $email = \HKR\minify_html($email);
+        }
+
         return $email;
     }
 
