@@ -245,6 +245,10 @@ tr:first-child > .element {
     padding-left: 15px;
 }
 
+.list-unstyled .list-item {
+    padding-top: 0;
+}
+
 .list-unstyled .list-item-text,
 .list-unordered .list-item-text {
     padding-left: 0;
