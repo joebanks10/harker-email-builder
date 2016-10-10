@@ -319,31 +319,14 @@ tr:last-child > .row {
     background-color: #05533E;
 }
 
-.module-topbar-icons .topbar-links .row {
-    padding-top: 13px;
-    padding-bottom: 13px;
-}
-
-.module-topbar-text .topbar-links .row {
-    padding-top: 12px;
-    padding-bottom: 12px;
-}
-
-.module-topbar .topbar-links img {
-    display: block;
-}
-
-.module-topbar .topbar-links .content,
-.module-topbar .topbar-links .content a {
+.module-topbar .list-item-text,
+.module-topbar .list-item-text a {
     color: #ffffff;
     font-size: 14px;
-    line-height: normal;
-    text-decoration: none;
 }
 
-.module-topbar .topbar-links .content {
-    padding-left: 8px;
-    padding-right: 8px;
+.module-topbar .list-item-text a {
+    text-decoration: none;
 }
 
 .article, .article-feature {

@@ -3,7 +3,7 @@
 {% set defaults = {
     element_class: "list",
     type: "",
-    width: "100%",
+    width: "",
     bullet: {
         url: "http://skylark.harker.org/email-builder/assets/img/check.png",
         width: 17
@@ -21,7 +21,7 @@
 }) %}
 
 {% block element_content %}
-    <table class="table-full" align="{{ module.align }}" height="{{ module.height }}" border="0" cellspacing="0" cellpadding="0">
+    <table class="table-full" align="{{ module.align }}" width="{{ module.width }}" height="{{ module.height }}" border="0" cellspacing="0" cellpadding="0">
         {% if module.type == "inline" %}
             <tr>
                 {% for item in module.items %}
@@ -34,7 +34,7 @@
             {% for item in module.items %}
                 <tr>
                     <td class="list-item">
-                        <table width="{{ module.width }}" border="0" align="left" cellpadding="0" cellspacing="0">
+                        <table width="{{ module.width }}" align="{{ module.align }}" border="0" cellpadding="0" cellspacing="0">
                             <tr>
                                 {% block bullet %}
                                     {% if module.bullet %}
