@@ -2,6 +2,7 @@
 
     "use strict";
 
+    // Add labels to content-sidebar columns
     acf.add_action('ready', function( $el ){
         var $columns = $('.columns'),
             $rows;
@@ -49,6 +50,7 @@
 
     "use strict";
 
+    // Add iCal element behavior
     acf.add_action('ready', function($el) {
         // add button event for ical list
         acf.fields.repeater._add_layout_event(
@@ -221,6 +223,48 @@
         if (typeof date !== 'undefined') {
             $input.datepicker('setDate', date); 
             $el.removeData('json-date');
+        }
+    });
+
+})(jQuery);
+
+(function($) {
+
+    var url = null;
+
+    // update Link URL inputs when Section Permalink input changes
+    $(document).on('change', '.acf-field[data-name="permalink"] input[type="url"]', function() {
+        var $input = $(this),
+            $section = $input.closest('[data-layout="element-list"]'),
+            $usePermalinkInputs = $section.find('.layout').not('.acf-clone').find('[data-name="use_permalink"] input[type="checkbox"]');
+
+        url = $input.val();
+
+        // update Link URL inputs with new value
+        $usePermalinkInputs.filter(':checked').each(function() {
+            var $linkUrlInput = $(this).closest('.acf-field').prev('.acf-field').find('input[type="url"]');
+
+            $linkUrlInput.val(url);
+        });
+    });
+
+    // update Link URL inputs when Use Permalink input is checked
+    $(document).on('change', '[data-name="use_permalink"] input[type="checkbox"]', function() {
+        var $input = $(this),
+            $linkUrlInput = $input.closest('.acf-field').prev('.acf-field').find('input[type="url"]');
+
+        if ($input.is(':checked')) {
+            if (url === null) {
+                url = $input.closest('[data-layout="element-list"]')
+                            .children('.acf-fields')
+                            .children('.acf-field[data-name="permalink"]')
+                            .find('input[type="url"]')
+                            .val();
+            }
+
+            $linkUrlInput.val(url);
+        } else {
+            $linkUrlInput.val('');
         }
     });
 

@@ -253,3 +253,25 @@ th[data-key="field_57a4cd19fc205"], td[data-key="field_57a4cd19fc205"], div[data
 .acf-fc-layout-order + .hkr-label {
     margin-left: 0;
 }
+
+ul.acf-radio-list li input, ul.acf-checkbox-list li input {
+    margin-right: 6px;
+}
+
+.use-permalink {
+    display: none;
+}
+.layout[data-layout="element-list"] .use-permalink {
+    display: block;
+}
+
+.acf-fields > .acf-field + .use-permalink {
+    border-top: none;
+}
+.acf-fields > .use-permalink > .acf-label {
+    display: none;
+}
+.acf-fields > .acf-field + .use-permalink > .acf-input {
+    padding-top: 0;
+    margin-top: -15px;
+}
