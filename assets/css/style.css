@@ -191,7 +191,6 @@ tr:first-child > .element {
 .table-button-outline .button,
 .table-button-outline .button a {
     color: #00809E;
-    font-weight: bold;
 }
 
 .table-button-text {
@@ -316,6 +315,8 @@ tr:last-child > .row {
     border-right: 4px solid #033e2f; 
     border-left: 4px solid #033e2f; 
     background-color: #05533E;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .module-topbar .logo-container img {
