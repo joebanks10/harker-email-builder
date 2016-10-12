@@ -1,5 +1,9 @@
 <?php
 
+namespace HKR\Email_Builder;
+
+use \SimplePie;
+
 class RSS_Feed {
 
     private $url;

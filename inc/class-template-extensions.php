@@ -1,5 +1,9 @@
 <?php
 
+namespace HKR\Email_Builder;
+
+use \DOMDocument;
+
 class Template_Extensions {
 
     private $index;
@@ -131,7 +135,7 @@ class Template_Extensions {
         $articles = array();
 
         foreach($feed_items as $i => $item) {
-            if ($module['feature'] && $i == 0) {
+            if (isset($module['feature']) && $module['feature'] && $i == 0) {
                 $articles[] = $this->get_article($item, $module, true);
             } else {
                 $articles[] = $this->get_article($item, $module);

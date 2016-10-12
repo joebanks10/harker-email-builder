@@ -1,5 +1,10 @@
 <?php
 
+namespace HKR\Email_Builder;
+
+use \Exception;
+use \ICal;
+
 class ICS_Feed {
 
     private $object;
@@ -49,7 +54,7 @@ class ICS_Feed {
      * @return object      An instance of the ICal class
      */
     private function create_ics_object($url) {
-        $this->object = new \ICal($url);
+        $this->object = new ICal($url);
 
         return $this->object;
     }

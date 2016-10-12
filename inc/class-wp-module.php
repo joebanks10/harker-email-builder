@@ -1,5 +1,7 @@
 <?php
 
+namespace HKR\Email_Builder;
+
 require_once ROOT_DIR . "/inc/class-wp-element.php";
 
 class WP_Module {

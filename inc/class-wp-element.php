@@ -1,13 +1,17 @@
 <?php
 
+namespace HKR\Email_Builder;
+
+use \ReflectionClass;
+
 class WP_Element {
     
     protected $wp_data;
     protected $data;
     protected $template_classes = array(
-        'list' => 'WP_Element_List',
-        'element-list' => 'WP_Element_ElementList',
-        'rss-feed' => 'WP_Element_RSS'
+        'list' => 'HKR\Email_Builder\WP_Element_List',
+        'element-list' => 'HKR\Email_Builder\WP_Element_ElementList',
+        'rss-feed' => 'HKR\Email_Builder\WP_Element_RSS'
     );
 
     public function __construct($wp_data) {
@@ -24,7 +28,7 @@ class WP_Element {
         $template = $this->get_template();
         $child_class = isset($this->template_classes[$template]) ? $this->template_classes[$template] : null;
 
-        if ($child_class && get_class($this) === 'WP_Element') {
+        if ($child_class && get_class($this) === 'HKR\Email_Builder\WP_Element') {
             // create instance of child class for template and get data
             $reflection = new ReflectionClass($child_class);
             $instance = $reflection->newInstance($this->wp_data);

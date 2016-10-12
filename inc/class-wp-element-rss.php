@@ -1,5 +1,7 @@
 <?php
 
+namespace HKR\Email_Builder;
+
 class WP_Element_RSS extends WP_Element {
 
     protected function filter_template($template) {

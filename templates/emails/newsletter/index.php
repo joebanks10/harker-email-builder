@@ -1,5 +1,7 @@
 <?php
 
+use HKR\Email_Builder\Email;
+
 // include the magic sauce
 include "../../../load.php";
 

@@ -1,5 +1,15 @@
 <?php
 
+namespace HKR\Email_Builder;
+
+use \Exception;
+use \Twig_Environment;
+use \Twig_Loader_Filesystem;
+use \Twig_Extension_Debug;
+use \Twig_SimpleFunction;
+use \Twig_SimpleFilter;
+use \HKR\minify_html;
+
 class Email {
 
     private $id;
@@ -34,7 +44,7 @@ class Email {
 
         $this->settings = array_merge($defaults, $args);
 
-        if ($this->settings['stylesheet_addons_url']) {
+        if ($this->settings['stylesheet_url']) {
             $this->settings['stylesheet'] = file_get_contents($this->settings['stylesheet_url']);
         }
 
@@ -202,7 +212,7 @@ class Email {
         }
 
         if (isset($_GET['minify'])) {
-            $email = \HKR\minify_html($email);
+            $email = minify_html($email);
         }
 
         return $email;
