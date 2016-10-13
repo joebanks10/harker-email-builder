@@ -17,7 +17,9 @@
                         alt: module.img.alt|default("Harker Logo"),
                         width: module.img.width|default(183),
                         height: module.img.height|default(32),
-                        img_class: module.img.class|default("")
+                        img_class: module.img.class|default(""),
+                        align: "center",
+                        valign: "middle"
                     }
                 }
             ]
@@ -26,38 +28,17 @@
             width: "349",
             elements: [
                 {
-                    template: "element-list-inline",
-                    options: {
-                        class: "topbar-links",
-                        align: "right",
-                        elements: [
-                            {
-                                template: "content",
-                                options: {
-                                    text: "<a href=\"http://www.harker.org\">Home</a>",
-                                    height: 48,
-                                    valign: "middle"
-                                }
-                            },
-                            {
-                                template: "content",
-                                options: {
-                                    text: "<a href=\"http://news.harker.org\">News</a>",
-                                    height: 48,
-                                    valign: "middle"
-                                }
-                            },
-                            {
-                                template: "content",
-                                options: {
-                                    text: "<a href=\"https://www.harker.org/login\">Portal</a>",
-                                    height: 48,
-                                    valign: "middle"
-                                }
-                            }
+                    "template": "list",
+                    "options": {
+                        "align": "right",
+                        "type": "inline",
+                        "items": [
+                            "<a href=\"http://www.harker.org\">Home</a>",
+                            "<a href=\"http://news.harker.org\">News</a>",
+                            "<a href=\"https://www.harker.org/login\">Portal</a>"
                         ]
                     }
-                }   
+                }
             ]
         }
     ]
