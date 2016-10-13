@@ -362,18 +362,20 @@ class Template_Extensions {
         $parts = explode('CHANGED:', $title);
         $title = trim($parts[0]);
 
-        // school acronyms
-        $title = preg_replace('/PS/', 'Preschool', $title);
-        $title = preg_replace('/LS/', 'Lower School', $title);
-        $title = preg_replace('/MS/', 'Middle School', $title);
-        $title = preg_replace('/US/', 'Upper School', $title);
+        // internal acronyms
+        $title = preg_replace('/\bPS\b/', 'Preschool', $title);
+        $title = preg_replace('/\bLS\b/', 'Lower School', $title);
+        $title = preg_replace('/\bMS\b/', 'Middle School', $title);
+        $title = preg_replace('/\bUS\b/', 'Upper School', $title);
+
+        // grades
+        $title = preg_replace('/\bG(\d{1,2})\b/', 'Grade $1', $title);
+        $title = preg_replace('/(\d{1,2})th Grade/', 'Grade $1', $title);
+        $title = preg_replace('/Grades? K-5/', 'K-5', $title);
 
         // misc
-        $title = preg_replace('/G(\d)/', 'Grade $1', $title);
-        $title = preg_replace('/Grades? K-5/', 'K-5', $title);
         $title = preg_replace('/Mtg/', 'Meeting', $title);
         $title = preg_replace('/BBQ/', 'Barbecue', $title);
-        $title = preg_replace('/[Bb]ack[-\s]to[-\s][Ss]chool/', 'Back-to-School', $title);
 
         return $title;
     }
