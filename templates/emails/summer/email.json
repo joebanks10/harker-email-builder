@@ -60,21 +60,24 @@
                                 "template": "title", 
                                 "options": {
                                     "text": "Some Title Can Go Here",
-                                    "style": "padding-bottom: 20px;"
+                                    "style": "padding-bottom: 20px;",
+                                    "align": "center"
                                 }
                             },
                             {
                                 "template": "subtitle",
                                 "options": {
                                     "text": "Some Text Goes Here | And Here",
-                                    "style": "font-size: 20px; padding-bottom: 0;"
+                                    "style": "font-size: 20px; padding-bottom: 0;",
+                                    "align": "center"
                                 }
                             },
                             {
                                 "template": "subtitle",
                                 "options": {
                                     "text": "And even more details can go here!",
-                                    "style": "padding-bottom: 40px;"
+                                    "style": "padding-bottom: 40px;",
+                                    "align": "center"
                                 }
                             },
                             {   
@@ -107,6 +110,7 @@
                                 "template": "list",
                                 "options": {
                                     "type": "default", // default, ordered, unordered, unstyled
+                                    "width": "100%",
                                     "items": [
                                         "Item #1",
                                         "Item #2",
