@@ -12,8 +12,17 @@
     padding-bottom: 30px;
 }
 
+.home-games .header, .module-footer .header {
+    padding-bottom: 15px;
+}
+
 .home-games .list-item {
     border: none;
+    padding-top: 0;
+}
+
+.announcements .article {
+    padding-bottom: 10px;
 }
 
 .news .article {
