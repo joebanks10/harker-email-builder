@@ -50,7 +50,8 @@
                                 "options": {
                                     "src": "http://dummyimage.com/600x200/cccccc/333333.gif&text=header+image",
                                     "alt": "Big Image",
-                                    "style": "padding: 0;"
+                                    "style": "padding: 0;",
+                                    "img_class": "img-full"
                                 }
                             }
                         ]
