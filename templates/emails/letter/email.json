@@ -124,6 +124,7 @@
                                 "template": "list",
                                 "options": {
                                     "type": "default", // default, ordered, unordered, unstyled
+                                    "width": "100%",
                                     "items": [
                                         "Item #1",
                                         "Item #2",
