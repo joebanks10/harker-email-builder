@@ -48,7 +48,7 @@
                             {   
                                 "template": "img",
                                 "options": {
-                                    "src": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image",
+                                    "src": "http://dummyimage.com/600x200/cccccc/333333.gif&text=header+image",
                                     "alt": "Big Image",
                                     "style": "padding: 0;"
                                 }
@@ -70,7 +70,8 @@
                                 "template": "title", 
                                 "options": {
                                     "text": "Some Title Can Go Here",
-                                    "style": "padding-bottom: 20px;"
+                                    "style": "padding-bottom: 20px;",
+                                    "align": "center"
                                 }
                             },
                             {
@@ -78,14 +79,16 @@
                                 "options": {
                                     "text": "Some Text Goes Here | And Here",
                                     "class": "subtitle-lg",
-                                    "style": "padding-bottom: 0;"
+                                    "style": "padding-bottom: 0;",
+                                    "align": "center"
                                 }
                             },
                             {
                                 "template": "subtitle",
                                 "options": {
                                     "text": "And even more details can go here!",
-                                    "style": "padding-bottom: 40px;"
+                                    "style": "padding-bottom: 40px;",
+                                    "align": "center"
                                 }
                             },
                             {   
