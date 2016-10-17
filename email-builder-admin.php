@@ -2,7 +2,7 @@
 namespace HKR\Email_Builder_Admin;
 
 /*
-    Plugin Name: Email Builder Admin
+    Plugin Name: Email Builder
     Plugin URI: http://www.harker.org
     Description: Provides an admin interface for Harker's Email Builder tool
     Version: 1.0
@@ -21,20 +21,23 @@ require_once(PATH . 'inc/class-email-post-type.php');
 require_once(PATH . 'inc/class-banner-post-type.php');
 require_once(PATH . 'inc/class-theme-post-type.php');
 
+require_once(PATH . 'inc/class-settings.php');
+
 class Plugin extends \HKR\Singleton {
     
     protected function __construct($args = array()) {
         // include Advanced Custom Fields
-        $acf = \HKR\ACF_Include::get_instance(array(
-            'dir_path' => PATH . 'vendor/advanced-custom-fields-pro/',
-            'dir_url' => URL . 'vendor/advanced-custom-fields-pro/'
-        ));
+        // $acf = \HKR\ACF_Include::get_instance(array(
+        //     'dir_path' => PATH . 'vendor/advanced-custom-fields-pro/',
+        //     'dir_url' => URL . 'vendor/advanced-custom-fields-pro/'
+        // ));
 
         add_action('init', array($this, 'init'));
 
         $email = new Email_Post_Type();
         $theme = new Theme_Post_Type();
         $banner = new Banner_Post_Type();
+        $settings = new Settings();
     }
 
     public function init() {
