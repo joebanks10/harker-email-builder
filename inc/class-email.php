@@ -34,6 +34,7 @@ class Email {
             'stylesheet_url' => ROOT_CSS_DIR_URL . '/style.css',
             'stylesheet_addons_url' => '',
             'img_dir_url' => ROOT_IMG_DIR_URL,
+            'wp_api_endpoint' => 'http://skylark.harker.org/wp-email-builder/wp-json/wp/v2/email/',
             'debug' => EMAIL_BUILDER_DEBUG
         );
 
@@ -70,7 +71,7 @@ class Email {
 
         // get data from WordPress or JSON file
         if ($wp_id) {
-            $wp_email = new WP_Email('http://localhost/wp-dev/wp-json/wp/v2/email/' . $wp_id);
+            $wp_email = new WP_Email($this->settings['wp_api_endpoint'] . $wp_id);
             $json = $wp_email->get_data();
         } else {
             $json = $this->get_data();

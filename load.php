@@ -25,9 +25,8 @@ if ( $_SERVER['SERVER_NAME'] == 'localhost' ) {
     if ( preg_match('/staging/', $_SERVER['REQUEST_URI']) ) {
         define('ROOT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/email-builder/staging');
     } else {
-        define('ROOT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/email-builder/v2');
+        define('ROOT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/emails');
     }
-    
 }
 
 define('ROOT_CSS_DIR_URL', ROOT_URL . '/assets/css');
