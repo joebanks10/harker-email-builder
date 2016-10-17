@@ -52,7 +52,7 @@
                             {  
                                 "template": "img",
                                 "options": {
-                                    "src": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image",
+                                    "src": "eagles-email.jpg",
                                     "alt": "Big Image",
                                     "style": "padding-bottom: 40px;",
                                     "width": 600,
@@ -63,7 +63,8 @@
                                 "template": "title", 
                                 "options": {
                                     "text": "Some Title Can Go Here",
-                                    "style": "padding-bottom: 20px;"
+                                    "style": "padding-bottom: 20px;",
+                                    "align": "center"
                                 }
                             },
                             {
@@ -71,14 +72,16 @@
                                 "options": {
                                     "text": "Some Text Goes Here | And Here",
                                     "class": "subtitle-lg",
-                                    "style": "padding-bottom: 0;"
+                                    "style": "padding-bottom: 0;",
+                                    "align": "center"
                                 }
                             },
                             {
                                 "template": "subtitle",
                                 "options": {
                                     "text": "And even more details can go here!",
-                                    "style": "padding-bottom: 40px;"
+                                    "style": "padding-bottom: 40px;",
+                                    "align": "center"
                                 }
                             },
                             {   
@@ -116,7 +119,8 @@
                                         "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
                                         "Recusandae voluptate aspernatur perferendis quod, iste odit.",
                                         "In amet minus, repellendus, alias voluptatum eligendi."
-                                    ]
+                                    ],
+                                    "width": "100%"
                                 }
                             },
                             {   
@@ -344,93 +348,59 @@
                 "class": "",
                 "content_1": [
                     {
+                        "template": "header",
+                        "options": {
+                            "text": "Calendar List"
+                        }
+                    },
+                    {
                         "template": "calendar-list",
                         "options": {
-                            "dates": [
-                                {
-                                    "date": "Jan.<br>1",
-                                    "events": [
-                                        {
-                                            "header": { "text": "Event Header" },
-                                            "content": { "text": "7 p.m. | Saratoga Campus" }
-                                        },
-                                        {
-                                            "header": { "text": "Event Header" },
-                                            "content": { "text": "7 p.m. | Saratoga Campus" }
-                                        },
-                                        {
-                                            "header": { "text": "Event Header" },
-                                            "content": { "text": "7 p.m. | Saratoga Campus" }
-                                        }
-                                    ]
-                                },
-                                {
-                                    "date": "Jan.<br>2",
-                                    "events": [
-                                        {
-                                            "header": { "text": "Event Header" },
-                                            "content": { "text": "7 p.m. | Saratoga Campus" }
-                                        },
-                                        {
-                                            "header": { "text": "Event Header" },
-                                            "content": { "text": "7 p.m. | Saratoga Campus" }
-                                        },
-                                        {
-                                            "header": { "text": "Event Header" },
-                                            "content": { "text": "7 p.m. | Saratoga Campus" }
-                                        }
-                                    ]
-                                },
-                                {
-                                    "date": "Jan.<br>3",
-                                    "events": [
-                                        {
-                                            "header": { "text": "Event Header" },
-                                            "content": { "text": "7 p.m. | Saratoga Campus" }
-                                        },
-                                        {
-                                            "header": { "text": "Event Header" },
-                                            "content": { "text": "7 p.m. | Saratoga Campus" }
-                                        },
-                                        {
-                                            "header": { "text": "Event Header" },
-                                            "content": { "text": "7 p.m. | Saratoga Campus" }
-                                        }
-                                    ]
-                                },
-                                {
-                                    "date": "Jan.<br>4",
-                                    "events": [
-                                        {
-                                            "header": { "text": "Event Header" },
-                                            "content": { "text": "7 p.m. | Saratoga Campus" }
-                                        },
-                                        {
-                                            "header": { "text": "Event Header" },
-                                            "content": { "text": "7 p.m. | Saratoga Campus" }
-                                        },
-                                        {
-                                            "header": { "text": "Event Header" },
-                                            "content": { "text": "7 p.m. | Saratoga Campus" }
-                                        }
-                                    ]
-                                }
-                            ]  
+                            "ical": "http://www.harker.org/calendar/page_3624.ics",
+                            "start_date": "Sept. 1, 2016",
+                            "end_date": "Sept. 1, 2016"
                         }
                     }
                 ],
                 "content_2": [
                     {
-                        "template": "header",
+                        "template": "element-list",
                         "options": {
-                            "text": "Module Header"
+                            "elements": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Section Header"
+                                    }
+                                },
+                                {
+                                    "template": "content",
+                                    "options": {
+                                        "style": "font-size:14px; line-height: 24px;",
+                                        "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+                                    }
+                                }
+                            ]
                         }
                     },
                     {
-                        "template": "content",
+                        "template": "element-list",
                         "options": {
-                            "style": "font-size:14px; line-height: 24px;",
-                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+                            "elements": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Section Header"
+                                    }
+                                },
+                                {
+                                    "template": "content",
+                                    "options": {
+                                        "style": "font-size:14px; line-height: 24px;",
+                                        "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+                                    }
+                                }
+                            ]
                         }
                     }
                 ]
@@ -503,7 +473,8 @@
                                 "template": "subtitle",
                                 "options": {
                                     "text": "A SUBTITLE CAN GO HERE, MAYBE SOME IMPORTANT INFO OR NOTHING AT ALL",
-                                    "style": "padding-bottom: 40px;"
+                                    "style": "padding-bottom: 40px;",
+                                    "align": "center"
                                 }
                             },
                             {   
@@ -516,49 +487,6 @@
                                 }
                             }
                         ]
-                    }
-                ]
-            }
-        },
-
-        // Single Column w/ Element Grid
-        {
-            "template": "one-column",
-            "options": {
-                "content": [
-                    {   
-                        "template": "grid",
-                        "options": {
-                            "column_count": 3,
-                            "stack": false,
-                            "fix_rounding": false,
-                            "columns" : [
-                                {
-                                    "width": "20%",
-                                    "elements": [
-                                        {
-                                            "template": "article"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "width": "20%",
-                                    "elements": [
-                                        {
-                                            "template": "article"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "width": "20%",
-                                    "elements": [
-                                        {
-                                            "template": "article"
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
                     }
                 ]
             }
@@ -630,38 +558,6 @@
                                 }
                             }
                         ]
-                    }
-                ]
-            }
-        },
-
-        // Content Left, Sidebar Right (using content-sidebar template)
-        {
-            "template": "content-sidebar",
-            "options": {
-                "class": "",
-                "content": [
-                    {
-                        "template": "header",
-                        "options": {
-                            "text": "Module Header"
-                        }
-                    },
-                    {
-                        "template": "content",
-                        "options": {
-                            "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
-                        }
-                    }
-                ],
-                "sidebar": [
-                    {
-                        "template": "button",
-                        "options": {
-                            "text": "CTA TEXT HERE",
-                            "href": "http://www.harker.org",
-                            "width": "100%"
-                        }
                     }
                 ]
             }
