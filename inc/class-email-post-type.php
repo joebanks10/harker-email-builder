@@ -3,7 +3,13 @@ namespace HKR\Email_Builder_Admin;
 
 class Email_Post_Type {
 
-    public function __construct() {
+    public function __construct($args = array()) {
+        $defaults = array(
+            'template_url' => ''
+        );
+
+        $this->args = wp_parse_args($args, $defaults);
+
         add_action( 'init', array($this, 'init') );
         add_filter( 'template_redirect', array($this, 'template_redirect') );
     }
@@ -60,7 +66,9 @@ class Email_Post_Type {
         global $post;
 
         if (is_single() && $post->post_type == 'email') {
-            wp_redirect("http://localhost/email-builder/templates/emails/master/?wp_id={$post->ID}");
+            $template_url = $this->args['template_url'];
+
+            wp_redirect("{$template_url}?wp_id={$post->ID}");
             // wp_redirect(home_url("/wp-json/wp/v2/email/{$post->ID}"));
             exit();
         }

@@ -34,10 +34,12 @@ class Plugin extends \HKR\Singleton {
 
         add_action('init', array($this, 'init'));
 
-        $email = new Email_Post_Type();
-        $theme = new Theme_Post_Type();
-        $banner = new Banner_Post_Type();
-        $settings = new Settings();
+        $this->settings = new Settings();
+        $this->email = new Email_Post_Type(array(
+            'template_url' => $this->settings->get_option('template_url')
+        ));
+        $this->theme = new Theme_Post_Type();
+        $this->banner = new Banner_Post_Type();
     }
 
     public function init() {
