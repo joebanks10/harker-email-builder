@@ -1,0 +1,613 @@
+ {
+    "title": "Master Template",
+    
+    // Custom Header
+    // "header": [
+    //     {
+    //         "template": "topbar",
+    //         "options": {
+    //             "img": {
+    //                 "src": "~/harker-logo.png",
+    //                 "alt": "Updated Alt Tag",
+    //                 "width": 183,
+    //                 "height": 32
+    //             }
+    //         }
+    //     }
+    // ],
+    
+    // Modules
+    // 
+    // Templates: grid, two-columns, three-columns, 
+    // content-sidebar, sidebar-content, element-grid
+    // 
+    // Standard Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // 
+    // Grid Options: columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+
+        // Single Column (using grid template)
+        {
+            "template": "grid", 
+            "options": {
+
+                // Columns
+                // 
+                // Options: width (percent or numeric), elements
+                "columns": [
+                    {
+
+                        // Elements
+                        // 
+                        // Templates: title, subtitle, header, subheader, 
+                        // content, img, list, button
+                        // 
+                        // Standard Options: class, style, align
+                        "elements": [
+                            {  
+                                "template": "img",
+                                "options": {
+                                    "src": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image",
+                                    "alt": "Big Image",
+                                    "style": "padding-bottom: 40px;",
+                                    "width": 600,
+                                    "href": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image"
+                                }
+                            },
+                            {
+                                "template": "title", 
+                                "options": {
+                                    "text": "Some Title Can Go Here",
+                                    "style": "padding-bottom: 20px;",
+                                    "align": "center"
+                                }
+                            },
+                            {
+                                "template": "subtitle",
+                                "options": {
+                                    "text": "Some Text Goes Here | And Here",
+                                    "class": "subtitle-lg",
+                                    "style": "padding-bottom: 0;",
+                                    "align": "center"
+                                }
+                            },
+                            {
+                                "template": "subtitle",
+                                "options": {
+                                    "text": "And even more details can go here!",
+                                    "style": "padding-bottom: 40px;",
+                                    "align": "center"
+                                }
+                            },
+                            {   
+                                "template": "header",
+                                "options": {
+                                    "text": "Module Header",
+                                    "style": "padding-bottom: 0;"
+                                }
+                            },
+                            {   
+                                "template": "subheader",
+                                "options": {
+                                    "text": "Module Subeader"
+                                }
+                            },
+                            {   
+                                "template": "content",
+                                "options": {
+                                    "text": "
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt similique, ipsum officia a velit. Nulla minus modi aliquam officia praesentium quae quis quasi corporis consequuntur, sapiente, ducimus alias dignissimos tenetur.
+                                    <br>
+                                    <br>
+                                    Recusandae voluptate aspernatur perferendis quod, iste odit asperiores quibusdam fugit illo ea a odio officia earum quam, itaque quis velit reiciendis dolorum incidunt dolore animi debitis soluta nihil sed. Ratione.
+                                    <br>
+                                    <br>
+                                    In amet minus, repellendus, alias voluptatum eligendi. Nobis voluptatem sint rem id autem, dolor quidem blanditiis doloremque iusto explicabo, consequuntur ab, quaerat consequatur. Ad deleniti iusto corporis laboriosam, libero similique."
+                                }
+                            },
+                            {
+                                "template": "list",
+                                "options": {
+                                    "type": "default", // default, ordered, unordered, unstyled
+                                    // "class": "list-collapse",
+                                    "items": [
+                                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+                                        "Recusandae voluptate aspernatur perferendis quod, iste odit.",
+                                        "In amet minus, repellendus, alias voluptatum eligendi."
+                                    ],
+                                    "width": "100%"
+                                }
+                            },
+                            {   
+                                "template": "content",
+                                "options": {
+                                    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt similique, ipsum officia a velit. Nulla minus modi aliquam officia praesentium quae quis quasi corporis consequuntur, sapiente, ducimus alias dignissimos tenetur."
+                                }
+                            },
+                            {   
+                                "template": "button",
+                                "options": {
+                                    "type": "primary", // primary, secondary, outline, text
+                                    "text": "Learn More About Cool Stuff",
+                                    "href": "http://www.harker.org"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+
+        // Two Columns (using grid template)
+        {
+            "template": "grid",
+            "options": {
+                "class": "green-bg white-text",
+                "column_count": 2,
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "img",
+                                "options": {
+                                    "src": "http://dummyimage.com/290x200/cccccc/333333.gif&text=placeholder+image",
+                                    "width": "100%"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Module Header",
+                                    "style": "padding-bottom: 0;"
+                                }
+                            },
+                            {
+                                "template": "subheader",
+                                "options": {
+                                    "text": "Module Subeader"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
+                                }
+                            },
+                            {   
+                                "template": "button",
+                                "options": {
+                                    "type": "text", 
+                                    "text": "Learn More About Cool Stuff",
+                                    "href": "http://www.harker.org"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+
+        // Two Columns, Right-to-Left (using two-columns template)
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "",
+                "column_direction": "rtl",
+                "content_1": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "http://dummyimage.com/290x200/cccccc/333333.gif&text=placeholder+image",
+                            "width": "100%"
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Module Header",
+                            "style": "padding-bottom: 0;"
+                        }
+                    },
+                    {
+                        "template": "subheader",
+                        "options": {
+                            "text": "Module Subeader"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
+                        }
+                    },
+                    {   
+                        "template": "button",
+                        "options": {
+                            "type": "text", 
+                            "text": "Learn More About Cool Stuff",
+                            "href": "http://www.harker.org"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Three Columns w/ Articles (using element-grid template)
+        {
+            "template": "element-grid",
+            "options": {
+                "class": "gray-bg",
+                "header": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Module Header"
+                        }
+                    }
+                ],
+                "elements": [
+                    {
+                        "template": "article",
+                        "options": {
+                            "img": {
+                                "width": 185
+                            }
+                        }
+                    },
+                    {
+                        "template": "article",
+                        "options": {
+                            "img": {
+                                "width": 185
+                            }
+                        }
+                    },
+                    {
+                        "template": "article",
+                        "options": {
+                            "img": {
+                                "width": 185
+                            }
+                        }
+                    },
+                    {
+                        "template": "article",
+                        "options": {
+                            "img": {
+                                "width": 185
+                            }
+                        }
+                    },
+                    {
+                        "template": "article",
+                        "options": {
+                            "img": {
+                                "width": 185
+                            }
+                        }
+                    },
+                    {
+                        "template": "article",
+                        "options": {
+                            "img": {
+                                "width": 185
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Article Listing
+        {
+            "template": "one-column",
+            "options": {
+                "class" : "rss",
+                "content": [
+                    {
+                        "template": "article-grid",
+                        "options": {
+                            "rss": "http://news.harker.org/feed/",
+                            "feature": true,
+                            "article": {
+                                "content": false,
+                                "button": false
+                            },
+                            "feature_article": {
+                                "button": false
+                            },
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Recent Stories"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Calendar Listing
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "",
+                "content_1": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Calendar List"
+                        }
+                    },
+                    {
+                        "template": "calendar-list",
+                        "options": {
+                            "ical": "http://www.harker.org/calendar/page_3624.ics",
+                            "start_date": "Sept. 1, 2016",
+                            "end_date": "Sept. 1, 2016"
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "elements": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Section Header"
+                                    }
+                                },
+                                {
+                                    "template": "content",
+                                    "options": {
+                                        "style": "font-size:14px; line-height: 24px;",
+                                        "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "elements": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Section Header"
+                                    }
+                                },
+                                {
+                                    "template": "content",
+                                    "options": {
+                                        "style": "font-size:14px; line-height: 24px;",
+                                        "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Two Columns w/ Images/Promos (using element-grid template)
+        {
+            "template": "element-grid",
+            "options": {
+                "class": "gray-bg",
+                "column_count": 2,
+                "elements": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "https://www.harker.org/uploaded/assets/graphics/promos/SUM_web_PPortal_F_1617.jpg",
+                            "href": "#",
+                            "width": 289
+                        }
+                    },
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "https://www.harker.org/uploaded/assets/graphics/promos/ADV_AGiving_May_31_HPP_F_1516.png",
+                            "href": "#",
+                            "width": 289
+                        }
+                    },
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "http://www.harker.org/uploaded/assets/graphics/promos/corporate/portal/ADV_GrandparentsDay_LS_HPP_F_1516.png",
+                            "href": "#",
+                            "width": 289
+                        }
+                    },
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "http://www.harker.org/uploaded/assets/graphics/promos/SUM_SFGiants_Baseballcamp_HPP_F_1617.png",
+                            "href": "#",
+                            "width": 289
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Single Column w/ Background Image (using grid template)
+        {
+            "template": "grid",
+            "options": {
+                "class": "white-text",
+                "background_img": "http://skylark.harker.org/email-builder/assets/img/header-bg-1.jpg",
+                "style": "padding: 80px 0;",
+                "columns": [
+                    {
+                        "elements": [
+                            {   
+                                "template": "img",
+                                "options": {
+                                    "src": "http://skylark.harker.org/email-builder/assets/img/img1.png",
+                                    "alt": "Harker Logo",
+                                    "img_class": "",
+                                    "style": "padding-bottom: 40px;"
+                                }
+                            },
+                            {   
+                                "template": "subtitle",
+                                "options": {
+                                    "text": "A SUBTITLE CAN GO HERE, MAYBE SOME IMPORTANT INFO OR NOTHING AT ALL",
+                                    "style": "padding-bottom: 40px;",
+                                    "align": "center"
+                                }
+                            },
+                            {   
+                                "template": "button",
+                                "options": {
+                                    "type": "secondary",
+                                    "href": "http://www.harker.org",
+                                    "text": "CLICK ME NOW!",
+                                    "align": "center"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+
+        // Single Column w/ Big Image (using one-column template)
+        {
+            "template": "one-column",
+            "options": {
+                "class": "gray-bg",
+                "style": "padding: 0;",
+                "collapse_gutters": true,
+                "content": [
+                    {   
+                        "template": "img",
+                        "options": {
+                            "src": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image",
+                            "alt": "Big Image",
+                            "style": "padding: 0;"
+                        }
+                    }
+                ]
+            }
+        },
+        
+        // Content Left, Sidebar Right (using grid template)
+        {
+            "template": "grid",
+            "options": {
+                "class": "white-text",
+                "background_img": "http://skylark.harker.org/email-builder/assets/img/cta-bg.jpg",
+                "column_count": 2,
+                "columns": [
+                    {
+                        "width": "67%",
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Module Header"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "width": "33%",
+                        "elements": [
+                            {
+                                "template": "button",
+                                "options": {
+                                    "text": "CTA TEXT HERE",
+                                    "href": "http://www.harker.org",
+                                    "width": "100%"
+                                }
+                            },
+                            {
+                                "template": "button",
+                                "options": {
+                                    "text": "CTA TEXT HERE",
+                                    "href": "http://www.harker.org",
+                                    "width": "100%",
+                                    "type": "outline"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+
+    ] // end of content modules
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                     "template": "header",
+    //                     "options": {
+    //                         "text": "Social Media"
+    //                     }
+    //                 },
+    //                 {
+    //                     "template": "list",
+    //                     "options": {
+    //                         "type": "unstyled",
+    //                         "items": [
+    //                             "<a href=\"http://facebook.com/harkerschool\">facebook.com/harkerschool</a>",
+    //                             "<a href=\"http://twitter.com/harkerschool\">twitter.com/harkerschool</a>",
+    //                             "<a href=\"http://instagram.com/harkerschool\">instagram.com/harkerschool</a>"        
+    //                         ]
+    //                     }
+    //                 }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                     "template": "header",
+    //                     "options": {
+    //                         "text": "Contact Us"
+    //                     }
+    //                 },
+    //                 {
+    //                     "template": "content",
+    //                     "options": {
+    //                         "text": "500 Saratoga Ave., San Jose 95129<br>
+    //                                <a href=\"mailto:communications@harker.org\">communications@harker.org</a>"
+    //                     }
+    //                 }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }

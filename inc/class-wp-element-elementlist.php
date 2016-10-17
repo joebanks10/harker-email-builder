@@ -1,5 +1,7 @@
 <?php
 
+namespace HKR\Email_Builder;
+
 class WP_Element_ElementList extends WP_Element {
 
     protected function filter_options($options) {
