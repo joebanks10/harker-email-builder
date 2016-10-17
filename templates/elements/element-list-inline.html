@@ -1,0 +1,18 @@
+{% extends "elements/element.html" %}
+
+{% set defaults = {
+    element_class: "element-list-inline",
+    elements: []
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}
+
+{% block element_content %}
+    <table class="table-full" align="{{ module.align }}" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            {% for element in module.elements %}
+                {% include "elements/#{element.template}.html" with { module: element.options } %}
+            {% endfor %}
+        </tr>
+    </table>
+{% endblock %}

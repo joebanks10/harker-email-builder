@@ -1,0 +1,8 @@
+{% extends "modules/grid.html" %}
+
+{% set defaults = {
+    column_count: 3,
+    columns: convert_elements_to_columns(module.elements|default([]))
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}

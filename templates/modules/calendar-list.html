@@ -1,0 +1,21 @@
+{% extends "modules/grid.html" %}
+
+{% set defaults = {
+    column_count: 2,
+    ical: '',
+    start_date: '',
+    end_date: '',
+    dates: []
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}
+
+{% if module.ical %}
+    {% set dates = ical(module.ical, module.start_date, module.end_date) %}
+{% else %}
+    {% set dates = module.dates %}
+{% endif %}
+
+{% set module = module|merge({
+    columns: convert_dates_to_columns(dates)
+}) %}

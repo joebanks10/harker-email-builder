@@ -2,6 +2,7 @@
 
 class RSS_Feed {
 
+    private $url;
     private $object;
     private $array;
 
@@ -10,14 +11,15 @@ class RSS_Feed {
      * 
      * @param string $url The URL of an RSS feed
      */
-    public function __construct($url) {
+    public function __construct($url, $args = array()) {
+        $this->url = $url;
+        $this->args = $args;
 
         // get SimplePie object
         $this->object = $this->get_rss_object($url);
         
         // convert SimplePie object to a basic array
         $this->array = $this->to_array($this->object);
-
     }
 
     /**
@@ -68,9 +70,9 @@ class RSS_Feed {
     private function to_array($object) {
         
         if ( ! $object || ! $object instanceof SimplePie ) {
-            trigger_error('Unable to create Array with URL.', E_USER_WARNING);
+            trigger_error('Unable to get feed at ' . $this->url, E_USER_WARNING);
             
-            return false;
+            return array();
         }
 
         $feed = array();
@@ -82,7 +84,11 @@ class RSS_Feed {
         $feed['items'] = array();
 
         // get feed items
-        foreach($object->get_items() as $item) {
+        foreach($object->get_items() as $index => $item) {
+            if ( isset($this->args['count']) && $index >= $this->args['count'] ) {
+                break;
+            }
+
             $feed_item = array();
 
             $feed_item['title'] = $item->get_title();

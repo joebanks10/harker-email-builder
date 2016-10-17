@@ -1,23 +1,24 @@
-{% set required = {
-    title: 'Master Template'
-} %}
-
-{% set layout = required|merge(layout|default({})) %}
-
 <!DOCTYPE html>
 <html>
 <head>
 {% block head %}
-    <title>{{ layout.title }}</title>
+    <title>{{ email.title|default('Master Template') }}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <style type="text/css" rel="theme">
-        {{ render_file(email.stylesheet_url)|raw }}
+        {{ email.stylesheet }}
     </style>
     <style type="text/css" rel="addons">
-        {{ render_file(email.stylesheet_addons_url)|raw }}
+        {{ email.stylesheet_addons }}
     </style>
+    <!--[if gte mso 12]>
+    <style type="text/css">
+        .element, .content-intro, .button, .bullet-text, .list-item-text, .date {
+            font-family: Arial, sans-serif !important;
+        }
+    </style>
+    <![endif]-->
 {% endblock head %}
 </head>
 <body>
@@ -25,27 +26,30 @@
     <tr>
         <td align="center">
             {% block header %}
-                {% include "@tmpl/table-header-bar.html" %}
+                {% if email.header %}
+                    {% for module in email.header %}
+                        {% include "modules/#{module.template}.html" with { module: module.options|default({}) } %}
+                    {% endfor %}
+                {% else %}
+                    {% include "modules/topbar.html" %}
+                {% endif %}
             {% endblock header %}
             
             {% block content %}
-                {% include "@tmpl/table-header.html" %}
-                {% include "@tmpl/table-header-bg.html" %}
-                {% include "@tmpl/table-quote.html" %}
-                {% include "@tmpl/table-3-columns.html" %}
-                {% include "@tmpl/table-2-columns.html" %}
-                {% include "@tmpl/table-2-columns.html" with { column_direction: 'rtl' } %}
-                {% include "@tmpl/table-profile-text.html" %}
-                {% include "@tmpl/table-profile-text.html" with { column_direction: 'rtl' } %}
-                {% include "@tmpl/table-cta-1.html" %}
-                {% include "@tmpl/table-cta-2.html" %}
-                {% include "@tmpl/table-events.html" %}
-                {% include "@tmpl/table-1-column.html" %}
-                {% include "@tmpl/table-promos.html" %}
+                {% for module in email.content|default([]) %}
+                    {% include "modules/#{module.template}.html" with { module: module.options|default({}) } %}
+                {% endfor %}
             {% endblock content %}
             
             {% block footer %}
-                {% include "@tmpl/table-footer.html" %}
+                {% if email.footer %}
+                    {% for module in email.footer %}
+                        {% include "modules/#{module.template}.html" with { module: module.options|default({}) } %}
+                    {% endfor %}
+                {% else %}
+                    {% include "modules/footer.html" %}
+                    {% include "modules/bottombar.html" %}
+                {% endif %}
             {% endblock footer %}
         </td>
     </tr>

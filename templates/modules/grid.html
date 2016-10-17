@@ -1,0 +1,31 @@
+{% extends "modules/module.html" %}
+
+{% set defaults = {
+    module_class: "module-grid",
+    column_count: 1,
+    column_direction: 'ltr',
+    gutter_width: 20,
+    gutter_height: 40,
+    stack: true,
+    fix_rounding: true,
+    fix_outlook: true,
+    columns: []
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}
+
+{% block content %}
+    <tr>
+        {% include "elements/grid.html" with { module: {
+            width: module.width,
+            column_count: module.column_count,
+            column_direction: module.column_direction,
+            gutter_width: module.gutter_width,
+            gutter_height: module.gutter_height,
+            stack: module.stack,
+            fix_rounding: module.fix_rounding,
+            fix_outlook: module.fix_outlook,
+            columns: module.columns
+        } } %}
+    </tr>
+{% endblock content %}

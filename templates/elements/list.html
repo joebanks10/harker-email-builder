@@ -1,0 +1,70 @@
+{% extends "elements/element.html" %}
+
+{% set defaults = {
+    element_class: "list",
+    type: "",
+    width: "",
+    bullet: {
+        url: "http://skylark.harker.org/email-builder/assets/img/check.png",
+        width: 17
+    },
+    items: [
+        "An important point goes here",
+        "Another point goes here",
+        "And another!"
+    ]
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}
+{% set module = module|merge({
+    element_class: "list list-#{module.type|default("default")}"
+}) %}
+
+{% block element_content %}
+    <table class="table-full" align="{{ module.align }}" width="{{ module.width }}" border="0" cellspacing="0" cellpadding="0">
+        {% if module.type == "inline" %}
+            <tr>
+                {% for item in module.items %}
+                    <td class="list-item list-item-text" height="{{ module.height }}">
+                        {{ item }}
+                    </td>
+                {% endfor %}
+            </tr>
+        {% else %}
+            {% for item in module.items %}
+                <tr>
+                    <td class="list-item">
+                        <table width="{{ module.width }}" align="{{ module.align }}" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                {% block bullet %}
+                                    {% if module.bullet %}
+                                        {% if module.type == 'ordered' %}
+                                            <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet bullet-text">
+                                                {{ loop.index }}.
+                                            </td>
+                                        {% elseif module.type == 'unordered' %}
+                                            <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet bullet-text">
+                                                &bull;
+                                            </td>
+                                        {% elseif module.type == 'unstyled' %}
+                                            <!-- unstyled -->
+                                        {% else %}
+                                            <td width="{{ module.bullet.width|default(17) }}" valign="top" class="bullet bullet-img img-container">
+                                                <img src="{{ module.bullet.url|default("http://skylark.harker.org/email-builder/assets/img/check.png") }}" width="{{ module.bullet.width|default(17) }}" alt="bullet">
+                                            </td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endblock bullet %}
+                                {% block list_item_text %}
+                                <td class="list-item-text" valign="top">
+                                    {{ item }}
+                                </td>
+                                {% endblock list_item_text %}
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+{% endblock element_content %}

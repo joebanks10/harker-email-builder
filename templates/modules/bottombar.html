@@ -1,0 +1,19 @@
+{% extends "modules/grid.html" %}
+
+{% set defaults = {
+    module_class: "module-bottombar",
+    columns: [
+        {
+            elements: [
+                {
+                    template: "content",
+                    options: {
+                        text: "Copyright © The Harker School 2016. All Rights Reserved."
+                    }
+                }
+            ]
+        }
+    ]
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}

@@ -1,0 +1,71 @@
+{% extends "elements/element-list.html" %}
+
+{% set defaults = {
+    element_class: "article-grid",
+    rss: '',
+    feature: false,
+    articles: [],
+    article: {
+        img: {
+            include: true,
+            link: true,
+            width: 186
+        },
+        header: {
+            include: true,
+            link: true
+        },
+        content: {
+            include: true,
+        },
+        button: {
+            include: true,
+            width: "100%",
+            text: "Read More"
+        }
+    },
+    feature_article: {
+        img: {
+            include: true,
+            link: true,
+            width: 186
+        },
+        header: {
+            include: true,
+            link: true
+        },
+        content: {
+            include: true,
+        },
+        button: {
+            include: true,
+            text: "Read More"
+        }
+    }
+} %}
+
+{% set module = defaults|merge_r( module|default({}) ) %}
+{% set feed = rss(module) %}
+
+{% if module.feature %}
+    {% set elements = [
+        feed|first,
+        {
+            template: "element-grid",
+            options: {
+                elements: feed|slice(1)
+            }
+        }
+    ] %}
+{% else %}
+    {% set elements = [
+        {
+            template: "element-grid",
+            options: {
+                elements: feed
+            }
+        }
+    ] %}
+{% endif %}
+
+{% set module = module|merge({elements: elements}) %}
