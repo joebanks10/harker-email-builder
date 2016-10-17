@@ -37,12 +37,13 @@
                 "style": "padding: 0;",
                 "collapse_gutters": true,
                 "content": [
-                    {   
+                    {
                         "template": "img",
                         "options": {
                             "src": "header.png",
                             "alt": "Something to Crow About",
-                            "style": "padding: 0;"
+                            "style": "padding: 0;",
+                            "img_class": "img-full"
                         }
                     }
                 ]

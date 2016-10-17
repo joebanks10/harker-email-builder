@@ -40,13 +40,15 @@
                                 "template": "title",
                                 "options": {
                                     "text": "Performing Arts and Gym Project",
-                                    "style": "padding-bottom: 0;"
+                                    "style": "padding-bottom: 0;",
+                                    "align": "center"
                                 }
                             },
-                            {   
+                            {
                                 "template": "subtitle",
                                 "options": {
-                                    "text": "APRIL UPDATE"
+                                    "text": "APRIL UPDATE",
+                                    "align": "center"
                                 }
                             }
                         ]

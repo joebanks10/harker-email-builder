@@ -9,7 +9,8 @@
                 "img": {
                     "src": "~/harker-alumni-logo.png",
                     "alt": "Harker Alumni",
-                    "width": 146
+                    "width": 126,
+                    "height": 32
                 }
             }
         }

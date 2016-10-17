@@ -27,38 +27,17 @@
                         "width": "240",
                         "elements": [
                             {
-                                "template": "element-list-inline",
+                                "template": "list",
                                 "options": {
-                                    "class": "topbar-links",
                                     "align": "right",
-                                    "elements": [
-                                        {
-                                            "template": "content",
-                                            "options": {
-                                                "text": "<a href=\"http://www.harker.org\">Home</a>",
-                                                "height": 48,
-                                                "valign": "middle"
-                                            }
-                                        },
-                                        {
-                                            "template": "content",
-                                            "options": {
-                                                "text": "<a href=\"http://news.harker.org\">News</a>",
-                                                "height": 48,
-                                                "valign": "middle"
-                                            }
-                                        },
-                                        {
-                                            "template": "content",
-                                            "options": {
-                                                "text": "<a href=\"https://www.harker.org/login\">Portal</a>",
-                                                "height": 48,
-                                                "valign": "middle"
-                                            }
-                                        }
+                                    "type": "inline",
+                                    "items": [
+                                        "<a href=\"http://www.harker.org\">Home</a>",
+                                        "<a href=\"http://news.harker.org\">News</a>",
+                                        "<a href=\"https://www.harker.org/login\">Portal</a>"
                                     ]
                                 }
-                            }   
+                            }
                         ]
                     }
                 ]
@@ -88,7 +67,7 @@
                 "class": "gray-bg",
                 "content": [
                     {
-                        "template": "header",
+                        "template": "subheader",
                         "options": {
                             "text": "Welcome to the inaugural edition of the News Express!"
                         }
@@ -103,8 +82,8 @@
                                 for a reminder on that!).
                                 <br>
                                 <br>
-                                At the end of each month all Harker families will receive the News
-                                Express, which is a quick recap of the month¹s top stories and features, a
+                                At the end of each month all Harker families and alumni will receive the News
+                                Express, which is a quick recap of the month's top stories and features, a
                                 glance ahead at key community events coming up, and a short and sweet
                                 monthly poll on various topics (fun or informative!). Our goal is for the
                                 News Express to be bite-sized, informative and fun. Enjoy!
@@ -233,7 +212,7 @@
                                 "img_class": "img-full"
                             },
                             "header": {
-                                "text": "Hilarious US Eagle Update from Spirit and Journalism Students!",
+                                "text": "Hilarious US Eagle Update!",
                                 "href": ""
                             },
                             "button": {
@@ -259,7 +238,7 @@
                             },
                             "button": {
                                 "type": "primary",
-                                "text": "View Photos",
+                                "text": "View Photos in Portal",
                                 "width": "100%"
                             }
                         }

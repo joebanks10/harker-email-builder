@@ -1,33 +1,12 @@
  {
     "title": "eWeekly Template",
     
-    // Custom Header
-    // "header": [
-    //     {
-    //         "template": "topbar",
-    //         "options": {
-    //             "img": {
-    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
-    //                 "alt": "Updated Alt Tag"
-    //                 "width": 215
-    //             }
-    //         }
-    //     }
-    // ],
+    "header": [
+        {
+            "template": "topbar-text"
+        }
+    ],
     
-    // Modules
-    // 
-    // Templates: grid, two-columns, three-columns, 
-    // content-sidebar, sidebar-content, element-grid
-    // 
-    // Standard Options: id, class, text, 
-    // width, collapse_gutters (remove outer gutters on mobile), 
-    // background_img (url), background_style (for td.background), 
-    // style (for td.container), table_style (for table.module)
-    // 
-    // Grid Options: columns (required for grid), 
-    // column_count, column_direction (ltr or rtl), 
-    // gutter_width, gutter_height
     "content": [
 
         // Two Columns (using two-columns template)
