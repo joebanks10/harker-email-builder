@@ -68,6 +68,10 @@ class Email_Post_Type {
         if (is_single() && $post->post_type == 'email') {
             $template_url = $this->args['template_url'];
 
+            if (empty($template_url)) {
+                return; // do nothing
+            }
+
             wp_redirect("{$template_url}?wp_id={$post->ID}");
             // wp_redirect(home_url("/wp-json/wp/v2/email/{$post->ID}"));
             exit();
