@@ -218,7 +218,7 @@ tr:first-child > .element {
 .list-item {
     padding-top: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #dddddd; /* #ecf0f1*/
+    border-bottom: 1px solid #dddddd;
 }
 
 .list-collapse .list-item {
@@ -242,10 +242,6 @@ tr:first-child > .element {
 
 .list-item-text {
     padding-left: 15px;
-}
-
-.list-unstyled .list-item {
-    padding-top: 0;
 }
 
 .list-unstyled .list-item-text,
@@ -571,6 +567,7 @@ tr:last-child > .row {
 .white-text .table-button-text .button,
 .white-text .table-button-text .button a,
 .white-text .list-item-text,
+.white-text .bullet-text,
 .white-text a  {
     color: #ffffff;
 }
