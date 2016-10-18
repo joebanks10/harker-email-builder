@@ -1,0 +1,40 @@
+{
+    "key": "group_580552e7edd6b",
+    "title": "Email Builder Settings",
+    "fields": [
+        {
+            "key": "field_580552f203360",
+            "label": "Template URL",
+            "name": "template_url",
+            "type": "url",
+            "instructions": "Template needs to read the post ID and fetch data with WP REST API.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "http:\/\/skylark.harker.org\/emails",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "hkr-eb-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1476829767
+}
