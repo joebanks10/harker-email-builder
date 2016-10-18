@@ -67,6 +67,25 @@
             "multiple": 0,
             "return_format": "object",
             "ui": 1
+        },
+        {
+            "key": "field_5806b67ec165f",
+            "label": "Some field",
+            "name": "some_field",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -86,5 +105,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1476833980
+    "modified": 1476834988
 }
