@@ -63,6 +63,10 @@ class Plugin extends \HKR\Singleton {
 
         add_action('wp_ajax_get_ical_events', array($this, 'ajax_get_ical_events'));
         add_action('wp_ajax_nopriv_get_ical_events', array($this, 'ajax_get_ical_events'));
+
+        // set folders for ACF local json - used for caching
+        add_filter('acf/settings/save_json', array($this, 'acf_json_save_dest'));
+        add_filter('acf/settings/load_json', array($this, 'acf_json_load_dest'));
     }
 
     public function acf_admin_styles() {
@@ -70,6 +74,16 @@ class Plugin extends \HKR\Singleton {
     }
     public function acf_admin_scripts() {
         wp_enqueue_script( 'hkr_email_builder_admin_script', URL . 'assets/js/admin-script.js', array('jquery'), false, true);
+    }
+
+    public function acf_json_save_dest() {
+        return dirname(__FILE__) . '/acf-json';
+    }
+    public function acf_json_load_dest($paths) {
+        unset($paths[0]);
+        $paths[] = dirname(__FILE__) . '/acf-json';
+
+        return $paths;
     }
 
     public function module_title($title, $field, $layout, $i) {
