@@ -34,7 +34,7 @@ class Email {
             'stylesheet_url' => ROOT_CSS_DIR_URL . '/style.css',
             'stylesheet_addons_url' => '',
             'img_dir_url' => ROOT_IMG_DIR_URL,
-            'wp_api_endpoint' => 'http://skylark.harker.org/wp-email-builder/wp-json/wp/v2/email/',
+            'wp_api_endpoint' => WP_API_URL,
             'debug' => EMAIL_BUILDER_DEBUG
         );
 
