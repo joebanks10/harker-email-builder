@@ -1,5 +1,3 @@
 .DS_Store
 tmp/
 assets/node_modules/
-acf-json/*
-!acf-json/index.php
