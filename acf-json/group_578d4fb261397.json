@@ -108,12 +108,12 @@
                             ]
                         },
                         {
-                            "key": "field_578d519a2e1ba",
-                            "label": "Tab: Module Options",
-                            "name": "tab:_module_options",
+                            "key": "field_5807e1c45eee2",
+                            "label": "Module Header",
+                            "name": "header",
                             "type": "clone",
                             "instructions": "",
-                            "required": 1,
+                            "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
@@ -121,12 +121,12 @@
                                 "id": ""
                             },
                             "clone": [
-                                "field_578e96c6410a6"
+                                "group_5807e10adc59b"
                             ],
-                            "prefix_label": 0,
-                            "prefix_name": 0,
                             "display": "seamless",
-                            "layout": "block"
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
                         },
                         {
                             "key": "field_578d527eb79c7",
@@ -263,25 +263,25 @@
                             ]
                         },
                         {
-                            "key": "field_578e98c7eb2c0",
-                            "label": "Tab: Module Options",
-                            "name": "tab:_module_options",
+                            "key": "field_5807e34e10f6e",
+                            "label": "Module Header",
+                            "name": "module_header",
                             "type": "clone",
                             "instructions": "",
-                            "required": "",
-                            "conditional_logic": "",
+                            "required": 0,
+                            "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
                                 "id": ""
                             },
                             "clone": [
-                                "field_578e96c6410a6"
+                                "group_5807e10adc59b"
                             ],
-                            "prefix_label": 0,
-                            "prefix_name": 0,
                             "display": "seamless",
-                            "layout": "block"
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
                         },
                         {
                             "key": "field_578e98c7eb2c1",
@@ -418,25 +418,25 @@
                             ]
                         },
                         {
-                            "key": "field_578e9906eb2c7",
-                            "label": "Tab: Module Options",
-                            "name": "tab:_module_options",
+                            "key": "field_5807e38310f6f",
+                            "label": "Module Header",
+                            "name": "module_header",
                             "type": "clone",
                             "instructions": "",
-                            "required": "",
-                            "conditional_logic": "",
+                            "required": 0,
+                            "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
                                 "id": ""
                             },
                             "clone": [
-                                "field_578e96c6410a6"
+                                "group_5807e10adc59b"
                             ],
-                            "prefix_label": 0,
-                            "prefix_name": 0,
                             "display": "seamless",
-                            "layout": "block"
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
                         },
                         {
                             "key": "field_578e9906eb2c8",
@@ -533,25 +533,25 @@
                             ]
                         },
                         {
-                            "key": "field_579942ad26e0a",
-                            "label": "Tab: Module Options",
-                            "name": "tab:_module_options",
+                            "key": "field_5807e3b410f70",
+                            "label": "Module Header",
+                            "name": "module_header",
                             "type": "clone",
                             "instructions": "",
-                            "required": "",
-                            "conditional_logic": "",
+                            "required": 0,
+                            "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
                                 "id": ""
                             },
                             "clone": [
-                                "field_578e96c6410a6"
+                                "group_5807e10adc59b"
                             ],
-                            "prefix_label": 0,
-                            "prefix_name": 0,
                             "display": "seamless",
-                            "layout": "block"
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
                         },
                         {
                             "key": "field_579942ad26e0b",
@@ -692,12 +692,12 @@
                             ]
                         },
                         {
-                            "key": "field_578d5db7d8e32",
-                            "label": "Tab: Module Options",
-                            "name": "tab:_module_options",
+                            "key": "field_5807e3dc10f71",
+                            "label": "Module Header",
+                            "name": "module_header",
                             "type": "clone",
                             "instructions": "",
-                            "required": 1,
+                            "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
@@ -705,12 +705,12 @@
                                 "id": ""
                             },
                             "clone": [
-                                "field_578e96c6410a6"
+                                "group_5807e10adc59b"
                             ],
-                            "prefix_label": 0,
-                            "prefix_name": 0,
                             "display": "seamless",
-                            "layout": "block"
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
                         },
                         {
                             "key": "field_578d5dccd8e33",
@@ -757,5 +757,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1476829828
+    "modified": 1476912710
 }
