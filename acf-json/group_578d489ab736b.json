@@ -51,19 +51,17 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
+            "placeholder": "Add CSS class to \"table.module\"",
             "prepend": "",
             "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "maxlength": ""
         },
         {
             "key": "field_578d4b2ca4a71",
             "label": "Styles",
             "name": "style",
             "type": "text",
-            "instructions": "Inline styles for td.container element",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -72,12 +70,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
+            "placeholder": "Add inline styles to \"td.container\"",
             "prepend": "",
             "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "maxlength": ""
         },
         {
             "key": "field_578d4a77a4a6f",
@@ -114,7 +110,7 @@
                 "id": ""
             },
             "return_format": "url",
-            "preview_size": "thumbnail",
+            "preview_size": "medium",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -122,14 +118,14 @@
             "max_width": "",
             "max_height": "",
             "max_size": 1,
-            "mime_types": ""
+            "mime_types": "jpg, gif, png"
         },
         {
             "key": "field_578d4bb4a4a73",
             "label": "Background Styles",
             "name": "background_style",
             "type": "text",
-            "instructions": "Inline styles for td.background element",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -138,19 +134,17 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
+            "placeholder": "Add inline styles to \"td.background\"",
             "prepend": "",
             "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "maxlength": ""
         },
         {
             "key": "field_578d4b60a4a72",
             "label": "Table Styles",
             "name": "table_style",
             "type": "text",
-            "instructions": "Inline styles for table.module element",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -159,19 +153,17 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
+            "placeholder": "Add inline styles to \"table.module\"",
             "prepend": "",
             "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "maxlength": ""
         },
         {
             "key": "field_578e89a60f0af",
             "label": "Column Direction",
             "name": "column_direction",
             "type": "select",
-            "instructions": "Define the direction columns should flow in the layout.",
+            "instructions": "Define the direction columns should flow",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -188,17 +180,15 @@
             "multiple": 0,
             "ui": 0,
             "ajax": 0,
-            "placeholder": "",
-            "disabled": 0,
-            "readonly": 0,
-            "return_format": "value"
+            "return_format": "value",
+            "placeholder": ""
         },
         {
             "key": "field_578d4ab5a4a70",
             "label": "Collapse Outer Gutters",
             "name": "collapse_gutters",
             "type": "true_false",
-            "instructions": "Useful for hero images.",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -214,7 +204,7 @@
             "label": "Column Gutter Width",
             "name": "gutter_width",
             "type": "number",
-            "instructions": "Number of pixels between columns",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -223,21 +213,19 @@
                 "id": ""
             },
             "default_value": 20,
-            "placeholder": "",
+            "placeholder": "Enter number of pixels between columns (e.g. 20)",
             "prepend": "",
             "append": "",
             "min": "",
             "max": "",
-            "step": "",
-            "readonly": 0,
-            "disabled": 0
+            "step": ""
         },
         {
             "key": "field_578e8b6517e63",
             "label": "Column Gutter Height",
             "name": "gutter_height",
             "type": "number",
-            "instructions": "Number of pixels between columns when they're stacked on mobile.",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -246,7 +234,7 @@
                 "id": ""
             },
             "default_value": 30,
-            "placeholder": "",
+            "placeholder": "Enter number of pixels between stacked columns (e.g. 30)",
             "prepend": "",
             "append": "",
             "min": "",
@@ -271,5 +259,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1476913232
+    "modified": 1476918133
 }
