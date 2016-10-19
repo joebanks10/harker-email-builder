@@ -77,11 +77,11 @@ class Plugin extends \HKR\Singleton {
     }
 
     public function acf_json_save_dest() {
-        return dirname(__FILE__) . '/acf-json';
+        return PATH . 'acf-json';
     }
     public function acf_json_load_dest($paths) {
         unset($paths[0]);
-        $paths[] = dirname(__FILE__) . '/acf-json';
+        $paths[] = PATH . 'acf-json';
 
         return $paths;
     }
