@@ -16,7 +16,7 @@ define('URL', plugin_dir_url(__FILE__));
 require_once(PATH . "vendor/autoload.php");
 
 require_once(PATH . 'inc/class-singleton.php');
-require_once(PATH . 'inc/class-acf.php');
+// require_once(PATH . 'inc/class-acf.php');
 require_once(PATH . 'inc/class-email-post-type.php');
 require_once(PATH . 'inc/class-banner-post-type.php');
 require_once(PATH . 'inc/class-theme-post-type.php');
@@ -33,6 +33,10 @@ class Plugin extends \HKR\Singleton {
         // ));
 
         add_action('init', array($this, 'init'));
+
+        // set folders for ACF local json - used for caching
+        add_filter('acf/settings/save_json', array($this, 'acf_json_save_dest'));
+        add_filter('acf/settings/load_json', array($this, 'acf_json_load_dest'));
 
         $this->settings = new Settings();
         $this->email = new Email_Post_Type(array(
@@ -63,10 +67,6 @@ class Plugin extends \HKR\Singleton {
 
         add_action('wp_ajax_get_ical_events', array($this, 'ajax_get_ical_events'));
         add_action('wp_ajax_nopriv_get_ical_events', array($this, 'ajax_get_ical_events'));
-
-        // set folders for ACF local json - used for caching
-        add_filter('acf/settings/save_json', array($this, 'acf_json_save_dest'));
-        add_filter('acf/settings/load_json', array($this, 'acf_json_load_dest'));
     }
 
     public function acf_admin_styles() {
