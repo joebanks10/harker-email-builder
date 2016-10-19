@@ -16,19 +16,17 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
+            "placeholder": "Add CSS classes to \"td.element\"",
             "prepend": "",
             "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "maxlength": ""
         },
         {
             "key": "field_578e92970c927",
             "label": "Styles",
             "name": "style",
             "type": "text",
-            "instructions": "Inline styles for td.element element",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -37,12 +35,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
+            "placeholder": "Add inline styles to \"td.element\"",
             "prepend": "",
             "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "maxlength": ""
         },
         {
             "key": "field_578e92970c8fd",
@@ -154,5 +150,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1476914045
+    "modified": 1476916527
 }
