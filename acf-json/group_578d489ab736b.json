@@ -3,11 +3,11 @@
     "title": "Module Options",
     "fields": [
         {
-            "key": "field_57d87bc97ffe8",
-            "label": "Header",
-            "name": "header",
-            "type": "clone",
-            "instructions": "Header elements will appear above the module's content, in one column.",
+            "key": "field_5807e067e61a7",
+            "label": "Module Options",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -15,18 +15,32 @@
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "field_578d3e4054d50"
-            ],
-            "display": "group",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 1
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_578d48f8a4a6d",
-            "label": "ID",
-            "name": "id",
+            "key": "field_5807e66c1f457",
+            "label": "Description",
+            "name": "description",
+            "type": "text",
+            "instructions": "Only displays in email editor.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Describe this module",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_578d4a60a4a6e",
+            "label": "Class",
+            "name": "class",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -45,11 +59,11 @@
             "disabled": 0
         },
         {
-            "key": "field_578d4a60a4a6e",
-            "label": "Class",
-            "name": "class",
+            "key": "field_578d4b2ca4a71",
+            "label": "Styles",
+            "name": "style",
             "type": "text",
-            "instructions": "",
+            "instructions": "Inline styles for td.container element",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -87,11 +101,11 @@
             "disabled": 0
         },
         {
-            "key": "field_578d4ab5a4a70",
-            "label": "Collapse Gutters",
-            "name": "collapse_gutters",
-            "type": "true_false",
-            "instructions": "Collapse the outer gutters of a module so that content is flush against window. Useful for hero images.",
+            "key": "field_578d4c18a4a74",
+            "label": "Background Image",
+            "name": "background_img",
+            "type": "image",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -99,15 +113,23 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0
+            "return_format": "url",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": 1,
+            "mime_types": ""
         },
         {
-            "key": "field_578d4b2ca4a71",
-            "label": "Styles",
-            "name": "style",
+            "key": "field_578d4bb4a4a73",
+            "label": "Background Styles",
+            "name": "background_style",
             "type": "text",
-            "instructions": "Inline styles for td.container element",
+            "instructions": "Inline styles for td.background element",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -145,51 +167,6 @@
             "disabled": 0
         },
         {
-            "key": "field_578d4bb4a4a73",
-            "label": "Background Styles",
-            "name": "background_style",
-            "type": "text",
-            "instructions": "Inline styles for td.background element",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
-        },
-        {
-            "key": "field_578d4c18a4a74",
-            "label": "Background Image",
-            "name": "background_img",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "url",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": 1,
-            "mime_types": ""
-        },
-        {
             "key": "field_578e89a60f0af",
             "label": "Column Direction",
             "name": "column_direction",
@@ -215,6 +192,22 @@
             "disabled": 0,
             "readonly": 0,
             "return_format": "value"
+        },
+        {
+            "key": "field_578d4ab5a4a70",
+            "label": "Collapse Outer Gutters",
+            "name": "collapse_gutters",
+            "type": "true_false",
+            "instructions": "Useful for hero images.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0
         },
         {
             "key": "field_578e8aff17e62",
@@ -278,5 +271,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1476829732
+    "modified": 1476913232
 }

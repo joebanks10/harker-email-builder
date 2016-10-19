@@ -87,15 +87,13 @@ class Plugin extends \HKR\Singleton {
     }
 
     public function module_title($title, $field, $layout, $i) {
-        $module_title = get_sub_field('title');
+        $description = get_sub_field('description');
 
-        if (empty($module_title)) {
+        if (empty($description)) {
             return $title;
         }
 
-        $layout = "<span class=\"hkr-tmpl-label hkr-tmpl-module\">$title</span>";
-
-        $title = ($module_title) ? "<span class=\"hkr-mod-title\">$module_title</span> $layout" : "$layout";
+        $title = "<span class=\"hkr-module-title\">$title:</span> <span class=\"hkr-label hkr-module-description\">$description</span>";
         
         return $title;
     }
@@ -107,9 +105,8 @@ class Plugin extends \HKR\Singleton {
             return $title;
         }
 
-        $layout = "<span class=\"hkr-tmpl-label hkr-tmpl-element\">$title</span>";
         $text = wp_trim_words(strip_tags($text), 5);
-        $title = "<span class=\"hkr-element-title\">$text</span> $layout";
+        $title = "<span class=\"hkr-element-title\">$title:</span> <span class=\"hkr-label hkr-element-text\">$text</span>";
         
         return $title;
     }
