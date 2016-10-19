@@ -602,6 +602,27 @@
                             "placeholder": ""
                         },
                         {
+                            "key": "field_58080124cb6e2",
+                            "label": "Use section permalink",
+                            "name": "use_permalink",
+                            "type": "checkbox",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "use-permalink",
+                                "id": ""
+                            },
+                            "choices": {
+                                "true": "Use section permalink?"
+                            },
+                            "default_value": [],
+                            "layout": "vertical",
+                            "toggle": 0,
+                            "return_format": "value"
+                        },
+                        {
                             "key": "field_579116abca80a",
                             "label": "Class",
                             "name": "img_class",
@@ -766,8 +787,8 @@
                             "name": "href",
                             "type": "url",
                             "instructions": "",
-                            "required": "",
-                            "conditional_logic": "",
+                            "required": 0,
+                            "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -775,6 +796,27 @@
                             },
                             "default_value": "",
                             "placeholder": ""
+                        },
+                        {
+                            "key": "field_58080198cb6e3",
+                            "label": "Use section permalink",
+                            "name": "use_permalink",
+                            "type": "checkbox",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "use-permalink",
+                                "id": ""
+                            },
+                            "choices": {
+                                "true": "Use section permalink?"
+                            },
+                            "default_value": [],
+                            "layout": "vertical",
+                            "toggle": 0,
+                            "return_format": "value"
                         },
                         {
                             "key": "field_5796a22c22008",
@@ -1623,5 +1665,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1476918727
+    "modified": 1476920366
 }
