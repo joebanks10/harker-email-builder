@@ -6,6 +6,8 @@
     alt: "",
     img_class: "",
     img_style: "",
+    img_width: "",
+    img_height: "",
     align: "center",
     width: "",
     height: "",
@@ -18,7 +20,7 @@
     {% if module.href %}
         <a href="{{ module.href }}">
     {% endif %}
-    <img class="{{ module.img_class }}" width="{{ module.width }}" height="{{ module.height }}" style="{{ module.img_style }}" src="{{ get_image_url(module.src) }}" alt="{{ module.alt }}">
+    <img class="{{ module.img_class }}" width="{{ module.img_width }}" height="{{ module.img_height }}" style="{{ module.img_style }}" src="{{ get_image_url(module.src) }}" alt="{{ module.alt }}">
     {% if module.href %}
         </a>
     {% endif %}

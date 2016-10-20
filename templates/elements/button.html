@@ -6,15 +6,17 @@
     text: "Learn More",
     href: "#",
     width: "",
+    button_width: "",
+    button_height: "",
     align: "left"
 } %}
 
 {% set module = defaults|merge(module|default({})) %}
 
 {% block element_content %}
-    <table class="table-button table-button-{{ module.type }}" width="{{ module.width }}" border="0" align="{{ module.align }}" cellpadding="0" cellspacing="0">
+    <table class="table-button table-button-{{ module.type }}" width="{{ module.button_width }}" border="0" align="{{ module.align }}" cellpadding="0" cellspacing="0">
         <tr>
-            <td class="button" valign="middle" align="center">
+            <td class="button" valign="middle" align="center" height="{{ module.button_height }}">
                 <a href="{{ module.href }}">{{ module.text }}</a>
             </td>
         </tr>
