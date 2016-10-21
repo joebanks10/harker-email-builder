@@ -256,7 +256,7 @@
                         "template": "article",
                         "options": {
                             "img": {
-                                "width": 185
+                                "img_width": 185
                             }
                         }
                     },
@@ -264,7 +264,7 @@
                         "template": "article",
                         "options": {
                             "img": {
-                                "width": 185
+                                "img_width": 185
                             }
                         }
                     },
@@ -272,7 +272,7 @@
                         "template": "article",
                         "options": {
                             "img": {
-                                "width": 185
+                                "img_width": 185
                             }
                         }
                     },
@@ -280,7 +280,7 @@
                         "template": "article",
                         "options": {
                             "img": {
-                                "width": 185
+                                "img_width": 185
                             }
                         }
                     },
@@ -288,7 +288,7 @@
                         "template": "article",
                         "options": {
                             "img": {
-                                "width": 185
+                                "img_width": 185
                             }
                         }
                     },
@@ -296,7 +296,7 @@
                         "template": "article",
                         "options": {
                             "img": {
-                                "width": 185
+                                "img_width": 185
                             }
                         }
                     }
