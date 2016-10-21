@@ -9,19 +9,23 @@
     img_width: "",
     img_height: "",
     align: "center",
-    width: "",
-    height: "",
     href: ""
 } %}
 
 {% set module = defaults|merge( module|default({}) ) %}
 
 {% block element_content %}
+    {% if module.align == "center" %}
+        <center>
+    {% endif %}
     {% if module.href %}
         <a href="{{ module.href }}">
     {% endif %}
     <img class="{{ module.img_class }}" width="{{ module.img_width }}" height="{{ module.img_height }}" style="{{ module.img_style }}" src="{{ get_image_url(module.src) }}" alt="{{ module.alt }}">
     {% if module.href %}
         </a>
+    {% endif %}
+    {% if module.align == "center" %}
+        </center>
     {% endif %}
 {% endblock element_content %}

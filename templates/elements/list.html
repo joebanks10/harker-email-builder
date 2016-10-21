@@ -3,7 +3,8 @@
 {% set defaults = {
     element_class: "list",
     type: "",
-    width: "",
+    list_width: "100%",
+    list_height: "",
     bullet: {
         url: "http://skylark.harker.org/email-builder/assets/img/check.png",
         width: 17
@@ -21,20 +22,22 @@
 }) %}
 
 {% block element_content %}
-    <table class="table-full" align="{{ module.align }}" width="{{ module.width }}" border="0" cellspacing="0" cellpadding="0">
-        {% if module.type == "inline" %}
+    {% if module.type == "inline" %}
+        <table class="table-full" align="{{ module.align }}" width="{{ module.list_width }}" border="0" cellspacing="0" cellpadding="0">
             <tr>
                 {% for item in module.items %}
-                    <td class="list-item list-item-text" height="{{ module.height }}">
+                    <td class="list-item list-item-text" height="{{ module.list_height }}">
                         {{ item }}
                     </td>
                 {% endfor %}
             </tr>
-        {% else %}
+        </table>
+    {% else %}
+        <table class="table-full" align="{{ module.align }}" width="{{ module.list_width }}" border="0" cellspacing="0" cellpadding="0">
             {% for item in module.items %}
                 <tr>
                     <td class="list-item">
-                        <table width="{{ module.width }}" align="{{ module.align }}" border="0" cellpadding="0" cellspacing="0">
+                        <table width="100%" align="{{ module.align }}" border="0" cellpadding="0" cellspacing="0">
                             <tr>
                                 {% block bullet %}
                                     {% if module.bullet %}
@@ -65,6 +68,6 @@
                     </td>
                 </tr>
             {% endfor %}
-        {% endif %}
-    </table>
+        </table>
+    {% endif %}
 {% endblock element_content %}

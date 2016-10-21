@@ -2,19 +2,11 @@
     "title": "Master Template",
     
     // Custom Header
-    // "header": [
-    //     {
-    //         "template": "topbar",
-    //         "options": {
-    //             "img": {
-    //                 "src": "~/harker-logo.png",
-    //                 "alt": "Updated Alt Tag",
-    //                 "width": 183,
-    //                 "height": 32
-    //             }
-    //         }
-    //     }
-    // ],
+    "header": [
+        {
+            "template": "topbar-text"
+        }
+    ],
     
     // Modules
     // 
@@ -55,7 +47,8 @@
                                     "src": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image",
                                     "alt": "Big Image",
                                     "style": "padding-bottom: 40px;",
-                                    "width": 600,
+                                    "img_width": 600,
+                                    "img_class": "img-full",
                                     "href": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image"
                                 }
                             },
@@ -133,6 +126,7 @@
                                 "template": "button",
                                 "options": {
                                     "type": "primary", // primary, secondary, outline, text
+                                    "align": "center",
                                     "text": "Learn More About Cool Stuff",
                                     "href": "http://www.harker.org"
                                 }
@@ -156,7 +150,8 @@
                                 "template": "img",
                                 "options": {
                                     "src": "http://dummyimage.com/290x200/cccccc/333333.gif&text=placeholder+image",
-                                    "width": "100%"
+                                    "img_width": "100%",
+                                    "img_class": "img-full"
                                 }
                             }
                         ]
@@ -207,7 +202,8 @@
                         "template": "img",
                         "options": {
                             "src": "http://dummyimage.com/290x200/cccccc/333333.gif&text=placeholder+image",
-                            "width": "100%"
+                            "img_width": "100%",
+                                    "img_class": "img-full"
                         }
                     }
                 ],
@@ -419,7 +415,8 @@
                         "options": {
                             "src": "https://www.harker.org/uploaded/assets/graphics/promos/SUM_web_PPortal_F_1617.jpg",
                             "href": "#",
-                            "width": 289
+                            "img_width": 289,
+                            "img_class": "img-full"
                         }
                     },
                     {
@@ -427,7 +424,8 @@
                         "options": {
                             "src": "https://www.harker.org/uploaded/assets/graphics/promos/ADV_AGiving_May_31_HPP_F_1516.png",
                             "href": "#",
-                            "width": 289
+                            "img_width": 289,
+                            "img_class": "img-full"
                         }
                     },
                     {
@@ -435,7 +433,8 @@
                         "options": {
                             "src": "http://www.harker.org/uploaded/assets/graphics/promos/corporate/portal/ADV_GrandparentsDay_LS_HPP_F_1516.png",
                             "href": "#",
-                            "width": 289
+                            "img_width": 289,
+                            "img_class": "img-full"
                         }
                     },
                     {
@@ -443,7 +442,8 @@
                         "options": {
                             "src": "http://www.harker.org/uploaded/assets/graphics/promos/SUM_SFGiants_Baseballcamp_HPP_F_1617.png",
                             "href": "#",
-                            "width": 289
+                            "img_width": 289,
+                            "img_class": "img-full"
                         }
                     }
                 ]
@@ -505,7 +505,8 @@
                         "options": {
                             "src": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image",
                             "alt": "Big Image",
-                            "style": "padding: 0;"
+                            "style": "padding: 0;",
+                            "img_class": "img-full"
                         }
                     }
                 ]
@@ -545,7 +546,7 @@
                                 "options": {
                                     "text": "CTA TEXT HERE",
                                     "href": "http://www.harker.org",
-                                    "width": "100%"
+                                    "button_width": "100%"
                                 }
                             },
                             {
@@ -553,7 +554,7 @@
                                 "options": {
                                     "text": "CTA TEXT HERE",
                                     "href": "http://www.harker.org",
-                                    "width": "100%",
+                                    "button_width": "100%",
                                     "type": "outline"
                                 }
                             }
