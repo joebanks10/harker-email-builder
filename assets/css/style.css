@@ -235,7 +235,7 @@ tr:first-child > .element {
 .list-item-text {
     font-family: 'Open Sans', Arial, sans-serif; 
     font-size: 16px;
-    line-height: 26px;
+    line-height: normal;
     color: #676767;
     text-align: left;
 }
