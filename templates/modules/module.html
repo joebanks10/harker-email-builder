@@ -26,7 +26,7 @@
 
 <table id="{{ module.id }}" class="module {{ module.module_class }} {{ module_classes(module.class) }}" style="{{ module.table_style }}" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" {{ module.attributes }}>
     <tr>
-        <td class="background" align="center" background="{{ module.background_img }}" style="text-align: center; background-image: url({{ module.background_img }}); {{ module.background_style }}">
+        <td class="background" align="center" background="{{ get_image_url(module.background_img) }}" style="text-align: center; background-image: url({{ get_image_url(module.background_img) }}); {{ module.background_style }}">
             <center>
                 <table align="center" class="{{ table_inner_class }}" width="{{ module.width }}" border="0" cellspacing="0" cellpadding="0">
                     <tr>
