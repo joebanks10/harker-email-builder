@@ -285,7 +285,7 @@
                             "type": "primary",
                             "text": "Choose Answer",
                             "href": "https://www.surveymonkey.com/r/GJ9GSB7",
-                            "width": "100%"
+                            "button_width": "100%"
                         }
                     }
                 ]
@@ -312,7 +312,7 @@
                         "options": {
                             "src": "http://www.harker.org/uploaded/assets/graphics/promos/corporate/portal/logowear-portal-ad-homecoming.jpg",
                             "href": "https://harkerschool.mybrightsites.com/products?s%5Bf%5D%5Bc%5D%5B%5D=%2FHOMECOMING",
-                            "width": 290,
+                            "img_width": 290,
                             "img_class": "img-full"
                         }
                     },
@@ -321,7 +321,7 @@
                         "options": {
                             "src": "https://www.harker.org/uploaded/assets/graphics/promos/ADV_Harvest_Fest_PPortal_F_1617.png",
                             "href": "http://www.harker.org/picnic",
-                            "width": 290,
+                            "img_width": 290,
                             "img_class": "img-full"
                         }
                     },
@@ -330,7 +330,7 @@
                         "options": {
                             "src": "http://www.harker.org/uploaded/assets/graphics/promos/PA_US_AroundTW_HPP_F_1617.png",
                             "href": "http://www.harker.org/page.cfm?id=3564&verbose=247058",
-                            "width": 290,
+                            "img_width": 290,
                             "img_class": "img-full"
                         }
                     },
@@ -338,7 +338,7 @@
                         "template": "img",
                         "options": {
                             "src": "homecoming-promo.jpg",
-                            "width": 290,
+                            "img_width": 290,
                             "img_class": "img-full"
                         }
                     }

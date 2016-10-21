@@ -32,8 +32,8 @@
                         "template": "calendar-list",
                         "options": {
                             "ical": "http://www.harker.org/calendar/page_3624.ics",
-                            "start_date": "Aug. 15, 2016",
-                            "end_date": "Aug. 21, 2016"
+                            "start_date": "Oct. 17, 2016",
+                            "end_date": "Oct. 23, 2016"
                         }
                     },
                     {

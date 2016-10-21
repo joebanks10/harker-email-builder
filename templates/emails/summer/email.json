@@ -8,7 +8,7 @@
             "options": {
                 "class": "topbar-summer",
                 "img": {
-                    "src": "http://skylark.harker.org/emails/messages/summer/2016/camp-plus/images/img0.png",
+                    "src": "~/harker-summer-logo.png",
                     "alt": "Harker Summer",
                     "width": 200,
                     "height": 58
@@ -53,7 +53,8 @@
                                 "options": {
                                     "src": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image",
                                     "alt": "Big Image",
-                                    "style": "padding-bottom: 40px;"
+                                    "style": "padding-bottom: 40px;",
+                                    "img_class": "img-full"
                                 }
                             },
                             {
@@ -110,7 +111,6 @@
                                 "template": "list",
                                 "options": {
                                     "type": "default", // default, ordered, unordered, unstyled
-                                    "width": "100%",
                                     "items": [
                                         "Item #1",
                                         "Item #2",
@@ -148,7 +148,7 @@
                                 "template": "img",
                                 "options": {
                                     "src": "http://dummyimage.com/290x200/cccccc/333333.gif&text=placeholder+image",
-                                    "width": "100%"
+                                    "img_class": "img-full"
                                 }
                             }
                         ]
@@ -200,7 +200,7 @@
                                 "template": "img",
                                 "options": {
                                     "src": "http://dummyimage.com/290x200/cccccc/333333.gif&text=placeholder+image",
-                                    "width": "100%"
+                                    "img_class": "img-full"
                                 }
                             }
                         ]
