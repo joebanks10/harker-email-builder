@@ -32,7 +32,7 @@
 {% endif %}
 
 {% block element_content %}
-    <table class="table-event" width="{{ module.width }}" border="0" align="{{ module.align }}" cellpadding="0" cellspacing="0">
+    <table class="table-event" width="100%" border="0" align="{{ module.align }}" cellpadding="0" cellspacing="0">
         {% if img %}
             <tr>
                 {% include "elements/img.html" with { module: img } %}

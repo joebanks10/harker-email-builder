@@ -3,10 +3,10 @@
 {% set defaults = {
     element_class: "calendar-item",
     date: "Jan. 1",
-    date_width: 68,
     events: []
 } %}
 
+{% set date_width = 68 %}
 {% set module = defaults|merge( module|default({}) ) %}
 
 {% block element_content %}
@@ -14,7 +14,7 @@
         <tr>
             {% include "elements/date.html" with { module: {
                 text: module.date,
-                width: module.date_width
+                width: date_width
             } } %}
             <td class="events" valign="top">
                 <table width="100%" border="0" cellpadding="0" cellspacing="0">
