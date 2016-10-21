@@ -8,7 +8,7 @@ use \Twig_Loader_Filesystem;
 use \Twig_Extension_Debug;
 use \Twig_SimpleFunction;
 use \Twig_SimpleFilter;
-use \HKR\minify_html;
+use \TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
 
 class Email {
 
@@ -213,7 +213,7 @@ class Email {
         }
 
         if (isset($_GET['minify'])) {
-            $email = minify_html($email);
+            $email = \HKR\minify_html($email);
         }
 
         return $email;
@@ -223,7 +223,7 @@ class Email {
     // ------------------------------------------
 
     private function inline_css($html, $css = '') {
-        $inliner = new TijsVerkoyen\CssToInlineStyles\CssToInlineStyles($html, $css);
+        $inliner = new CssToInlineStyles($html, $css);
         $html_inlined = $inliner->convert();
 
         return $html_inlined;
