@@ -3,6 +3,22 @@
     "title": "Element Options",
     "fields": [
         {
+            "key": "field_580aabdf61ffa",
+            "label": "Element Options",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_578e92970c8eb",
             "label": "Class",
             "name": "class",
@@ -36,44 +52,6 @@
             },
             "default_value": "",
             "placeholder": "Add inline styles to \"td.element\"",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_578e92970c8fd",
-            "label": "Width",
-            "name": "width",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "100%",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_57f823c9f92ca",
-            "label": "Height",
-            "name": "height",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
             "prepend": "",
             "append": "",
             "maxlength": ""
@@ -150,5 +128,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1476916527
+    "modified": 1477094509
 }

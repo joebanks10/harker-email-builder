@@ -66,27 +66,6 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_57911371823ef",
-                            "label": "Tab: Element Options",
-                            "name": "tab:_element_options",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": "",
-                            "conditional_logic": "",
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_578e96e83c633"
-                            ],
-                            "prefix_label": 0,
-                            "prefix_name": 0,
-                            "display": "seamless",
-                            "layout": "block"
-                        },
-                        {
                             "key": "field_57911371823f0",
                             "label": "Element Options",
                             "name": "element_options",
@@ -156,27 +135,6 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
-                        },
-                        {
-                            "key": "field_5791138e823f4",
-                            "label": "Tab: Element Options",
-                            "name": "tab:_element_options",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_578e96e83c633"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
                         },
                         {
                             "key": "field_5791138e823f5",
@@ -287,27 +245,6 @@
                             "return_format": "value"
                         },
                         {
-                            "key": "field_579112b6823e3",
-                            "label": "Tab: Element Options",
-                            "name": "tab:_element_options",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_578e96e83c633"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        },
-                        {
                             "key": "field_579112b6823e4",
                             "label": "Element Options",
                             "name": "element_options",
@@ -379,27 +316,6 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_57911337823ea",
-                            "label": "Tab: Element Options",
-                            "name": "tab:_element_options",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_578e96e83c633"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        },
-                        {
                             "key": "field_57911337823eb",
                             "label": "Element Options",
                             "name": "element_options",
@@ -468,27 +384,6 @@
                             "tabs": "all",
                             "toolbar": "basic",
                             "media_upload": 0
-                        },
-                        {
-                            "key": "field_578e90881175e",
-                            "label": "Tab: Element Options",
-                            "name": "tab:_element_options",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_578e96e83c633"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
                         },
                         {
                             "key": "field_578e938edba68",
@@ -661,27 +556,6 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_5796a114a22aa",
-                            "label": "Tab: Element Options",
-                            "name": "tab:_element_options",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": "",
-                            "conditional_logic": "",
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_578e96e83c633"
-                            ],
-                            "prefix_label": 0,
-                            "prefix_name": 0,
-                            "display": "seamless",
-                            "layout": "block"
-                        },
-                        {
                             "key": "field_5796a180a22ab",
                             "label": "Element Options",
                             "name": "element_options",
@@ -819,27 +693,6 @@
                             "return_format": "value"
                         },
                         {
-                            "key": "field_5796a22c22008",
-                            "label": "Tab: Element Options",
-                            "name": "tab:_element_options",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": "",
-                            "conditional_logic": "",
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_578e96e83c633"
-                            ],
-                            "prefix_label": 0,
-                            "prefix_name": 0,
-                            "display": "seamless",
-                            "layout": "block"
-                        },
-                        {
                             "key": "field_5796a25022009",
                             "label": "Element Options",
                             "name": "element_options",
@@ -958,27 +811,6 @@
                                     "maxlength": ""
                                 }
                             ]
-                        },
-                        {
-                            "key": "field_5796a31fa4ea0",
-                            "label": "Tab: Element Options",
-                            "name": "tab:_element_options",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": "",
-                            "conditional_logic": "",
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_578e96e83c633"
-                            ],
-                            "prefix_label": 0,
-                            "prefix_name": 0,
-                            "display": "seamless",
-                            "layout": "block"
                         },
                         {
                             "key": "field_5796a342a4ea1",
@@ -1182,27 +1014,6 @@
                             "layout": "block",
                             "prefix_label": 0,
                             "prefix_name": 1
-                        },
-                        {
-                            "key": "field_57d3023850b76",
-                            "label": "Tab: Element Options",
-                            "name": "tab:_element_options",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_578e96e83c633"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
                         },
                         {
                             "key": "field_57d3028050b77",
@@ -1474,27 +1285,6 @@
                             ]
                         },
                         {
-                            "key": "field_57cf4e43b96c2",
-                            "label": "Tab: Element Options",
-                            "name": "element_options",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_578e96e83c633"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        },
-                        {
                             "key": "field_57cf4e91b96c3",
                             "label": "Element Options",
                             "name": "element_options",
@@ -1547,6 +1337,22 @@
                             "prefix_name": 0
                         },
                         {
+                            "key": "field_57fc1b0c8866d",
+                            "label": "Permalink",
+                            "name": "permalink",
+                            "type": "url",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "Enter common URL for section links"
+                        },
+                        {
                             "key": "field_57cf511915a34",
                             "label": "Content",
                             "name": "content",
@@ -1561,27 +1367,6 @@
                             },
                             "clone": [
                                 "field_578d3e4054d50"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        },
-                        {
-                            "key": "field_57cf521cb2c50",
-                            "label": "Tab: Element Options",
-                            "name": "tab:_element_options",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "field_578e96e83c633"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -1608,38 +1393,6 @@
                             "layout": "block",
                             "prefix_label": 0,
                             "prefix_name": 0
-                        },
-                        {
-                            "key": "field_5807f68b790e4",
-                            "label": "Section Options",
-                            "name": "",
-                            "type": "tab",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "placement": "top",
-                            "endpoint": 0
-                        },
-                        {
-                            "key": "field_57fc1b0c8866d",
-                            "label": "Permalink",
-                            "name": "permalink",
-                            "type": "url",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "Enter common URL for section links"
                         }
                     ],
                     "min": "",
@@ -1665,5 +1418,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1476920366
+    "modified": 1477094348
 }
