@@ -556,6 +556,46 @@
                             "maxlength": ""
                         },
                         {
+                            "key": "field_580e67d2c8125",
+                            "label": "Width",
+                            "name": "img_width",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "Enter number of pixels or percentage (e.g. 200 or 100%)",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_580e6842c8126",
+                            "label": "Height",
+                            "name": "img_height",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "Enter number of pixels",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
                             "key": "field_5796a180a22ab",
                             "label": "Element Options",
                             "name": "element_options",
@@ -693,6 +733,46 @@
                             "return_format": "value"
                         },
                         {
+                            "key": "field_580e6b2e9a96c",
+                            "label": "Width",
+                            "name": "button_width",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "Enter number of pixels or percentage (e.g. 200 or 100%)",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_580e6bc29a96d",
+                            "label": "Height",
+                            "name": "button_height",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "Enter number of pixels",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
                             "key": "field_5796a25022009",
                             "label": "Element Options",
                             "name": "element_options",
@@ -771,6 +851,25 @@
                             "ajax": 0,
                             "return_format": "value",
                             "placeholder": ""
+                        },
+                        {
+                            "key": "field_580e6d8557839",
+                            "label": "Width",
+                            "name": "list_width",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "100%",
+                            "placeholder": "Enter number of pixels or percentage (e.g. 200 or 100%)",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         },
                         {
                             "key": "field_57912ef522adf",
@@ -1418,5 +1517,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1477094348
+    "modified": 1477340764
 }
