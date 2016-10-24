@@ -97,6 +97,10 @@ class Template_Extensions {
     }
 
     public function get_image_url($url) {
+        if (empty($url)) {
+            return "";
+        }
+
         if ( preg_match('/^http/', $url) ) {
             return $url; // no processing needed
         }
