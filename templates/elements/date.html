@@ -12,7 +12,7 @@
 {% set module = defaults|merge(module|default({})) %}
 
 {% block element_content %}
-    <table class="table-date" width="{{ module.width }}" border="0" align="{{ module.align }}" cellpadding="0" cellspacing="0" background="{{ get_image_url(module.background_img) }}" style="background-image: url({{ get_image_url(module.background_img) }}) {{ module.background_style }}">
+    <table class="table-date" width="100%" border="0" align="{{ module.align }}" cellpadding="0" cellspacing="0" background="{{ get_image_url(module.background_img) }}" style="background-image: url({{ get_image_url(module.background_img) }}) {{ module.background_style }}">
         <tr>
             <td class="date">
                 {{ module.text }}

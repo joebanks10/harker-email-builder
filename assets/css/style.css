@@ -235,7 +235,7 @@ tr:first-child > .element {
 .list-item-text {
     font-family: 'Open Sans', Arial, sans-serif; 
     font-size: 16px;
-    line-height: 26px;
+    line-height: normal;
     color: #676767;
     text-align: left;
 }
@@ -311,8 +311,6 @@ tr:last-child > .row {
     border-right: 4px solid #033e2f; 
     border-left: 4px solid #033e2f; 
     background-color: #05533E;
-    text-align: center;
-    vertical-align: middle;
 }
 
 .module-topbar .logo-container img {
@@ -508,22 +506,22 @@ tr:last-child > .row {
 .white-bg, .white-bg .background {
     background-color: #ffffff;
 }
-.blue-bg, .blue-bg .table-button-outline, .blue-bg .background { 
+.blue-bg, .blue-bg .background { 
     background-color: #00809E; 
 }
-.green-bg, .green-bg .table-button-outline, .green-bg .background { 
+.green-bg, .green-bg .background { 
     background-color: #63A70A; 
 }
-.purple-bg, .purple-bg .table-button-outline, .purple-bg .background { 
+.purple-bg, .purple-bg .background { 
     background-color: #A23BBC; 
 }
-.red-bg, .red-bg .table-button-outline, .red-bg .background { 
+.red-bg, .red-bg .background { 
     background-color: #9C0947; 
 }
-.orange-bg, .orange-bg .table-button-outline, .orange-bg .background { 
+.orange-bg, .orange-bg .background { 
     background-color: #CE5D27; 
 }
-.gold-bg, .gold-bg .table-button-outline, .gold-bg .background { 
+.gold-bg, .gold-bg .background { 
     background-color: #DCAA00; 
 }
 .seafoam-green-bg, .seafoam-green-bg .background {

@@ -48,10 +48,10 @@
                             {   
                                 "template": "img",
                                 "options": {
-                                    "src": "http://skylark.harker.org/emails/images/email-header-head-of-school-cap.jpg",
+                                    "src": "~/email-header-head-of-school-cap.jpg",
                                     "alt": "A special message from Chris Nikoloff, Head of School",
                                     "style": "padding: 0;",
-                                    "width": "100%"
+                                    "img_width": "100%"
                                 }
                             }
                         ]
@@ -83,7 +83,7 @@
                             {
                                 "template": "img",
                                 "options": {
-                                    "src": "http://skylark.harker.org/emails/images/nikoloff-signature.gif",
+                                    "src": "~/nikoloff-signature.gif",
                                     "alt": "Christopher Nikoloff's Signature",
                                     "align": "left",
                                     "img_class": ""
