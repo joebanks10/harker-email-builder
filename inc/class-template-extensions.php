@@ -96,7 +96,7 @@ class Template_Extensions {
         return $column_width;
     }
 
-    public function get_image_url($url) {
+    public function get_image_url($url = "") {
         if (empty($url)) {
             return "";
         }
