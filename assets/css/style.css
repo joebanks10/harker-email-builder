@@ -481,6 +481,8 @@ tr:last-child > .row {
 
 .module-footer .list-item {
     border: none;
+    padding-top: 0;
+    padding-bottom: 15px;
 }
 
 .module-bottombar .background {
