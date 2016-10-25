@@ -99,13 +99,20 @@ class Plugin extends \HKR\Singleton {
     }
 
     public function element_title($title, $field, $layout, $i) {
-        $text = get_sub_field('text');
+        $text = ($layout['name'] === 'img') ? get_sub_field('alt') : get_sub_field('text');
+
+        if ($layout['name'] === 'header') {
+            $type = get_sub_field('type');
+            $type = ($type === 'header') ? 'normal' : $type;
+            $title = (!empty($type)) ? "$title ($type)" : $title;
+        }
 
         if (empty($text)) {
             return $title;
         }
 
         $text = wp_trim_words(strip_tags($text), 5);
+
         $title = "<span class=\"hkr-element-title\">$title:</span> <span class=\"hkr-label hkr-element-text\">$text</span>";
         
         return $title;
