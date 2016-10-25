@@ -14,6 +14,7 @@ class Email {
 
     private $id;
     private $settings;
+    private $email_data;
     private $loader;
     private $twig;
     private $cache;
@@ -77,9 +78,9 @@ class Email {
             $json = $this->get_data();
         }
         
-        $email_data = array_merge($this->settings, $json);
+        $this->email_data = array_merge($this->settings, $json);
         $data = array_merge(array(
-            'email' => $email_data
+            'email' => $this->email_data
         ), $constants);
 
         $this->loader = $this->create_loader();
@@ -230,11 +231,10 @@ class Email {
     }
 
     private function get_styles() {
-        $css = file_get_contents($this->settings['stylesheet_url']);
+        $css = $this->email_data['stylesheet'];
 
-        if ( $this->settings['stylesheet_addons_url'] ) {
-            $addons = file_get_contents($this->settings['stylesheet_addons_url']);
-            $css = ( $addons ) ? $css . $addons : $css;
+        if ( isset($this->email_data['stylesheet_addons']) ) {
+            $css .= $this->email_data['stylesheet_addons'];
         }
 
         return $css;
