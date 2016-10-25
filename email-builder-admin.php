@@ -103,8 +103,14 @@ class Plugin extends \HKR\Singleton {
 
         if ($layout['name'] === 'header') {
             $type = get_sub_field('type');
-            $type = ($type === 'header') ? 'normal' : $type;
-            $title = (!empty($type)) ? "$title ($type)" : $title;
+
+            if (!empty($type)) {
+                $title = ucfirst($type);
+
+                if ($title === 'Article') {
+                    $title = 'Article Header';
+                }
+            }
         }
 
         if (empty($text)) {
