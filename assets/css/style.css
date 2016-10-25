@@ -343,7 +343,8 @@ tr:last-child > .row {
 }
 
 .article .header,
-.article-feature .header {
+.article-feature .header,
+.article-header {
     color: #555; 
     font-size: 16px; 
     line-height: 24px;
