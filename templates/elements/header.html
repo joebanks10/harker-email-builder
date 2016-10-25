@@ -3,10 +3,14 @@
 {% set defaults = {
     element_class: "header",
     text: "Module Header",
+    type: "header",
     href: ""
 } %}
 
 {% set module = defaults|merge( module|default({}) ) %}
+{% set module = module|merge({
+    element_class: "header header-#{module.type}"
+}) %}
 
 {% block element_content %}
     {% if module.href %}
