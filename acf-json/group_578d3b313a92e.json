@@ -119,7 +119,8 @@
                                 "header": "Normal",
                                 "subheader": "Subheader",
                                 "title": "Title",
-                                "subtitle": "Subtitle"
+                                "subtitle": "Subtitle",
+                                "header-article": "Article Header"
                             },
                             "default_value": [
                                 "normal"
@@ -1331,5 +1332,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1477416049
+    "modified": 1477432211
 }
