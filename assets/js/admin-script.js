@@ -1,4 +1,28 @@
 (function($) {
+    
+    "use strict";
+
+    acf.add_action('append', function($el){
+        if ($el.closest('.acf-field').data('name') === 'elements') {
+            var $field = $el.children('.acf-fields').children('.acf-field').not('.hidden, .acf-field-tab').first(),
+                $input = $field.children('.acf-input'),
+                $fieldType = $field.data('type');
+            
+            if ($fieldType === 'image') {
+                $input = $input.find('a.button').first();
+            } else if ($fieldType === 'date_picker' || $fieldType === 'time_picker' || $fieldType === 'datetime_picker') {
+                $input.find('input.input').first();
+            } else {
+                $input = $input.find('input, textarea, select').first();
+            }
+
+            $input.focus();
+        }
+    });
+
+})(jQuery);
+
+(function($) {
 
     "use strict";
 
