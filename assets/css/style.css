@@ -424,7 +424,7 @@ tr:last-child > .row {
 .event .header {
     font-size: 14px; 
     line-height: 21px;
-    padding-bottom: 3px;
+    padding-bottom: 2px;
 }
 
 .event .content {
@@ -647,7 +647,6 @@ td[class="hide"] {
     .event .header {
         font-size: 12px !important;
         line-height: 18px !important;
-        padding-bottom: 2px !important;
     }
 }
 
