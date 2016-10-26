@@ -600,7 +600,7 @@ tr:last-child > .row {
         border-left-width: 0 !important;
         border-bottom: 1px solid #033e2f;
     }
-    .topbar-links .content { text-align: center; }
+    .topbar-links .content { text-align: center !important; }
     
     /* image */
     img[class="img-full"] { 
@@ -641,13 +641,13 @@ td[class="hide"] {
     }
 
     .event {
-        padding-bottom: 12px;
+        padding-bottom: 12px !important;
     }
 
     .event .header {
-        font-size: 12px;
-        line-height: 18px;
-        padding-bottom: 2px;
+        font-size: 12px !important;
+        line-height: 18px !important;
+        padding-bottom: 2px !important;
     }
 }
 
