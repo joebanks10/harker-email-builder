@@ -9,15 +9,25 @@ class WP_Email {
     private $wp_url;
     private $wp_data;
     private $data;
+    private $modified;
 
     public function __construct($wp_url) {
         $this->wp_url = $wp_url;
         $this->wp_data = $this->fetch_wp_data($this->wp_url);
-        $this->data = $this->parse_wp_data($this->wp_data);
+        $this->modified = strtotime($this->wp_data['modified']);
+        $this->data = array();
     }
 
     public function get_data() {
+        if (empty($this->data)) {
+            $this->data = $this->parse_wp_data($this->wp_data);
+        }
+
         return $this->data;
+    }
+
+    public function get_modified_date() {
+        return $this->modified;
     }
 
     /**
