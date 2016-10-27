@@ -29,8 +29,8 @@ class Email_Cache {
      * @param  int $modified    A timestamp for when the file was last modified
      * @return void
      */
-    public function put($filename, $html, $modified = null) {
-        $path = $this->settings['folder_path'] . "/$filename";
+    public function put($key, $html, $modified = null) {
+        $path = $this->get_path($key);
 
         file_put_contents($path, $html);
 
@@ -45,15 +45,23 @@ class Email_Cache {
      * @param  string $filename Filename (excludes path)
      * @return string           HTML content
      */
-    public function get($filename) {
-        $path = $this->settings['folder_path'] . "/$filename";
+    public function get($key) {
+        $path = $this->get_path($key);
 
         return file_get_contents($path);
     }
 
-    public function is_invalid($filename, $new_modified) {
-        $path = $this->settings['folder_path'] . "/$filename";
+    public function is_invalid($key, $new_modified) {
+        $path = $this->get_path($key);
+
+        if (!file_exists($path)) {
+            return true;
+        }
 
         return (filemtime($path) < $new_modified);
+    }
+
+    private function get_path($key) {
+        return $this->settings['folder_path'] . "/$key.html";
     }
 }

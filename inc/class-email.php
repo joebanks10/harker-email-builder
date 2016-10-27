@@ -16,7 +16,7 @@ class Email {
 
     private $id;
     private $settings;
-    private $email_data;
+    private $data;
     private $loader;
     private $twig;
     private $cache;
@@ -41,11 +41,6 @@ class Email {
             'wp_api_endpoint' => WP_API_URL
         );
 
-        $constants = array(
-            'ROOT_CSS_DIR_URL' => ROOT_CSS_DIR_URL,
-            'ROOT_IMG_DIR_URL' => ROOT_IMG_DIR_URL
-        );
-
         $this->settings = array_merge($defaults, $args);
 
         if ($this->settings['stylesheet_url']) {
@@ -56,29 +51,25 @@ class Email {
             $this->settings['stylesheet_addons'] = file_get_contents($this->settings['stylesheet_addons_url']);
         }
 
-        $is_inline = isset($_GET['inline']);
+        $this->data = $this->get_template_data();
 
-        // get data from WordPress or JSON file
+        $this->debug = isset($_GET['debug']);
+        $this->minify = isset($_GET['minify']);
+
         if (isset($_GET['wp_id'])) {
-            $wp_email = new WP_Email($this->settings['wp_api_endpoint'] . $_GET['wp_id']);
-            
-            $this->settings['email_cache'] = ROOT_DIR . '/emails/wp';
-
-            $json = $wp_email->get_data();
-        } else {
-            $json = $this->get_data();
+            $this->wp_email = new WP_Email($this->settings['wp_api_endpoint'] . $_GET['wp_id']);
+            $this->settings['email_cache'] = ROOT_DIR . '/cache/wp';
         }
-        
-        $this->email_data = array_merge($this->settings, $json);
-        $data = array_merge(array('email' => $this->email_data), $constants);
 
-        $this->cache = new Email_Cache(array( 'folder_path' => $this->settings['email_cache']));
+        $this->cache = new Email_Cache(array('folder_path' => $this->settings['email_cache']));
 
+        $this->render_email();
+    }
+
+    private function init_twig() {
         $this->loader = $this->create_loader();
         $this->twig = $this->create_environment();
-        $this->extend_twig($data);
-
-        $this->render_email($is_inline, $data);
+        $this->extend_twig($this->data);
     }
 
     private function create_loader() {
@@ -149,43 +140,48 @@ class Email {
         $this->twig->addFilter($filter);
     }
 
-    private function render_email($is_inline = false, $data = array()) {
-        $email = $this->get_rendered_email($is_inline, $data);
+    private function render_email() {
+        $email = $this->get_rendered_email();
 
         echo $email;
-
-        return $email;
     }
 
-    private function get_cached_email($is_inline = false, $data = array()) {
-        if ( isset($_GET['empty_cache']) ) {
-            $this->cache->deleteItem($this->id);
+    private function get_rendered_email() {
+        if (isset($this->wp_email)) {
+            $slug = $this->wp_email->get_slug();
+            $modified = $this->wp_email->get_modified_date();
+
+            if ($this->cache->is_invalid($slug, $modified)) {
+                // render twig email
+                $html = $this->get_twig_email();
+
+                // cache it for later
+                $this->cache->put($slug, $html, $modified);
+            } else {
+                $html = $this->cache->get($slug);
+            }
+        } else {
+            // render twig email
+            $html = $this->get_twig_email();
         }
 
-        $cached_item_path = $this->id . '/' . $this->last_modified;
-        if ($is_inline) {
-            $cached_item_path .= '/inline';
+        // inline css
+        if (!$this->debug) {
+            $css = $this->get_concat_styles();
+            $html = $this->inline_css($html, $css);
         }
 
-        $item = $this->cache->getItem($cached_item_path);
-        $email = $item->get();
+        // minify html
+        if ($this->minify) {
+            $html = \HKR\minify_html($html);
+        }
 
-        if ( $item->isMiss() ) {
-            $item->lock();
-
-            $email = $this->get_rendered_email($is_inline, $data);
-
-            $item->set($email);
-            $item->expiresAfter(3600); // 1 hour
-
-            $this->cache->deleteItem($this->id); // clear cache for email
-            $this->cache->save($item);
-        } 
-
-        return $email;
+        return $html;
     }
 
-    private function get_rendered_email($is_inline = false, $data = array()) {
+    private function get_twig_email() {
+        $this->init_twig();
+
         $email_dir = $this->settings['email_dir'];
         $email_file = $this->settings['email_template'];
 
@@ -195,18 +191,7 @@ class Email {
             $file = 'layouts/base.html';
         }
 
-        $email = $this->twig->render($file, $data);
-
-        if ($is_inline) {
-            $css = $this->get_styles();
-            $email = $this->inline_css($email, $css);
-        }
-
-        if (isset($_GET['minify'])) {
-            $email = \HKR\minify_html($email);
-        }
-
-        return $email;
+        return $this->twig->render($file, $this->data);
     }
 
     // UTILITY FUNCTIONS
@@ -219,46 +204,56 @@ class Email {
         return $html_inlined;
     }
 
-    private function get_styles() {
-        $css = $this->email_data['stylesheet'];
+    private function get_concat_styles() {
+        $css = $this->data['email']['stylesheet'];
 
-        if ( isset($this->email_data['stylesheet_addons']) ) {
-            $css .= $this->email_data['stylesheet_addons'];
+        if ( isset($this->data['email']['stylesheet_addons']) ) {
+            $css .= $this->data['email']['stylesheet_addons'];
         }
 
         return $css;
     }
 
-    private function get_data() {
-        $json = array();
-        $path = $this->settings['email_dir'] . '/' . $this->settings['email_data'];
+    private function get_template_data() {
+        // get data from WordPress or JSON file
+        if (isset($this->wp_email)) {
+            $json = $this->wp_email->get_data();
+        } else {
+            $json_file = $this->settings['email_dir'] . '/' . $this->settings['email_data'];
+            $json = $this->get_file_data($json_file );
+        }
 
-        if ( file_exists($path) ) {
-            $content = file_get_contents($path);
+        $data = array_merge(
+            array(
+                'email' => array_merge($this->settings, $json)
+            ), 
+            array(
+                'ROOT_CSS_DIR_URL' => ROOT_CSS_DIR_URL,
+                'ROOT_IMG_DIR_URL' => ROOT_IMG_DIR_URL
+            )
+        );
+
+        return $data;
+    }
+
+    private function get_file_data($filename) {
+        $json = array();
+
+        if ( file_exists($filename) ) {
+            $content = file_get_contents($filename);
             $content = preg_replace("#(/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/)|([\s\t]//.*)|(^//.*)#", '', $content); // remove comments
             $content = preg_replace( "/\r|\n/", "", $content ); // remove new lines for json decoding
 
             $json = json_decode($content, true); // returns associative array
 
             if ( !$json ) {
-                throw new Exception('Unable to parse data file at ' . $path);
+                throw new Exception('Unable to parse data file at ' . $filename);
             }
         } else {
-            throw new Exception('Unable to find data file at ' . $path);
+            throw new Exception('Unable to find data file at ' . $filename);
         }
 
-        // set last modified time for email (used for cache)
-        $this->last_modified = filemtime($path);
-
         return $json;
-    }
-
-    private function create_cache() {
-        $driver = new Stash\Driver\FileSystem(array(
-            'path' => ROOT_DIR . '/cache/email'
-        ));
-
-        return new Stash\Pool($driver);
     }
 
     static public function get_email_url() {
