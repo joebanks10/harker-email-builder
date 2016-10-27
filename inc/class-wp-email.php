@@ -9,12 +9,14 @@ class WP_Email {
     private $wp_url;
     private $wp_data;
     private $data;
+    private $slug;
     private $modified;
 
     public function __construct($wp_url) {
         $this->wp_url = $wp_url;
         $this->wp_data = $this->fetch_wp_data($this->wp_url);
         $this->modified = strtotime($this->wp_data['modified']);
+        $this->slug = $this->wp_data['slug'];
         $this->data = array();
     }
 
@@ -28,6 +30,10 @@ class WP_Email {
 
     public function get_modified_date() {
         return $this->modified;
+    }
+
+    public function get_slug() {
+        return $this->slug;
     }
 
     /**

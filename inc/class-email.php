@@ -2,6 +2,8 @@
 
 namespace HKR\Email_Builder;
 
+require_once ROOT_DIR . "/inc/class-cache.php";
+
 use \Exception;
 use \Twig_Environment;
 use \Twig_Loader_Filesystem;
@@ -32,11 +34,11 @@ class Email {
             'email_url' => '',
             'email_template' => 'email.html',
             'email_data' => 'email.json',
+            'email_cache' => ROOT_DIR . '/cache/emails',
             'stylesheet_url' => ROOT_CSS_DIR_URL . '/style.css',
             'stylesheet_addons_url' => '',
             'img_dir_url' => ROOT_IMG_DIR_URL,
-            'wp_api_endpoint' => WP_API_URL,
-            'debug' => EMAIL_BUILDER_DEBUG
+            'wp_api_endpoint' => WP_API_URL
         );
 
         $constants = array(
@@ -54,34 +56,23 @@ class Email {
             $this->settings['stylesheet_addons'] = file_get_contents($this->settings['stylesheet_addons_url']);
         }
 
-        if ($this->settings['debug']) {
-            ini_set('display_errors', 1);
-            ini_set('display_startup_errors', 1);
-            error_reporting(E_ALL);
-        }
-
-        $this->id = date('Y') . '/' . basename($this->settings['email_dir']);
-        $this->index = 0;
-
-        if ( EMAIL_BUILDER_CACHE ) {
-            $this->cache = $this->create_cache();
-        }
-
         $is_inline = isset($_GET['inline']);
-        $wp_id = isset($_GET['wp_id']) ? $_GET['wp_id'] : false;
 
         // get data from WordPress or JSON file
-        if ($wp_id) {
-            $wp_email = new WP_Email($this->settings['wp_api_endpoint'] . $wp_id);
+        if (isset($_GET['wp_id'])) {
+            $wp_email = new WP_Email($this->settings['wp_api_endpoint'] . $_GET['wp_id']);
+            
+            $this->settings['email_cache'] = ROOT_DIR . '/emails/wp';
+
             $json = $wp_email->get_data();
         } else {
             $json = $this->get_data();
         }
         
         $this->email_data = array_merge($this->settings, $json);
-        $data = array_merge(array(
-            'email' => $this->email_data
-        ), $constants);
+        $data = array_merge(array('email' => $this->email_data), $constants);
+
+        $this->cache = new Email_Cache(array( 'folder_path' => $this->settings['email_cache']));
 
         $this->loader = $this->create_loader();
         $this->twig = $this->create_environment();
@@ -111,11 +102,11 @@ class Email {
         // create twig environment
         $twig = new Twig_Environment($this->loader, array(
             'cache' => ROOT_DIR . '/cache/twig',
-            'debug' => $this->settings['debug'],
+            'debug' => EMAIL_BUILDER_DEBUG,
             'autoescape' => false
         ));
 
-        if ( $this->settings['debug'] ) {
+        if ( EMAIL_BUILDER_DEBUG ) {
             $twig->addExtension(new Twig_Extension_Debug());
         }
 
@@ -159,13 +150,11 @@ class Email {
     }
 
     private function render_email($is_inline = false, $data = array()) {
-        if ( EMAIL_BUILDER_CACHE ) {
-            $email = $this->get_cached_email($is_inline, $data);
-        } else {
-            $email = $this->get_rendered_email($is_inline, $data);
-        }
+        $email = $this->get_rendered_email($is_inline, $data);
 
         echo $email;
+
+        return $email;
     }
 
     private function get_cached_email($is_inline = false, $data = array()) {
