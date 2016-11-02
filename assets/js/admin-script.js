@@ -1,4 +1,24 @@
 (function($) {
+
+    "use strict";
+
+    // collapse modules and elements by default
+    acf.add_action('ready', function( $el ){
+        var $modules = $('.modules > .acf-input > .acf-flexible-content > .values > .layout');
+
+        $modules.children('.acf-fc-layout-handle').click(function(){
+            var $columns = $('.columns > .acf-input > .acf-repeater > table > tbody > .acf-row', $(this).parent()).not('.acf-clone'),
+                $elements = $('.values > .layout', $columns).not('.-collapsed');
+
+            $elements.children('.acf-fc-layout-handle').click();
+        });
+
+        $modules.not('.-collapsed').children('.acf-fc-layout-handle').click();
+    });
+
+})(jQuery);
+
+(function($) {
     
     "use strict";
 
