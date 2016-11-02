@@ -23,7 +23,7 @@
                     "key": "579112b6823e0",
                     "name": "header",
                     "label": "Header",
-                    "display": "row",
+                    "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_579112b6823e1",
@@ -161,7 +161,7 @@
                     "key": "578d3e63b79d8",
                     "name": "content",
                     "label": "Content",
-                    "display": "row",
+                    "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_578e96171c224",
@@ -231,7 +231,7 @@
                     "key": "5791156cca807",
                     "name": "img",
                     "label": "Image",
-                    "display": "row",
+                    "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_5796a0f3a22a9",
@@ -441,7 +441,7 @@
                     "key": "57912c4c2fb6c",
                     "name": "button",
                     "label": "Button",
-                    "display": "row",
+                    "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_5796a1fe22007",
@@ -616,7 +616,7 @@
                     "key": "57912e1122add",
                     "name": "list",
                     "label": "List",
-                    "display": "row",
+                    "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_5796a2e8a4e9f",
@@ -755,7 +755,7 @@
                     "key": "57d09e1742218",
                     "name": "rss-feed",
                     "label": "RSS Feed",
-                    "display": "row",
+                    "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_57d09ec221c6b",
@@ -958,7 +958,7 @@
                     "key": "579b94ea42df4",
                     "name": "calendar-list",
                     "label": "Calendar Feed",
-                    "display": "row",
+                    "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_57cf4f469df51",
@@ -1032,173 +1032,6 @@
                             "first_day": 0
                         },
                         {
-                            "key": "field_57a26aa546932",
-                            "label": "Actions",
-                            "name": "",
-                            "type": "message",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "<a href=\"#\" class=\"btn-add-events\" data-event=\"add-ical-events\">Edit Events<\/a> <span class=\"loading-msg\">Loading...<\/span> <a href=\"#\" class=\"btn-remove-events\" data-event=\"remove-all-rows\">Remove Events<\/a>",
-                            "new_lines": "wpautop",
-                            "esc_html": 0
-                        },
-                        {
-                            "key": "field_57a126db75023",
-                            "label": "Events",
-                            "name": "events",
-                            "type": "repeater",
-                            "instructions": "Here's an editable copy of the iCal feed. These events will not sync with updates to live iCal feed. Exclude an event by unchecking it.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "events",
-                                "id": ""
-                            },
-                            "collapsed": "",
-                            "min": "",
-                            "max": "",
-                            "layout": "table",
-                            "button_label": "Add Event",
-                            "sub_fields": [
-                                {
-                                    "key": "field_57a1273d75025",
-                                    "label": "<input type=\"checkbox\" checked=\"checked\" id=\"check-all-rows\" data-event=\"check-all-rows\" \/>",
-                                    "name": "include",
-                                    "type": "true_false",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "1",
-                                        "class": "event-inc",
-                                        "id": ""
-                                    },
-                                    "message": "",
-                                    "default_value": 1
-                                },
-                                {
-                                    "key": "field_57a4cc7bfc202",
-                                    "label": "ID",
-                                    "name": "id",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "hidden-field-repeater",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": "",
-                                    "readonly": 0,
-                                    "disabled": 0
-                                },
-                                {
-                                    "key": "field_57a1270175024",
-                                    "label": "Title",
-                                    "name": "title",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": 25,
-                                        "class": "event-title",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": "",
-                                    "readonly": 0,
-                                    "disabled": 0
-                                },
-                                {
-                                    "key": "field_57a1276b75026",
-                                    "label": "Location",
-                                    "name": "location",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": 24,
-                                        "class": "event-location",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": "",
-                                    "readonly": 0,
-                                    "disabled": 0
-                                },
-                                {
-                                    "key": "field_57a4cc94fc203",
-                                    "label": "Start",
-                                    "name": "start",
-                                    "type": "date_time_picker",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": 25,
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "display_format": "m\/d\/Y g:i a",
-                                    "return_format": "m\/d\/Y g:i a",
-                                    "first_day": 0
-                                },
-                                {
-                                    "key": "field_57a4cd0afc204",
-                                    "label": "End",
-                                    "name": "end",
-                                    "type": "date_time_picker",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": 25,
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "display_format": "m\/d\/Y g:i a",
-                                    "return_format": "m\/d\/Y g:i a",
-                                    "first_day": 0
-                                },
-                                {
-                                    "key": "field_57a4cd19fc205",
-                                    "label": "Permalink",
-                                    "name": "permalink",
-                                    "type": "url",
-                                    "instructions": "",
-                                    "required": "",
-                                    "conditional_logic": "",
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": ""
-                                }
-                            ]
-                        },
-                        {
                             "key": "field_57cf4e91b96c3",
                             "label": "Element Options",
                             "name": "element_options",
@@ -1227,7 +1060,7 @@
                     "key": "57cf502f50ee4",
                     "name": "element-list",
                     "label": "Section",
-                    "display": "row",
+                    "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_57cf50e615a33",
@@ -1332,5 +1165,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1477432889
+    "modified": 1478125408
 }

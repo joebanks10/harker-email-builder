@@ -105,17 +105,16 @@ ul.acf-radio-list li input, ul.acf-checkbox-list li input {
 .acf-clone-fields {
     border-width: 0;
 }
-.columns-1 .acf-fields > .acf-field,
+.columns-1 .acf-fields > .elements,
 .acf-clone-fields > .acf-field {
     padding-right: 0;
     padding-left: 0;
 }
-.columns-1 .acf-fields > .acf-field:first-child,
-.columns-1 .acf-fields > .acf-field.hidden:first-child + .acf-field,
+.columns-1 .acf-fields > .elements,
 .acf-clone-fields > .acf-field:first-child {
     padding-top: 0;
 }
-.columns-1 .acf-fields > .acf-field:last-child,
+.columns-1 .acf-fields > .elements,
 .acf-clone-fields > .acf-field:last-child {
     padding-bottom: 0;
 }
