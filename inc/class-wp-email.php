@@ -36,6 +36,14 @@ class WP_Email {
         return $this->slug;
     }
 
+    public function get_stylesheet_addons() {
+        if ($theme = $this->wp_data['acf']['theme']) {
+            return $theme['acf']['custom_css'];
+        } else {
+            return null;
+        }
+    }
+
     /**
      * Returns email data from WordPress
      * @return  array  $data
@@ -59,9 +67,7 @@ class WP_Email {
     private function parse_wp_data($wp_data = array()) {
         $data['title'] = $wp_data['title']['rendered'];
 
-        if ($theme = $wp_data['acf']['theme']) {
-            $data['stylesheet_addons'] = $theme['acf']['custom_css'];
-        }
+        $data['stylesheet_addons'] = $this->get_stylesheet_addons();
 
         if ($header = $wp_data['acf']['header']) {
             $data['header'] = $this->get_modules( $header['acf']['content']['modules'] );

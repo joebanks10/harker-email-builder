@@ -51,8 +51,6 @@ class Email {
             $this->settings['stylesheet_addons'] = file_get_contents($this->settings['stylesheet_addons_url']);
         }
 
-        $this->data = $this->get_template_data();
-
         $this->debug = isset($_GET['debug']);
         $this->minify = isset($_GET['minify']);
 
@@ -180,6 +178,7 @@ class Email {
     }
 
     private function get_twig_email() {
+        $this->data = $this->get_template_data();
         $this->init_twig();
 
         $email_dir = $this->settings['email_dir'];
@@ -205,10 +204,12 @@ class Email {
     }
 
     private function get_concat_styles() {
-        $css = $this->data['email']['stylesheet'];
+        $css = $this->settings['stylesheet'];
 
         if ( isset($this->data['email']['stylesheet_addons']) ) {
             $css .= $this->data['email']['stylesheet_addons'];
+        } else if (isset($this->wp_email)) {
+            $css .= $this->wp_email->get_stylesheet_addons();
         }
 
         return $css;
