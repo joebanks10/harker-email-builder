@@ -148,27 +148,33 @@ class Email {
     }
 
     private function get_rendered_email() {
-        if (isset($this->wp_email)) {
+        if ($this->debug) {
+            $html = $this->get_twig_email();
+        }
+        else if (isset($this->wp_email)) {
             $slug = $this->wp_email->get_slug();
             $filename = "$slug.html";
             $modified = $this->wp_email->get_modified_date();
 
-            if ($this->cache->is_invalid($filename, $modified) || $this->debug) {
+            if ($this->cache->is_invalid($filename, $modified)) {
                 // render twig email
                 $html = $this->get_twig_email();
+                
+                // inline css
+                $css = $this->get_concat_styles();
+                $html = $this->inline_css($html, $css);
 
                 // cache it for later
                 $this->cache->put($filename, $html, $modified);
             } else {
                 $html = $this->cache->get($filename);
             }
-        } else {
+        }
+        else {
             // render twig email
             $html = $this->get_twig_email();
-        }
 
-        // inline css
-        if (!$this->debug) {
+            // inline css
             $css = $this->get_concat_styles();
             $html = $this->inline_css($html, $css);
         }
