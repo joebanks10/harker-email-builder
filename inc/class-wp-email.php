@@ -9,15 +9,39 @@ class WP_Email {
     private $wp_url;
     private $wp_data;
     private $data;
+    private $slug;
+    private $modified;
 
     public function __construct($wp_url) {
         $this->wp_url = $wp_url;
         $this->wp_data = $this->fetch_wp_data($this->wp_url);
-        $this->data = $this->parse_wp_data($this->wp_data);
+        $this->modified = strtotime($this->wp_data['modified']);
+        $this->slug = $this->wp_data['slug'];
+        $this->data = array();
     }
 
     public function get_data() {
+        if (empty($this->data)) {
+            $this->data = $this->parse_wp_data($this->wp_data);
+        }
+
         return $this->data;
+    }
+
+    public function get_modified_date() {
+        return $this->modified;
+    }
+
+    public function get_slug() {
+        return $this->slug;
+    }
+
+    public function get_stylesheet_addons() {
+        if ($theme = $this->wp_data['acf']['theme']) {
+            return $theme['acf']['custom_css'];
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -43,9 +67,7 @@ class WP_Email {
     private function parse_wp_data($wp_data = array()) {
         $data['title'] = $wp_data['title']['rendered'];
 
-        if ($theme = $wp_data['acf']['theme']) {
-            $data['stylesheet_addons'] = $theme['acf']['custom_css'];
-        }
+        $data['stylesheet_addons'] = $this->get_stylesheet_addons();
 
         if ($header = $wp_data['acf']['header']) {
             $data['header'] = $this->get_modules( $header['acf']['content']['modules'] );
