@@ -45,23 +45,23 @@ class Email_Cache {
      * @param  string $filename Filename (excludes path)
      * @return string           HTML content
      */
-    public function get($key) {
-        $path = $this->get_path($key);
+    public function get($filename) {
+        $path = $this->get_path($filename);
 
         return file_get_contents($path);
     }
 
-    public function is_invalid($key, $new_modified) {
-        $path = $this->get_path($key);
+    public function is_invalid($filename, $new_modified = null) {
+        $path = $this->get_path($filename);
 
-        if (!file_exists($path)) {
+        if (!file_exists($path) || !isset($new_modified)) {
             return true;
         }
 
         return (filemtime($path) < $new_modified);
     }
 
-    private function get_path($key) {
-        return $this->settings['folder_path'] . "/$key.html";
+    private function get_path($filename) {
+        return $this->settings['folder_path'] . "/$filename";
     }
 }

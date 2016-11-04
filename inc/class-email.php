@@ -147,16 +147,17 @@ class Email {
     private function get_rendered_email() {
         if (isset($this->wp_email)) {
             $slug = $this->wp_email->get_slug();
+            $filename = "$slug.html";
             $modified = $this->wp_email->get_modified_date();
 
-            if ($this->cache->is_invalid($slug, $modified)) {
+            if ($this->cache->is_invalid($filename, $modified)) {
                 // render twig email
                 $html = $this->get_twig_email();
 
                 // cache it for later
-                $this->cache->put($slug, $html, $modified);
+                $this->cache->put($filename, $html, $modified);
             } else {
-                $html = $this->cache->get($slug);
+                $html = $this->cache->get($filename);
             }
         } else {
             // render twig email
