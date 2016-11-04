@@ -53,6 +53,7 @@ class Email {
 
         $this->debug = isset($_GET['debug']);
         $this->minify = isset($_GET['minify']);
+        $this->download = isset($_GET['download']);
 
         if (isset($_GET['wp_id'])) {
             $this->wp_email = new WP_Email($this->settings['wp_api_endpoint'] . $_GET['wp_id']);
@@ -141,6 +142,8 @@ class Email {
     private function render_email() {
         $email = $this->get_rendered_email();
 
+        $this->set_header();
+
         echo $email;
     }
 
@@ -192,6 +195,20 @@ class Email {
         }
 
         return $this->twig->render($file, $this->data);
+    }
+
+    private function set_header() {
+        if ($this->download) {
+            $filename = '';
+
+            if (isset($this->wp_email)) {
+                $filename = $this->wp_email->get_slug() . '.html';
+            } else {
+                $filename = basename($this->settings['email_dir']) . '.html';
+            }
+            
+            header('Content-Disposition:attachment; filename="' . $filename . '"');
+        }
     }
 
     // UTILITY FUNCTIONS
