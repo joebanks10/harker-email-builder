@@ -153,7 +153,7 @@ class Email {
             $filename = "$slug.html";
             $modified = $this->wp_email->get_modified_date();
 
-            if ($this->cache->is_invalid($filename, $modified)) {
+            if ($this->cache->is_invalid($filename, $modified) || $this->debug) {
                 // render twig email
                 $html = $this->get_twig_email();
 
