@@ -30,8 +30,6 @@
                     {% for module in email.header %}
                         {% include "modules/#{module.template}.html" with { module: module.options|default({}) } %}
                     {% endfor %}
-                {% else %}
-                    {% include "modules/topbar.html" %}
                 {% endif %}
             {% endblock header %}
             
@@ -46,9 +44,6 @@
                     {% for module in email.footer %}
                         {% include "modules/#{module.template}.html" with { module: module.options|default({}) } %}
                     {% endfor %}
-                {% else %}
-                    {% include "modules/footer.html" %}
-                    {% include "modules/bottombar.html" %}
                 {% endif %}
             {% endblock footer %}
         </td>
