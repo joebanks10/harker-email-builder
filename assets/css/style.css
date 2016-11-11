@@ -278,12 +278,6 @@ tr:first-child > .element {
     padding-bottom: 40px;
 }
 
-.table-inner > tr > .container,
-.table-inner > tbody > tr > .container {
-    padding-left: 16px;
-    padding-right: 16px;
-}
-
 .row {
     padding-bottom: 40px;
 }
@@ -589,7 +583,7 @@ tr:last-child > .row {
 @media only screen and (max-width: 640px) {
     body { width: auto !important; 
     }
-    table[class="table-inner"] { width: 100% !important; }
+    table[class="table-inner"] { width: 90% !important; }
     table[class="table-full"] { width: 100% !important; }
     table[class="table-full-center"] { 
         width: 100% !important; 
@@ -619,7 +613,7 @@ td[class="hide"] {
 
 @media only screen and (max-width: 479px) {
     body { width: auto !important; }
-    table[class="table-inner"] { width: 100% !important; }
+    table[class="table-inner"] { width: 90% !important; }
     table[class="table-full"] { width: 100% !important; }
     table[class="table-full-center"] { 
         width: 100% !important; 
