@@ -397,8 +397,12 @@ class Template_Extensions {
             $content .= $this->format_time_range($event['start']);
         }
 
-        if ( !empty($content) && !empty($event['location']) ) {
-            $content .= ' | ' . $this->format_location($event['location']);
+        if ( !empty($event['location']) ) {
+            if ( empty($content) ) {
+                $content .= $this->format_location($event['location']);
+            } else {
+                $content .= ' | ' . $this->format_location($event['location']);
+            }
         }
 
         if ( !empty($event['permalink']) ) {
