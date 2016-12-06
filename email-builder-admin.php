@@ -131,8 +131,8 @@ class Plugin extends \HKR\Singleton {
             remove_filter( 'acf_the_content', 'wpautop' );
             $value = nl2br($value);
 
-            $value = preg_replace('/<br \/>\\r\\n<h(\d)/', '<br><br><h$1', $value);
-            $value = preg_replace('/<\/h(\d)><br \/>/', '</h$1>', $value);
+            $value = preg_replace('/<\/h(\d)><br \/>/', '</h$1>', $value); // after header
+            $value = preg_replace('/<br \/>\\r\\n<h(\d)/', '<br><br><h$1', $value); // before header
         }
 
         return $value;
