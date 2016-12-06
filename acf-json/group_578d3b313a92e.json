@@ -176,7 +176,7 @@
                             "toolbar": "full",
                             "media_upload": 0,
                             "default_value": "",
-                            "delay": 1,
+                            "delay": 0,
                             "key": "field_578d3e8254d51",
                             "label": "Text",
                             "name": "text",
@@ -1175,5 +1175,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1481063956
+    "modified": 1481064818
 }
