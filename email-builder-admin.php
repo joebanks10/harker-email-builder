@@ -16,7 +16,6 @@ define('URL', plugin_dir_url(__FILE__));
 require_once(PATH . "vendor/autoload.php");
 
 require_once(PATH . 'inc/class-singleton.php');
-// require_once(PATH . 'inc/class-acf.php');
 require_once(PATH . 'inc/class-email-post-type.php');
 require_once(PATH . 'inc/class-banner-post-type.php');
 require_once(PATH . 'inc/class-theme-post-type.php');
@@ -26,11 +25,6 @@ require_once(PATH . 'inc/class-settings.php');
 class Plugin extends \HKR\Singleton {
     
     protected function __construct($args = array()) {
-        // include Advanced Custom Fields
-        // $acf = \HKR\ACF_Include::get_instance(array(
-        //     'dir_path' => PATH . 'vendor/advanced-custom-fields-pro/',
-        //     'dir_url' => URL . 'vendor/advanced-custom-fields-pro/'
-        // ));
 
         add_action('init', array($this, 'init'));
 
