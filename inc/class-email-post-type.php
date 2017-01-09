@@ -1,6 +1,8 @@
 <?php
 namespace HKR\Email_Builder_Admin;
 
+use HKR\Email_Builder\EmailView;
+
 class Email_Post_Type {
 
     public function __construct($args = array()) {
@@ -66,14 +68,10 @@ class Email_Post_Type {
         global $post;
 
         if (is_single() && $post->post_type == 'email') {
-            $template_url = $this->args['template_url'];
+            new EmailView(array(
+                'wp_id' => $post->ID
+            ));
 
-            if (empty($template_url)) {
-                return; // do nothing
-            }
-
-            wp_redirect("{$template_url}?wp_id={$post->ID}");
-            // wp_redirect(home_url("/wp-json/wp/v2/email/{$post->ID}"));
             exit();
         }
     }

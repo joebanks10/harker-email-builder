@@ -2,10 +2,10 @@
 namespace HKR\Email_Builder_Admin;
 
 /*
-    Plugin Name: Email Builder
+    Plugin Name: Email Builder 
     Plugin URI: http://www.harker.org
     Description: Provides an admin interface for Harker's Email Builder tool
-    Version: 1.0
+    Version: 2.0
     Author: Joe Banks
     Author URI: http://www.harker.org
 */
@@ -19,8 +19,9 @@ require_once(PATH . 'inc/class-singleton.php');
 require_once(PATH . 'inc/class-email-post-type.php');
 require_once(PATH . 'inc/class-banner-post-type.php');
 require_once(PATH . 'inc/class-theme-post-type.php');
-
 require_once(PATH . 'inc/class-settings.php');
+
+require_once(PATH . 'views/view-email.php');
 
 class Plugin extends \HKR\Singleton {
     

@@ -38,7 +38,11 @@ class Email {
             'stylesheet_url' => ROOT_CSS_DIR_URL . '/style.css',
             'stylesheet_addons_url' => '',
             'img_dir_url' => ROOT_IMG_DIR_URL,
-            'wp_api_endpoint' => WP_API_URL
+            'wp_api_endpoint' => WP_API_URL,
+            'wp_id' => isset($_GET['wp_id']) ? $_GET['wp_id'] : false,
+            'debug' => isset($_GET['debug']),
+            'minify' => isset($_GET['minify']),
+            'download' => isset($_GET['download'])
         );
 
         $this->settings = array_merge($defaults, $args);
@@ -51,12 +55,12 @@ class Email {
             $this->settings['stylesheet_addons'] = file_get_contents($this->settings['stylesheet_addons_url']);
         }
 
-        $this->debug = isset($_GET['debug']);
-        $this->minify = isset($_GET['minify']);
-        $this->download = isset($_GET['download']);
+        $this->debug = $this->settings['debug'];
+        $this->minify = $this->settings['minify'];
+        $this->download = $this->settings['download'];
 
-        if (isset($_GET['wp_id'])) {
-            $this->wp_email = new WP_Email($this->settings['wp_api_endpoint'] . $_GET['wp_id']);
+        if ($this->settings['wp_id']) {
+            $this->wp_email = new WP_Email($this->settings['wp_api_endpoint'] . $this->settings['wp_id']);
             $this->settings['email_cache'] = ROOT_DIR . '/cache/wp';
         }
 
