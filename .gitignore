@@ -1,6 +1,6 @@
 .DS_Store
-tmp/
-cache/*
-!cache/index.php
-emails/*
-!emails/index.php
+views/tmp/
+views/cache/*
+!views/cache/index.php
+views/emails/*
+!views/emails/index.php
