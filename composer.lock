@@ -1,0 +1,59 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "1f1c3d419eb6968a4b3e95b0c5dd4e05",
+    "content-hash": "c3f1b36c36c455701b6f58cc330ddd32",
+    "packages": [
+        {
+            "name": "johngrogg/ics-parser",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/johngrogg/ics-parser.git",
+                "reference": "6085a18242eaf98e6586e3defa7705fa207847ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/johngrogg/ics-parser/zipball/6085a18242eaf98e6586e3defa7705fa207847ac",
+                "reference": "6085a18242eaf98e6586e3defa7705fa207847ac",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "class.iCalReader.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Martin Thoma",
+                    "email": "info@martin-thoma.de",
+                    "role": "Original Developer"
+                },
+                {
+                    "name": "John Grogg",
+                    "email": "john.grogg@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Ics file parser",
+            "keywords": [
+                "ical",
+                "ics"
+            ],
+            "time": "2016-03-16 13:31:55"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

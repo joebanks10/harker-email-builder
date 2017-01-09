@@ -1,0 +1,759 @@
+{
+    "key": "group_578d4fb261397",
+    "title": "Modules",
+    "fields": [
+        {
+            "key": "field_578d4fb70dca0",
+            "label": "Modules",
+            "name": "modules",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "modules",
+                "id": ""
+            },
+            "button_label": "Add Module",
+            "min": "",
+            "max": "",
+            "layouts": [
+                {
+                    "key": "578d4fc2c10e9",
+                    "name": "one-column",
+                    "label": "One Column",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_578d512018fc7",
+                            "label": "Tab: Module Content",
+                            "name": "tab:_module_content",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_578e969c8a4ae"
+                            ],
+                            "prefix_label": 0,
+                            "prefix_name": 0,
+                            "display": "seamless",
+                            "layout": "block"
+                        },
+                        {
+                            "key": "field_578d6254f377c",
+                            "label": "Column",
+                            "name": "columns",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "columns columns-1",
+                                "id": ""
+                            },
+                            "collapsed": "field_578d6282f377d",
+                            "min": 1,
+                            "max": 1,
+                            "layout": "block",
+                            "button_label": "Add Column",
+                            "sub_fields": [
+                                {
+                                    "key": "field_57d88a9cd202f",
+                                    "label": "Width",
+                                    "name": "width",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "hidden",
+                                        "id": ""
+                                    },
+                                    "default_value": "100%",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_578d6282f377d",
+                                    "label": "Elements",
+                                    "name": "elements",
+                                    "type": "clone",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "clone": [
+                                        "field_578d3e4054d50"
+                                    ],
+                                    "prefix_label": 0,
+                                    "prefix_name": 0,
+                                    "display": "seamless",
+                                    "layout": "block"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_578d527eb79c7",
+                            "label": "Module Options",
+                            "name": "module_options",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_578d489ab736b"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5807e1c45eee2",
+                            "label": "Module Header",
+                            "name": "header",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5807e10adc59b"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "578e98c7eb2bc",
+                    "name": "two-columns",
+                    "label": "Two Columns",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_578e98c7eb2bd",
+                            "label": "Tab: Module Content",
+                            "name": "tab:_module_content",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": "",
+                            "conditional_logic": "",
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_578e969c8a4ae"
+                            ],
+                            "prefix_label": 0,
+                            "prefix_name": 0,
+                            "display": "seamless",
+                            "layout": "block"
+                        },
+                        {
+                            "key": "field_57d88e4be9638",
+                            "label": "Column Count",
+                            "name": "column_count",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "hidden",
+                                "id": ""
+                            },
+                            "default_value": 2,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": 2,
+                            "max": 2,
+                            "step": ""
+                        },
+                        {
+                            "key": "field_578e98c7eb2be",
+                            "label": "Columns",
+                            "name": "columns",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "columns columns-2",
+                                "id": ""
+                            },
+                            "collapsed": "field_578e98c7eb2bf",
+                            "min": 2,
+                            "max": "",
+                            "layout": "block",
+                            "button_label": "Add Column",
+                            "sub_fields": [
+                                {
+                                    "key": "field_57d88b5bd9014",
+                                    "label": "Width",
+                                    "name": "width",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "hidden",
+                                        "id": ""
+                                    },
+                                    "default_value": "50%",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_578e98c7eb2bf",
+                                    "label": "Elements",
+                                    "name": "elements",
+                                    "type": "clone",
+                                    "instructions": "",
+                                    "required": "",
+                                    "conditional_logic": "",
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "clone": [
+                                        "field_578d3e4054d50"
+                                    ],
+                                    "prefix_label": 0,
+                                    "prefix_name": 0,
+                                    "display": "seamless",
+                                    "layout": "block"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_578e98c7eb2c1",
+                            "label": "Module Options",
+                            "name": "module_options",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_578d489ab736b"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5807e34e10f6e",
+                            "label": "Module Header",
+                            "name": "module_header",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5807e10adc59b"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "578e9906eb2c3",
+                    "name": "three-columns",
+                    "label": "Three Columns",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_578e9906eb2c4",
+                            "label": "Tab: Module Content",
+                            "name": "tab:_module_content",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": "",
+                            "conditional_logic": "",
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_578e969c8a4ae"
+                            ],
+                            "prefix_label": 0,
+                            "prefix_name": 0,
+                            "display": "seamless",
+                            "layout": "block"
+                        },
+                        {
+                            "key": "field_57d88ec702fb4",
+                            "label": "Column Count",
+                            "name": "column_count",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "hidden",
+                                "id": ""
+                            },
+                            "default_value": 3,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": 3,
+                            "max": 3,
+                            "step": ""
+                        },
+                        {
+                            "key": "field_578e9906eb2c5",
+                            "label": "Columns",
+                            "name": "columns",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "columns columns-3",
+                                "id": ""
+                            },
+                            "collapsed": "field_578e9906eb2c6",
+                            "min": 3,
+                            "max": "",
+                            "layout": "block",
+                            "button_label": "Add Column",
+                            "sub_fields": [
+                                {
+                                    "key": "field_57d88b7ed9015",
+                                    "label": "Width",
+                                    "name": "width",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "hidden",
+                                        "id": ""
+                                    },
+                                    "default_value": "33%",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_578e9906eb2c6",
+                                    "label": "Elements",
+                                    "name": "elements",
+                                    "type": "clone",
+                                    "instructions": "",
+                                    "required": "",
+                                    "conditional_logic": "",
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "clone": [
+                                        "field_578d3e4054d50"
+                                    ],
+                                    "prefix_label": 0,
+                                    "prefix_name": 0,
+                                    "display": "seamless",
+                                    "layout": "block"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_578e9906eb2c8",
+                            "label": "Module Options",
+                            "name": "module_options",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_578d489ab736b"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5807e38310f6f",
+                            "label": "Module Header",
+                            "name": "module_header",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5807e10adc59b"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "579942ad26e06",
+                    "name": "content-sidebar",
+                    "label": "Content-Sidebar",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_579942ad26e07",
+                            "label": "Tab: Module Content",
+                            "name": "tab:_module_content",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": "",
+                            "conditional_logic": "",
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_578e969c8a4ae"
+                            ],
+                            "prefix_label": 0,
+                            "prefix_name": 0,
+                            "display": "seamless",
+                            "layout": "block"
+                        },
+                        {
+                            "key": "field_579942ad26e08",
+                            "label": "Columns",
+                            "name": "columns",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "columns columns-content-sidebar",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 2,
+                            "max": 2,
+                            "layout": "block",
+                            "button_label": "Add Column",
+                            "sub_fields": [
+                                {
+                                    "key": "field_579942ad26e09",
+                                    "label": "Elements",
+                                    "name": "elements",
+                                    "type": "clone",
+                                    "instructions": "",
+                                    "required": "",
+                                    "conditional_logic": "",
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "clone": [
+                                        "field_578d3e4054d50"
+                                    ],
+                                    "prefix_label": 0,
+                                    "prefix_name": 0,
+                                    "display": "seamless",
+                                    "layout": "block"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_579942ad26e0b",
+                            "label": "Module Options",
+                            "name": "module_options",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_578d489ab736b"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5807e3b410f70",
+                            "label": "Module Header",
+                            "name": "module_header",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5807e10adc59b"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "578d5ca0d8e2c",
+                    "name": "grid",
+                    "label": "Custom Grid",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_578d5cc6d8e2e",
+                            "label": "Tab: Module Content",
+                            "name": "tab:_module_content",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_578e969c8a4ae"
+                            ],
+                            "prefix_label": 0,
+                            "prefix_name": 0,
+                            "display": "seamless",
+                            "layout": "block"
+                        },
+                        {
+                            "key": "field_578d5ef3ae6a0",
+                            "label": "Column Count",
+                            "name": "column_count",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 1,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": 1,
+                            "max": 6,
+                            "step": 1,
+                            "readonly": 0,
+                            "disabled": 0
+                        },
+                        {
+                            "key": "field_578d5d03d8e2f",
+                            "label": "Columns",
+                            "name": "columns",
+                            "type": "repeater",
+                            "instructions": "Add columns, define widths (make sure they add up to module width!), and add elements.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "columns columns-grid",
+                                "id": ""
+                            },
+                            "collapsed": "field_578d5d1ed8e30",
+                            "min": 1,
+                            "max": "",
+                            "layout": "block",
+                            "button_label": "Add Column",
+                            "sub_fields": [
+                                {
+                                    "key": "field_578d5d1ed8e30",
+                                    "label": "Width",
+                                    "name": "width",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "100%",
+                                    "placeholder": "Enter percentage or pixels (e.g. 50% or 290px)",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_578d5d6dd8e31",
+                                    "label": "Elements",
+                                    "name": "elements",
+                                    "type": "clone",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "clone": [
+                                        "field_578d3e4054d50"
+                                    ],
+                                    "prefix_label": 0,
+                                    "prefix_name": 0,
+                                    "display": "seamless",
+                                    "layout": "block"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_578d5dccd8e33",
+                            "label": "Module Options",
+                            "name": "module_options",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_578d489ab736b"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5807e3dc10f71",
+                            "label": "Module Header",
+                            "name": "module_header",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5807e10adc59b"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "email"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "",
+    "modified": 1476917345
+}

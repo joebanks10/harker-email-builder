@@ -1,0 +1,90 @@
+{
+    "key": "group_57db25993a6a1",
+    "title": "Appearance",
+    "fields": [
+        {
+            "key": "field_57e5a048974a7",
+            "label": "Theme",
+            "name": "theme",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "email_theme"
+            ],
+            "taxonomy": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
+            "key": "field_57e1a044e264d",
+            "label": "Header",
+            "name": "header",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "email_banner"
+            ],
+            "taxonomy": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        },
+        {
+            "key": "field_57e5a024974a6",
+            "label": "Footer",
+            "name": "footer",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "email_banner"
+            ],
+            "taxonomy": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "email"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1476913666
+}
