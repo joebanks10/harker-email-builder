@@ -17,7 +17,7 @@ if (EMAIL_BUILDER_DEBUG) {
 define('ROOT_DIR', dirname(__file__));
 
 if ( $_SERVER['SERVER_NAME'] == 'localhost' ) {
-    define('ROOT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/email-builder');
+    define('ROOT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/email-builder/views');
     define('WP_API_URL', 'http://localhost/wp-dev/wp-json/wp/v2/email/');
 } else if ( $_SERVER['SERVER_NAME'] == 'skylark.harker.org' ) {
     if ( preg_match('/staging/', $_SERVER['REQUEST_URI']) ) {
