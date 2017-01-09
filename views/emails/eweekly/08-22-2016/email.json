@@ -1,0 +1,298 @@
+ {
+    "title": "eWeekly Template",
+    
+    // Custom Header
+    // "header": [
+    //     {
+    //         "template": "topbar",
+    //         "options": {
+    //             "img": {
+    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
+    //                 "alt": "Updated Alt Tag"
+    //                 "width": 215
+    //             }
+    //         }
+    //     }
+    // ],
+    
+    // Modules
+    // 
+    // Templates: grid, two-columns, three-columns, 
+    // content-sidebar, sidebar-content, element-grid
+    // 
+    // Standard Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // 
+    // Grid Options: columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+
+        // Two Columns (using two-columns template)
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "",
+                "content_1": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Upcoming Events"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options" : {
+                            "text" : "View all events in the <a href=\"http://www.harker.org/page.cfm?p=2302\">school calendar</a>.",
+                            "class": "description"
+                        }
+                    },
+                    {
+                        "template": "calendar-list",
+                        "options": {
+                            "ical": "http://www.harker.org/calendar/page_3624.ics",
+                            "start_date": "Aug. 20, 2016",
+                            "end_date": "Aug. 28, 2016"
+                        }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "home-games",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Upcoming Home Games"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "list",
+                                    "options": {
+                                        "type": "unstyled",
+                                        "items": [
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4012\">Upper School Home Games</a>",
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4014\">Middle School Home Games</a>",
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4015\">Lower School Home Games</a>"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "announcements",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Announcements"
+                                    }
+                                },
+                                {
+                                    "template": "content",
+                                    "options": {
+                                        "text": "View all announcements in <a href=\"http://www.harker.org/page.cfm?p=3566\">our archive</a>.",
+                                        "class": "description"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "permalink": "http://www.harker.org/page.cfm?p=3566&newsid=1884",
+                                        "img": "",
+                                        "button": "",
+                                        "header": {
+                                            "text": "US: Information Regarding Senior Portraits"
+                                        }
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "permalink": "http://www.harker.org/page.cfm?p=3566&newsid=1883",
+                                        "img": "",
+                                        "button": "",
+                                        "header": {
+                                            "text": "LS: Harker Summer Reading"
+                                        }
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "permalink": "http://www.harker.org/page.cfm?p=3566&newsid=1879",
+                                        "img": "",
+                                        "button": "",
+                                        "header": {
+                                            "text": "Educator and Clinical Psychologist Chris Thurber Appearing on Sept. 11"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "news",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "News"
+                                    }
+                                },
+                                {
+                                    "template": "content",
+                                    "options": {
+                                        "text": "View all stories at <a href=\"http://news.harker.org\">Harker News</a>",
+                                        "class": "description"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "permalink": "http://news.harker.org/upper-school-students-celebrate-the-start-of-the-year-at-the-2016-17-matriculation-ceremony/",
+                                        "img": "",
+                                        "header": {
+                                            "text": "Upper School Students Celebrate the Start of the Year at the 2016-17 Matriculation Ceremony"
+                                        },
+                                        "content": {
+                                            "text": "Upper school students kicked off the new year in style at the 2016-17 Matriculation Ceremony, held at the upper school campus quad on Aug. 19."
+                                        },
+                                        "button": {
+                                            "type": "text",
+                                            "text": "Read More"
+                                        }
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "permalink": "http://news.harker.org/class-of-2020-receives-warm-welcome-at-freshman-orientation/",
+                                        "img": "",
+                                        "header": {
+                                            "text": "Class of 2020 Receives Warm Welcome at Freshman Orientation"
+                                        },
+                                        "content": {
+                                            "text": "The Class of 2020 received a warm welcome to the upper school on Aug. 18 during freshman orientation and freshman field day."
+                                        },
+                                        "button": {
+                                            "type": "text",
+                                            "text": "Read More"
+                                        }
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "permalink": "http://news.harker.org/in-the-news-july-august-2016/",
+                                        "img": "",
+                                        "header": {
+                                            "text": "In the News: July-August 2016"
+                                        },
+                                        "content": {
+                                            "text": "See how Harker has been making headlines this past summer!"
+                                        },
+                                        "button": {
+                                            "type": "text",
+                                            "text": "Read More"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "photos",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Photos"
+                                    }
+                                },
+                                {
+                                    "template": "content",
+                                    "options" : {
+                                        "text" : "View more photos in the <a href=\"http://9alskiel9sn2.photoshelter.com/\">photo archive</a>.",
+                                        "class": "description"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "permalink": "http://9alskiel9sn2.photoshelter.com/gallery-collection/2016-Session-1/C0000SvnExki_Z7E",
+                                        "img": {
+                                            "src": "summer-camp-plus-1.jpg",
+                                            "width": 290,
+                                            "alt": "Summer Camp Plus"
+                                        },
+                                        "header": {
+                                            "text": "Summer Camp Plus"
+                                        },
+                                        "content": {
+                                            "text": "View more photos in our <a href=\"http://9alskiel9sn2.photoshelter.com/gallery-collection/2016-Summer-Programs/C0000Des.cpSOHLc\">summer galleries</a>. You may also access the photos from the parent portal.
+                                            <br>
+                                            <br>
+                                                <b>Note:</b> To download free photos or order prints, you must have a PhotoShelter account. <a href=\"https://9alskiel9sn2.photoshelter.com/signup/signup/free\">Sign up for free</a>."
+                                        },
+                                        "button": {
+                                            "text": "View Photo Gallery"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+
+    ] // end of content modules
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }

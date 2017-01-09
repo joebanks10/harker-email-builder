@@ -1,0 +1,34 @@
+/* styles here will be appended to main stylesheet (defined in index.php) */
+
+.header {
+    padding-bottom: 0;
+}
+.description {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.calendar-list {
+    padding-bottom: 30px;
+}
+
+.event {
+	padding-bottom: 10px;
+}
+
+.home-games .header, .module-footer .header {
+    padding-bottom: 15px;
+}
+
+.home-games .list-item {
+    border: none;
+    padding-top: 0;
+}
+
+.announcements .article {
+    padding-bottom: 10px;
+}
+
+.news .article {
+    padding-bottom: 20px;
+}

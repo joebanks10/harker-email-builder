@@ -1,0 +1,294 @@
+ {
+    "title": "eWeekly Template",
+    
+    // Custom Header
+    "header": [
+        {
+            "template": "topbar-text"
+        }
+    ],
+    
+    // Modules
+    // 
+    // Templates: grid, two-columns, three-columns, 
+    // content-sidebar, sidebar-content, element-grid
+    // 
+    // Standard Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // 
+    // Grid Options: columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+
+        // Two Columns (using two-columns template)
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "",
+                "content_1": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Upcoming Events"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options" : {
+                            "text" : "View all events in the <a href=\"http://www.harker.org/page.cfm?p=2302\">school calendar</a>.",
+                            "class": "description"
+                        }
+                    },
+                    {
+                        "template": "calendar-list",
+                        "options": {
+                            "ical": "http://www.harker.org/calendar/page_3624.ics",
+                            "start_date": "Oct. 14, 2016",
+                            "end_date": "Oct. 23, 2016"
+                        }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "home-games",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Upcoming Home Games"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "list",
+                                    "options": {
+                                        "type": "unstyled",
+                                        "items": [
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4012\">Upper School Home Games</a>",
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4014\">Middle School Home Games</a>",
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4015\">Lower School Home Games</a>"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "announcements",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Announcements"
+                                    }
+                                },
+                                {
+                                    "template": "content",
+                                    "options": {
+                                        "text": "View all announcements in <a href=\"http://www.harker.org/page.cfm?p=3566\">our archive</a>.",
+                                        "class": "description"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "Fall Parent/Teacher Conference Information Now Available"
+                                        },
+                                        "permalink": "http://www.harker.org/page.cfm?p=3566&nm_keywords=Conference%20Information",
+                                        "img": "",
+                                        "button": ""
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "Grade-Level and Academic Enrichment Trips Schedule Now Posted"
+                                        },
+                                        "permalink": "http://www.harker.org/page.cfm?p=3566&newsid=1901",
+                                        "img": "",
+                                        "button": ""
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "Harvest Festival Show Available for Purchase"
+                                        },
+                                        "permalink": "http://www.harker.org/page.cfm?p=3566&newsid=1904",
+                                        "img": "",
+                                        "button": ""
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "Sports Report Oct. 10, 2016"
+                                        },
+                                        "permalink": "http://www.harker.org/page.cfm?p=3566&newsid=1903",
+                                        "img": "",
+                                        "button": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "news",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "News"
+                                    }
+                                },
+                                {
+                                    "template": "content",
+                                    "options": {
+                                        "text": "View all stories at <a href=\"http://news.harker.org\">Harker News</a>",
+                                        "class": "description"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "Harker Families and Friends Get Their Kicks at Picnic 66"
+                                        },
+                                        "content": {
+                                            "text": "The 2016 Family & Alumni Picnic: Harvest Festival brought members of the Harker community out in droves—check out the photos!"
+                                        },
+                                        "permalink": "http://wp.me/pOeLQ-7Qc",
+                                        "button": {
+                                            "type": "text",
+                                            "text": "Read More"
+                                        },
+                                        "img": ""
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "Alumna Takes on UX Role at Startup for Women Travelers"
+                                        },
+                                        "content": {
+                                            "text": "Sanjana Baldwa ’12 is working with a fascinating start-up, Go Jane Go, that will connect women road warriors:"
+                                        },
+                                        "permalink": "http://wp.me/pOeLQ-7RN",
+                                        "button": {
+                                            "type": "text",
+                                            "text": "Read More"
+                                        },
+                                        "img": ""
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "Upper School's HELM Named Finalist in CSPA Crown Awards"
+                                        },
+                                        "content": {
+                                            "text": "HELM, the upper school’s literary magazine, was recently named a finalist in the Columbia Scholastic Press Association’s 2017 Crown Awards competition."
+                                        },
+                                        "permalink": "http://wp.me/pOeLQ-7Pt",
+                                        "button": {
+                                            "type": "text",
+                                            "text": "Read More"
+                                        },
+                                        "img": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "photos",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Photos",
+                                        "style": "padding-bottom: 15px"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "permalink": "http://www.harker.org/parents#photos",
+                                        "img": {
+                                            "src": "eagle-buddies.jpg",
+                                            "width": 290,
+                                            "alt": "Eagles Buddies"
+                                        },
+                                        "header": {
+                                            "text": "Eagles Buddies"
+                                        },
+                                        "content": {
+                                            "text": "View this photo gallery by going to the parent portal.<br><br>
+                                            <b>Note:</b> To download free photos or order prints, you must have a PhotoShelter account."
+                                        },
+                                        "button": {
+                                            "text": "View Photo Gallery"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+
+    ] // end of content modules
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }

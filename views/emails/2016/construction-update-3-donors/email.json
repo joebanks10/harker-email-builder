@@ -1,0 +1,385 @@
+ {
+    "title": "August Construction Update",
+    
+    // Custom Header
+    // "header": [
+    //     {
+    //         "template": "topbar",
+    //         "options": {
+    //             "img": {
+    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
+    //                 "alt": "Updated Alt Tag"
+    //                 "width": 215
+    //             }
+    //         }
+    //     }
+    // ],
+    
+    // Modules
+    // 
+    // Templates: module, grid
+    // 
+    // Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+        {
+            "template": "grid",
+            "options": {
+                "class": "gray-bg",
+                "style": "padding-top: 0; padding-bottom: 0;",
+                "collapse_gutters": true,
+                "columns": [
+                    {
+                        "elements": [
+                            {   
+                                "template": "img",
+                                "options": {
+                                    "src": "http://skylark.harker.org/email-builder/assets/img/hero-capital-giving.jpg",
+                                    "alt": "Gym and Theater Buildings",
+                                    "width": "600",
+                                    "height": "202"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid", 
+            "options": {
+                "class": "module-intro",
+                "columns": [
+                    {
+                        "elements": [
+                            {   
+                                "template": "title",
+                                "options": {
+                                    "text": "Gym and Theater Construction",
+                                    "style": "padding-bottom: 0;"
+                                }
+                            },
+                            {   
+                                "template": "subtitle",
+                                "options": {
+                                    "text": "AUGUST 2016 UPDATE FOR OUR DONORS",
+                                    "style": "padding-bottom: 30px"
+                                }
+                            },
+                            {   
+                                "template": "content",
+                                "options": {
+                                    "class": "content-intro",
+                                    "text": "Here's this month's update of the exciting and historic construction of the new gym and theater on the upper school campus. Enjoy!"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "blue-bg white-text",
+                "column_count": 2,
+                "column_direction": "rtl",
+                "style": "padding-bottom: 0",
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "img",
+                                "options": {
+                                    "src": "ice-cream-social-2.jpg",
+                                    "alt": "Ice Cream Social",
+                                    "img_style": "width: 100%"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Message from the Head"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "As summer draws to a close and students and parents come back to campus, they will notice the changes and improvements we’ve made over the summer. Everything from small changes – like new plantings and replacement flooring – to our largest project: the gym and theater on our upper school campus.
+                                    <br>
+                                    <br>"                
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "one-column",
+            "options": {
+                "class": "blue-bg white-text",
+                "style": "padding-top: 0",
+                "content": [
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Progress on the construction of the gym and theater is continuing as planned. We would not be moving forward with the project were it not for your generous support. Recently we invited donors to our Saratoga campus for ice cream treats along with a special viewing of the construction site. 
+                                <br>
+                                <br>
+                                Participating deeply in extracurricular activities like performing arts and athletics brings lifelong benefits to our wonderful students, helping them to develop passion, perseverance, resilience, collaboration skills, and other intangible character traits. Read on and click through for more news, photos, and video about this amazing project!
+                            <br>
+                            <br>
+                            Chris Nikoloff<br>
+                            Head of School"                                    
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "<em>Each month we will focus on a particular feature of the gym and theater project. Our feature of this month is the theater.</em>"
+                                }
+                            },
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "New theater will transform performing arts"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "There are so many benefits to the new theater for both students and teachers: state-of-the-art acoustics, fly space to facilitate scene changes, comfortable audience seating, wing space for performers and set pieces, and so much more! All of these features will transform the learning experience for the students, as every aspect of performing arts – from set design to rehearsal space to on-stage performances – will be elevated.  
+                                        <br>
+                                        <br>
+                                        Our performers will be able to rehearse in the space in which they perform regularly, which will change both the rehearsal and performance experience. As students rehearse in an actual theater (as opposed to a restored cafeteria) they will be able to hear themselves with incredible clarity. Students will be able to explore their craft as never before.
+                                        <br>
+                                        <br> 
+                                        The audience experience will be tremendously enhanced, with comfortable, fixed seating sloped toward the stage for optimum viewing. Student performances will be more vibrant and enjoyable than ever. The entire performing arts community can’t wait!"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "blue-bg white-text",
+                "column_count": 2,
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "img",
+                                "options": {
+                                    "src": "video-cover.jpg",
+                                    "width": "290",
+                                    "href": "https://harker.wistia.com/medias/tjab4481lg",
+                                    "style": "padding-bottom: 20px"
+                                }
+                            },
+                            {
+                                "template": "button",
+                                "options": {
+                                    "type": "secondary",
+                                    "text": "Watch this Video",
+                                    "href": "https://harker.wistia.com/medias/tjab4481lg"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Behind the scenes"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "This month’s behind-the-scenes video features the long-anticipated concrete pour! With time-lapse photography and regular coverage we will continue to share photos, videos, drawings and more to update you on this historic project!"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "",
+                "column_count": 2,
+                "column_direction": "rtl",
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "img",
+                                "options": {
+                                    "src": "news-story-cover.jpg",
+                                    "width": "290",
+                                    "alt": "Construction Vehicle",
+                                    "href": "http://news.harker.org/athletic-and-performing-arts-centers-construction-starts-in-earnest/",
+                                    "style": "padding-bottom: 20px"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Harker News story"
+                                }
+                            },
+                            {
+                                "template": "subheader",
+                                "options": {
+                                    "text": "Construction Moves Ahead as First Concrete Pour is Completed"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "Early in the morning on Sat., Aug. 20, construction crews at Harker’s upper school campus pumped concrete into the footings of what will be the theater at the new Harker performing arts center. “We actually pumped approximately 1 million pounds of concrete over the course of about five hours,” said Mike Bassoni, Harker’s facilities director. The pour was carried out by a truck utilizing a 136-foot boom that stretched nearly the entire length of the construction site."
+                                }
+                            },
+                            {
+                                "template": "button",
+                                "options": {
+                                    "text": "Read this Story",
+                                    "href": "http://news.harker.org/construction-moves-ahead-as-first-concrete-pour-is-completed/",
+                                    "style": "padding-top:15px"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "blue-bg white-text",
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "How to help"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "We are grateful for your participation in this project. Yet we still need additional support to complete the construction. If you are interested in increasing your support please contact Joe Rosenthal, executive director of advancement, at <a href=\"mailto:joe.rosenthal@harker.org\">joe.rosenthal@harker.org</a>. You can also help by encouraging your fellow community members to join you in supporting the project."
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "",
+                "column_count": 2,
+                "columns": [
+                    {
+                        "width": "60%",
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Learn more about the campaign"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "For more information about our current campaign, please visit our webpage."
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "width": "40%",
+                        "elements": [
+                            {
+                                "template": "button",
+                                "options": {
+                                    "width": "100%",
+                                    "text": "Visit Campaign Page",
+                                    "href": "http://www.harker.org/giving/capital-giving"
+                                }
+                            },
+                            {
+                                "template": "button",
+                                "options": {
+                                    "type": "outline",
+                                    "width": "100%",
+                                    "text": "Read Campaign News",
+                                    "href": "http://www.harker.org/giving/capital-giving#bookmark-news"
+                                }
+                            }
+                        ]
+                    }
+                ]     
+            }
+        }
+    ]
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }

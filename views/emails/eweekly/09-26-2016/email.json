@@ -1,0 +1,298 @@
+ {
+    "title": "eWeekly Template",
+    
+    // Custom Header
+    // "header": [
+    //     {
+    //         "template": "topbar",
+    //         "options": {
+    //             "img": {
+    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
+    //                 "alt": "Updated Alt Tag"
+    //                 "width": 215
+    //             }
+    //         }
+    //     }
+    // ],
+    
+    // Modules
+    // 
+    // Templates: grid, two-columns, three-columns, 
+    // content-sidebar, sidebar-content, element-grid
+    // 
+    // Standard Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // 
+    // Grid Options: columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+
+        // Two Columns (using two-columns template)
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "",
+                "content_1": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Upcoming Events"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options" : {
+                            "text" : "View all events in the <a href=\"http://www.harker.org/page.cfm?p=2302\">school calendar</a>.",
+                            "class": "description"
+                        }
+                    },
+                    {
+                        "template": "calendar-list",
+                        "options": {
+                            "ical": "http://www.harker.org/calendar/page_3624.ics",
+                            "start_date": "Sep. 23, 2016",
+                            "end_date": "Oct. 2, 2016"
+                        }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "home-games",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Upcoming Home Games"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "list",
+                                    "options": {
+                                        "type": "unstyled",
+                                        "items": [
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4012\">Upper School Home Games</a>",
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4014\">Middle School Home Games</a>",
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4015\">Lower School Home Games</a>"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "announcements",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Announcements"
+                                    }
+                                },
+                                {
+                                    "template": "content",
+                                    "options": {
+                                        "text": "View all announcements in <a href=\"http://www.harker.org/page.cfm?p=3566\">our archive</a>.",
+                                        "class": "description"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "Special Edition Homecoming Sweatshirts!"
+                                        },
+                                        "permalink": "http://www.harker.org/page.cfm?p=3566&newsid=1895",
+                                        "img": "",
+                                        "button": ""
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "Sports Report Sept. 21, 2016"
+                                        },
+                                        "permalink": "http://www.harker.org/page.cfm?p=3566&newsid=1896",
+                                        "img": "",
+                                        "button": ""
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "Common Ground Speaker Lineup for 2016-17"
+                                        },
+                                        "permalink": "http://www.harker.org/page.cfm?p=3566&newsid=1886",
+                                        "img": "",
+                                        "button": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "news",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "News"
+                                    }
+                                },
+                                {
+                                    "template": "content",
+                                    "options": {
+                                        "text": "View all stories at <a href=\"http://news.harker.org\">Harker News</a>",
+                                        "class": "description"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "45 Harker Seniors Named National Merit Semifinalists"
+                                        },
+                                        "content": {
+                                            "text": "A total of 45 Harker seniors were named semifinalists in the 2017 National Merit Scholarship Program, the National Merit Scholarship Corp. announced on Wednesday."
+                                        },
+                                        "permalink": "http://wp.me/pOeLQ-7MU",
+                                        "button": {
+                                            "type": "text",
+                                            "text": "Read More"
+                                        },
+                                        "img": ""
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "Junior's Project Selected by Popular Mechanics for Youth Breakthrough Award"
+                                        },
+                                        "content": {
+                                            "text": "\"Poison Oak: Neutralized,\" received the award, which celebrates \"research, innovators, scientists and students who’ve made the world a little better this year.\""
+                                        },
+                                        "permalink": "http://wp.me/pOeLQ-7LU",
+                                        "button": {
+                                            "type": "text",
+                                            "text": "Read More"
+                                        },
+                                        "img": ""
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "Grade 8 History Students Learn About Nautical Techniques of European Explorers"
+                                        },
+                                        "content": {
+                                            "text": "Grade 8 history classes have been studying the arrival of Europeans to the Americas, along with the navigation methods they used during the Age of Exploration in the 15th and 16th centuries."
+                                        },
+                                        "permalink": "http://wp.me/pOeLQ-7Na",
+                                        "button": {
+                                            "type": "text",
+                                            "text": "Read More"
+                                        },
+                                        "img": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "photos",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Photos"
+                                    }
+                                },
+                                {
+                                    "template": "content",
+                                    "options" : {
+                                        "text" : "View more photos in the <a href=\"http://9alskiel9sn2.photoshelter.com/\">photo archive</a>.",
+                                        "class": "description"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "permalink": "http://9alskiel9sn2.photoshelter.com/gallery/2016-09-MS-Flashmob/G0000Q3R12wOVyX8/C0000MgCbUWp._KY",
+                                        "img": {
+                                            "src": "ms-flash-mob.jpg",
+                                            "width": 290,
+                                            "alt": "Middle School Flash Mob"
+                                        },
+                                        "header": {
+                                            "text": "Middle School Flash Mob"
+                                        },
+                                        "content": {
+                                            "text": "View more photos in our <a href=\"http://9alskiel9sn2.photoshelter.com/gallery-collection/2016-09-September/C0000MgCbUWp._KY\">September galleries</a>. You may also access the photos from the parent portal.
+                                            <br>
+                                            <br>
+                                                <b>Note:</b> To download free photos or order prints, you must have a PhotoShelter account. <a href=\"https://9alskiel9sn2.photoshelter.com/signup/signup/free\">Sign up for free</a>."
+                                        },
+                                        "button": {
+                                            "text": "View Photo Gallery"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+
+    ] // end of content modules
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }

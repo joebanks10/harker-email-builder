@@ -1,0 +1,100 @@
+ {
+    "title": "Reminder: School Forms Due July 29",
+    
+    // Custom Header
+    // "header": [
+    //     {
+    //         "template": "topbar",
+    //         "options": {
+    //             "img": {
+    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
+    //                 "alt": "Updated Alt Tag"
+    //                 "width": 215
+    //             }
+    //         }
+    //     }
+    // ],
+    
+    // Modules
+    // 
+    // Templates: module, grid
+    // 
+    // Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+        {
+            "template": "grid", 
+            "options": {
+                "class": "module-full-text",
+                "columns": [
+                    {
+                        "width": "100%",
+                        "elements": [
+                            {   
+                                "template": "content",
+                                "options": {
+                                    "text": "
+                                    Dear Harker families, 
+                                    <br>
+                                    <br>
+                                    As your summer fun continues, this is just a friendly reminder that 2016-17 school year forms are due Friday, July 29 for all families. Also, MBS Direct’s online textbook store is now populated with your student’s required texts, and we’ve published the full textbook lists in the hub for reference. The home-to-school bus schedules are also now available.
+                                    <br>
+                                    <br>
+                                    All your information can be found on our <a href=\"http://www.harker.org/page.cfm?p=3687\">Back-to-School Hub</a>. 
+                                    <br>
+                                    <br>
+                                    We hope you have had a great summer so far, and we look forward to seeing you in the fall! 
+                                    <br>
+                                    <br>
+                                    Harker Office of Communication 
+                                    "
+                                }
+                            },
+                            {
+                                "template": "button",
+                                "options": {
+                                    "text": "Visit Back-to-School Hub",
+                                    "href": "http://www.harker.org/page.cfm?p=3687",
+                                    "style": "padding-top: 15px"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }

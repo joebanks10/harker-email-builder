@@ -1,0 +1,283 @@
+ {
+    "title": "eWeekly Template",
+    
+    // Custom Header
+    "header": [
+        {
+            "template": "topbar-text"
+        }
+    ],
+    
+    // Modules
+    // 
+    // Templates: grid, two-columns, three-columns, 
+    // content-sidebar, sidebar-content, element-grid
+    // 
+    // Standard Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // 
+    // Grid Options: columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+
+        // Two Columns (using two-columns template)
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "",
+                "content_1": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Upcoming Events"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options" : {
+                            "text" : "View all events in the <a href=\"http://www.harker.org/page.cfm?p=2302\">school calendar</a>.",
+                            "class": "description"
+                        }
+                    },
+                    {
+                        "template": "calendar-list",
+                        "options": {
+                            "ical": "http://www.harker.org/calendar/page_3624.ics",
+                            "start_date": "Oct. 7, 2016",
+                            "end_date": "Oct. 16, 2016"
+                        }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "home-games",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Upcoming Home Games"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "list",
+                                    "options": {
+                                        "type": "unstyled",
+                                        "items": [
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4012\">Upper School Home Games</a>",
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4014\">Middle School Home Games</a>",
+                                            "<a href=\"http://www.harker.org/page.cfm?p=4015\">Lower School Home Games</a>"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "announcements",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Announcements"
+                                    }
+                                },
+                                {
+                                    "template": "content",
+                                    "options": {
+                                        "text": "View all announcements in <a href=\"http://www.harker.org/page.cfm?p=3566\">our archive</a>.",
+                                        "class": "description"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "Grade-Level and Academic Enrichment Trips Schedule Now Posted"
+                                        },
+                                        "permalink": "http://www.harker.org/page.cfm?p=3566&newsid=1901",
+                                        "img": "",
+                                        "button": ""
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "LS and MS Early Winter Sports Information"
+                                        },
+                                        "permalink": "http://www.harker.org/page.cfm?p=3566&nm_keywords=Early+Winter&nyear=2016",
+                                        "img": "",
+                                        "button": ""
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "Sports Report Oct. 5, 2016"
+                                        },
+                                        "permalink": "http://www.harker.org/page.cfm?p=3566&newsid=1902",
+                                        "img": "",
+                                        "button": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "news",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "News"
+                                    }
+                                },
+                                {
+                                    "template": "content",
+                                    "options": {
+                                        "text": "View all stories at <a href=\"http://news.harker.org\">Harker News</a>",
+                                        "class": "description"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "Harker Recognized at Santa Clara County Green Business Event"
+                                        },
+                                        "content": {
+                                            "text": "Harker was certified as a Green Business in July, following a multiyear effort that included all four campuses."
+                                        },
+                                        "permalink": "http://wp.me/pOeLQ-7Pj",
+                                        "button": {
+                                            "type": "text",
+                                            "text": "Read More"
+                                        },
+                                        "img": ""
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "Upper School's \"HELM\" Named a Finalist in CSPA Crown Awards"
+                                        },
+                                        "content": {
+                                            "text": "\"HELM,\" the upper school's literary magazine, was recently named a finalist in the Columbia Scholastic Press Association's 2017 Crown Awards."
+                                        },
+                                        "permalink": "http://wp.me/pOeLQ-7Pt",
+                                        "button": {
+                                            "type": "text",
+                                            "text": "Read More"
+                                        },
+                                        "img": ""
+                                    }
+                                },
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "header": {
+                                            "text": "Nichols Invitational Speech and Debate Tournament Attracts More Than 20 Schools"
+                                        },
+                                        "content": {
+                                            "text": "More than 664 rounds of debate were held during the Nichols Invitational Speech and Debate Tournament, held Oct. 1-2."
+                                        },
+                                        "permalink": "http://wp.me/pOeLQ-7PK",
+                                        "button": {
+                                            "type": "text",
+                                            "text": "Read More"
+                                        },
+                                        "img": ""
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "template": "element-list",
+                        "options": {
+                            "class": "photos",
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Photos",
+                                        "style": "padding-bottom: 15px"
+                                    }
+                                }
+                            ],
+                            "elements": [
+                                {
+                                    "template": "article",
+                                    "options": {
+                                        "permalink": "http://www.harker.org/parents#photos",
+                                        "img": {
+                                            "src": "ls-maker-event.jpg",
+                                            "width": 290,
+                                            "alt": "Lower School Maker Event"
+                                        },
+                                        "header": {
+                                            "text": "Lower School Maker Event"
+                                        },
+                                        "content": {
+                                            "text": "View this photo gallery by going to the parent portal.<br><br>
+                                            <b>Note:</b> To download free photos or order prints, you must have a PhotoShelter account."
+                                        },
+                                        "button": {
+                                            "text": "View Photo Gallery"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+
+    ] // end of content modules
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }

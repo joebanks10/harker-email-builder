@@ -1,0 +1,355 @@
+ {
+    "title": "July Construction Update",
+    
+    // Custom Header
+    // "header": [
+    //     {
+    //         "template": "topbar",
+    //         "options": {
+    //             "img": {
+    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
+    //                 "alt": "Updated Alt Tag"
+    //                 "width": 215
+    //             }
+    //         }
+    //     }
+    // ],
+    
+    // Modules
+    // 
+    // Templates: module, grid
+    // 
+    // Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+        {
+            "template": "grid",
+            "options": {
+                "class": "gray-bg",
+                "style": "padding-top: 0; padding-bottom: 0;",
+                "collapse_gutters": true,
+                "columns": [
+                    {
+                        "elements": [
+                            {   
+                                "template": "img",
+                                "options": {
+                                    "src": "http://skylark.harker.org/email-builder/assets/img/hero-capital-giving.jpg",
+                                    "alt": "Gym and Theater Buildings",
+                                    "width": "600",
+                                    "height": "202"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid", 
+            "options": {
+                "class": "module-intro",
+                "columns": [
+                    {
+                        "elements": [
+                            {   
+                                "template": "title",
+                                "options": {
+                                    "text": "Gym and Theater Construction",
+                                    "style": "padding-bottom: 0;"
+                                }
+                            },
+                            {   
+                                "template": "subtitle",
+                                "options": {
+                                    "text": "JULY 2016 UPDATE",
+                                    "style": "padding-bottom: 30px"
+                                }
+                            },
+                            {   
+                                "template": "content",
+                                "options": {
+                                    "class": "content-intro",
+                                    "text": "Here's this month's update of the exciting and historic construction of the new gym and theater on the upper school campus. Enjoy!"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "blue-bg white-text",
+                "column_count": 1,
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Message from the Head"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "Last month we sent our first construction update, and we hope you enjoyed the information about the initial progress of the gym and theater on our upper school campus. We continue to raise funds for the construction, and we welcome your charitable contributions to support this project.
+                                    <br>
+                                    <br>
+                                    While many of us have been enjoying summer, work has continued on Harker's own version of the “big dig.” Our gym and theater will be partially sunken underground to provide efficient use of space while keeping the buildings' footprints moderate, at the same time maintaining as low a profile for the buildings as possible. Earth-moving machines have been digging down 16 feet, filling 1,900 truckloads with dirt to be hauled away. Read on and click through for more news, photos and video about this amazing project!
+                                    <br>
+                                    <br>
+                                    Chris Nikoloff<br>
+                                    Head of School"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "<em>Each month we will focus on a particular feature of the gym and theater project. Our feature of this month is the gym.</em>"
+                                }
+                            },
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "New gym benefits all"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "It's easy to see how student athletes will benefit from the new gym, with its regulation-size athletic court, space for multiple teams to practice, and home and visiting team locker rooms. Our students will simply walk across campus for practices and home games, and fellow students will easily be able to root for their classmates in a facility on their own campus.
+                                    <br>
+                                    <br>
+                                        But there are so many ways that all students will enjoy the benefits of this large space. Here's just one example: in the past, school meetings have been held weekly in the old gym. With no bleachers in the old gym, students must sit on the floor. Because space is so limited, there isn't enough room for all faculty to attend. The new gym will be able to accommodate the entire student body and faculty, seated on bleachers on two sides of the gym. 
+                                        <br>
+                                        <br>
+                                        In addition, students of all ages will be able to cheer on athletic competitions, as well as be involved in debate, business and entrepreneurship, and science research events in the new building. The new gym will offer countless ways for our community to come together."
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "blue-bg white-text",
+                "column_count": 2,
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "img",
+                                "options": {
+                                    "src": "~/construction-video-cover-2.png",
+                                    "width": "290",
+                                    "href": "https://harker.wistia.com/medias/0fyz9bbqop",
+                                    "style": "padding-bottom: 20px"
+                                }
+                            },
+                            {
+                                "template": "button",
+                                "options": {
+                                    "type": "secondary",
+                                    "text": "Watch this Video",
+                                    "href": "https://harker.wistia.com/medias/0fyz9bbqop"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Behind the scenes"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "Check out this month’s short video, with commentary by facility manager Mike Bassoni, for the latest behind-the-scenes look at how donation dollars are being put to work. With time-lapse photography and regular coverage we will continue to share photos, videos, drawings and more to update you on this historic project!"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "",
+                "column_count": 2,
+                "column_direction": "rtl",
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "img",
+                                "options": {
+                                    "src": "~/construction-news-cover-2.jpg",
+                                    "width": "290",
+                                    "alt": "Construction Vehicle",
+                                    "href": "http://news.harker.org/athletic-and-performing-arts-centers-construction-starts-in-earnest/",
+                                    "style": "padding-bottom: 20px"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Harker News story"
+                                }
+                            },
+                            {
+                                "template": "subheader",
+                                "options": {
+                                    "text": "Athletic and Performing Arts Centers Construction Starts in Earnest"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "As of the last week in July, the athletic center and performing arts center construction site is sporting two deep holes, and plenty of work went on before they were dug."
+                                }
+                            },
+                            {
+                                "template": "button",
+                                "options": {
+                                    "text": "Read this Story",
+                                    "href": "http://news.harker.org/athletic-and-performing-arts-centers-construction-starts-in-earnest/",
+                                    "style": "padding-top:15px"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "blue-bg white-text",
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "How to help"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "Although construction has begun, we still need to raise more funds to complete the project. For more information on how to make a gift, please contact Joe Rosenthal, executive director of advancement, at <a href=\"mailto:joe.rosenthal@harker.org\">joe.rosenthal@harker.org</a>.
+                                        "
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "",
+                "column_count": 2,
+                "columns": [
+                    {
+                        "width": "60%",
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Learn more about the campaign"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "For more information about our current campaign, please visit our webpage."
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "width": "40%",
+                        "elements": [
+                            {
+                                "template": "button",
+                                "options": {
+                                    "width": "100%",
+                                    "text": "Visit Campaign Page",
+                                    "href": "http://www.harker.org/giving/capital-giving"
+                                }
+                            },
+                            {
+                                "template": "button",
+                                "options": {
+                                    "type": "outline",
+                                    "width": "100%",
+                                    "text": "Read Campaign News",
+                                    "href": "http://www.harker.org/giving/capital-giving#bookmark-news"
+                                }
+                            }
+                        ]
+                    }
+                ]     
+            }
+        }
+    ]
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }

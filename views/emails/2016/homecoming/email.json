@@ -1,0 +1,260 @@
+ {
+    "title": "Homecoming 2016",
+    
+    // Custom Header
+    // "header": [
+    //     {
+    //         "template": "topbar",
+    //         "options": {
+    //             "img": {
+    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
+    //                 "alt": "Updated Alt Tag"
+    //                 "width": 215
+    //             }
+    //         }
+    //     }
+    // ],
+    
+    // Modules
+    // 
+    // Templates: module, grid
+    // 
+    // Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+        {
+            "template": "grid",
+            "options": {
+                "class": "gray-bg",
+                "style": "padding-top: 0; padding-bottom: 0;",
+                "collapse_gutters": true,
+                "columns": [
+                    {
+                        "elements": [
+                            {   
+                                "template": "img",
+                                "options": {
+                                    "src": "http://www.harker.org/uploaded/assets/images/general-enotifies/SW_Homecoming2014_KC-178-email.jpg",
+                                    "alt": "Gym and Theater Buildings",
+                                    "width": "600",
+                                    "img_class": "img-full"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid", 
+            "options": {
+                "class": "module-intro",
+                "style": "padding-bottom: 0;",
+                "columns": [
+                    {
+                        "elements": [
+                            {   
+                                "template": "content",
+                                "options": {
+                                    "class": "content-intro",
+                                    "text": "Harker’s Homecoming is right around the corner – and it’s Senior Night, too!"
+                                }
+                            },
+                            {   
+                                "template": "content",
+                                "options": {
+                                    "class": "text",
+                                    "text": "<strong>Sat., Nov. 5 | Davis Field, Upper School Campus"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Schedule"
+                                }
+                            },
+                            {
+                                "template": "list",
+                                "options": {
+                                    "type": "unordered", // default, ordered, unordered, unstyled
+                                    "width": "100%",
+                                    "items": [
+                                        "5 p.m.   |   Shuttle service from middle school campus on Blackford Ave. begins",
+                                        "5:30 p.m.   |     Tailgates and food service begins",
+                                        "6:15 p.m.    |    Pregame entertainment begins",
+                                        "7 p.m.       |    Game time!",
+                                        "45 minutes after game  | Last shuttle back to Blackford"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "blue-bg white-text",
+                "column_count": 1,
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "Join us as the varsity Eagles take on the Stellar Preparatory High School Thunder at 7 p.m. on Davis Field at the upper school campus on Saratoga Ave. A berth in the CCS playoffs may be at stake, so you don’t want to miss this game! This game will also be Senior Night for eight of our football players, giving us another reason to celebrate.
+                                    <br><br>
+
+This is a Harker community event and all families, preschool-12, are welcome. There will be some games for the little ones, plenty of great concessions, alumni guests, and more! Admission is free, and no RSVP is required."                                    
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "",
+                "column_count": 1,
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Parking"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "There is no drop-off or parking at the upper school campus for any students or spectators. Shuttle service begins from the middle school campus on Blackford Ave. at 5 p.m. and will continue until 45 minutes after the game’s conclusion. No cars will be allowed on the Saratoga Ave. campus at any time before, during or after the game.
+"                                    
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "blue-bg white-text",
+                "column_count": 1,
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Entertainment"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "There’s lots of pregame entertainment and halftime festivities. And if you go to the spirit table and show them you’re wearing Harker spirit clothing, you’ll receive a free fake tattoo or pompom (limited quantities).
+                                    <br><br>
+                                    Here’s what you and your family can expect:"                                    
+                                }
+                            },
+                            {
+                                "template": "list",
+                                "options": {
+                                    "type": "unordered", // default, ordered, unordered, unstyled
+                                    "width": "100%",
+                                    "items": [
+                                        "Performances by the Varsity Dance Troupe, the Jazz/Pep Band, the adorable Eaglets, the upper school cheerleaders, and – for the first time – the middle school cheerleaders!",
+                                        "The national anthem and The Harker School Song sung by the combined lower, middle and upper school choirs",
+                                        "The annual upper school tug-of-war",
+                                        "Introduction of the Homecoming Court",
+                                        "Alumni and grade-level tailgates",
+                                        "Bounce houses in the quad for the little ones",
+                                        "Face painting and Harker swag available for purchase",
+                                        "And of course, food, food and more food, provided by Chef Steve and his awesome crew. Food tickets will be available for purchase at designated booths."
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "",
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "For more details, visit the <a href='http://www.harker.org/about/events/homecoming'>homecoming event page</a>. 
+                                    <br><br>
+                                    If you have questions about the game or the entertainment, please contact <a href='mailto:greg.lawson@harker.org'>Greg Lawson</a>. For questions about tailgate and food service, please contact <a href='mailto:tere.aceves@harker.org'>Teré Aceves</a>. 
+                                    <br><br>
+                                    See you there! 
+                                    <br><br>
+                                    Greg Lawson<br>
+                                    Assistant Head of School for Student Affairs
+                                    <br><br>
+                                    Teré Aceves<br>
+                                    Director of Middle School, Upper School and Alumni Volunteer Programs"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }

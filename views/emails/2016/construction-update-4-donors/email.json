@@ -1,0 +1,323 @@
+ {
+    "title": "September Construction Update",
+    
+    // Custom Header
+    // "header": [
+    //     {
+    //         "template": "topbar",
+    //         "options": {
+    //             "img": {
+    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
+    //                 "alt": "Updated Alt Tag"
+    //                 "width": 215
+    //             }
+    //         }
+    //     }
+    // ],
+    
+    // Modules
+    // 
+    // Templates: module, grid
+    // 
+    // Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+        {
+            "template": "grid",
+            "options": {
+                "class": "gray-bg",
+                "style": "padding-top: 0; padding-bottom: 0;",
+                "collapse_gutters": true,
+                "columns": [
+                    {
+                        "elements": [
+                            {   
+                                "template": "img",
+                                "options": {
+                                    "src": "http://skylark.harker.org/email-builder/assets/img/hero-capital-giving.jpg",
+                                    "alt": "Gym and Theater Buildings",
+                                    "width": "600",
+                                    "height": "202"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid", 
+            "options": {
+                "class": "module-intro",
+                "columns": [
+                    {
+                        "elements": [
+                            {   
+                                "template": "title",
+                                "options": {
+                                    "text": "Gym and Theater Construction",
+                                    "align": "center",
+                                    "style": "padding-bottom: 0;"
+                                }
+                            },
+                            {   
+                                "template": "subtitle",
+                                "options": {
+                                    "text": "SEPTEMBER 2016 UPDATE FOR OUR DONORS",
+                                    "align": "center",
+                                    "style": "padding-bottom: 30px"
+                                }
+                            },
+                            {   
+                                "template": "content",
+                                "options": {
+                                    "class": "content-intro",
+                                    "text": "Here's this month's update of the exciting and historic construction of the new gym and theater on the upper school campus. Enjoy!"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "blue-bg white-text",
+                "column_count": 1,
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Message from the Head"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "The school year is well underway, and construction continues on schedule for the new gym and theater. With the footings in, the walls have started to go up and the buildings to take shape. Thank you for the support you’ve provided, which has made this project possible!
+                                        <br>
+                                        <br>
+                                        Read on and click through to follow the progress of this transformational project!
+                                        <br>
+                                        <br>
+                                        Chris Nikoloff<br>
+                                        Head of School"            
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "",
+                "column_count": 2,
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "img",
+                                "options": {
+                                    "src": "video-cover.png",
+                                    "width": "290",
+                                    "href": "https://harker.wistia.com/medias/ldprixgygq",
+                                    "style": "padding-bottom: 20px"
+                                }
+                            },
+                            {
+                                "template": "button",
+                                "options": {
+                                    "type": "primary",
+                                    "text": "Watch this Video",
+                                    "href": "https://harker.wistia.com/medias/ldprixgygq"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Behind the scenes"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "This month’s behind-the-scenes video gives us our first glimpse of walls! With time-lapse photography and regular coverage we will continue to share photos, videos, drawings and more to update you on this historic project!"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "blue-bg white-text",
+                "column_count": 2,
+                "column_direction": "rtl",
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "img",
+                                "options": {
+                                    "src": "news-story-cover.jpg",
+                                    "width": "290",
+                                    "alt": "Construction Vehicle",
+                                    "href": "http://news.harker.org/rising-walls-of-pa-and-athletic-centers-excite-students-bring-maturity-to-campus/",
+                                    "style": "padding-bottom: 20px"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Harker News story"
+                                }
+                            },
+                            {
+                                "template": "subheader",
+                                "options": {
+                                    "text": "Rising Walls of PA and Athletic Centers Excite Students, Bring Maturity to Campus"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "For our hundreds of upcoming talented performing artists and athletes, the coming athletic and performing arts centers loom large in imaginations. Classrooms with state-of-the-art acoustical treatments will change the everyday learning experience for thousands of students.  Athletes will have a home ground with essentials that allow them to focus on their performance and bring out their very best efforts. The new centers, integrated as they will be with Dobbins and Nichols halls, will bring a new maturity to the upper school campus. The excitement is rising with the walls!"
+                                }
+                            },
+                            {
+                                "template": "button",
+                                "options": {
+                                    "type": "secondary",
+                                    "text": "Read this Story",
+                                    "href": "http://news.harker.org/rising-walls-of-pa-and-athletic-centers-excite-students-bring-maturity-to-campus/",
+                                    "style": "padding-top:15px"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "",
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "How to help"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "We are grateful for your participation in this project. Yet we still need additional support to complete the construction. If you are interested in increasing your support please contact Joe Rosenthal, executive director of advancement, at <a href=\"mailto:joe.rosenthal@harker.org\">joe.rosenthal@harker.org</a>. You can also help by encouraging your fellow community members to join you in supporting the project."
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "blue-bg white-text",
+                "column_count": 2,
+                "columns": [
+                    {
+                        "width": "60%",
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Learn more about the campaign"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "For more information about our current campaign, please visit our webpage."
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "width": "40%",
+                        "elements": [
+                            {
+                                "template": "button",
+                                "options": {
+                                    "type": "secondary",
+                                    "width": "100%",
+                                    "text": "Visit Campaign Page",
+                                    "href": "http://www.harker.org/giving/capital-giving"
+                                }
+                            },
+                            {
+                                "template": "button",
+                                "options": {
+                                    "type": "outline",
+                                    "width": "100%",
+                                    "text": "Read Campaign News",
+                                    "href": "http://www.harker.org/giving/capital-giving#bookmark-news"
+                                }
+                            }
+                        ]
+                    }
+                ]     
+            }
+        }
+    ]
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }

@@ -1,0 +1,365 @@
+ {
+    "title": "Picnic Newsletter",
+    
+    // Custom Header
+    // "header": [
+    //     {
+    //         "template": "topbar",
+    //         "options": {
+    //             "img": {
+    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
+    //                 "alt": "Updated Alt Tag"
+    //                 "width": 215
+    //             }
+    //         }
+    //     }
+    // ],
+    
+    // Modules
+    // 
+    // Templates: grid, two-columns, three-columns, 
+    // content-sidebar, sidebar-content, element-grid
+    // 
+    // Standard Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // 
+    // Grid Options: columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+
+        // Header
+        {
+            "template": "one-column",
+            "options": {
+                "style": "padding: 0;",
+                "collapse_gutters": true,
+                "content": [
+                    {   
+                        "template": "img",
+                        "options": {
+                            "src": "header.png",
+                            "alt": "Something to Crow About",
+                            "style": "padding: 0;"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Intro
+        {
+            "template": "one-column", 
+            "options": {
+                "class": "harvest-red-bg white-text",
+                "content": [
+                    {   
+                        "template": "content",
+                        "options": {
+                            "text": "Something to Crow About will be arriving in your inbox each week to keep you updated on the latest Harvest Festival happenings! Make sure to read through it, click over to the website for more info and, of course, let us know if you have any questions!"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Save the Date
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "",
+                "content_1": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "picnic-66.png",
+                            "img_class": ""
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "66TH ANNUAL",
+                            "style": "padding-bottom: 0;"
+                        }
+                    },
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Family & Alumni Picnic"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Sun., Oct. 9, 2016<br>
+                                Blackford Campus<br>
+                                10 a.m.–3:30 p.m."
+                        }
+                    },
+                    {   
+                        "template": "button",
+                        "options": {
+                            "text": "Visit Website",
+                            "href": "http://www.harker.org/picnic"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Content-Sidebar - ltr
+        {
+            "template": "content-sidebar",
+            "options": {
+                "class": "harvest-orange-bg white-text",
+                "sidebar": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "eagle.png",
+                            "img_class": ""
+                            // "img_style": "width: 150px"
+                        }
+                    }
+                ],
+                "content": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Get Your Kicks at Picnic 66 at the Harker Harvest Festival!"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Travel down the highway and meet us at Route 66 for the 66th annual Family & Alumni Picnic! Our historic picnic this year pays homage to the grandeur, glory and nostalgia of historic Route 66. 
+                                <br>
+                                <br>
+                                Take aim at “Arapahoe Archery,” a new attraction with felt-tipped (safe) arrows, fun for all ages. Or slow your pace at the “Rest Stop,” where families can play games together such as giant checkers, corn hole, and more. And of course old favorites like the carnival games, kids’ wheel and the silent auction will be there, too."
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Content-Sidebar - rtl
+        {
+            "template": "grid",
+            "options": {
+                "class": "",
+                "column_count": 2,
+                "columns": [
+                    {
+                        "width": "33%",
+                        "elements": [
+                            {
+                                "template": "img",
+                                "options": {
+                                    "src": "desert.png",
+                                    "img_class": ""
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "width": "67%",
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Don’t “Leaf” Anyone Behind"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "Avoid the wait for admission at the gate and save money by purchasing your admission tickets online ahead of time.
+                                        <br>
+                                        <br>
+                                        Remember, admission to the picnic is $10 if pre-purchased online by Sept. 30. After this date, admission may be purchased the day of the event for $15. Children under 3 and grownups over 75 are free."
+                                }
+                            },
+                            {   
+                                "template": "button",
+                                "options": {
+                                    "type": "primary",
+                                    "text": "Pre-Purchase Online",
+                                    "href": "http://www.harker.org/fs/pages/220"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+
+        // Section - rtl
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "harvest-brown-bg white-text",
+                "column_direction": "rtl",
+                "content_1": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "map.png",
+                            "img_class": ""
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Terrific T-shirts"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "This year’s picnic T-shirt will take you back to the days of the great American driving vacation. T-shirt Tuesdays start Sept. 6 for lower and middle school students, so make sure to get yours online in plenty of time!"
+                        }
+                    },
+                    {   
+                        "template": "button",
+                        "options": {
+                            "type": "text",
+                            "text": "Learn More",
+                            "href": "http://www.harker.org/fs/pages/224"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Section - ltr
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "",
+                "content_1": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "car-md.png",
+                            "img_class": ""
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Awesome Items Needed"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Help us provide exciting prizes and auction items at the picnic. Check out the picnic registry on Amazon. And if you have access to vacation homes, sporting events, restaurant gift certificates or other items for our silent auction, please contact Teré Aceves at <a href=\"mailto:tere.aceves@harker.org\">tere.aceves@harker.org</a>."
+                        }
+                    },
+                    {   
+                        "template": "button",
+                        "options": {
+                            "type": "text",
+                            "text": "Check out the Registry",
+                            "href": "https://www.amazon.com/gp/registry/wishlist/2GVRA3KAGQ8AP/ref=topnav_lists_1"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Section - rtl
+        {
+            "template": "two-columns",
+            "options": {
+                "class": "harvest-red-bg white-text",
+                "column_direction": "rtl",
+                "content_1": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "diner-md.png",
+                            "img_class": ""
+                        }
+                    }
+                ],
+                "content_2": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Pitch In – Be a Harvest Helper"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Just as much fun as being a guest at the picnic is volunteering. We rely on numerous volunteers to help make the day a success, and you can choose where you want to help out using our online volunteer sign-up. Thank you to the many volunteers who give their time."
+                        }
+                    },
+                    {   
+                        "template": "button",
+                        "options": {
+                            "type": "text",
+                            "text": "Be a Volunteer",
+                            "href": "http://www.harker.org/fs/pages/227"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Section - ltr
+        {
+            "template": "one-column",
+            "options": {
+                "class": "",
+                "content": [
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "We hope you’ll come Get Your Kicks at Picnic 66 at this year’s Harker Harvest Festival. If you have questions, please contact Danae McLaughlin at <a href=\"mailto:danae.mclaughlin@harker.org\">danae.mclaughlin@harker.org</a>."
+                        }
+                    }
+                ]
+            }
+        }
+
+    ] // end of content modules
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }

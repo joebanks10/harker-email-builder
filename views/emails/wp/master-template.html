@@ -1,0 +1,2455 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Master Template</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <style type="text/css" rel="theme">
+        /* Default Styles (desktop first)
+-------------------------------------------- */
+
+.ReadMsgBody { 
+    width: 100%; background-color: #ffffff; 
+}
+.ExternalClass { 
+    width: 100%; 
+    background-color: #ffffff; 
+}
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }
+html { width: 100%; }
+body { 
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    margin: 0;
+    padding: 0;
+}
+table { 
+    border-spacing: 0; 
+    margin: 0 auto; 
+}
+img { display: block !important; }
+table td { border-collapse: collapse; }
+.yshortcuts a { border-bottom: none !important; }
+a { 
+    color: #00809E; 
+}
+.textbutton a { 
+    font-family: 'open sans', arial, sans-serif !important; 
+    color: #ffffff !important; 
+}
+
+img {
+    display: block; 
+    border: 0px;
+}
+
+h2, h3, h4 {
+    font-family: 'Open Sans', Arial, sans-serif; 
+    color: #3B3B3B; 
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 24px; 
+    line-height: 34.8px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 20px; 
+    line-height: 34.8px;
+    font-weight: 100;
+}
+
+h4 {
+    font-size: 16px; 
+    line-height: 26px;
+    font-weight: bold;
+}
+
+
+/* Element Wrappers
+-------------------------------------------- */
+
+tr:last-child > .element {
+    padding-bottom: 0;
+}
+
+tr:first-child > .element {
+    padding-top: 0;
+}
+
+
+/* Elements
+-------------------------------------------- */
+
+.element {
+    padding-bottom: 15px;
+}
+
+.element-list {
+    padding-bottom: 30px;
+}
+
+.header {
+    font-family: 'Open Sans', Arial, sans-serif; 
+    font-size: 24px; 
+    line-height: 34.8px;
+    color: #3B3B3B; 
+    font-weight: bold; 
+}
+
+.header a {
+    text-decoration: none;
+}
+
+.header a:hover, .header a:focus {
+    text-decoration: underline;
+}
+
+.title, .header-title {
+    font-family: 'Open Sans', Arial, sans-serif; 
+    font-size: 28px;
+    line-height: 34px;
+    letter-spacing: 2px;
+    color: #3B3B3B; 
+    font-weight: bold; 
+    padding-bottom: 15px;
+}
+
+.subtitle, .header-subtitle {
+    font-family: 'Open Sans', Arial, sans-serif; 
+    font-size: 16px;
+    line-height: 26px; 
+    letter-spacing: 2px;
+    color: #676767;
+    padding-bottom: 15px;
+    font-weight: normal;
+}
+
+.subtitle-lg {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.subheader, .header-subheader {
+    font-family: 'Open Sans', Arial, sans-serif; 
+    font-size: 20px; 
+    line-height: 34.8px;
+    color: #3B3B3B; 
+    font-weight: 100; 
+}
+
+.content {
+    font-family: 'Open Sans', Arial, sans-serif; 
+    font-size: 16px; 
+    line-height: 26px;
+    color: #676767; 
+}
+
+.content-intro {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 23px;
+    font-weight: 100;
+    line-height: 36px;
+    color: #333;
+}
+
+.table-button {
+    background-color: #00809E;
+}
+
+.button {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    color: #ffffff;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.button a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none; 
+}
+
+.table-button-secondary {
+    background-color: #ffffff;
+}
+
+.table-button-secondary .button,
+.table-button-secondary .button a  {
+    color: #676767;
+}
+
+.table-button-outline {
+    background-color: transparent;
+}
+
+.table-button-outline .button {
+    border: 1px solid #00809e;  
+}
+
+.table-button-outline .button,
+.table-button-outline .button a {
+    color: #00809E;
+}
+
+.table-button-text {
+    background-color: transparent;
+}
+
+.table-button-text .button,
+.table-button-text .button a {
+    color: #00809E;
+}
+
+.table-button-text .button {
+    padding: 0;
+    text-align: left;
+}
+
+.table-button-text .button a {
+    text-decoration: underline; 
+}
+
+.list-indent {
+    padding-left: 15px;
+}
+
+.list-item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.list-collapse .list-item {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.bullet.img-container {
+    padding-top: 4px;
+}
+
+.bullet-text,
+.list-item-text {
+    font-family: 'Open Sans', Arial, sans-serif; 
+    font-size: 16px;
+    line-height: normal;
+    color: #676767;
+    text-align: left;
+}
+
+.list-item-text {
+    padding-left: 15px;
+}
+
+.list-unstyled .list-item-text,
+.list-unordered .list-item-text {
+    padding-left: 0;
+}
+
+.list-ordered .list-item-text {
+    padding-left: 10px;
+}
+
+.list-inline .list-item {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+
+/* Module Wrappers
+-------------------------------------------- */
+
+.background {
+    background-size: cover; 
+    background-position: top center;
+}
+
+.container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.table-inner > tr > .container,
+.table-inner > tbody > tr > .container {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.row {
+    padding-bottom: 40px;
+}
+
+tr:last-child > .row {
+    padding-bottom: 0;
+}
+
+
+/* Modules
+-------------------------------------------- */
+
+.module-topbar {
+    background-color: #044836;
+}
+
+.module-topbar .container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.module-topbar .logo-container {
+    padding-right: 20px;
+    padding-left: 20px;
+    height: 48px;
+    border-right: 4px solid #033e2f; 
+    border-left: 4px solid #033e2f; 
+    background-color: #05533E;
+}
+
+.module-topbar .logo-container img {
+    max-width: 100%;
+}
+
+.module-topbar .list-item-text,
+.module-topbar .list-item-text a {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.module-topbar .list-item-text {
+    text-align: center;
+    height: 48px;
+}
+
+.module-topbar .list-item-text a {
+    text-decoration: none;
+}
+
+.article, .article-feature {
+    padding-bottom: 40px;
+}
+
+.article .img,
+.article-feature img {
+    width: 100%;
+}
+
+.article .header,
+.article-feature .header,
+.header-article {
+    color: #555; 
+    font-size: 16px; 
+    line-height: 24px;
+    padding-bottom: 10px;
+}
+
+.article .content,
+.article-feature .content {
+    font-size: 12px; 
+    line-height: 18px;
+    padding-bottom: 10px;
+}
+
+.article .button,
+.article-feature .button {
+    font-size: 14px;
+}
+
+
+.calendar-item {
+    padding-bottom: 30px;
+}
+
+.table-date {
+    background-color: #e6e6e6; /* red: #9C0947 */
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    height: 70px;
+}
+
+.date {
+    font-family: 'Open Sans', Arial, sans-serif; 
+    font-size: 16px; 
+    line-height: 24px;
+    color: #3B3B3B; 
+    text-align: center;
+    vertical-align: middle;
+    height: 70px;
+    overflow: hidden;
+}
+
+.day-of-week, .month, .day {
+    font-family: 'Open Sans', Arial, sans-serif; 
+    color: #3B3B3B; 
+    text-align: center;
+    width: 68px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.day-of-week {
+    font-size: 9px;
+    line-height: 14px;
+    font-weight: normal;
+}
+
+.month {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: bold; 
+}
+
+.day {
+    font-size: 32px;
+    line-height: 28px;
+    font-weight: bold; 
+}
+
+.events {
+    padding-left: 20px;  
+}
+
+.event {
+    padding-bottom: 15px;
+}
+
+.event .header {
+    font-size: 14px; 
+    line-height: 21px;
+    padding-bottom: 2px;
+}
+
+.event .content {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.event-link {
+    display: block;
+}
+
+
+.table-panel {
+    background-color: #ecf0f1;
+}
+
+.table-profile .quote-icon {
+    font-family: Arial, sans-serif, 'Century Gothic'; 
+    font-size: 55px; 
+    line-height: 35px; 
+    color: #00809E;
+    text-align: center;
+}
+
+.table-profile .quote {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 28px;
+    color: #3b3b3b;
+    text-align: center;
+}
+
+.table-profile .cite-name {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    color: #3b3b3b;
+    font-weight: bold;
+    text-align: center;
+}
+
+.table-profile .cite-detail {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 28px;
+    color: #bdc3c7;
+    text-align: center;
+}
+
+
+.module-footer .background {
+    background-color: #dddddd;
+}
+
+.module-footer .list-item {
+    border: none;
+    padding-top: 0;
+    padding-bottom: 15px;
+}
+
+.module-bottombar .background {
+    background-color: #05533E;
+}
+
+.module-bottombar .container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #ffffff;
+}
+
+.module-bottombar .content {
+    text-align: center;
+    color: #ffffff;
+}
+
+
+/* Utility Classes
+-------------------------------------------- */
+
+.gray-bg, .gray-bg .background {
+    background-color: #eeeeee;
+}
+.white-bg, .white-bg .background {
+    background-color: #ffffff;
+}
+.blue-bg, .blue-bg .background { 
+    background-color: #00809E; 
+}
+.green-bg, .green-bg .background { 
+    background-color: #63A70A; 
+}
+.purple-bg, .purple-bg .background { 
+    background-color: #A23BBC; 
+}
+.red-bg, .red-bg .background { 
+    background-color: #9C0947; 
+}
+.orange-bg, .orange-bg .background { 
+    background-color: #CE5D27; 
+}
+.gold-bg, .gold-bg .background { 
+    background-color: #DCAA00; 
+}
+.seafoam-green-bg, .seafoam-green-bg .background {
+    background-color: #afd3c8;
+}
+
+.blue-bg .table-button-secondary .button,
+.blue-bg .table-button-secondary .button a {
+    color: #00809E;
+}
+.green-bg .table-button-secondary .button,
+.green-bg .table-button-secondary .button a {
+    color: #63A70A;
+}
+.purple-bg .table-button-secondary .button,
+.purple-bg .table-button-secondary .button a {
+    color: #A23BBC;
+}
+.red-bg .table-button-secondary .button,
+.red-bg .table-button-secondary .button a {
+    color: #9C0947;
+}
+.orange-bg .table-button-secondary .button,
+.orange-bg .table-button-secondary .button a {
+    color: #CE5D27;
+}
+.gold-bg .table-button-secondary .button,
+.gold-bg .table-button-secondary .button a {
+    color: #DCAA00;
+}
+.seafoam-green-bg .table-button-secondary .button,
+.seafoam-green-bg .table-button-secondary .button a {
+    color: #afd3c8;
+}
+
+.white-text .table-button-outline .button {
+    border: 1px solid #ffffff;
+}
+
+.white-text .element,
+.white-text .table-button-outline .button,
+.white-text .table-button-outline .button a,
+.white-text .table-button-text .button,
+.white-text .table-button-text .button a,
+.white-text .list-item-text,
+.white-text .bullet-text,
+.white-text a  {
+    color: #ffffff;
+}
+
+.padding-top { padding-top: 20px; }
+.padding-bottom { padding-bottom: 20px; }
+
+.padding-top-none { padding-top: 0; }
+.padding-bottom-none { padding-bottom: 0; }
+
+
+/* Medium Screen Styles 
+-------------------------------------------- */
+
+@media only screen and (max-width: 640px) {
+    body { width: auto !important; 
+    }
+    table[class="table-inner"] { width: 100% !important; }
+    table[class="table-full"] { width: 100% !important; }
+    table[class="table-full-center"] { 
+        width: 100% !important; 
+        text-align: center !important;
+    }
+    .module-topbar .container .logo-container {
+        border-right-width: 0 !important;
+        border-left-width: 0 !important;
+        border-bottom: 1px solid #033e2f;
+    }
+    .topbar-links .content { text-align: center !important; }
+    
+    /* image */
+    img[class="img-full"] { 
+        width: 100% !important; 
+    }
+}
+
+/* overwrite media query */
+td[class="hide"] { 
+    max-height: 0px !important; 
+    height: 0px !important; 
+}
+
+/* Small Screen Styles 
+-------------------------------------------- */
+
+@media only screen and (max-width: 479px) {
+    body { width: auto !important; }
+    table[class="table-inner"] { width: 100% !important; }
+    table[class="table-full"] { width: 100% !important; }
+    table[class="table-full-center"] { 
+        width: 100% !important; 
+        text-align: center !important;
+    }
+    .module-topbar .container .logo-container {
+        border-right-width: 0 !important;
+        border-left-width: 0 !important;;
+        border-bottom: 1px solid #033e2f;
+    }
+    .topbar-links .content { text-align: center; }
+    
+    /* image */
+    img[class="img-full"] { width: 100% !important; }
+    img[class="img-hide"] { 
+        line-height: 0px !important; 
+        max-height: 0px !important; 
+        max-width: 0px !important; 
+    }
+
+    .event {
+        padding-bottom: 12px !important;
+    }
+
+    .event .header {
+        font-size: 12px !important;
+        line-height: 18px !important;
+    }
+}
+
+/* overwrite media query */
+td[class="hide"] { 
+    max-height: 0px !important; 
+    height: 0px !important; 
+}
+
+    </style>
+    <style type="text/css" rel="addons">
+        
+    </style>
+    <!--[if gte mso 12]>
+    <style type="text/css">
+        .element, .content-intro, .button, .bullet-text, .list-item-text, .date {
+            font-family: Arial, sans-serif !important;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body>
+<table class="table-wrapper" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td align="center">
+                                                                        
+
+
+    
+<table id="" class="module module-grid module-0 module-even module-topbar" style="" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" >
+    <tr>
+        <td class="background" align="center" background="" style="text-align: center; background-image: url(); ">
+            <center>
+                <table align="center" class="table-inner" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="container" style="">
+                                                            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                                                        
+                                        <tr>
+        
+
+    <td id="" class="element element-grid " width="600" height="" style="" align="left" valign="top" >
+            
+                
+                
+    <table class="table-full" align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                <td class="row" valign="top">
+                                            <!--[if gte mso 12]>
+                            <table align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                        <![endif]-->
+                    
+                                            
+                                                                                    <!--[if gte mso 12]>
+                                    <td valign="top" width="231">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="231" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element element-img logo-container" width="100%" height="" style="" align="center" valign="middle" >
+                    <a href="http://www.harker.org">
+        <img class="" width="" height="" style="" src="http://localhost/wp-dev/wp-content/uploads/2016/07/harker-logo-1-e1474409994328.png" alt="Harker Logo test">
+            </a>
+        </td>
+    </tr>
+
+                                                            </table>
+                                                                        
+                                            <!--[if gte mso 12]>
+                            </td></tr></table>
+                        <![endif]-->
+                                    </td>
+            </tr>
+            </table>
+    </td>
+    </tr>
+                                    
+                                                                    </table>
+                                                    </td>
+                    </tr>
+                </table>
+            </center>
+        </td>
+    </tr>
+</table>                                                            
+                                                
+
+
+    
+<table id="" class="module module-grid module-1 module-odd " style="" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" >
+    <tr>
+        <td class="background" align="center" background="" style="text-align: center; background-image: url(); ">
+            <center>
+                <table align="center" class="table-inner" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="container" style="">
+                                                            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                                                        
+                                        <tr>
+        
+
+    <td id="" class="element element-grid " width="600" height="" style="" align="left" valign="top" >
+            
+                
+                
+    <table class="table-full" align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                <td class="row" valign="top">
+                                            <!--[if gte mso 12]>
+                            <table align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                        <![endif]-->
+                    
+                                            
+                                                                                    <!--[if gte mso 12]>
+                                    <td valign="top" width="600">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="600" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element element-img " width="100%" height="" style="padding-bottom: 30px;" align="left" valign="top" >
+                <img class="img-full" width="" height="" style="" src="http://localhost/wp-dev/wp-content/uploads/2016/10/eagles-email-1.jpg" alt="Eagle Buddies">
+        </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element header header-title " width="100%" height="" style="" align="center" valign="top" >
+                A Title Goes Here
+        </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element header header-subtitle " width="100%" height="" style="" align="center" valign="top" >
+                A Subtitle Goes Here
+        </td>
+    </tr>
+
+                                                            </table>
+                                                                        
+                                            <!--[if gte mso 12]>
+                            </td></tr></table>
+                        <![endif]-->
+                                    </td>
+            </tr>
+            </table>
+    </td>
+    </tr>
+                                    
+                                                                    </table>
+                                                    </td>
+                    </tr>
+                </table>
+            </center>
+        </td>
+    </tr>
+</table>                                    
+
+
+    
+<table id="" class="module module-grid module-2 module-even gray-bg" style="" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" >
+    <tr>
+        <td class="background" align="center" background="" style="text-align: center; background-image: url(); ">
+            <center>
+                <table align="center" class="table-inner" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="container" style="">
+                                                            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                                                        
+                                        <tr>
+        
+
+    <td id="" class="element element-grid " width="600" height="" style="" align="left" valign="top" >
+            
+                
+                
+    <table class="table-full" align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                <td class="row" valign="top">
+                                            <!--[if gte mso 12]>
+                            <table align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                        <![endif]-->
+                    
+                                            
+                                                                                    <!--[if gte mso 12]>
+                                    <td valign="top" width="600">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="600" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element header header-header " width="100%" height="" style="padding-bottom: 0;" align="left" valign="top" >
+                Module Header
+        </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element header header-subheader " width="100%" height="" style="" align="left" valign="top" >
+                Module Subheader
+        </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element content " width="100%" height="" style="" align="left" valign="top" >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium eius veritatis fuga qui assumenda maxime necessitatibus quaerat facere, quod dolorem doloribus voluptatibus alias quas perferendis magni quia, pariatur possimus tenetur.<br />
+<br />
+Dignissimos fuga libero sed, molestias consectetur, quasi optio. Ut animi quod obcaecati cupiditate inventore qui molestiae blanditiis recusandae quibusdam voluptate quidem, ratione ab dolore nulla, odio atque distinctio sed error?
+            </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element list list-default " width="100%" height="" style="" align="left" valign="top" >
+                    <table class="table-full" align="left" width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                    <td class="list-item">
+                        <table width="100%" align="left" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                                                                                                                                        <td width="17" valign="top" class="bullet bullet-img img-container">
+                                                <img src="http://skylark.harker.org/email-builder/assets/img/check.png" width="17" alt="bullet">
+                                            </td>
+                                                                                                                                                                            <td class="list-item-text" valign="top">
+                                    List item one
+                                </td>
+                                                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                            <tr>
+                    <td class="list-item">
+                        <table width="100%" align="left" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                                                                                                                                        <td width="17" valign="top" class="bullet bullet-img img-container">
+                                                <img src="http://skylark.harker.org/email-builder/assets/img/check.png" width="17" alt="bullet">
+                                            </td>
+                                                                                                                                                                            <td class="list-item-text" valign="top">
+                                    List item two
+                                </td>
+                                                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                            <tr>
+                    <td class="list-item">
+                        <table width="100%" align="left" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                                                                                                                                        <td width="17" valign="top" class="bullet bullet-img img-container">
+                                                <img src="http://skylark.harker.org/email-builder/assets/img/check.png" width="17" alt="bullet">
+                                            </td>
+                                                                                                                                                                            <td class="list-item-text" valign="top">
+                                    List item three
+                                </td>
+                                                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                    </table>
+        </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element content " width="100%" height="" style="" align="left" valign="top" >
+                    Eveniet dolores culpa inventore enim ducimus quaerat eum ab quam commodi, fugiat porro veritatis id quisquam veniam repudiandae ratione, voluptates dicta debitis quas. Deleniti, eligendi cupiditate soluta laboriosam quo temporibus.
+            </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element element-button " width="" height="" style="padding-top: 10px;" align="left" valign="top" >
+            <table class="table-button table-button-primary" width="" border="0" align="left" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="button" valign="middle" align="center" height="">
+                <a href="http://www.harker.org">Learn More</a>
+            </td>
+        </tr>
+    </table>
+    </td>
+    </tr>
+
+                                                            </table>
+                                                                        
+                                            <!--[if gte mso 12]>
+                            </td></tr></table>
+                        <![endif]-->
+                                    </td>
+            </tr>
+            </table>
+    </td>
+    </tr>
+                                    
+                                                                    </table>
+                                                    </td>
+                    </tr>
+                </table>
+            </center>
+        </td>
+    </tr>
+</table>                                    
+
+
+    
+<table id="" class="module module-grid module-3 module-odd " style="" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" >
+    <tr>
+        <td class="background" align="center" background="" style="text-align: center; background-image: url(); ">
+            <center>
+                <table align="center" class="table-inner" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="container" style="">
+                                                            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                                                        
+                                        <tr>
+        
+
+    <td id="" class="element element-grid " width="600" height="" style="" align="left" valign="top" >
+            
+                
+                
+    <table class="table-full" align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                <td class="row" valign="top">
+                                            <!--[if gte mso 12]>
+                            <table align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                        <![endif]-->
+                    
+                                            
+                                                                                    <!--[if gte mso 12]>
+                                    <td valign="top" width="290">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="290" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element element-img " width="100%" height="" style="" align="left" valign="top" >
+                <img class="img-full" width="" height="" style="" src="http://localhost/wp-dev/wp-content/uploads/2016/07/placeholder.gif" alt="">
+        </td>
+    </tr>
+
+                                                            </table>
+                                                                                                <!--[if gte mso 12]>
+                                       </td><td valign="top" width="1">
+                                    <![endif]-->
+                                
+                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="left">
+                                    <tr>
+                                        <td height="30" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+                                            <p style="padding-left: 20px;">&nbsp;</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                                                                                
+                                                                                    <!--[if gte mso 12]>
+                                   </td><td valign="top" width="290">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="290" border="0" align="right" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Module Header
+        </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element content " width="100%" height="" style="" align="left" valign="top" >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam consequuntur suscipit atque, ullam, laborum beatae repellat deserunt facilis doloribus ab assumenda dignissimos. Provident et possimus beatae sequi, odit nesciunt neque?
+            </td>
+    </tr>
+
+                                                            </table>
+                                            
+                                            <!--[if gte mso 12]>
+                            </td></tr></table>
+                        <![endif]-->
+                                    </td>
+            </tr>
+            </table>
+    </td>
+    </tr>
+                                    
+                                                                    </table>
+                                                    </td>
+                    </tr>
+                </table>
+            </center>
+        </td>
+    </tr>
+</table>                                    
+
+
+    
+<table id="" class="module module-grid module-4 module-even blue-bg white-text" style="" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" >
+    <tr>
+        <td class="background" align="center" background="" style="text-align: center; background-image: url(); ">
+            <center>
+                <table align="center" class="table-inner" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="container" style="">
+                                                            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                                                        
+                                        <tr>
+        
+
+    <td id="" class="element element-grid " width="600" height="" style="" align="left" valign="top" >
+            
+                
+                
+    <table class="table-full" align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                <td class="row" valign="top">
+                                            <!--[if gte mso 12]>
+                            <table align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                        <![endif]-->
+                    
+                                            
+                                                                                    <!--[if gte mso 12]>
+                                    <td valign="top" width="290">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="290" border="0" align="right" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element element-img " width="100%" height="" style="" align="left" valign="top" >
+                <img class="img-full" width="" height="" style="" src="http://localhost/wp-dev/wp-content/uploads/2016/07/placeholder.gif" alt="">
+        </td>
+    </tr>
+
+                                                            </table>
+                                                                                                <!--[if gte mso 12]>
+                                       </td><td valign="top" width="1">
+                                    <![endif]-->
+                                
+                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="right">
+                                    <tr>
+                                        <td height="30" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+                                            <p style="padding-left: 20px;">&nbsp;</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                                                                                
+                                                                                    <!--[if gte mso 12]>
+                                   </td><td valign="top" width="290">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="290" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Module Header
+        </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element content " width="100%" height="" style="" align="left" valign="top" >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam consequuntur suscipit atque, ullam, laborum beatae repellat deserunt facilis doloribus ab assumenda dignissimos. Provident et possimus beatae sequi, odit nesciunt neque?
+            </td>
+    </tr>
+
+                                                            </table>
+                                            
+                                            <!--[if gte mso 12]>
+                            </td></tr></table>
+                        <![endif]-->
+                                    </td>
+            </tr>
+            </table>
+    </td>
+    </tr>
+                                    
+                                                                    </table>
+                                                    </td>
+                    </tr>
+                </table>
+            </center>
+        </td>
+    </tr>
+</table>                                    
+
+
+    
+<table id="" class="module module-grid module-5 module-odd " style="" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" >
+    <tr>
+        <td class="background" align="center" background="" style="text-align: center; background-image: url(); ">
+            <center>
+                <table align="center" class="table-inner" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="container" style="">
+                                                            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                                                                
+                
+    <tr>
+        
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Recent Stories
+        </td>
+    </tr>
+
+                                                                        
+                                        <tr>
+        
+
+    <td id="" class="element element-grid " width="600" height="" style="" align="left" valign="top" >
+            
+                
+                
+    <table class="table-full" align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                <td class="row" valign="top">
+                                            <!--[if gte mso 12]>
+                            <table align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                        <![endif]-->
+                    
+                                            
+                                                                                    <!--[if gte mso 12]>
+                                    <td valign="top" width="600">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="600" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element article-grid " width="600" height="" style="" align="left" valign="top" >
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                
+
+    <td id="" class="element article-feature " width="600" height="" style="" align="left" valign="top" >
+            
+                
+                
+    <table class="table-full" align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                <td class="row" valign="top">
+                                            <!--[if gte mso 12]>
+                            <table align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                        <![endif]-->
+                    
+                                            
+                                                                                    <!--[if gte mso 12]>
+                                    <td valign="top" width="186">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="186" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element element-img " width="100%" height="" style="" align="center" valign="top" >
+                    <a href="http://news.harker.org/grade-8-classical-guitarist-to-perform-at-carnegie-hall-in-july/">
+        <img class="img-full" width="186" height="" style="" src="http://news.harker.org/wp-content/uploads/2016/10/square-290x193.jpg" alt="Grade 8 Classical Guitarist to Perform at Carnegie Hall in July">
+            </a>
+        </td>
+    </tr>
+
+                                                            </table>
+                                                                                                <!--[if gte mso 12]>
+                                       </td><td valign="top" width="1">
+                                    <![endif]-->
+                                
+                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="left">
+                                    <tr>
+                                        <td height="15" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+                                            <p style="padding-left: 20px;">&nbsp;</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                                                                                
+                                                                                    <!--[if gte mso 12]>
+                                   </td><td valign="top" width="394">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="394" border="0" align="right" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                    <a href="http://news.harker.org/grade-8-classical-guitarist-to-perform-at-carnegie-hall-in-july/">
+        Grade 8 Classical Guitarist to Perform at Carnegie Hall in July
+            </a>
+        </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element content " width="100%" height="" style="" align="left" valign="top" >
+                    Classical guitarist Wilson Zhang, grade 8, was recently selected to perform at Carnegie Hall in July 2017 as a winner in the American Protégé competition. Each year, American Protégé evaluates video submissions from young musicians around the world and rewards the best submissions with the opportunity to perform at one of the world’s most prestigious […]
+            </td>
+    </tr>
+
+                                                            </table>
+                                            
+                                            <!--[if gte mso 12]>
+                            </td></tr></table>
+                        <![endif]-->
+                                    </td>
+            </tr>
+            </table>
+    </td>
+            </tr>
+                    <tr>
+                
+
+    <td id="" class="element element-grid " width="600" height="" style="" align="left" valign="top" >
+            
+                
+                
+    <table class="table-full" align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                <td class="row" valign="top">
+                                            <!--[if gte mso 12]>
+                            <table align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                        <![endif]-->
+                    
+                                            
+                                                                                    <!--[if gte mso 12]>
+                                    <td valign="top" width="186">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="186" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element article " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-article" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                    <tr>
+                
+
+    <td id="" class="element element-img " width="100%" height="" style="" align="center" valign="top" >
+                    <a href="http://news.harker.org/iyer-named-athlete-of-the-week-by-the-mercury-news/">
+        <img class="img-full" width="186" height="" style="" src="http://news.harker.org/wp-content/uploads/2016/10/2016-10_US_Cross_Country_MK_0746-290x193.jpg" alt="Iyer named Athlete of the Week by The Mercury News">
+            </a>
+        </td>
+            </tr>
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                    <a href="http://news.harker.org/iyer-named-athlete-of-the-week-by-the-mercury-news/">
+        Iyer named Athlete of the Week by The Mercury News
+            </a>
+        </td>
+            </tr>
+                            </table>
+    </td>
+    </tr>
+
+                                                            </table>
+                                                                                                <!--[if gte mso 12]>
+                                       </td><td valign="top" width="1">
+                                    <![endif]-->
+                                
+                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="left">
+                                    <tr>
+                                        <td height="30" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+                                            <p style="padding-left: 20px;">&nbsp;</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                                                                                
+                                                                                    <!--[if gte mso 12]>
+                                   </td><td valign="top" width="186">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="186" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element article " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-article" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                    <tr>
+                
+
+    <td id="" class="element element-img " width="100%" height="" style="" align="center" valign="top" >
+                    <a href="http://news.harker.org/two-new-head-coaches-to-make-their-debuts-this-spring/">
+        <img class="img-full" width="186" height="" style="" src="http://news.harker.org/wp-content/uploads/2016/10/Coaches-290x193.jpg" alt="Two new head coaches to make their debuts this spring">
+            </a>
+        </td>
+            </tr>
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                    <a href="http://news.harker.org/two-new-head-coaches-to-make-their-debuts-this-spring/">
+        Two new head coaches to make their debuts this spring
+            </a>
+        </td>
+            </tr>
+                            </table>
+    </td>
+    </tr>
+
+                                                            </table>
+                                                                                                <!--[if gte mso 12]>
+                                       </td><td valign="top" width="1">
+                                    <![endif]-->
+                                
+                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="left">
+                                    <tr>
+                                        <td height="30" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+                                            <p style="padding-left: 20px;">&nbsp;</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                                                                                
+                                                                                    <!--[if gte mso 12]>
+                                   </td><td valign="top" width="186">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="186" border="0" align="right" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element article " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-article" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                    <tr>
+                
+
+    <td id="" class="element element-img " width="100%" height="" style="" align="center" valign="top" >
+                    <a href="http://news.harker.org/storyteller-jim-cogan-regales-lower-school-students-with-tales-of-kindness/">
+        <img class="img-full" width="186" height="" style="" src="http://news.harker.org/wp-content/uploads/2016/08/harker-logo-default-290x193.png" alt="Storyteller Jim Cogan regales lower school students with tales of kindness">
+            </a>
+        </td>
+            </tr>
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                    <a href="http://news.harker.org/storyteller-jim-cogan-regales-lower-school-students-with-tales-of-kindness/">
+        Storyteller Jim Cogan regales lower school students with tales of kindness
+            </a>
+        </td>
+            </tr>
+                            </table>
+    </td>
+    </tr>
+
+                                                            </table>
+                                            
+                                            <!--[if gte mso 12]>
+                            </td></tr></table>
+                        <![endif]-->
+                                    </td>
+            </tr>
+                    <tr>
+                <td class="row" valign="top">
+                                            <!--[if gte mso 12]>
+                            <table align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                        <![endif]-->
+                    
+                                            
+                                                                                    <!--[if gte mso 12]>
+                                    <td valign="top" width="186">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="186" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element article " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-article" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                    <tr>
+                
+
+    <td id="" class="element element-img " width="100%" height="" style="" align="center" valign="top" >
+                    <a href="http://news.harker.org/football-picks-up-big-win-as-fall-sports-head-in-to-playoffs/">
+        <img class="img-full" width="186" height="" style="" src="http://news.harker.org/wp-content/uploads/2016/10/2016-10_US_Cross_Country_MK_0831-e1477326056800-290x193.jpg" alt="Football picks up big win as fall sports head into playoffs">
+            </a>
+        </td>
+            </tr>
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                    <a href="http://news.harker.org/football-picks-up-big-win-as-fall-sports-head-in-to-playoffs/">
+        Football picks up big win as fall sports head into playoffs
+            </a>
+        </td>
+            </tr>
+                            </table>
+    </td>
+    </tr>
+
+                                                            </table>
+                                                                                                <!--[if gte mso 12]>
+                                       </td><td valign="top" width="1">
+                                    <![endif]-->
+                                
+                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="left">
+                                    <tr>
+                                        <td height="30" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+                                            <p style="padding-left: 20px;">&nbsp;</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                                                                                
+                                                                                    <!--[if gte mso 12]>
+                                   </td><td valign="top" width="186">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="186" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element article " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-article" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                    <tr>
+                
+
+    <td id="" class="element element-img " width="100%" height="" style="" align="center" valign="top" >
+                    <a href="http://news.harker.org/siemens-competition-names-three-harker-students-regional-finalists/">
+        <img class="img-full" width="186" height="" style="" src="http://news.harker.org/wp-content/uploads/2016/10/Siemens-square-290x193.jpg" alt="Siemens Competition names three Harker students regional finalists">
+            </a>
+        </td>
+            </tr>
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                    <a href="http://news.harker.org/siemens-competition-names-three-harker-students-regional-finalists/">
+        Siemens Competition names three Harker students regional finalists
+            </a>
+        </td>
+            </tr>
+                            </table>
+    </td>
+    </tr>
+
+                                                            </table>
+                                                                                                <!--[if gte mso 12]>
+                                       </td><td valign="top" width="1">
+                                    <![endif]-->
+                                
+                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="left">
+                                    <tr>
+                                        <td height="30" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+                                            <p style="padding-left: 20px;">&nbsp;</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                                                                                
+                                                                                    <!--[if gte mso 12]>
+                                   </td><td valign="top" width="186">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="186" border="0" align="right" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element article " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-article" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                    <tr>
+                
+
+    <td id="" class="element element-img " width="100%" height="" style="" align="center" valign="top" >
+                    <a href="http://news.harker.org/harker-national-honor-society-inducts-a-record-50-new-members/">
+        <img class="img-full" width="186" height="" style="" src="http://news.harker.org/wp-content/uploads/2016/08/harker-logo-default-290x193.png" alt="Harker National Honor Society Inducts a Record 50 New Members">
+            </a>
+        </td>
+            </tr>
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                    <a href="http://news.harker.org/harker-national-honor-society-inducts-a-record-50-new-members/">
+        Harker National Honor Society Inducts a Record 50 New Members
+            </a>
+        </td>
+            </tr>
+                            </table>
+    </td>
+    </tr>
+
+                                                            </table>
+                                            
+                                            <!--[if gte mso 12]>
+                            </td></tr></table>
+                        <![endif]-->
+                                    </td>
+            </tr>
+            </table>
+    </td>
+            </tr>
+                    </table>
+    </td>
+    </tr>
+
+                                                            </table>
+                                                                        
+                                            <!--[if gte mso 12]>
+                            </td></tr></table>
+                        <![endif]-->
+                                    </td>
+            </tr>
+            </table>
+    </td>
+    </tr>
+                                    
+                                                                    </table>
+                                                    </td>
+                    </tr>
+                </table>
+            </center>
+        </td>
+    </tr>
+</table>                                    
+
+
+    
+<table id="" class="module module-grid module-6 module-even blue-bg white-text" style="" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" >
+    <tr>
+        <td class="background" align="center" background="http://localhost/wp-dev/wp-content/uploads/2016/07/header-bg-1.jpg" style="text-align: center; background-image: url(http://localhost/wp-dev/wp-content/uploads/2016/07/header-bg-1.jpg); ">
+            <center>
+                <table align="center" class="table-full" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="container" style="padding-top: 80px; padding-bottom: 80px;">
+                                                            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                                                        
+                                        <tr>
+        
+
+    <td id="" class="element element-grid " width="600" height="" style="" align="left" valign="top" >
+            
+                
+                
+    <table class="table-full" align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                <td class="row" valign="top">
+                                            <!--[if gte mso 12]>
+                            <table align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                        <![endif]-->
+                    
+                                            
+                                                                                    <!--[if gte mso 12]>
+                                    <td valign="top" width="600">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="600" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element header header-title " width="100%" height="" style="" align="center" valign="top" >
+                A Title Goes Here
+        </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element header header-subtitle " width="100%" height="" style="" align="center" valign="top" >
+                SOME DESCRIPTION GOES HERE
+        </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element element-button " width="" height="" style="padding-top: 10px;" align="center" valign="top" >
+            <table class="table-button table-button-secondary" width="" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="button" valign="middle" align="center" height="">
+                <a href="http://www.harker.org">Learn More</a>
+            </td>
+        </tr>
+    </table>
+    </td>
+    </tr>
+
+                                                            </table>
+                                                                        
+                                            <!--[if gte mso 12]>
+                            </td></tr></table>
+                        <![endif]-->
+                                    </td>
+            </tr>
+            </table>
+    </td>
+    </tr>
+                                    
+                                                                    </table>
+                                                    </td>
+                    </tr>
+                </table>
+            </center>
+        </td>
+    </tr>
+</table>                                    
+
+
+    
+<table id="" class="module module-grid module-7 module-odd gray-bg" style="" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" >
+    <tr>
+        <td class="background" align="center" background="" style="text-align: center; background-image: url(); ">
+            <center>
+                <table align="center" class="table-inner" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="container" style="">
+                                                            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                                                        
+                                        <tr>
+        
+
+    <td id="" class="element element-grid " width="600" height="" style="" align="left" valign="top" >
+            
+                
+                
+    <table class="table-full" align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                <td class="row" valign="top">
+                                            <!--[if gte mso 12]>
+                            <table align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                        <![endif]-->
+                    
+                                            
+                                                                                    <!--[if gte mso 12]>
+                                    <td valign="top" width="394">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="394" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Question of the Month
+        </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element content " width="100%" height="" style="" align="left" valign="top" >
+                    What is your favorite event at Harker?
+            </td>
+    </tr>
+
+                                                            </table>
+                                                                                                <!--[if gte mso 12]>
+                                       </td><td valign="top" width="1">
+                                    <![endif]-->
+                                
+                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="left">
+                                    <tr>
+                                        <td height="30" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+                                            <p style="padding-left: 20px;">&nbsp;</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                                                                                
+                                                                                    <!--[if gte mso 12]>
+                                   </td><td valign="top" width="186">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="186" border="0" align="right" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element element-button " width="" height="" style="" align="left" valign="top" >
+            <table class="table-button table-button-primary" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="button" valign="middle" align="center" height="">
+                <a href="#">Take Poll</a>
+            </td>
+        </tr>
+    </table>
+    </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element element-button " width="" height="" style="" align="left" valign="top" >
+            <table class="table-button table-button-outline" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="button" valign="middle" align="center" height="">
+                <a href="http://www.harker.org">View Results</a>
+            </td>
+        </tr>
+    </table>
+    </td>
+    </tr>
+
+                                                            </table>
+                                            
+                                            <!--[if gte mso 12]>
+                            </td></tr></table>
+                        <![endif]-->
+                                    </td>
+            </tr>
+            </table>
+    </td>
+    </tr>
+                                    
+                                                                    </table>
+                                                    </td>
+                    </tr>
+                </table>
+            </center>
+        </td>
+    </tr>
+</table>                                    
+
+
+    
+<table id="" class="module module-grid module-8 module-even " style="" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" >
+    <tr>
+        <td class="background" align="center" background="" style="text-align: center; background-image: url(); ">
+            <center>
+                <table align="center" class="table-inner" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="container" style="">
+                                                            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                                                        
+                                        <tr>
+        
+
+    <td id="" class="element element-grid " width="600" height="" style="" align="left" valign="top" >
+            
+                
+                
+    <table class="table-full" align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                <td class="row" valign="top">
+                                            <!--[if gte mso 12]>
+                            <table align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                        <![endif]-->
+                    
+                                            
+                                                                                    <!--[if gte mso 12]>
+                                    <td valign="top" width="290">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="290" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Calendar Feed
+        </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element calendar-list " width="100%" height="" style="" align="left" valign="top" >
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                
+
+    <td id="" class="element calendar-item " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-calendar-item" width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            
+
+    <td id="" class="element element-date " width="68" height="" style="" align="center" valign="top" >
+            <table class="table-date" width="100%" border="0" align="center" cellpadding="0" cellspacing="0" background="http://localhost/email-builder/assets/img/date-bg.png" style="background-image: url(http://localhost/email-builder/assets/img/date-bg.png) ">
+        <tr>
+            <td class="date">
+                <div class="day-of-week">MONDAY</div><div class="month">OCT</div><div class="day">10</div>
+            </td>
+        </tr>
+    </table>
+    </td>
+            <td class="events" valign="top">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                            
+
+    <td id="" class="element event " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-event" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Columbus Day
+        </td>
+            </tr>
+                            </table>
+    </td>
+                        </tr>
+                                            <tr>
+                            
+
+    <td id="" class="element event " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-event" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Full Dress: Mr. Nichols&#039; Birthday
+        </td>
+            </tr>
+                            <tr>
+                
+
+    <td id="" class="element content " width="100%" height="" style="" align="left" valign="top" >
+                    <span class="event-link"><a href="http://www.harker.org/page.cfm?id=2302&verbose=252858">View details</a></span>
+            </td>
+            </tr>
+                    </table>
+    </td>
+                        </tr>
+                                            <tr>
+                            
+
+    <td id="" class="element event " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-event" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                K-5 Full Dress Uniform (Mr. Nichols&#039; Birthday)
+        </td>
+            </tr>
+                            </table>
+    </td>
+                        </tr>
+                                            <tr>
+                            
+
+    <td id="" class="element event " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-event" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Last Week of Q1 Lower School Sports &amp; BEST Activities
+        </td>
+            </tr>
+                            </table>
+    </td>
+                        </tr>
+                                            <tr>
+                            
+
+    <td id="" class="element event " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-event" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Last Week of Q1 Middle School BEST Activities
+        </td>
+            </tr>
+                            </table>
+    </td>
+                        </tr>
+                                            <tr>
+                            
+
+    <td id="" class="element event " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-event" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Middle School Special Schedule: Mr. Nichols&#039; Bday
+        </td>
+            </tr>
+                            <tr>
+                
+
+    <td id="" class="element content " width="100%" height="" style="" align="left" valign="top" >
+                    <span class="event-link"><a href="http://www.harker.org/page.cfm?id=2302&verbose=252859">View details</a></span>
+            </td>
+            </tr>
+                    </table>
+    </td>
+                        </tr>
+                                            <tr>
+                            
+
+    <td id="" class="element event " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-event" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Middle School Early Winter Sports Begin
+        </td>
+            </tr>
+                            </table>
+    </td>
+                        </tr>
+                                            <tr>
+                            
+
+    <td id="" class="element event " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-event" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                National Honor Choir Trip
+        </td>
+            </tr>
+                            </table>
+    </td>
+                        </tr>
+                                            <tr>
+                            
+
+    <td id="" class="element event " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-event" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Upper School Schedule B (Celebrate Mr. Nichol&#039;s Birthday in School Meeting)
+        </td>
+            </tr>
+                            </table>
+    </td>
+                        </tr>
+                                            <tr>
+                            
+
+    <td id="" class="element event " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-event" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Picnic Cleanup /Coffee
+        </td>
+            </tr>
+                            <tr>
+                
+
+    <td id="" class="element content " width="100%" height="" style="" align="left" valign="top" >
+                    8 to 10 a.m. | Blackford Aux. Gym
+            </td>
+            </tr>
+                    </table>
+    </td>
+                        </tr>
+                                            <tr>
+                            
+
+    <td id="" class="element event " width="100%" height="" style="" align="left" valign="top" >
+            <table class="table-event" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Golf - Girls  vs. King&#039;s Academy (Away)
+        </td>
+            </tr>
+                            <tr>
+                
+
+    <td id="" class="element content " width="100%" height="" style="" align="left" valign="top" >
+                    3:30 p.m. | Sunnyvale Municipal Golf Course
+            </td>
+            </tr>
+                    </table>
+    </td>
+                        </tr>
+                                    </table>
+            </td>    
+        </tr>
+    </table>
+    </td>
+            </tr>
+            </table>
+    </td>
+    </tr>
+
+                                                            </table>
+                                                                                                <!--[if gte mso 12]>
+                                       </td><td valign="top" width="1">
+                                    <![endif]-->
+                                
+                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="left">
+                                    <tr>
+                                        <td height="30" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+                                            <p style="padding-left: 20px;">&nbsp;</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                                                                                
+                                                                                    <!--[if gte mso 12]>
+                                   </td><td valign="top" width="290">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="290" border="0" align="right" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element element-list " width="100%" height="" style="" align="left" valign="top" >
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Section Header
+        </td>
+            </tr>
+                    <tr>
+                
+
+    <td id="" class="element content " width="100%" height="" style="" align="left" valign="top" >
+                    Section elements provide a way to group related elements within columns. Useful if you have multiple sections within the same column.
+            </td>
+            </tr>
+                    <tr>
+                
+
+    <td id="" class="element element-button " width="" height="" style="" align="left" valign="top" >
+            <table class="table-button table-button-primary" width="" border="0" align="left" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="button" valign="middle" align="center" height="">
+                <a href="http://www.harker.org">Learn More</a>
+            </td>
+        </tr>
+    </table>
+    </td>
+            </tr>
+                    </table>
+    </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element element-list " width="100%" height="" style="" align="left" valign="top" >
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Another Section
+        </td>
+            </tr>
+                    <tr>
+                
+
+    <td id="" class="element content " width="100%" height="" style="" align="left" valign="top" >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam consequuntur suscipit atque, ullam, laborum beatae repellat deserunt facilis doloribus ab assumenda dignissimos. Provident et possimus beatae sequi, odit nesciunt neque?
+            </td>
+            </tr>
+                    </table>
+    </td>
+    </tr>
+
+                                                            </table>
+                                            
+                                            <!--[if gte mso 12]>
+                            </td></tr></table>
+                        <![endif]-->
+                                    </td>
+            </tr>
+            </table>
+    </td>
+    </tr>
+                                    
+                                                                    </table>
+                                                    </td>
+                    </tr>
+                </table>
+            </center>
+        </td>
+    </tr>
+</table>                                        
+                                                                        
+
+
+    
+<table id="" class="module module-grid module-9 module-odd module-footer" style="" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" >
+    <tr>
+        <td class="background" align="center" background="" style="text-align: center; background-image: url(); ">
+            <center>
+                <table align="center" class="table-inner" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="container" style="">
+                                                            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                                                        
+                                        <tr>
+        
+
+    <td id="" class="element element-grid " width="600" height="" style="" align="left" valign="top" >
+            
+                
+                
+    <table class="table-full" align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                <td class="row" valign="top">
+                                            <!--[if gte mso 12]>
+                            <table align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                        <![endif]-->
+                    
+                                            
+                                                                                    <!--[if gte mso 12]>
+                                    <td valign="top" width="290">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="290" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Social Media
+        </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element list list-unstyled " width="100%" height="" style="" align="left" valign="top" >
+                    <table class="table-full" align="left" width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                    <td class="list-item">
+                        <table width="100%" align="left" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                                                                                                                                        <!-- unstyled -->
+                                                                                                                                                                            <td class="list-item-text" valign="top">
+                                    <a href="http://facebook.com/harkerschool">facebook.com/harkerschool</a>
+                                </td>
+                                                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                            <tr>
+                    <td class="list-item">
+                        <table width="100%" align="left" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                                                                                                                                        <!-- unstyled -->
+                                                                                                                                                                            <td class="list-item-text" valign="top">
+                                    <a href="http://twitter.com/harkerschool">twitter.com/harkerschool</a>
+                                </td>
+                                                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                            <tr>
+                    <td class="list-item">
+                        <table width="100%" align="left" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                                                                                                                                        <!-- unstyled -->
+                                                                                                                                                                            <td class="list-item-text" valign="top">
+                                    <a href="http://instagram.com/harkerschool">instagram.com/harkerschool</a>
+                                </td>
+                                                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                            <tr>
+                    <td class="list-item">
+                        <table width="100%" align="left" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                                                                                                                                        <!-- unstyled -->
+                                                                                                                                                                            <td class="list-item-text" valign="top">
+                                    <a href="http://youtube.com/harkerschool">youtube.com/harkerschool</a>
+                                </td>
+                                                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                    </table>
+        </td>
+    </tr>
+
+                                                            </table>
+                                                                                                <!--[if gte mso 12]>
+                                       </td><td valign="top" width="1">
+                                    <![endif]-->
+                                
+                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="left">
+                                    <tr>
+                                        <td height="40" style="font-size: 0;line-height: 0;border-collapse: collapse;">
+                                            <p style="padding-left: 20px;">&nbsp;</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                                                                                
+                                                                                    <!--[if gte mso 12]>
+                                   </td><td valign="top" width="290">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="290" border="0" align="right" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element header header-header " width="100%" height="" style="" align="left" valign="top" >
+                Contact Us
+        </td>
+    </tr>
+
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element content " width="100%" height="" style="" align="left" valign="top" >
+                    500 Saratoga Ave., San Jose 95129<br />
+<a href="mailto:communications@harker.org">communications@harker.org</a>
+            </td>
+    </tr>
+
+                                                            </table>
+                                            
+                                            <!--[if gte mso 12]>
+                            </td></tr></table>
+                        <![endif]-->
+                                    </td>
+            </tr>
+            </table>
+    </td>
+    </tr>
+                                    
+                                                                    </table>
+                                                    </td>
+                    </tr>
+                </table>
+            </center>
+        </td>
+    </tr>
+</table>                                            
+
+
+    
+<table id="" class="module module-grid module-10 module-even module-bottombar" style="" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" >
+    <tr>
+        <td class="background" align="center" background="" style="text-align: center; background-image: url(); ">
+            <center>
+                <table align="center" class="table-inner" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="container" style="">
+                                                            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                                                        
+                                        <tr>
+        
+
+    <td id="" class="element element-grid " width="600" height="" style="" align="left" valign="top" >
+            
+                
+                
+    <table class="table-full" align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                <td class="row" valign="top">
+                                            <!--[if gte mso 12]>
+                            <table align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                        <![endif]-->
+                    
+                                            
+                                                                                    <!--[if gte mso 12]>
+                                    <td valign="top" width="600">
+                                <![endif]-->
+                            
+                            <table class="table-full" width="600" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                        
+                
+    <tr>
+        
+
+    <td id="" class="element content " width="100%" height="" style="" align="left" valign="top" >
+                    Copyright © The Harker School 2016. All Rights Reserved.
+            </td>
+    </tr>
+
+                                                            </table>
+                                                                        
+                                            <!--[if gte mso 12]>
+                            </td></tr></table>
+                        <![endif]-->
+                                    </td>
+            </tr>
+            </table>
+    </td>
+    </tr>
+                                    
+                                                                    </table>
+                                                    </td>
+                    </tr>
+                </table>
+            </center>
+        </td>
+    </tr>
+</table>                                                        </td>
+    </tr>
+</table>
+</body>
+</html>

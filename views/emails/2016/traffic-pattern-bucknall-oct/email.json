@@ -1,0 +1,111 @@
+ {
+    "title": "Halloween Traffic Pattern Update for Bucknall",
+    
+    // Custom Header
+    // "header": [
+    //     {
+    //         "template": "topbar",
+    //         "options": {
+    //             "img": {
+    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
+    //                 "alt": "Updated Alt Tag"
+    //                 "width": 215
+    //             }
+    //         }
+    //     }
+    // ],
+    
+    // Modules
+    // 
+    // Templates: module, grid
+    // 
+    // Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+        {
+            "template": "grid", 
+            "options": {
+                "class": "module-full-text",
+                "columns": [
+                    {
+                        "width": "100%",
+                        "elements": [
+                            {   
+                                "template": "subheader",
+                                "options": {
+                                    "text": "To our Bucknall Parents,"
+                                }
+                            },
+                            {   
+                                "template": "content",
+                                "options": {
+                                    "text": "We know you’re getting excited for the annual Bucknall Halloween Parade and parties - we are, too! Due to heavy attendance of this event and a need to improve our neighborhood relations, we will be altering the format of the parade and parties for this school year. On Oct. 28 K-grade 3 will be having their parties and parade mid-morning before lunch, while grades 4-5 will have their Halloween celebration in the afternoon after lunch. More specific details will follow in an email from Kim Cali.
+                                        <br><br>
+                                        Safe and responsible parking will be very important for this day to be successful. Here are some guidelines:"
+                                }
+                            },
+                            {
+                                "template": "list",
+                                "options": {
+                                    "type": "unordered",
+                                    "items": [
+                                        "<strong>You must park on Rincon Field:</strong><br>
+                                        Due to consternation within the neighboring community, parking on any of the auxiliary streets of Bucknall campus will not be an option for this event. Once the field is full you will be directed to an overflow lot which is two minutes away on McCoy and Weston, where a Harker bus will shuttle you to campus for this event. Due to the size of this event it’s imperative that you either park on the field or at the overflow lot so that our neighbors are not disrupted in any way.",
+                                        "<strong>Carpool if at all possible.</strong> Fewer cars = less stress!",
+                                        "<strong>Departing campus after the parade:</strong><br>
+                                        Just like any other school day, for the health and safety of you and your child, follow all parking regulations such as using the crosswalks, only making right turns as you exit the loading zones, paying attention to the traffic personnel and not making U-turns into the driveways of private residences."
+                                    ]
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options" : {
+                                    "text" : "
+                                        We are anticipating another fun-filled Halloween celebration and we thank you for your assistance in helping this be a stress-free day for all of the families and our neighboring community.
+                                        <br><br>
+                                        Ken Allen<br>
+                                        Lower School Dean of Students<br>
+                                        The Harker School
+                                    "
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }

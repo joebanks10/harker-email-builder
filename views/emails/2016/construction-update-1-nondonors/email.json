@@ -1,0 +1,299 @@
+ {
+    "title": "Construction Update - June",
+    
+    // Custom Header
+    // "header": [
+    //     {
+    //         "template": "topbar",
+    //         "options": {
+    //             "img": {
+    //                 "src": "http://skylark.harker.org/email-builder/staging/assets/img/img0.png"
+    //                 "alt": "Updated Alt Tag"
+    //                 "width": 215
+    //             }
+    //         }
+    //     }
+    // ],
+    
+    // Modules
+    // 
+    // Templates: module, grid
+    // 
+    // Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+        {
+            "template": "grid",
+            "options": {
+                "class": "gray-bg",
+                "style": "padding-top: 0; padding-bottom: 0;",
+                "collapse_gutters": true,
+                "columns": [
+                    {
+                        "elements": [
+                            {   
+                                "template": "img",
+                                "options": {
+                                    "src": "http://skylark.harker.org/email-builder/assets/img/hero-capital-giving.jpg",
+                                    "alt": "Gym and Theater Buildings",
+                                    "width": "600",
+                                    "height": "202"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid", 
+            "options": {
+                "class": "module-intro",
+                "columns": [
+                    {
+                        "elements": [
+                            {   
+                                "template": "title",
+                                "options": {
+                                    "text": "Gym and Theater Construction",
+                                    "style": "padding-bottom: 0;"
+                                }
+                            },
+                            {   
+                                "template": "subtitle",
+                                "options": {
+                                    "text": "JUNE UPDATE",
+                                    "style": "padding-bottom: 30px"
+                                }
+                            },
+                            {   
+                                "template": "content",
+                                "options": {
+                                    "class": "content-intro",
+                                    "text": "Here’s this month's update of the exciting and historic construction of the new gym and theater on the upper school campus. Enjoy!"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "blue-bg white-text",
+                "column_count": 1,
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Message from the Head"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "With much of our community engaged in summer plans away from Silicon Valley, we wanted to keep families and alumni up to date on the transformation happening on our Saratoga campus. As you know, we’ve started construction of a new gym and theater at our upper school. The old adage, “You have to crack an egg to make an omelet” certainly applies, and we are deep into the egg-cracking phase.
+                                        <br>
+                                        <br>
+                                        Although it’s very exciting to see the project underway, we still need more support – support from everyone in our community – to complete it. We all need to do our part to pitch in and make a contribution, and we hope you will help us get this done.
+                                        <br>
+                                        <br>
+                                        Read on and click through for more news, photos and video, and enjoy your summer!
+                                        <br>
+                                        <br>
+                                        Chris Nikoloff<br>
+                                        Head of School
+                                        "
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Why a gym and theater?"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "At Harker our students are learning and doing, to make a difference in the world. While the classroom is where the bulk of academic learning takes place, an education for the whole child encompasses more than academics. Students develop many of the qualities that enable them to make a difference – confidence, perseverance, integrity and more – in our extracurricular programs such as athletics and performing arts. And we don’t have adequate facilities for these programs on our upper school campus.
+                                        <br>
+                                        <br>
+                                        In addition to supporting athletics and performing arts specifically, the new gym and theater will provide gathering spaces for the entire student body (for school meetings or other events) and for other student programs (such as debate, science research, alumni reunions and more). Our whole community of students, parents, faculty and alumni will be able to experience the benefits of these new facilities.
+
+                                        "
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "blue-bg white-text",
+                "column_count": 2,
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "img",
+                                "options": {
+                                    "src": "~/construction-video-cover-1.png",
+                                    "width": "290",
+                                    "href": "https://harker.wistia.com/medias/zfiqg3i3l0",
+                                    "style": "padding-bottom: 20px"
+                                }
+                            },
+                            {
+                                "template": "button",
+                                "options": {
+                                    "type": "secondary",
+                                    "text": "Watch Video",
+                                    "href": "https://harker.wistia.com/medias/zfiqg3i3l0"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Behind the scenes"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "For a behind-the-scenes look at the project, check out this short video, with commentary by facility manager Mike Bassoni. With time-lapse photography and regular documenting of the building process, we will continue to share photos, videos, drawings and more to update you on this historic project!
+                                        "
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "How to help"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "Although construction has begun, we still need to raise more funds to complete the project. For more information on how to make a gift, please contact Joe Rosenthal, executive director of advancement, at <a href=\"mailto:joe.rosenthal@harker.org\">joe.rosenthal@harker.org</a>.
+                                        "
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "blue-bg white-text",
+                "column_count": 2,
+                "columns": [
+                    {
+                        "width": "60%",
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Learn more about the campaign"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "For more information about our current campaign, please visit our web page."
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "width": "40%",
+                        "elements": [
+                            {
+                                "template": "button",
+                                "options": {
+                                    "type": "secondary",
+                                    "width": "100%",
+                                    "text": "Visit Campaign Page",
+                                    "href": "http://www.harker.org/giving/capital-giving"
+                                }
+                            },
+                            {
+                                "template": "button",
+                                "options": {
+                                    "type": "outline",
+                                    "width": "100%",
+                                    "text": "Read Campaign News",
+                                    "href": "http://www.harker.org/giving/capital-giving#bookmark-news"
+                                }
+                            }
+                        ]
+                    }
+                ]     
+            }
+        }
+    ]
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }
