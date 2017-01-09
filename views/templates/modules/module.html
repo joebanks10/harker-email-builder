@@ -1,0 +1,59 @@
+{% import "elements/grid.html" as grid %}
+
+{% set defaults = {
+    id: "",
+    module_class: "",
+    class: "",
+    style: "",
+    attributes: "",
+    width: 600,
+    collapse_gutters: false,
+    table_style: "",
+    background_img: "",
+    background_style: "",
+    header: [],
+    content: [],
+    footer: []
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}
+
+{% if module.collapse_gutters %}
+    {% set table_inner_class = "table-full" %}
+{% else %}
+    {% set table_inner_class = "table-inner" %}
+{% endif %}
+
+{% set bg_img = get_image_url(module.background_img) %}
+
+<table id="{{ module.id }}" class="module {{ module.module_class }} {{ module_classes(module.class) }}" style="{{ module.table_style }}" align="center" width="100%" border="0" cellspacing="0" cellpadding="0" {{ module.attributes }}>
+    <tr>
+        <td class="background" align="center" background="{{ get_image_url(module.background_img) }}" style="text-align: center;{% if bg_img %} background-image: url({{ get_image_url(module.background_img) }});{% endif %} {{ module.background_style }}">
+            <center>
+                <table align="center" class="{{ table_inner_class }}" width="{{ module.width }}" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="container" style="{{ module.style }}">
+                            {% block container %}
+                                <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                                    {% for element in module.header %}
+                                        {{ grid.element(element, module.width) }}
+                                    {% endfor %}
+                                    
+                                    {% block content %}
+                                        {% for element in module.content %}
+                                            {{ grid.element(element, module.width) }}
+                                        {% endfor %}
+                                    {% endblock content %}
+                                    
+                                    {% for element in module.footer %}
+                                        {{ grid.element(element, module.width) }}
+                                    {% endfor %}
+                                </table>
+                            {% endblock container %}
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </td>
+    </tr>
+</table>

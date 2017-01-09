@@ -1,0 +1,378 @@
+ {
+    "title": "Harker News Express",
+    
+    // Custom Header
+    "header": [
+        {
+            "template": "topbar-text",
+            "options": {
+                "columns": [
+                    {
+                        "width": "340",
+                        "elements": [
+                            {
+                                "template": "img",
+                                "options": {
+                                    "class": "logo-container",
+                                    "src": "harker-news-express-logo.png",
+                                    "alt": "Harker News Express",
+                                    "width": 312,
+                                    "height": 32,
+                                    "valign": "middle"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "width": "240",
+                        "elements": [
+                            {
+                                "template": "list",
+                                "options": {
+                                    "align": "right",
+                                    "type": "inline",
+                                    "items": [
+                                        "<a href=\"http://www.harker.org\">Home</a>",
+                                        "<a href=\"http://news.harker.org\">News</a>",
+                                        "<a href=\"https://www.harker.org/login\">Portal</a>"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    
+    // Modules
+    // 
+    // Templates: grid, two-columns, three-columns, 
+    // content-sidebar, sidebar-content, element-grid
+    // 
+    // Standard Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // 
+    // Grid Options: columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+
+        // Single Column (using grid template)
+        {
+            "template": "one-column", 
+            "options": {
+                "class": "gray-bg",
+                "content": [
+                    {
+                        "template": "subheader",
+                        "options": {
+                            "text": "Welcome to the inaugural edition of the News Express!"
+                        }
+                    },
+                    {   
+                        "template": "content",
+                        "options": {
+                            "style": "font-size: 14px; line-height: 22px;",
+                            "text": "This monthly news
+                                blast partially replaces the Harker Quarterly magazine, which will now be
+                                published biannually (the first edition will mail this December so watch
+                                for a reminder on that!).
+                                <br>
+                                <br>
+                                At the end of each month all Harker families and alumni will receive the News
+                                Express, which is a quick recap of the month's top stories and features, a
+                                glance ahead at key community events coming up, and a short and sweet
+                                monthly poll on various topics (fun or informative!). Our goal is for the
+                                News Express to be bite-sized, informative and fun. Enjoy!
+                                <br>
+                                <br>
+                                Pam Dickinson, Director<br>
+                                Harker Office of Communication
+                                <br>
+                                <br>
+                                Questions or suggestions? Contact <a href=\"mailto:communications@harker.org\">communications@harker.org</a>."
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Article Listing
+        {
+            "template": "one-column",
+            "options": {
+                "class" : "rss",
+                "content": [
+                    {
+                        "template": "article-grid",
+                        "options": {
+                            "rss": "http://news.harker.org/tag/express/feed/",
+                            "count": 7,
+                            "feature": true,
+                            "article": {
+                                "content": false,
+                                "button": false
+                            },
+                            "feature_article": {
+                                "button": false
+                            },
+                            "header": [
+                                {
+                                    "template": "header",
+                                    "options": {
+                                        "text": "Top September Stories"
+                                    }
+                                }
+                            ],
+                            "footer": [
+                                {
+                                    "template": "button",
+                                    "options": {
+                                        "text": "Read More Stories at Harker News",
+                                        "href": "http://news.harker.org",
+                                        "align": "center",
+                                        "style": "padding-top: 10px"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Two Columns
+        {
+            "template": "element-grid",
+            "options": {
+                "class": "gray-bg",
+                "column_count": 2,
+                "header": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Express Features"
+                        }
+                    }
+                ],
+                "elements": [
+                    {
+                        "template": "article",
+                        "options": {
+                            "permalink": "https://www.youtube.com/watch?v=xVHzmS74MV4",
+                            "img" : {
+                                "src": "youtube-cover.png",
+                                "alt": "Middle School Flash Mob Video Cover",
+                                "width": 290,
+                                "img_class": "img-full"
+                            },
+                            "header": {
+                                "text": "Middle School Flash Mob",
+                                "href": ""
+                            },
+                            "button": {   
+                                "type": "primary",
+                                "text": "Watch YouTube Video",
+                                "width": "100%"
+                            }
+                        }
+                    },
+                    {
+                        "template": "article",
+                        "options": {
+                            "permalink": "https://www.instagram.com/p/BKlayz3DWA0/",
+                            "img": {
+                                "src": "instagram-cover.png",
+                                "alt": "Upper School Dance Production Auditions",
+                                "width": 290,
+                                "img_class": "img-full"
+                            },
+                            "header": {
+                                "text": "Upper School Dance Auditions",
+                                "href": ""
+                            },
+                            "button": {
+                                "type": "primary",
+                                "text": "Watch Instagram Video",
+                                "width": "100%"
+                            }
+                        }
+                    },
+                    {
+                        "template": "article",
+                        "options": {
+                            "permalink": "https://www.facebook.com/harkerschool/posts/10153903275115737",
+                            "img": {
+                                "src": "facebook-cover.png",
+                                "alt": "Hilarious September Sports Report from Journalism Department!",
+                                "width": 290,
+                                "img_class": "img-full"
+                            },
+                            "header": {
+                                "text": "Hilarious US Eagle Update!",
+                                "href": ""
+                            },
+                            "button": {
+                                "type": "primary",
+                                "text": "View Facebook Post",
+                                "width": "100%"
+                            }
+                        }
+                    },
+                    {
+                        "template": "article",
+                        "options": {
+                            "permalink": "http://portals.harker.org",
+                            "img": {
+                                "src": "photo-cover.jpg",
+                                "alt": "Four Preschoolers Smiling",
+                                "width": 290,
+                                "img_class": "img-full"
+                            },
+                            "header": {
+                                "text": "September Photo Galleries",
+                                "href": ""
+                            },
+                            "button": {
+                                "type": "primary",
+                                "text": "View Photos in Portal",
+                                "width": "100%"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Content Left, Sidebar Right
+        {
+            "template": "content-sidebar",
+            "options": {
+                "gutter_height": 20,
+                "content": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Question of the Month"
+                        }
+                    },
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "Approximately how many strawberries do lower school students eat in one month?"
+                        }
+                    },
+                    {
+                        "template": "list",
+                        "options": {
+                            "class": "list-collapse",
+                            "type": "unordered",
+                            "items": [
+                                "2,550",
+                                "7,200",
+                                "9,400"
+                            ]
+                        }
+                    }
+                ],
+                "sidebar": [
+                    {
+                        "template": "button",
+                        "options": {
+                            "type": "primary",
+                            "text": "Choose Answer",
+                            "href": "https://www.surveymonkey.com/r/GJ9GSB7",
+                            "button_width": "100%"
+                        }
+                    }
+                ]
+            }
+        },
+
+        // Promos
+        {
+            "template": "element-grid",
+            "options": {
+                "class": "gray-bg",
+                "column_count": 2,
+                "header": [
+                    {
+                        "template": "header",
+                        "options": {
+                            "text": "Upcoming Events"
+                        }
+                    }
+                ],
+                "elements": [
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "http://www.harker.org/uploaded/assets/graphics/promos/corporate/portal/logowear-portal-ad-homecoming.jpg",
+                            "href": "https://harkerschool.mybrightsites.com/products?s%5Bf%5D%5Bc%5D%5B%5D=%2FHOMECOMING",
+                            "img_width": 290,
+                            "img_class": "img-full"
+                        }
+                    },
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "https://www.harker.org/uploaded/assets/graphics/promos/ADV_Harvest_Fest_PPortal_F_1617.png",
+                            "href": "http://www.harker.org/picnic",
+                            "img_width": 290,
+                            "img_class": "img-full"
+                        }
+                    },
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "http://www.harker.org/uploaded/assets/graphics/promos/PA_US_AroundTW_HPP_F_1617.png",
+                            "href": "http://www.harker.org/page.cfm?id=3564&verbose=247058",
+                            "img_width": 290,
+                            "img_class": "img-full"
+                        }
+                    },
+                    {
+                        "template": "img",
+                        "options": {
+                            "src": "homecoming-promo.jpg",
+                            "img_width": 290,
+                            "img_class": "img-full"
+                        }
+                    }
+                ]
+            }
+        }
+
+    ] // end of content modules
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }

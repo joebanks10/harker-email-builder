@@ -1,0 +1,57 @@
+{% extends "elements/element.html" %}
+
+{% set defaults = {
+    element_class: "event",
+    width: "100%",
+    img: {},
+    header: {
+        text: "Event Header"
+    },
+    content: {
+        text: "7 p.m. | Saratoga Campus"
+    },
+    button: {}
+} %}
+
+{% set module = defaults|merge(module|default({})) %}
+
+{% if module.img %}
+    {% set img = defaults.img|merge(module.img) %}
+{% endif %}
+
+{% if module.header %}
+    {% set header = defaults.header|merge(module.header) %}
+{% endif %}
+
+{% if module.content %}
+    {% set content = defaults.content|merge(module.content) %}
+{% endif %}
+
+{% if module.button %}
+    {% set button = defaults.button|merge(module.button) %}
+{% endif %}
+
+{% block element_content %}
+    <table class="table-event" width="100%" border="0" align="{{ module.align }}" cellpadding="0" cellspacing="0">
+        {% if img %}
+            <tr>
+                {% include "elements/img.html" with { module: img } %}
+            </tr>
+        {% endif %}
+        {% if header %}
+            <tr>
+                {% include "elements/header.html" with { module: header } %}
+            </tr>
+        {% endif %}
+        {% if content %}
+            <tr>
+                {% include "elements/content.html" with { module: content } %}
+            </tr>
+        {% endif %}
+        {% if button %}
+            <tr>
+                {% include "elements/button.html" with { module: button } %}
+            </tr>
+        {% endif %}
+    </table>
+{% endblock element_content %}

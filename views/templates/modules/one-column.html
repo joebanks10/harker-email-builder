@@ -1,0 +1,11 @@
+{% extends "modules/grid.html" %}
+
+{% set defaults = {
+    columns: [
+        {
+            elements: module.content|default([])
+        }
+    ]
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}

@@ -1,0 +1,271 @@
+ {
+    "title": "Summer Template",
+    
+    // Custom Header
+    "header": [
+        {
+            "template": "topbar",
+            "options": {
+                "class": "topbar-summer",
+                "img": {
+                    "src": "~/harker-summer-logo.png",
+                    "alt": "Harker Summer",
+                    "width": 200,
+                    "height": 58
+                }
+            }
+        }
+    ],
+    
+    // Modules
+    // 
+    // Templates: module, grid
+    // 
+    // Standard Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // 
+    // Grid Options: columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+        {
+            "template": "grid", 
+            "options": {
+                "class": "blue-bg white-text",
+
+                // Columns
+                // 
+                // Options: width (percent or numeric), elements
+                "columns": [
+                    {
+
+                        // Elements
+                        // 
+                        // Templates: title, subtitle, header, subheader, 
+                        // content, img, list, button
+                        // 
+                        // Standard Options: class, style, align
+                        "elements": [
+                            {  
+                                "template": "img",
+                                "options": {
+                                    "src": "http://dummyimage.com/600x400/cccccc/333333.gif&text=big+image",
+                                    "alt": "Big Image",
+                                    "style": "padding-bottom: 40px;",
+                                    "img_class": "img-full"
+                                }
+                            },
+                            {
+                                "template": "title", 
+                                "options": {
+                                    "text": "Some Title Can Go Here",
+                                    "style": "padding-bottom: 20px;",
+                                    "align": "center"
+                                }
+                            },
+                            {
+                                "template": "subtitle",
+                                "options": {
+                                    "text": "Some Text Goes Here | And Here",
+                                    "style": "font-size: 20px; padding-bottom: 0;",
+                                    "align": "center"
+                                }
+                            },
+                            {
+                                "template": "subtitle",
+                                "options": {
+                                    "text": "And even more details can go here!",
+                                    "style": "padding-bottom: 40px;",
+                                    "align": "center"
+                                }
+                            },
+                            {   
+                                "template": "header",
+                                "options": {
+                                    "text": "Module Header",
+                                    "style": "padding-bottom: 0;"
+                                }
+                            },
+                            {   
+                                "template": "subheader",
+                                "options": {
+                                    "text": "Module Subeader"
+                                }
+                            },
+                            {   
+                                "template": "content",
+                                "options": {
+                                    "text": "
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt similique, ipsum officia a velit. Nulla minus modi aliquam officia praesentium quae quis quasi corporis consequuntur, sapiente, ducimus alias dignissimos tenetur.
+                                    <br>
+                                    <br>
+                                    Recusandae voluptate aspernatur perferendis quod, iste odit asperiores quibusdam fugit illo ea a odio officia earum quam, itaque quis velit reiciendis dolorum incidunt dolore animi debitis soluta nihil sed. Ratione.
+                                    <br>
+                                    <br>
+                                    In amet minus, repellendus, alias voluptatum eligendi. Nobis voluptatem sint rem id autem, dolor quidem blanditiis doloremque iusto explicabo, consequuntur ab, quaerat consequatur. Ad deleniti iusto corporis laboriosam, libero similique."
+                                }
+                            },
+                            {
+                                "template": "list",
+                                "options": {
+                                    "type": "default", // default, ordered, unordered, unstyled
+                                    "items": [
+                                        "Item #1",
+                                        "Item #2",
+                                        "Item #3"
+                                    ]
+                                }
+                            },
+                            {   
+                                "template": "content",
+                                "options": {
+                                    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt similique, ipsum officia a velit. Nulla minus modi aliquam officia praesentium quae quis quasi corporis consequuntur, sapiente, ducimus alias dignissimos tenetur."
+                                }
+                            },
+                            {   
+                                "template": "button",
+                                "options": {
+                                    "type": "secondary", // primary, secondary, outline
+                                    "text": "Learn More About Cool Stuff",
+                                    "href": "http://www.harker.org"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "column_count": 2,
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "img",
+                                "options": {
+                                    "src": "http://dummyimage.com/290x200/cccccc/333333.gif&text=placeholder+image",
+                                    "img_class": "img-full"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Module Header",
+                                    "style": "padding-bottom: 0;"
+                                }
+                            },
+                            {
+                                "template": "subheader",
+                                "options": {
+                                    "text": "Module Subeader"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
+                                }
+                            },
+                            {   
+                                "template": "button",
+                                "options": {
+                                    "type": "primary", // primary, secondary, outline
+                                    "text": "Learn More About Cool Stuff",
+                                    "href": "http://www.harker.org"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "template": "grid",
+            "options": {
+                "class": "blue-bg white-text",
+                "column_count": 2,
+                "column_direction": "rtl",
+                "columns": [
+                    {
+                        "elements": [
+                            {
+                                "template": "img",
+                                "options": {
+                                    "src": "http://dummyimage.com/290x200/cccccc/333333.gif&text=placeholder+image",
+                                    "img_class": "img-full"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "elements": [
+                            {
+                                "template": "header",
+                                "options": {
+                                    "text": "Module Header",
+                                    "style": "padding-bottom: 0;"
+                                }
+                            },
+                            {
+                                "template": "subheader",
+                                "options": {
+                                    "text": "Module Subeader"
+                                }
+                            },
+                            {
+                                "template": "content",
+                                "options": {
+                                    "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae a nulla, veniam harum sit, eveniet at aperiam placeat corrupti voluptatem dolor nihil nisi officiis voluptates. Vel delectus itaque quia quisquam."
+                                }
+                            },
+                            {   
+                                "template": "button",
+                                "options": {
+                                    "type": "secondary", // primary, secondary, outline
+                                    "text": "Learn More About Cool Stuff",
+                                    "href": "http://www.harker.org"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }

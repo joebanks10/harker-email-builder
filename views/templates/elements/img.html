@@ -1,0 +1,25 @@
+{% extends "elements/element.html" %}
+
+{% set defaults = {
+    element_class: "element-img",
+    src: "http://dummyimage.com/600x400/cccccc/333333.gif&text=placeholder+image",
+    alt: "",
+    img_class: "",
+    img_style: "",
+    img_width: "",
+    img_height: "",
+    align: "center",
+    href: ""
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}
+
+{% block element_content %}
+    {% if module.href %}
+        <a href="{{ module.href }}">
+    {% endif %}
+    <img class="{{ module.img_class }}" width="{{ module.img_width }}" height="{{ module.img_height }}" style="{{ module.img_style }}" src="{{ get_image_url(module.src) }}" alt="{{ module.alt }}">
+    {% if module.href %}
+        </a>
+    {% endif %}
+{% endblock element_content %}

@@ -1,0 +1,5 @@
+/* styles here will be appended to main stylesheet (defined in index.php) */
+.logo-container > img {
+    max-width: 100%;
+    height: auto;
+}

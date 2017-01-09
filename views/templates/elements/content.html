@@ -1,0 +1,7 @@
+{% extends "elements/element.html" %}
+
+{% set defaults = {
+    element_class: "content"
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}

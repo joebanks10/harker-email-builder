@@ -1,0 +1,76 @@
+ {
+    "title": "Alumni Letter Template",
+    
+    // Custom Header
+    "header": [
+        {
+            "template": "topbar",
+            "options": {
+                "img": {
+                    "src": "~/harker-alumni-logo.png",
+                    "alt": "Harker Alumni",
+                    "width": 126,
+                    "height": 32
+                }
+            }
+        }
+    ],
+    
+    // Modules
+    // 
+    // Templates: module, grid
+    // 
+    // Options: id, class, text, 
+    // width, collapse_gutters (remove outer gutters on mobile), 
+    // background_img (url), background_style (for td.background), 
+    // style (for td.container), table_style (for table.module)
+    // columns (required for grid), 
+    // column_count, column_direction (ltr or rtl), 
+    // gutter_width, gutter_height
+    "content": [
+        {
+            "template": "one-column", 
+            "options": {
+                "content": [
+                    {
+                        "template": "content",
+                        "options": {
+                            "text": "<h2>Header</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptates vel nobis, doloribus maiores quia temporibus pariatur itaque consectetur ut, natus. Libero temporibus, vitae consequuntur quaerat placeat culpa, inventore mollitia!</p>
+                                <p>Non est esse earum atque nesciunt sequi eveniet id, voluptate, iusto quos eius. Eligendi, neque, sequi. Sint suscipit ipsa, dicta. Alias veritatis accusantium quidem consequatur nemo? Ratione, nam veniam eveniet!</p>
+                                <p>Magnam, distinctio consequuntur nam. Corporis tempora eaque minima, deserunt ut magni suscipit, sint distinctio similique doloremque nesciunt, mollitia maxime quas. Labore totam mollitia natus blanditiis fuga et, saepe at magni!</p>"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+
+    // Custom Footer
+    // ,"footer": [
+    //     {
+    //         "template": "footer",
+    //         "options": {
+    //             "column_1": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ],
+    //             "column_2": [
+    //                  {
+    //                      "template": "content",
+    //                      "options": {
+    //                          "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+    //                      }
+    //                  }
+    //             ]
+    //         }
+    //     },
+    //     {
+    //          "template": "bottombar"
+    //     }
+    // ]
+ }

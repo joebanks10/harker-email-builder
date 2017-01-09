@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% block head %}
+    <title>{{ email.title|default('Master Template') }}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <style type="text/css" rel="theme">
+        {{ email.stylesheet }}
+    </style>
+    <style type="text/css" rel="addons">
+        {{ email.stylesheet_addons }}
+    </style>
+    <!--[if gte mso 12]>
+    <style type="text/css">
+        .element, .content-intro, .button, .bullet-text, .list-item-text, .date {
+            font-family: Arial, sans-serif !important;
+        }
+    </style>
+    <![endif]-->
+    <!--[if gte mso 9]><xml>
+     <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+     </o:OfficeDocumentSettings>
+    </xml><![endif]-->
+{% endblock head %}
+</head>
+<body>
+<table class="table-wrapper" align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td align="center">
+            {% block header %}
+                {% if email.header %}
+                    {% for module in email.header %}
+                        {% include "modules/#{module.template}.html" with { module: module.options|default({}) } %}
+                    {% endfor %}
+                {% endif %}
+            {% endblock header %}
+            
+            {% block content %}
+                {% for module in email.content|default([]) %}
+                    {% include "modules/#{module.template}.html" with { module: module.options|default({}) } %}
+                {% endfor %}
+            {% endblock content %}
+            
+            {% block footer %}
+                {% if email.footer %}
+                    {% for module in email.footer %}
+                        {% include "modules/#{module.template}.html" with { module: module.options|default({}) } %}
+                    {% endfor %}
+                {% endif %}
+            {% endblock footer %}
+        </td>
+    </tr>
+</table>
+</body>
+</html>

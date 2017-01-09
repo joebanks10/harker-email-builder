@@ -1,0 +1,8 @@
+{% extends "elements/element.html" %}
+
+{% set defaults = {
+    element_class: "title",
+    text: "Email Title"
+} %}
+
+{% set module = defaults|merge( module|default({}) ) %}
