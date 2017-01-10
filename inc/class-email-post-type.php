@@ -1,8 +1,6 @@
 <?php
 namespace HKR\Email_Builder_Admin;
 
-use HKR\Email_Builder\EmailView;
-
 class Email_Post_Type {
 
     public function __construct($args = array()) {
@@ -13,7 +11,7 @@ class Email_Post_Type {
         $this->args = wp_parse_args($args, $defaults);
 
         add_action( 'init', array($this, 'init') );
-        add_filter( 'template_redirect', array($this, 'template_redirect') );
+        add_filter( 'single_template', array($this, 'load_template') );
     }
 
     public function init() {
@@ -22,6 +20,16 @@ class Email_Post_Type {
 
     public function template_redirect() {
         $this->email_template();
+    }
+
+    public function load_template($single_template) {
+        global $post;
+
+        if (is_single() && $post->post_type == 'email') {
+            $single_template = PATH . '/inc/templates/single-email.php';
+        }
+
+        return $single_template;
     }
 
     private function register_post_type() {
@@ -62,18 +70,6 @@ class Email_Post_Type {
         );
 
         register_post_type( 'email', $args );
-    }
-
-    private function email_template() {
-        global $post;
-
-        if (is_single() && $post->post_type == 'email') {
-            new EmailView(array(
-                'wp_id' => $post->ID
-            ));
-
-            exit();
-        }
     }
 
 }
