@@ -18,10 +18,6 @@ class Email_Post_Type {
         $this->register_post_type();
     }
 
-    public function template_redirect() {
-        $this->email_template();
-    }
-
     public function load_template($single_template) {
         global $post;
 

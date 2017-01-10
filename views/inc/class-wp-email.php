@@ -2,6 +2,8 @@
 
 namespace HKR\Email_Builder;
 
+use \Exception;
+
 require_once ROOT_DIR . "/inc/class-wp-module.php";
 
 class WP_Email {
