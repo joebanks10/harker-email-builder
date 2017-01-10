@@ -2,9 +2,9 @@
 namespace HKR\Email_Builder_Admin;
 
 /*
-    Plugin Name: Email Builder 
+    Plugin Name: Harker Email Builder 
     Plugin URI: http://www.harker.org
-    Description: Provides an admin interface for Harker's Email Builder tool
+    Description: Email builder for Harker's campaign emails
     Version: 2.0
     Author: Joe Banks
     Author URI: http://www.harker.org
