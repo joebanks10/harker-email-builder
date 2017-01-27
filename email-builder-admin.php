@@ -42,24 +42,32 @@ class Plugin extends \HKR\Singleton {
     }
 
     public function init() {
+        // Add styles and scripts
         add_action('acf/input/admin_enqueue_scripts', array($this, 'acf_admin_styles'));
         add_action('acf/input/admin_enqueue_scripts', array($this, 'acf_admin_scripts'));
         
+        // Add more meaningful labels to flexible content modules
         add_action('acf/fields/flexible_content/layout_title/name=modules', array($this, 'module_title'), 10, 4);
         add_action('acf/fields/flexible_content/layout_title/name=elements', array($this, 'element_title'), 10, 4);
 
+        // Include line breaks instead of paragrash
         add_filter('acf_the_content', array($this, 'the_content'), 9);
 
+        // Add loading image for Calendar feed
         add_action('acf/render_field/type=repeater', array($this, 'ajax_loading_img'), 9, 1);
 
+        // Create read only fields for id and permalink in calendar event feed
         add_filter('acf/prepare_field/key=field_57a4cc7bfc202', array($this, 'readonly_field')); // ical event id
         add_filter('acf/prepare_field/key=field_57a4cd19fc205', array($this, 'readonly_field')); // ical event permalink
 
+        // Convert datetime field values into timestamps
         add_filter('acf/format_value/type=date_picker', array($this, 'strtotime'));
         add_filter('acf/format_value/type=date_time_picker', array($this, 'strtotime'));
 
+        // Load banner and theme objects into email
         add_filter('acf/format_value/type=post_object', array($this, 'add_acf_fields'), 10, 3);
 
+        // Ajax handlers for retrieving events
         add_action('wp_ajax_get_ical_events', array($this, 'ajax_get_ical_events'));
         add_action('wp_ajax_nopriv_get_ical_events', array($this, 'ajax_get_ical_events'));
     }
