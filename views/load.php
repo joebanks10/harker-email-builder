@@ -19,6 +19,9 @@ define('ROOT_DIR', dirname(__file__));
 if ( $_SERVER['SERVER_NAME'] == 'localhost' ) {
     define('ROOT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/email-builder/views');
     define('WP_API_URL', 'http://localhost/wp-dev/wp-json/wp/v2/email/');
+} else if ($_SERVER['SERVER_NAME'] == 'emailbuilder.harker.org') {
+    define('ROOT_URL', 'http://emailbuilder.harker.org/wp-content/plugins/harker-email-builder/views');
+    define('WP_API_URL', 'http://emailbuilder.harker.org/wp-json/wp/v2/email/');
 } else if ( $_SERVER['SERVER_NAME'] == 'skylark.harker.org' ) {
     if ( preg_match('/staging/', $_SERVER['REQUEST_URI']) ) {
         define('ROOT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/email-builder/staging');
@@ -28,7 +31,8 @@ if ( $_SERVER['SERVER_NAME'] == 'localhost' ) {
 
     define('WP_API_URL', 'http://skylark.harker.org/wp-email-builder/wp-json/wp/v2/email/');
 } else {
-    throw new Exception("Application does not recognize the server.", 1);
+    define('ROOT_URL', '');
+    define('WP_API_URL', '');
 }
 
 define('ROOT_CSS_DIR_URL', ROOT_URL . '/assets/css');
